@@ -28,10 +28,10 @@ namespace DataAccess
                 return conn;
             }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                return null;
+                throw;
             }
             return conn;
         }
