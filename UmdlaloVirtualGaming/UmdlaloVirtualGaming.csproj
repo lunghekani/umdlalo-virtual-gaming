@@ -172,6 +172,9 @@
     <Content Include="Pages\assets\plugins\global\fonts\summernote\summernote.ttf" />
     <Content Include="Pages\assets\plugins\global\fonts\summernote\summernote.woff" />
     <Content Include="Pages\assets\plugins\global\fonts\summernote\summernote.woff2" />
+    <None Include="Properties\PublishProfiles\umdlalo - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\umdlalo - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\umdlalo - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\assets\css\pages\error\error-3.css" />
     <Content Include="Pages\assets\css\pages\error\error-3.min.css" />
