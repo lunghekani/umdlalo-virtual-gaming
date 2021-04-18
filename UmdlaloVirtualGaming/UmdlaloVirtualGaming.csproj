@@ -2213,6 +2213,7 @@
     <Content Include="Pages\assets\plugins\global\fonts\socicon\socicon.svg" />
     <Content Include="Pages\assets\plugins\global\plugins.bundle.css" />
     <Content Include="Pages\assets\plugins\global\plugins.bundle.js" />
+    <Content Include="Pages\auth\HelloWorld.aspx" />
     <Content Include="Pages\auth\index.aspx" />
     <Content Include="Pages\auth\WebForm2.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2282,6 +2283,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\auth\HelloWorld.aspx.cs">
+      <DependentUpon>HelloWorld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\auth\HelloWorld.aspx.designer.cs">
+      <DependentUpon>HelloWorld.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\auth\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
