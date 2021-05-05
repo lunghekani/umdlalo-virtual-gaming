@@ -11,16 +11,16 @@ namespace UmdlaloVirtualGaming.Pages.student
 {
 
 
-    public partial class student_dashboard
+    public partial class student_profile_edit
     {
 
         /// <summary>
-        /// module_name control.
+        /// student_fullname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor module_name;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor student_fullname;
     }
 }
