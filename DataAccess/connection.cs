@@ -15,8 +15,8 @@ namespace DataAccess
     {
         public MySqlConnection CreateSQLConnection() {
             //string connString = "Server=umdlalo-vg.mysql.database.azure.com; Port=3306; Database=umdlalo_lms; Uid=luu@umdlalo-vg; Pwd=5xP9oJ2UQ0nu; SslMode=Preferred;";
-            string connString = "Server=umdlalo-lms.mysql.database.azure.com; Port=3306; Database=umdlalo_lms; Uid=luu@umdlalo-lms; Pwd=5xP9oJ2UQ0nu; SslMode=Preferred;";
-
+            string connString = "Server=197.242.145.246; Port=3306; Database=umdlalo_lms; Uid=lunghekani; Pwd=sa; persistsecurityinfo=True;connectiontimeout=60;";
+            
             var conn = new MySqlConnection(connString);
             try
             {
