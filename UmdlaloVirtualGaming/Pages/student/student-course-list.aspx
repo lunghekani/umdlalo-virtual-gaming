@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <h1>All Courses</h1>
     <div class="row">
-        
             <!--begin::Aside-->
                             
                     <div class="col-6">
@@ -19,7 +19,7 @@
                                 <!--begin::Header-->
                                 <div class="d-flex flex-column flex-center">
                                     <!--begin::Image-->
-                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(assets/media/stock-600x400/img-72.jpg)"></div>
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/img-72.jpg)"></div>
                                     <!--end::Image-->
                                     <!--begin::Title-->
                                     <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="module_name" runat="server">Maths Class</a>
@@ -151,7 +151,7 @@
                                 <!--begin::Header-->
                                 <div class="d-flex flex-column flex-center">
                                     <!--begin::Image-->
-                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(assets/media/stock-600x400/img-72.jpg)"></div>
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/img-72.jpg)"></div>
                                     <!--end::Image-->
                                     <!--begin::Title-->
                                     <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A1" runat="server">Maths Class</a>
@@ -285,7 +285,7 @@
                                 <!--begin::Header-->
                                 <div class="d-flex flex-column flex-center">
                                     <!--begin::Image-->
-                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(assets/media/stock-600x400/img-72.jpg)"></div>
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/img-72.jpg)"></div>
                                     <!--end::Image-->
                                     <!--begin::Title-->
                                     <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A2" runat="server">Maths Class</a>
@@ -417,7 +417,7 @@
                                 <!--begin::Header-->
                                 <div class="d-flex flex-column flex-center">
                                     <!--begin::Image-->
-                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(assets/media/stock-600x400/img-72.jpg)"></div>
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/img-72.jpg)"></div>
                                     <!--end::Image-->
                                     <!--begin::Title-->
                                     <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A3" runat="server">Maths Class</a>
