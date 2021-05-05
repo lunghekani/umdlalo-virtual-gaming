@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Data;
 using System.Windows.Forms;
-using System.Web.UI.WebControls;
 using Business_Logic;
 using MySql.Data.MySqlClient;
 
@@ -14,6 +8,7 @@ namespace UmdlaloVirtualGaming.Pages.auth
     public partial class index : System.Web.UI.Page
     {
         public clsAuthentication objDataOpps = new clsAuthentication();
+        public clsModuleOperations objModOperations = new clsModuleOperations();
         public MySqlConnection conn; 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,11 +24,14 @@ namespace UmdlaloVirtualGaming.Pages.auth
             var msg = objDataOpps.authUser(username, password);
             if (msg.Equals("Success"))
             {
-                Response.Redirect("WebForm2.aspx");
+                Response.Redirect("~/Pages/auth/WebForm2.aspx");
             }
-            else {
+            else
+            {
                 MessageBox.Show(msg);
             }
+
+          
         }
     }
 }

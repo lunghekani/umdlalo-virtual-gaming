@@ -11,7 +11,7 @@ namespace UmdlaloVirtualGaming
 {
 
 
-    public partial class Admin
+    public partial class Lecturer
     {
 
         /// <summary>

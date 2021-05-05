@@ -21,7 +21,10 @@ namespace UmdlaloVirtualGaming
                 {
                     
                    var dt = objUserDtls.GetUserAccDetails(Session["user_id"].ToString());
-                    lblFullName.InnerText = dt.Rows[0].Field<string>("FirstName")+ " " + dt.Rows[0].Field<string>("LastName");
+                    lblFullName.InnerText = dt.Rows[0].Field<string>("Name")+ " " + dt.Rows[0].Field<string>("LastName");
+                    lblNames.InnerText = dt.Rows[0].Field<string>("Name") + " " + dt.Rows[0].Field<string>("LastName");
+                    lblRole.InnerText = dt.Rows[0].Field<string>("Role");
+                    lblEmail.InnerText = dt.Rows[0].Field<string>("Email");
                 }
             }
         }
