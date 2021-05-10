@@ -24,7 +24,7 @@ namespace UmdlaloVirtualGaming.Pages.auth
             var msg = objDataOpps.authUser(username, password);
             if (msg.Equals("Success"))
             {
-                Response.Redirect("~/Pages/auth/WebForm2.aspx");
+                Response.Redirect("~/Pages/student/student-dashboard.aspx");
             }
             else
             {
