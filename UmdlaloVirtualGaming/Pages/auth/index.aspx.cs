@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Business_Logic;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace UmdlaloVirtualGaming.Pages.auth
 {
@@ -17,18 +18,33 @@ namespace UmdlaloVirtualGaming.Pages.auth
 
         protected void kt_login_signin_submit_ServerClick(object sender, EventArgs e)
         {
+            clsUserDetails objUserDtls = new clsUserDetails();
             string username, password;
             username = txtEmail.Value.ToString().ToLower().Trim();
             password = txtPassword.Value.ToString().ToLower().Trim();
 
             var msg = objDataOpps.authUser(username, password);
-            if (msg.Equals("Success"))
+            var uID = msg.uid;
+            if (msg.msg.Equals("Success"))
             {
-                Response.Redirect("~/Pages/student/student-dashboard.aspx");
+                var dt = objUserDtls.GetUserAccDetails(uID);
+
+                if (dt.Rows[0].Field<string>("Role")=="Admin")
+                {
+                    Response.Redirect("../admin/admin-dashboard.aspx");
+                }
+                else if (dt.Rows[0].Field<string>("Role") == "Lecturer")
+                {
+                    Response.Redirect("../lecturer/lecturer-dashboard.aspx");
+                }
+                else if (dt.Rows[0].Field<string>("Role") == "Student")
+                {
+                    Response.Redirect("../student/student-dashboard.aspx");
+                }
             }
             else
             {
-                MessageBox.Show(msg);
+                MessageBox.Show(msg.msg);
             }
 
           
