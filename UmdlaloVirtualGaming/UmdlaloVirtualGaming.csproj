@@ -2255,7 +2255,15 @@
     <Content Include="Pages\auth\HelloWorld.aspx" />
     <Content Include="Pages\auth\index.aspx" />
     <Content Include="Pages\auth\WebForm2.aspx" />
+    <Content Include="Pages\lecturer\lecturer-assessment-add.aspx" />
+    <Content Include="Pages\lecturer\lecturer-assessment-list.aspx" />
+    <Content Include="Pages\lecturer\lecturer-calendar-view.aspx" />
+    <Content Include="Pages\lecturer\lecturer-course-add.aspx" />
+    <Content Include="Pages\lecturer\lecturer-course-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-dashboard.aspx" />
+    <Content Include="Pages\lecturer\lecturer-projects-list.aspx" />
+    <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
+    <Content Include="Pages\lecturer\lecturer-students-list.aspx" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
     <Content Include="Pages\student\student-course-list.aspx" />
     <Content Include="Pages\student\student-dashboard.aspx" />
@@ -2360,12 +2368,68 @@
     <Compile Include="Pages\auth\WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\lecturer\lecturer-assessment-add.aspx.cs">
+      <DependentUpon>lecturer-assessment-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-assessment-add.aspx.designer.cs">
+      <DependentUpon>lecturer-assessment-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-assessment-list.aspx.cs">
+      <DependentUpon>lecturer-assessment-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-assessment-list.aspx.designer.cs">
+      <DependentUpon>lecturer-assessment-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-calendar-view.aspx.cs">
+      <DependentUpon>lecturer-calendar-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-calendar-view.aspx.designer.cs">
+      <DependentUpon>lecturer-calendar-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-course-add.aspx.cs">
+      <DependentUpon>lecturer-course-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-course-add.aspx.designer.cs">
+      <DependentUpon>lecturer-course-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-course-list.aspx.cs">
+      <DependentUpon>lecturer-course-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-course-list.aspx.designer.cs">
+      <DependentUpon>lecturer-course-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\lecturer\lecturer-dashboard.aspx.cs">
       <DependentUpon>lecturer-dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-dashboard.aspx.designer.cs">
       <DependentUpon>lecturer-dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-projects-list.aspx.cs">
+      <DependentUpon>lecturer-projects-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-projects-list.aspx.designer.cs">
+      <DependentUpon>lecturer-projects-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-student-add.aspx.cs">
+      <DependentUpon>lecturer-student-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-student-add.aspx.designer.cs">
+      <DependentUpon>lecturer-student-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-students-list.aspx.cs">
+      <DependentUpon>lecturer-students-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-students-list.aspx.designer.cs">
+      <DependentUpon>lecturer-students-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-calendar-view.aspx.cs">
       <DependentUpon>student-calendar-view.aspx</DependentUpon>
