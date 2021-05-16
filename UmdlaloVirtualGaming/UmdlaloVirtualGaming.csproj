@@ -170,6 +170,17 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin.Master" />
+    <Content Include="Pages\admin\admin-calendar-view.aspx" />
+    <Content Include="Pages\admin\admin-chat-new.aspx" />
+    <Content Include="Pages\admin\admin-chat-view.aspx" />
+    <Content Include="Pages\admin\admin-course-add.aspx" />
+    <Content Include="Pages\admin\admin-course-list.aspx" />
+    <Content Include="Pages\admin\admin-dashboard.aspx" />
+    <Content Include="Pages\admin\admin-lecturer-add.aspx" />
+    <Content Include="Pages\admin\admin-lecturer-list.aspx" />
+    <Content Include="Pages\admin\admin-projects-view.aspx" />
+    <Content Include="Pages\admin\admin-student-add.aspx" />
+    <Content Include="Pages\admin\admin-student-list.aspx" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.eot" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.ttf" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.woff" />
@@ -2353,6 +2364,83 @@
     <Compile Include="Lecturer.Master.designer.cs">
       <DependentUpon>Lecturer.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\admin\admin-calendar-view.aspx.cs">
+      <DependentUpon>admin-calendar-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-calendar-view.aspx.designer.cs">
+      <DependentUpon>admin-calendar-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-chat-new.aspx.cs">
+      <DependentUpon>admin-chat-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-chat-new.aspx.designer.cs">
+      <DependentUpon>admin-chat-new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-chat-view.aspx.cs">
+      <DependentUpon>admin-chat-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-chat-view.aspx.designer.cs">
+      <DependentUpon>admin-chat-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-course-add.aspx.cs">
+      <DependentUpon>admin-course-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-course-add.aspx.designer.cs">
+      <DependentUpon>admin-course-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-course-list.aspx.cs">
+      <DependentUpon>admin-course-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-course-list.aspx.designer.cs">
+      <DependentUpon>admin-course-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-dashboard.aspx.cs">
+      <DependentUpon>admin-dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-dashboard.aspx.designer.cs">
+      <DependentUpon>admin-dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-lecturer-add.aspx.cs">
+      <DependentUpon>admin-lecturer-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-lecturer-add.aspx.designer.cs">
+      <DependentUpon>admin-lecturer-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-lecturer-list.aspx.cs">
+      <DependentUpon>admin-lecturer-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-lecturer-list.aspx.designer.cs">
+      <DependentUpon>admin-lecturer-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-projects-view.aspx.cs">
+      <DependentUpon>admin-projects-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-projects-view.aspx.designer.cs">
+      <DependentUpon>admin-projects-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-student-add.aspx.cs">
+      <DependentUpon>admin-student-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-student-add.aspx.designer.cs">
+      <DependentUpon>admin-student-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-student-list.aspx.cs">
+      <DependentUpon>admin-student-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-student-list.aspx.designer.cs">
+      <DependentUpon>admin-student-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\auth\HelloWorld.aspx.cs">
       <DependentUpon>HelloWorld.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2574,7 +2662,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Pages\admin\" />
     <Folder Include="Pages\tutor\" />
     <Folder Include="Utility\" />
   </ItemGroup>

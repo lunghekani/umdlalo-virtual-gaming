@@ -31,15 +31,15 @@ namespace UmdlaloVirtualGaming.Pages.auth
 
                 if (dt.Rows[0].Field<string>("Role")=="Admin")
                 {
-                    Response.Redirect("../admin/admin-dashboard.aspx");
+                    Response.Redirect("~/Pages/admin/admin-dashboard.aspx");
                 }
                 else if (dt.Rows[0].Field<string>("Role") == "Lecturer")
                 {
-                    Response.Redirect("../lecturer/lecturer-dashboard.aspx");
+                    Response.Redirect("~/Pages/lecturer/lecturer-dashboard.aspx");
                 }
                 else if (dt.Rows[0].Field<string>("Role") == "Student")
                 {
-                    Response.Redirect("../student/student-dashboard.aspx");
+                    Response.Redirect("~/Pages/student/student-dashboard.aspx");
                 }
             }
             else
