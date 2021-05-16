@@ -155,7 +155,7 @@
 										
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-course-list.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-course-list.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -166,7 +166,7 @@
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-course-add.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-course-add.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -204,7 +204,7 @@
 										
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-student-list.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-student-list.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -215,7 +215,7 @@
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-student-add.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-student-add.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -264,7 +264,7 @@
 										
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-lecturer-list.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-lecturer-list.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -275,7 +275,7 @@
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-lecturer-add.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-lecturer-add.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -363,7 +363,7 @@
 												
 										
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-chat-view.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-chat-view.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -375,7 +375,7 @@
 											</li>
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-chat-new.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-chat-new.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -386,7 +386,7 @@
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="admin-group-view.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-group-view.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>

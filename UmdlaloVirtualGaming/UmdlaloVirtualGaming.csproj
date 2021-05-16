@@ -2287,7 +2287,7 @@
     <Content Include="Pages\student\student-marks-view.aspx" />
     <Content Include="Pages\student\student-profile-edit.aspx" />
     <Content Include="Pages\student\student-project-list.aspx" />
-    <Content Include="Pages\student\student-projects-view.aspx" />
+    <Content Include="Pages\student\student-project-view.aspx" />
     <Content Include="Pages\student\student-task-view.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2609,12 +2609,12 @@
     <Compile Include="Pages\student\student-project-list.aspx.designer.cs">
       <DependentUpon>student-project-list.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\student\student-projects-view.aspx.cs">
-      <DependentUpon>student-projects-view.aspx</DependentUpon>
+    <Compile Include="Pages\student\student-project-view.aspx.cs">
+      <DependentUpon>student-project-view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\student\student-projects-view.aspx.designer.cs">
-      <DependentUpon>student-projects-view.aspx</DependentUpon>
+    <Compile Include="Pages\student\student-project-view.aspx.designer.cs">
+      <DependentUpon>student-project-view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-task-view.aspx.cs">
       <DependentUpon>student-task-view.aspx</DependentUpon>
