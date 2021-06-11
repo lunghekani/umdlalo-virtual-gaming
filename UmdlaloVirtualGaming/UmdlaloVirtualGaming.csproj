@@ -2277,7 +2277,7 @@
     <Content Include="Pages\lecturer\lecturer-group-view.aspx" />
     <Content Include="Pages\lecturer\lecturer-projects-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
-    <Content Include="Pages\lecturer\lecturer-students-list.aspx" />
+    <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
     <Content Include="Pages\student\student-chat-new.aspx" />
     <Content Include="Pages\student\student-chat-view.aspx" />
@@ -2539,12 +2539,12 @@
     <Compile Include="Pages\lecturer\lecturer-student-add.aspx.designer.cs">
       <DependentUpon>lecturer-student-add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\lecturer\lecturer-students-list.aspx.cs">
-      <DependentUpon>lecturer-students-list.aspx</DependentUpon>
+    <Compile Include="Pages\lecturer\lecturer-student-list.aspx.cs">
+      <DependentUpon>lecturer-student-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\lecturer\lecturer-students-list.aspx.designer.cs">
-      <DependentUpon>lecturer-students-list.aspx</DependentUpon>
+    <Compile Include="Pages\lecturer\lecturer-student-list.aspx.designer.cs">
+      <DependentUpon>lecturer-student-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-calendar-view.aspx.cs">
       <DependentUpon>student-calendar-view.aspx</DependentUpon>

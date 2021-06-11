@@ -11,9 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Business_Logic
 {
-    public class business
-    {
-    }
+    // This is a comment to show how git works
     public class clsBasicUserDetails {
         public string msg { get; set; }
         public  string uid { get; set; }
@@ -89,6 +87,7 @@ namespace Business_Logic
             dt.Columns.Add("Email", typeof(string));
             dt.Columns.Add("LastLogin", typeof(string));
             dt.Columns.Add("Role", typeof(string));
+
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -127,8 +126,6 @@ namespace Business_Logic
             conn.Close();
             return dt;
         }
-
-
 
     }
 
