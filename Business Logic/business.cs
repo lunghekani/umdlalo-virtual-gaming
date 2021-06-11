@@ -11,8 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace Business_Logic
 {
-    public class business
-    {
+    // This is a comment to show how git works
+    public class clsBasicUserDetails {
+        public string msg { get; set; }
+        public  string uid { get; set; }
     }
     public class clsAuthentication {
         clsDataConnection objConn = new clsDataConnection();
@@ -29,7 +31,7 @@ namespace Business_Logic
             }
             return hashedPassword;
         }
-        public string authUser(string username, string password)
+        public clsBasicUserDetails authUser(string username, string password)
         {
 
             var cmd = new MySqlCommand
@@ -55,12 +57,18 @@ namespace Business_Logic
                 {
                     HttpContext.Current.Session["user_id"] = userID;
                 }
-                return "Success";
+                return new clsBasicUserDetails {
+                    msg = "Success",
+                    uid = userID
+                };
             }
             catch (Exception ex)
             {
 
-                return ex.Message;
+                return new clsBasicUserDetails
+                {
+                    msg = ex.Message
+                };
             }
         }
     
@@ -79,6 +87,7 @@ namespace Business_Logic
             dt.Columns.Add("Email", typeof(string));
             dt.Columns.Add("LastLogin", typeof(string));
             dt.Columns.Add("Role", typeof(string));
+
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -117,8 +126,6 @@ namespace Business_Logic
             conn.Close();
             return dt;
         }
-
-
 
     }
 
