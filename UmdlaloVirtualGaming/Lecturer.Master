@@ -108,7 +108,7 @@
 							<!--begin::Menu Nav-->
 							<ul class="menu-nav">
 								<li class="menu-item menu-item-active" aria-haspopup="true">
-									<a href="index.html" class="menu-link">
+									<a href="lexturer-dashboard.aspx" class="menu-link">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:/Pages/assets/media/svg/icons/Design/Layers.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -155,7 +155,7 @@
 										
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="custom/apps/inbox.html" class="menu-link">
+												<a href="/Pages/lecturer/lecturer-course-list.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -166,7 +166,7 @@
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="custom/apps/inbox.html" class="menu-link">
+												<a href="/Pages/lecturer/lecturer-course-add.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -204,7 +204,7 @@
 										
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="custom/apps/inbox.html" class="menu-link">
+												<a href="/Pages/lecturer/lecturer-student-list.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -215,7 +215,7 @@
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="custom/apps/inbox.html" class="menu-link">
+												<a href="/Pages/lecturer/lecturer-student-add.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -242,7 +242,7 @@
 
 								</li>
 								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-									<a href="javascript:;" class="menu-link menu-toggle">
+									<a href="lecturer-projects-list.aspx" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:/Pages/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -261,7 +261,7 @@
 
 								</li>
 								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-									<a href="javascript:;" class="menu-link menu-toggle">
+									<a href="/Pages/lecturer/lecturer-calendar-view.aspx" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:/Pages/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -303,7 +303,7 @@
 										
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="custom/apps/inbox.html" class="menu-link">
+												<a href="/Pages/lecturer/lecturer-assessment-add.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -314,7 +314,7 @@
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="custom/apps/inbox.html" class="menu-link">
+												<a href="/Pages/lecturer/lecturer-assessment-list.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -329,7 +329,66 @@
 									</div>
 
 								</li>
-				
+				<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+									<a href="javascript:;" class="menu-link menu-toggle">
+										<span class="svg-icon menu-icon">
+											<!--begin::Svg Icon | path:/Pages/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24" />
+													<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+													<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" fill="#000000" opacity="0.3" />
+												</g>
+											</svg>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-text">Chat</span>
+										<i class="menu-arrow"></i>
+									</a>
+									<div class="menu-submenu">
+										<i class="menu-arrow"></i>
+										<ul class="menu-subnav">
+												
+										
+											<li class="menu-item" aria-haspopup="true">
+												<a href="/Pages/lecturer/lecturer-chat-view.aspx" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">General Chat</span>
+													<span class="menu-label">
+														<span class="label label-danger label-inline">new</span>
+													</span>
+												</a>
+											</li>
+											
+											<li class="menu-item" aria-haspopup="true">
+												<a href="/Pages/lecturer/lecturer-chat-new.aspx" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">New Chat</span>
+													<span class="menu-label">
+														<span class="label label-danger label-inline">new</span>
+													</span>
+												</a>
+											</li>
+											<li class="menu-item" aria-haspopup="true">
+												<a href="/Pages/lecturer/lecturer-group-view.aspx" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Group Chat</span>
+													<span class="menu-label">
+														<span class="label label-danger label-inline">new</span>
+													</span>
+												</a>
+											</li>
+											
+										</ul>
+									</div>
+
+								</li>
 
 
 							</ul>
@@ -1162,6 +1221,14 @@
 		</div>
 		<!-- end::User Panel-->
 	</form>
+
+	  <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/Pages/assets/js/chat.js"></script>
+    <!-- END JQUERY -->
+	
+	
+
 	<script>var HOST_URL = "https://keenthemes.com/metronic/tools/preview";</script>
 		<!--begin::Global Config(global config for global JS scripts)-->
 		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
@@ -1179,5 +1246,7 @@
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="/Pages/assets/js/pages/widgets.js?v=7.0.5"></script>
 		<!--end::Page Scripts-->
+
+
 </body>
 </html>

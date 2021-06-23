@@ -170,6 +170,18 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin.Master" />
+    <Content Include="Pages\admin\admin-calendar-view.aspx" />
+    <Content Include="Pages\admin\admin-chat-new.aspx" />
+    <Content Include="Pages\admin\admin-chat-view.aspx" />
+    <Content Include="Pages\admin\admin-course-add.aspx" />
+    <Content Include="Pages\admin\admin-course-list.aspx" />
+    <Content Include="Pages\admin\admin-dashboard.aspx" />
+    <Content Include="Pages\admin\admin-lecturer-add.aspx" />
+    <Content Include="Pages\admin\admin-lecturer-list.aspx" />
+    <Content Include="Pages\admin\admin-projects-view.aspx" />
+    <Content Include="Pages\admin\admin-student-add.aspx" />
+    <Content Include="Pages\admin\admin-student-list.aspx" />
+    <Content Include="Pages\assets\js\chat.js" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.eot" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.ttf" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.woff" />
@@ -213,6 +225,7 @@
     <Content Include="Pages\assets\plugins\global\fonts\summernote\summernote.woff" />
     <Content Include="Pages\assets\plugins\global\fonts\summernote\summernote.woff2" />
     <Content Include="Lecturer.Master" />
+    <Content Include="libman.json" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\assets\css\pages\error\error-3.css" />
@@ -2258,19 +2271,27 @@
     <Content Include="Pages\lecturer\lecturer-assessment-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-calendar-view.aspx" />
+    <Content Include="Pages\lecturer\lecturer-chat-new.aspx" />
+    <Content Include="Pages\lecturer\lecturer-chat-view.aspx" />
     <Content Include="Pages\lecturer\lecturer-course-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-course-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-dashboard.aspx" />
+    <Content Include="Pages\lecturer\lecturer-group-view.aspx" />
     <Content Include="Pages\lecturer\lecturer-projects-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
-    <Content Include="Pages\lecturer\lecturer-students-list.aspx" />
+    <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
+    <Content Include="Pages\lecturer\rest-chat-get.aspx" />
+    <Content Include="Pages\student\rest-chat-get.aspx" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
+    <Content Include="Pages\student\student-chat-new.aspx" />
+    <Content Include="Pages\student\student-chat-view.aspx" />
     <Content Include="Pages\student\student-course-list.aspx" />
     <Content Include="Pages\student\student-dashboard.aspx" />
+    <Content Include="Pages\student\student-group-view.aspx" />
     <Content Include="Pages\student\student-marks-view.aspx" />
     <Content Include="Pages\student\student-profile-edit.aspx" />
     <Content Include="Pages\student\student-project-list.aspx" />
-    <Content Include="Pages\student\student-projects-view.aspx" />
+    <Content Include="Pages\student\student-project-view.aspx" />
     <Content Include="Pages\student\student-task-view.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2347,6 +2368,83 @@
     <Compile Include="Lecturer.Master.designer.cs">
       <DependentUpon>Lecturer.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\admin\admin-calendar-view.aspx.cs">
+      <DependentUpon>admin-calendar-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-calendar-view.aspx.designer.cs">
+      <DependentUpon>admin-calendar-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-chat-new.aspx.cs">
+      <DependentUpon>admin-chat-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-chat-new.aspx.designer.cs">
+      <DependentUpon>admin-chat-new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-chat-view.aspx.cs">
+      <DependentUpon>admin-chat-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-chat-view.aspx.designer.cs">
+      <DependentUpon>admin-chat-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-course-add.aspx.cs">
+      <DependentUpon>admin-course-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-course-add.aspx.designer.cs">
+      <DependentUpon>admin-course-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-course-list.aspx.cs">
+      <DependentUpon>admin-course-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-course-list.aspx.designer.cs">
+      <DependentUpon>admin-course-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-dashboard.aspx.cs">
+      <DependentUpon>admin-dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-dashboard.aspx.designer.cs">
+      <DependentUpon>admin-dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-lecturer-add.aspx.cs">
+      <DependentUpon>admin-lecturer-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-lecturer-add.aspx.designer.cs">
+      <DependentUpon>admin-lecturer-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-lecturer-list.aspx.cs">
+      <DependentUpon>admin-lecturer-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-lecturer-list.aspx.designer.cs">
+      <DependentUpon>admin-lecturer-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-projects-view.aspx.cs">
+      <DependentUpon>admin-projects-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-projects-view.aspx.designer.cs">
+      <DependentUpon>admin-projects-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-student-add.aspx.cs">
+      <DependentUpon>admin-student-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-student-add.aspx.designer.cs">
+      <DependentUpon>admin-student-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\admin-student-list.aspx.cs">
+      <DependentUpon>admin-student-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\admin-student-list.aspx.designer.cs">
+      <DependentUpon>admin-student-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\auth\HelloWorld.aspx.cs">
       <DependentUpon>HelloWorld.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2389,6 +2487,20 @@
     <Compile Include="Pages\lecturer\lecturer-calendar-view.aspx.designer.cs">
       <DependentUpon>lecturer-calendar-view.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\lecturer\lecturer-chat-new.aspx.cs">
+      <DependentUpon>lecturer-chat-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-chat-new.aspx.designer.cs">
+      <DependentUpon>lecturer-chat-new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-chat-view.aspx.cs">
+      <DependentUpon>lecturer-chat-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-chat-view.aspx.designer.cs">
+      <DependentUpon>lecturer-chat-view.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\lecturer\lecturer-course-add.aspx.cs">
       <DependentUpon>lecturer-course-add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2410,6 +2522,13 @@
     <Compile Include="Pages\lecturer\lecturer-dashboard.aspx.designer.cs">
       <DependentUpon>lecturer-dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\lecturer\lecturer-group-view.aspx.cs">
+      <DependentUpon>lecturer-group-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-group-view.aspx.designer.cs">
+      <DependentUpon>lecturer-group-view.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\lecturer\lecturer-projects-list.aspx.cs">
       <DependentUpon>lecturer-projects-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2424,12 +2543,26 @@
     <Compile Include="Pages\lecturer\lecturer-student-add.aspx.designer.cs">
       <DependentUpon>lecturer-student-add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\lecturer\lecturer-students-list.aspx.cs">
-      <DependentUpon>lecturer-students-list.aspx</DependentUpon>
+    <Compile Include="Pages\lecturer\lecturer-student-list.aspx.cs">
+      <DependentUpon>lecturer-student-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\lecturer\lecturer-students-list.aspx.designer.cs">
-      <DependentUpon>lecturer-students-list.aspx</DependentUpon>
+    <Compile Include="Pages\lecturer\lecturer-student-list.aspx.designer.cs">
+      <DependentUpon>lecturer-student-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\rest-chat-get.aspx.cs">
+      <DependentUpon>rest-chat-get.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\rest-chat-get.aspx.designer.cs">
+      <DependentUpon>rest-chat-get.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\rest-chat-get.aspx.cs">
+      <DependentUpon>rest-chat-get.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\rest-chat-get.aspx.designer.cs">
+      <DependentUpon>rest-chat-get.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-calendar-view.aspx.cs">
       <DependentUpon>student-calendar-view.aspx</DependentUpon>
@@ -2437,6 +2570,20 @@
     </Compile>
     <Compile Include="Pages\student\student-calendar-view.aspx.designer.cs">
       <DependentUpon>student-calendar-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-chat-new.aspx.cs">
+      <DependentUpon>student-chat-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-chat-new.aspx.designer.cs">
+      <DependentUpon>student-chat-new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-chat-view.aspx.cs">
+      <DependentUpon>student-chat-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-chat-view.aspx.designer.cs">
+      <DependentUpon>student-chat-view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-course-list.aspx.cs">
       <DependentUpon>student-course-list.aspx</DependentUpon>
@@ -2451,6 +2598,13 @@
     </Compile>
     <Compile Include="Pages\student\student-dashboard.aspx.designer.cs">
       <DependentUpon>student-dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-group-view.aspx.cs">
+      <DependentUpon>student-group-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-group-view.aspx.designer.cs">
+      <DependentUpon>student-group-view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-marks-view.aspx.cs">
       <DependentUpon>student-marks-view.aspx</DependentUpon>
@@ -2473,12 +2627,12 @@
     <Compile Include="Pages\student\student-project-list.aspx.designer.cs">
       <DependentUpon>student-project-list.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\student\student-projects-view.aspx.cs">
-      <DependentUpon>student-projects-view.aspx</DependentUpon>
+    <Compile Include="Pages\student\student-project-view.aspx.cs">
+      <DependentUpon>student-project-view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\student\student-projects-view.aspx.designer.cs">
-      <DependentUpon>student-projects-view.aspx</DependentUpon>
+    <Compile Include="Pages\student\student-project-view.aspx.designer.cs">
+      <DependentUpon>student-project-view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-task-view.aspx.cs">
       <DependentUpon>student-task-view.aspx</DependentUpon>
@@ -2526,8 +2680,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Pages\admin\" />
-    <Folder Include="Pages\main\" />
+    <Folder Include="Pages\assets\js\App_LocalResources\" />
     <Folder Include="Pages\tutor\" />
     <Folder Include="Utility\" />
   </ItemGroup>
