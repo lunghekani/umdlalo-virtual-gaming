@@ -32,266 +32,28 @@
 												<!--begin:Users-->
 												<div class="mt-7 scroll scroll-pull ps ps--active-y" style="height: 673px; overflow: hidden;">
 													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_12.jpg">
+														<% foreach (var item in course_list) { %>
+															<div class="d-flex align-items-center justify-content-between mb-5  private_chat_user" style="cursor:pointer"  data-course="<%=item.Value %>"  data-user-id="<%=user_id %>"   data-user-name="<%=user_name %>" data-id="<%=item.Key %>">
+																<div class="d-flex align-items-center">
+																	<div class="symbol symbol-circle symbol-50 mr-3 mt-2  p-5 bg-success text-white font-weight-bold font-size-lg  max-w-400px" >
+																		 <%=item.Value.Substring(0,2) %>
+																	</div>
+																	<div class="d-flex flex-column">
+																		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg" ><%=item.Value %></a>
+																		<span class="text-muted font-weight-bold font-size-sm">Lecturer</span>
+																	</div>
+																</div>
+															
+
+																<div class="d-flex flex-column align-items-end">
+																<span class="text-muted font-weight-bold font-size-sm "  id="private_chat_time<%=item.Key %>"></span>
+																<span class="label label-sm label-light-success " id="private_chat_notification<%=item.Key %>">0</span>
+																</div>
 															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Matt Pears</a>
-																<span class="text-muted font-weight-bold font-size-sm">Head of Development</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">35 mins</span>
-														</div>
-													</div>
+
+													<%} %>
 													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_11.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Charlie Stone</a>
-																<span class="text-muted font-weight-bold font-size-sm">Art Director</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">7 hrs</span>
-															<span class="label label-sm label-success">4</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_10.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Teresa Fox</a>
-																<span class="text-muted font-weight-bold font-size-sm">Web Designer</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">3 hrs</span>
-															<span class="label label-sm label-danger">5</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_13.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Giannis Nelson</a>
-																<span class="text-muted font-weight-bold font-size-sm">IT Consultant</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">2 days</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_15.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Carles Puyol</a>
-																<span class="text-muted font-weight-bold font-size-sm">Operator</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">5 mins</span>
-															<span class="label label-sm label-success">9</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_16.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Ana Torn</a>
-																<span class="text-muted font-weight-bold font-size-sm">Head Of Finance</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">2 days</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_18.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Lisa Pears</a>
-																<span class="text-muted font-weight-bold font-size-sm">Web Designer</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">6 mins</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_20.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Amanda Bold</a>
-																<span class="text-muted font-weight-bold font-size-sm">Art Director</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">3 hrs</span>
-															<span class="label label-sm label-warning">7</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_21.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Nick Jhonson</a>
-																<span class="text-muted font-weight-bold font-size-sm">IT Consultant</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">10 mins</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_19.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Sarah Larson</a>
-																<span class="text-muted font-weight-bold font-size-sm">Web Designer</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">4 hrs</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_22.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Matt Pears</a>
-																<span class="text-muted font-weight-bold font-size-sm">Head of Development</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">35 mins</span>
-															<span class="label label-sm label-success">5</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_23.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Tim Stone</a>
-																<span class="text-muted font-weight-bold font-size-sm">Web Developer</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">5 hrs</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_17.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Jhon Richardson</a>
-																<span class="text-muted font-weight-bold font-size-sm">Head of Development</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">1 week</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_18.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Ana Kiskia</a>
-																<span class="text-muted font-weight-bold font-size-sm">Web Master</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">35 mins</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_14.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Nick Stone</a>
-																<span class="text-muted font-weight-bold font-size-sm">Art Director</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">3 hrs</span>
-														</div>
-													</div>
-													<!--end:User-->
-													<!--begin:User-->
-													<div class="d-flex align-items-center justify-content-between mb-5">
-														<div class="d-flex align-items-center">
-															<div class="symbol symbol-circle symbol-50 mr-3">
-																<img alt="Pic" src="assets/media/users/300_13.jpg">
-															</div>
-															<div class="d-flex flex-column">
-																<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">Nick Nilson</a>
-																<span class="text-muted font-weight-bold font-size-sm">Software Arcitect</span>
-															</div>
-														</div>
-														<div class="d-flex flex-column align-items-end">
-															<span class="text-muted font-weight-bold font-size-sm">3 days</span>
-														</div>
-													</div>
-													<!--end:User-->
+													
 												<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 673px; right: -2px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 300px;"></div></div></div>
 												<!--end:Users-->
 											</div>
@@ -400,7 +162,7 @@
 													<!--end::Dropdown Menu-->
 												</div>
 												<div class="text-center flex-grow-1">
-													<div class="text-dark-75 font-weight-bold font-size-h5">Matt Pears</div>
+													<div class="text-dark-75 font-weight-bold font-size-h5 private_chat_header"></div>
 													<div>
 														<span class="label label-sm label-dot label-success"></span>
 														<span class="font-weight-bold text-muted font-size-sm">Active</span>
@@ -501,120 +263,9 @@
 												<!--begin::Scroll-->
 												<div class="scroll scroll-pull ps ps--active-y" data-mobile-height="350" style="height: 525px; overflow: hidden;">
 													<!--begin::Messages-->
-													<div class="messages">
-														<!--begin::Message In-->
-														<div class="d-flex flex-column mb-5 align-items-start">
-															<div class="d-flex align-items-center">
-																<div class="symbol symbol-circle symbol-40 mr-3">
-																	<img alt="Pic" src="assets/media/users/300_12.jpg">
-																</div>
-																<div>
-																	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
-																	<span class="text-muted font-size-sm">2 Hours</span>
-																</div>
-															</div>
-															<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">How likely are you to recommend our company to your friends and family?</div>
-														</div>
-														<!--end::Message In-->
-														<!--begin::Message Out-->
-														<div class="d-flex flex-column mb-5 align-items-end">
-															<div class="d-flex align-items-center">
-																<div>
-																	<span class="text-muted font-size-sm">3 minutes</span>
-																	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
-																</div>
-																<div class="symbol symbol-circle symbol-40 ml-3">
-																	<img alt="Pic" src="assets/media/users/300_21.jpg">
-																</div>
-															</div>
-															<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.</div>
-														</div>
-														<!--end::Message Out-->
-														<!--begin::Message In-->
-														<div class="d-flex flex-column mb-5 align-items-start">
-															<div class="d-flex align-items-center">
-																<div class="symbol symbol-circle symbol-40 mr-3">
-																	<img alt="Pic" src="assets/media/users/300_21.jpg">
-																</div>
-																<div>
-																	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
-																	<span class="text-muted font-size-sm">40 seconds</span>
-																</div>
-															</div>
-															<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">Ok, Understood!</div>
-														</div>
-														<!--end::Message In-->
-														<!--begin::Message Out-->
-														<div class="d-flex flex-column mb-5 align-items-end">
-															<div class="d-flex align-items-center">
-																<div>
-																	<span class="text-muted font-size-sm">Just now</span>
-																	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
-																</div>
-																<div class="symbol symbol-circle symbol-40 ml-3">
-																	<img alt="Pic" src="assets/media/users/300_21.jpg">
-																</div>
-															</div>
-															<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">You’ll receive notifications for all issues, pull requests!</div>
-														</div>
-														<!--end::Message Out-->
-														<!--begin::Message In-->
-														<div class="d-flex flex-column mb-5 align-items-start">
-															<div class="d-flex align-items-center">
-																<div class="symbol symbol-circle symbol-40 mr-3">
-																	<img alt="Pic" src="assets/media/users/300_12.jpg">
-																</div>
-																<div>
-																	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
-																	<span class="text-muted font-size-sm">40 seconds</span>
-																</div>
-															</div>
-															<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">You can unwatch this repository immediately by clicking here:
-															<a href="#">https://github.com</a></div>
-														</div>
-														<!--end::Message In-->
-														<!--begin::Message Out-->
-														<div class="d-flex flex-column mb-5 align-items-end">
-															<div class="d-flex align-items-center">
-																<div>
-																	<span class="text-muted font-size-sm">Just now</span>
-																	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
-																</div>
-																<div class="symbol symbol-circle symbol-40 ml-3">
-																	<img alt="Pic" src="assets/media/users/300_21.jpg">
-																</div>
-															</div>
-															<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
-														</div>
-														<!--end::Message Out-->
-														<!--begin::Message In-->
-														<div class="d-flex flex-column mb-5 align-items-start">
-															<div class="d-flex align-items-center">
-																<div class="symbol symbol-circle symbol-40 mr-3">
-																	<img alt="Pic" src="assets/media/users/300_12.jpg">
-																</div>
-																<div>
-																	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
-																	<span class="text-muted font-size-sm">40 seconds</span>
-																</div>
-															</div>
-															<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">Most purchased Business courses during this sale!</div>
-														</div>
-														<!--end::Message In-->
-														<!--begin::Message Out-->
-														<div class="d-flex flex-column mb-5 align-items-end">
-															<div class="d-flex align-items-center">
-																<div>
-																	<span class="text-muted font-size-sm">Just now</span>
-																	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
-																</div>
-																<div class="symbol symbol-circle symbol-40 ml-3">
-																	<img alt="Pic" src="assets/media/users/300_21.jpg">
-																</div>
-															</div>
-															<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
-														</div>
-														<!--end::Message Out-->
+													<div class="messages  private_chat_messages_box">
+														
+													
 													</div>
 													<!--end::Messages-->
 												<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 525px; right: -2px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 261px;"></div></div></div>
@@ -624,7 +275,7 @@
 											<!--begin::Footer-->
 											<div class="card-footer align-items-center">
 												<!--begin::Compose-->
-												<textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
+												<textarea class="form-control border-0 p-0  private_chat_textarea" rows="2" placeholder="Type a message"></textarea>
 												<div class="d-flex align-items-center justify-content-between mt-5">
 													<div class="mr-3">
 														<a href="#" class="btn btn-clean btn-icon btn-md mr-1">
@@ -635,7 +286,7 @@
 														</a>
 													</div>
 													<div>
-														<button type="button" class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6">Send</button>
+														<button type="button" class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6 private_chat_submit_button">Send</button>
 													</div>
 												</div>
 												<!--begin::Compose-->
