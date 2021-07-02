@@ -472,7 +472,8 @@
                         </span>
                         <div class="d-flex flex-column text-right">
                             <span class="text-dark-75 font-weight-bolder font-size-h3">750$</span>
-                            <span class="text-muted font-weight-bold mt-2">Weekly Income</span>
+                            <span class="text-muted font-weight-bold mt-2" id="lbl_income" runat="server">Weekly Income</span>
+                            <asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
                         </div>
                     </div>
                     <div id="kt_stats_widget_11_chart" class="card-rounded-bottom" data-color="success" style="height: 150px; min-height: 150px;">
