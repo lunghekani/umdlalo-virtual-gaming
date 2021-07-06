@@ -11,7 +11,7 @@ namespace UmdlaloVirtualGaming.Pages.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblName.Text= "Lunghekani Is amazing";
         }
     }
 }
