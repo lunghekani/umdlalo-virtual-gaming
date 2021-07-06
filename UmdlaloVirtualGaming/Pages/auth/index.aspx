@@ -91,6 +91,9 @@
 									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Fullname" name="fullname" />
 								</div>
 								<div class="form-group">
+									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Lastname" name="lastname" />
+								</div>
+								<div class="form-group">
 									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Email" name="email" autocomplete="off" />
 								</div>
 								<div class="form-group">
