@@ -181,6 +181,7 @@
     <Content Include="Pages\admin\admin-projects-view.aspx" />
     <Content Include="Pages\admin\admin-student-add.aspx" />
     <Content Include="Pages\admin\admin-student-list.aspx" />
+    <Content Include="Pages\assets\js\chat.js" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.eot" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.ttf" />
     <Content Include="Pages\assets\plugins\global\fonts\%40fortawesome\fa-brands-400.woff" />
@@ -224,6 +225,7 @@
     <Content Include="Pages\assets\plugins\global\fonts\summernote\summernote.woff" />
     <Content Include="Pages\assets\plugins\global\fonts\summernote\summernote.woff2" />
     <Content Include="Lecturer.Master" />
+    <Content Include="libman.json" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\assets\css\pages\error\error-3.css" />
@@ -2278,6 +2280,8 @@
     <Content Include="Pages\lecturer\lecturer-projects-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
+    <Content Include="Pages\lecturer\rest-chat-get.aspx" />
+    <Content Include="Pages\student\rest-chat-get.aspx" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
     <Content Include="Pages\student\student-chat-new.aspx" />
     <Content Include="Pages\student\student-chat-view.aspx" />
@@ -2546,6 +2550,20 @@
     <Compile Include="Pages\lecturer\lecturer-student-list.aspx.designer.cs">
       <DependentUpon>lecturer-student-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\lecturer\rest-chat-get.aspx.cs">
+      <DependentUpon>rest-chat-get.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\rest-chat-get.aspx.designer.cs">
+      <DependentUpon>rest-chat-get.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\rest-chat-get.aspx.cs">
+      <DependentUpon>rest-chat-get.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\rest-chat-get.aspx.designer.cs">
+      <DependentUpon>rest-chat-get.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\student\student-calendar-view.aspx.cs">
       <DependentUpon>student-calendar-view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2662,6 +2680,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Pages\assets\js\App_LocalResources\" />
     <Folder Include="Pages\tutor\" />
     <Folder Include="Utility\" />
   </ItemGroup>

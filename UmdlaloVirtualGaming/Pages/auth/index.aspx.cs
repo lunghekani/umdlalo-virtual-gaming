@@ -29,7 +29,7 @@ namespace UmdlaloVirtualGaming.Pages.auth
             if (msg.msg.Equals("Success"))
             {
                 var dt = objUserDtls.GetUserAccDetails(uID);
-
+               
                 if (dt.Rows[0].Field<string>("Role")=="Admin")
                 {
                     Response.Redirect("~/Pages/admin/admin-dashboard.aspx");
@@ -45,7 +45,7 @@ namespace UmdlaloVirtualGaming.Pages.auth
             }
             else
             {
-                MessageBox.Show(msg.msg);
+                MessageBox.Show(msg.msg); 
             }
 
           

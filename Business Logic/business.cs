@@ -8,6 +8,7 @@ using DataAccess;
 using System.Data;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Business_Logic
 {
@@ -59,9 +60,10 @@ namespace Business_Logic
                 if (userExists)
                 {
                     HttpContext.Current.Session["user_id"] = userID;
+                   
+                    
                 }
-                return new clsBasicUserDetails
-                {
+                return new clsBasicUserDetails {
                     msg = "Success",
                     uid = userID
                 };
@@ -162,7 +164,7 @@ namespace Business_Logic
                 throw;
             }
 
-
+            
         }
     }
 
