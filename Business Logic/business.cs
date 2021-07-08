@@ -12,14 +12,17 @@ using MySql.Data.MySqlClient;
 namespace Business_Logic
 {
     // This is a comment to show how git works
-    public class clsBasicUserDetails {
+    public class clsBasicUserDetails
+    {
         public string msg { get; set; }
-        public  string uid { get; set; }
+        public string uid { get; set; }
     }
-    public class clsAuthentication {
+    public class clsAuthentication
+    {
         clsDataConnection objConn = new clsDataConnection();
 
-        public string HashPassword(string password) { // Hash the password
+        public string HashPassword(string password)
+        { // Hash the password
 
             SHA1 algorithm = SHA1.Create();
             byte[] byteArray = null;
@@ -42,7 +45,7 @@ namespace Business_Logic
             };
 
             cmd.Parameters.AddWithValue("userEmail_IN", username);
-            cmd.Parameters.AddWithValue("UserPass_IN", HashPassword( password));
+            cmd.Parameters.AddWithValue("UserPass_IN", HashPassword(password));
             cmd.Parameters.Add("Authenticated", MySqlDbType.Int64);
             cmd.Parameters.Add("userID_OUT", MySqlDbType.VarChar, 50);
             cmd.Parameters["Authenticated"].Direction = ParameterDirection.Output;
@@ -57,7 +60,8 @@ namespace Business_Logic
                 {
                     HttpContext.Current.Session["user_id"] = userID;
                 }
-                return new clsBasicUserDetails {
+                return new clsBasicUserDetails
+                {
                     msg = "Success",
                     uid = userID
                 };
@@ -71,8 +75,8 @@ namespace Business_Logic
                 };
             }
         }
-    
-    
+
+
     }
 
     public class clsUserDetails
@@ -106,8 +110,8 @@ namespace Business_Logic
                         string firstname = sqlReader.GetValue(0).ToString();
                         string lastname = sqlReader.GetValue(1).ToString();
                         string email = sqlReader.GetValue(2).ToString();
-                       string lastlogin = sqlReader.GetValue(3).ToString();
-                       string role = sqlReader.GetValue(4).ToString();
+                        string lastlogin = sqlReader.GetValue(3).ToString();
+                        string role = sqlReader.GetValue(4).ToString();
 
 
                         dt.Rows.Add(firstname, lastname, email, lastlogin, role);
@@ -132,7 +136,7 @@ namespace Business_Logic
     public class clsModuleOperations
     {
         clsDataConnection objConn = new clsDataConnection();
-        public string CreateModule(int _moduleID, string _moduleName, 
+        public string CreateModule(int _moduleID, string _moduleName,
                                     string _moduleCode, string _description,
                                     int _disabled)
         {
@@ -158,7 +162,39 @@ namespace Business_Logic
                 throw;
             }
 
-            
+
+        }
+    }
+
+    //pumi's code for signup 
+    public class NewUserAdd
+    {
+        clsDataConnection objConn = new clsDataConnection();
+        public string AddUser(string User_Name, string User_LstName, string User_Email, string User_Password)
+        {
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "New_User_Add";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserName_IN", User_Name);
+            cmd.Parameters.AddWithValue("@UserLastName_IN", User_LstName);
+            cmd.Parameters.AddWithValue("@User_Email_IN", User_Email);
+            cmd.Parameters.AddWithValue("@UserPassword_IN", User_Password);
+
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+                throw;
+            }
+
+
         }
     }
 }
