@@ -131,6 +131,40 @@ namespace Business_Logic
             return dt;
         }
 
+        public string CreateUserAcc(string username, string lastname, string email, string password, DateTime date, string role= "Student") {
+            clsDataConnection objConn = new clsDataConnection();
+            Guid obj = Guid.NewGuid();
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Modules_Create";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserID_In", obj.ToString());
+            cmd.Parameters.AddWithValue("@UserName_In", username);
+            cmd.Parameters.AddWithValue("@UserLastName_In", lastname);
+            cmd.Parameters.AddWithValue("@UserEmail_In", email);
+            cmd.Parameters.AddWithValue("@UserPassword_In", password);
+            cmd.Parameters.AddWithValue("@DateAdded", date);
+            cmd.Parameters.AddWithValue("@UserRole_In", role);
+            
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+                throw;
+            }
+
+
+
+
+            
+        }
+
     }
 
     public class clsModuleOperations

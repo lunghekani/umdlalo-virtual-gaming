@@ -88,19 +88,19 @@
 							</div>
 							<form class="form text-center" id="kt_login_signup_form">
 								<div class="form-group">
-									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Fullname" name="fullname" />
+									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txt_name" type="text" placeholder="Fullname" name="fullname" />
 								</div>
 								<div class="form-group">
-									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Lastname" name="lastname" />
+									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txt_lastname" type="text" placeholder="Lastname" name="lastname" runat="server"/>
 								</div>
 								<div class="form-group">
-									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Email" name="email" autocomplete="off" />
+									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txt_email" type="text" placeholder="Email" name="email" autocomplete="off" runat="server"/>
+								</div>=
+								<div class="form-group">
+									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txt_password" type="password" placeholder="Password" name="password" runat="server"/>
 								</div>
 								<div class="form-group">
-									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="password" placeholder="Password" name="password" />
-								</div>
-								<div class="form-group">
-									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="password" placeholder="Confirm Password" name="cpassword" />
+									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txt_confirm_password" type="password" placeholder="Confirm Password" name="cpassword" runat="server"/>
 								</div>
 								<div class="form-group text-left px-8">
 									<div class="checkbox-inline">
@@ -112,7 +112,7 @@
 									<div class="form-text text-muted text-center"></div>
 								</div>
 								<div class="form-group">
-									<button id="kt_login_signup_submit" class="btn btn-pill btn-primary opacity-90 px-15 py-3 m-2">Sign Up</button>
+									<button id="kt_login_signup_submit" class="btn btn-pill btn-primary opacity-90 px-15 py-3 m-2" runat="server" onserverclick="kt_login_signup_submit_ServerClick">Sign Up</button>
 									<button id="kt_login_signup_cancel" class="btn btn-pill btn-outline-white opacity-70 px-15 py-3 m-2">Cancel</button>
 								</div>
 							</form>

@@ -49,5 +49,13 @@ namespace UmdlaloVirtualGaming.Pages.auth
 
           
         }
+
+        protected void kt_login_signup_submit_ServerClick(object sender, EventArgs e)
+        {
+            clsAuthentication objHash = new clsAuthentication();
+            string username, firstname, lastname, email, password;
+
+             string username = txt_email
+        }
     }
 }
