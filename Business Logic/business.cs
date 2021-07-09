@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Web;
 using System.Threading.Tasks;
 using DataAccess;
 using System.Data;
+using System.Net;
+using System.Net.Configuration;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
@@ -232,5 +236,29 @@ namespace Business_Logic
 
 
         }
+    }
+
+    public class clsCommunicate
+    {
+        public static void SendEmail(string mailto, string subject, string body)
+        {
+            SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+            using (MailMessage mm = new MailMessage(smtpSection.From, mailto))
+            {
+                mm.Subject = subject;
+                mm.Body = body;
+                mm.IsBodyHtml = false;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = smtpSection.Network.Host;
+                smtp.EnableSsl = smtpSection.Network.EnableSsl;
+                NetworkCredential networkCred = new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
+                smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
+                smtp.Credentials = networkCred;
+                smtp.Port = smtpSection.Network.Port;
+                smtp.Send(mm);
+                
+            }
+        }
+
     }
 }
