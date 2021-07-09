@@ -51,40 +51,49 @@ namespace UmdlaloVirtualGaming.Pages.auth
         protected global::System.Web.UI.HtmlControls.HtmlButton kt_login_signin_submit;
 
         /// <summary>
-        /// txt_lastname control.
+        /// kt_login_signup_form control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_lastname;
+        protected global::System.Web.UI.HtmlControls.HtmlForm kt_login_signup_form;
 
         /// <summary>
-        /// txt_email control.
+        /// txtFullname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_email;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFullname;
 
         /// <summary>
-        /// txt_password control.
+        /// txtLastname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_password;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLastname;
 
         /// <summary>
-        /// txt_confirm_password control.
+        /// txtemaill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_confirm_password;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtemaill;
+
+        /// <summary>
+        /// txtpassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtpassword;
 
         /// <summary>
         /// kt_login_signup_submit control.

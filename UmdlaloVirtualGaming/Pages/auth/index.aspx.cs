@@ -10,7 +10,8 @@ namespace UmdlaloVirtualGaming.Pages.auth
     {
         public clsAuthentication objDataOpps = new clsAuthentication();
         public clsModuleOperations objModOperations = new clsModuleOperations();
-        public MySqlConnection conn; 
+        public NewUserAdd objconn= new NewUserAdd();
+        public MySqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -52,10 +53,40 @@ namespace UmdlaloVirtualGaming.Pages.auth
 
         protected void kt_login_signup_submit_ServerClick(object sender, EventArgs e)
         {
-            clsAuthentication objHash = new clsAuthentication();
-            string username, firstname, lastname, email, password;
+            NewUserAdd objAddUserDtls = new NewUserAdd();
+            string User_Name,  User_LstName,  User_Email,  User_Password;
 
-             string username = txt_email
+            User_Name = txtFullname.Value.ToString().ToLower().Trim(); 
+            User_LstName = txtLastname.Value.ToString().ToLower().Trim();
+            User_Email = txtemaill.Value.ToString().ToLower().Trim();     
+            User_Password = txtpassword.Value.ToString().ToLower().Trim();
+
+            var msg = objconn.AddUser(User_Name, User_LstName, User_Email, User_Password);
+            //var uID = msg.uid;
+            //if (msg.msg.Equals("Success"))
+            //{
+            //    var dt = objAddUserDtls.AddUser(uID);
+
+            //    if (dt.Rows[0].Field<string>("Role") == "Admin")
+            //    {
+            //        Response.Redirect("~/Pages/admin/admin-dashboard.aspx");
+            //    }
+            //    else if (dt.Rows[0].Field<string>("Role") == "Lecturer")
+            //    {
+            //        Response.Redirect("~/Pages/lecturer/lecturer-dashboard.aspx");
+            //    }
+            //    else if (dt.Rows[0].Field<string>("Role") == "Student")
+            //    {
+            //        Response.Redirect("~/Pages/student/student-dashboard.aspx");
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show(msg.msg);
+            //}
+
+
         }
+
     }
 }
