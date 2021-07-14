@@ -2281,6 +2281,7 @@
     <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\lecturer\rest-chat-get.aspx" />
+    <Content Include="Pages\student\code.aspx" />
     <Content Include="Pages\student\rest-chat-get.aspx" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
     <Content Include="Pages\student\student-chat-new.aspx" />
@@ -2557,6 +2558,13 @@
     <Compile Include="Pages\lecturer\rest-chat-get.aspx.designer.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\student\code.aspx.cs">
+      <DependentUpon>code.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\code.aspx.designer.cs">
+      <DependentUpon>code.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\student\rest-chat-get.aspx.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2681,7 +2689,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Pages\assets\js\App_LocalResources\" />
-    <Folder Include="Pages\tutor\" />
     <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>
