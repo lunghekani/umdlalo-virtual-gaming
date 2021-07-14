@@ -8,7 +8,7 @@
 	<head>
 	
 		<meta charset="utf-8" />
-		<title>Umdlalo Virtual Gaming | Login :) </title>
+		<title>Umdlalo Virtual Gaming | Login </title>
 		<meta name="description" content="Login page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<!--begin::Fonts-->
@@ -86,7 +86,7 @@
 								<h3 class="opacity-40 font-weight-normal">Sign Up</h3>
 								<p class="opacity-40">Enter your details to create your account</p>
 							</div>
-							<form class="form text-center" id="kt_login_signup_form">
+							<form class="form text-center" id="kt_login_signup_form" runat="server" >
 								<div class="form-group">
 									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Fullname" name="fullname" />
 								</div>
@@ -94,14 +94,15 @@
 									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Lastname" name="lastname" />
 								</div>
 								<div class="form-group">
-									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Email" name="email" autocomplete="off" />
-								</div>
+									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txt_email" type="text" placeholder="Email" name="email" autocomplete="off" runat="server"/>
+								</div>=
 								<div class="form-group">
 									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="password" placeholder="Password" name="password" />
 								</div>
 								<div class="form-group">
 									<input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="password" placeholder="Confirm Password" name="cpassword" />
 								</div>
+
 								<div class="form-group text-left px-8">
 									<div class="checkbox-inline">
 										<label class="checkbox checkbox-outline checkbox-white opacity-60 text-white m-0">

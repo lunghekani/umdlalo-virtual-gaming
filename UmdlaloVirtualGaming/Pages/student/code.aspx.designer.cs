@@ -7,101 +7,92 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UmdlaloVirtualGaming.Pages.auth
+namespace UmdlaloVirtualGaming.Pages.student
 {
 
 
-    public partial class index
+    public partial class code2
     {
 
         /// <summary>
-        /// kt_login_signin_form control.
+        /// kt_body control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm kt_login_signin_form;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl kt_body;
 
         /// <summary>
-        /// txtEmail control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtPassword control.
+        /// lblFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblFullName;
 
         /// <summary>
-        /// kt_login_signin_submit control.
+        /// htmlCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton kt_login_signin_submit;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea htmlCode;
 
         /// <summary>
-        /// kt_login_signup_form control.
+        /// cssCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm kt_login_signup_form;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea cssCode;
 
         /// <summary>
-        /// txtFullname control.
+        /// jsCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFullname;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea jsCode;
 
         /// <summary>
-        /// txtLastname control.
+        /// lblNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLastname;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblNames;
 
         /// <summary>
-        /// txtemaill control.
+        /// lblRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtemaill;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRole;
 
         /// <summary>
-        /// txtpassword control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtpassword;
-
-        /// <summary>
-        /// kt_login_signup_submit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton kt_login_signup_submit;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEmail;
     }
 }

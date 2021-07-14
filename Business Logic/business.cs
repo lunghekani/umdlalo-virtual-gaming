@@ -1,26 +1,33 @@
-﻿using System;
+﻿using DataAccess;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Configuration;
+using System.Net.Mail;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
-using System.Threading.Tasks;
-using DataAccess;
-using System.Data;
-using System.Security.Cryptography;
-using MySql.Data.MySqlClient;
-using System.Windows.Forms;
 
 namespace Business_Logic
 {
     // This is a comment to show how git works
-    public class clsBasicUserDetails {
+    public class clsBasicUserDetails
+    {
         public string msg { get; set; }
-        public  string uid { get; set; }
+        public string uid { get; set; }
     }
-    public class clsAuthentication {
-        clsDataConnection objConn = new clsDataConnection();
 
-        public string HashPassword(string password) { // Hash the password
+    public class clsAuthentication
+    {
+        private clsDataConnection objConn = new clsDataConnection();
+
+        public string HashPassword(string password)
+        {
+            // Hash the password
 
             SHA1 algorithm = SHA1.Create();
             byte[] byteArray = null;
@@ -30,11 +37,12 @@ namespace Business_Logic
             {
                 hashedPassword += byteArray[i].ToString("x2");
             }
+
             return hashedPassword;
         }
+
         public clsBasicUserDetails authUser(string username, string password)
         {
-
             var cmd = new MySqlCommand
             {
                 Connection = objConn.CreateSQLConnection(),
@@ -43,7 +51,7 @@ namespace Business_Logic
             };
 
             cmd.Parameters.AddWithValue("userEmail_IN", username);
-            cmd.Parameters.AddWithValue("UserPass_IN", HashPassword( password));
+            cmd.Parameters.AddWithValue("UserPass_IN", HashPassword(password));
             cmd.Parameters.Add("Authenticated", MySqlDbType.Int64);
             cmd.Parameters.Add("userID_OUT", MySqlDbType.VarChar, 50);
             cmd.Parameters["Authenticated"].Direction = ParameterDirection.Output;
@@ -57,26 +65,22 @@ namespace Business_Logic
                 if (userExists)
                 {
                     HttpContext.Current.Session["user_id"] = userID;
-                   
-                    
                 }
-               
-                return new clsBasicUserDetails {
+
+                return new clsBasicUserDetails
+                {
                     msg = "Success",
                     uid = userID
                 };
             }
             catch (Exception ex)
             {
-
                 return new clsBasicUserDetails
                 {
                     msg = ex.Message
                 };
             }
         }
-    
-    
     }
 
     public class clsUserDetails
@@ -110,9 +114,8 @@ namespace Business_Logic
                         string firstname = sqlReader.GetValue(0).ToString();
                         string lastname = sqlReader.GetValue(1).ToString();
                         string email = sqlReader.GetValue(2).ToString();
-                       string lastlogin = sqlReader.GetValue(3).ToString();
-                       string role = sqlReader.GetValue(4).ToString();
-
+                        string lastlogin = sqlReader.GetValue(3).ToString();
+                        string role = sqlReader.GetValue(4).ToString();
 
                         dt.Rows.Add(firstname, lastname, email, lastlogin, role);
                     }
@@ -121,24 +124,54 @@ namespace Business_Logic
             catch (Exception ex)
             {
                 dt.Rows.Add(ex.Message);
-
             }
             finally
             {
                 sqlReader.Close();
             }
+
             conn.Close();
             return dt;
         }
 
+        public string CreateUserAcc(string username, string lastname, string email, string password, DateTime date,
+            string role = "Student")
+        {
+            clsDataConnection objConn = new clsDataConnection();
+            Guid obj = Guid.NewGuid();
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Modules_Create";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserID_In", obj.ToString());
+            cmd.Parameters.AddWithValue("@UserName_In", username);
+            cmd.Parameters.AddWithValue("@UserLastName_In", lastname);
+            cmd.Parameters.AddWithValue("@UserEmail_In", email);
+            cmd.Parameters.AddWithValue("@UserPassword_In", password);
+            cmd.Parameters.AddWithValue("@DateAdded", date);
+            cmd.Parameters.AddWithValue("@UserRole_In", role);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+                throw;
+            }
+        }
     }
 
     public class clsModuleOperations
     {
-        clsDataConnection objConn = new clsDataConnection();
-        public string CreateModule(int _moduleID, string _moduleName, 
-                                    string _moduleCode, string _description,
-                                    int _disabled)
+        private clsDataConnection objConn = new clsDataConnection();
+
+        public string CreateModule(int _moduleID, string _moduleName,
+            string _moduleCode, string _description,
+            int _disabled)
         {
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
@@ -161,17 +194,67 @@ namespace Business_Logic
                 return ex.Message;
                 throw;
             }
-
-            
         }
-       
     }
+
+    //pumi's code for signup
+    public class NewUserAdd
+    {
+        private clsDataConnection objConn = new clsDataConnection();
+
+        public string AddUser(string User_Name, string User_LstName, string User_Email, string User_Password)
+        {
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "New_User_Add";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserName_IN", User_Name);
+            cmd.Parameters.AddWithValue("@UserLastName_IN", User_LstName);
+            cmd.Parameters.AddWithValue("@User_Email_IN", User_Email);
+            cmd.Parameters.AddWithValue("@UserPassword_IN", User_Password);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+                throw;
+            }
+        }
+    }
+
+    public class clsCommunicate
+    {
+        public static void SendEmail(string mailto, string subject, string body)
+        {
+            SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+            using (MailMessage mm = new MailMessage(smtpSection.From, mailto))
+            {
+                mm.Subject = subject;
+                mm.Body = body;
+                mm.IsBodyHtml = false;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = smtpSection.Network.Host;
+                smtp.EnableSsl = smtpSection.Network.EnableSsl;
+                NetworkCredential networkCred =
+                    new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
+                smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
+                smtp.Credentials = networkCred;
+                smtp.Port = smtpSection.Network.Port;
+                smtp.Send(mm);
+            }
+        }
+    }
+
     public class clsPrivateChat
     {
-
-        MySqlCommand cmd;
-        MySqlDataReader sqlReader;
-        string user_id;
+        private MySqlCommand cmd;
+        private MySqlDataReader sqlReader;
+        private string user_id;
 
         public clsPrivateChat(object user_id)
         {
@@ -183,15 +266,14 @@ namespace Business_Logic
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                
                 /*
                  * when fetch messages, we create the notification and set to 0 if not exist for later updates
                  * for later update
                  */
 
-
-                cmd = new MySqlCommand($"SELECT* FROM umdlalo_lms.private_chat_notification WHERE user_id='{user_id}'and  course_id={course_id}", objConn);
-
+                cmd = new MySqlCommand(
+                    $"SELECT* FROM umdlalo_lms.private_chat_notification WHERE user_id='{user_id}'and  course_id={course_id}",
+                    objConn);
 
                 sqlReader = cmd.ExecuteReader();
 
@@ -201,20 +283,19 @@ namespace Business_Logic
                 {
                     list.Add("got a mtach");
                 }
+
                 sqlReader.Close();
 
                 if (list.Count == 0)
                 {
-                    var str = $"INSERT INTO  umdlalo_lms.private_chat_notification (user_id,course_id,notification,time,belong_to) VALUES('{user_id}','{course_id}',0,'','{user_id}')";
+                    var str =
+                        $"INSERT INTO  umdlalo_lms.private_chat_notification (user_id,course_id,notification,time,belong_to) VALUES('{user_id}','{course_id}',0,'','{user_id}')";
                     var cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
                     resetNotification(course_id); //set the current user notification to 0
                 }
-
             }
-
-
         }
 
         //set the notication value to 0 and return 0
@@ -222,13 +303,15 @@ namespace Business_Logic
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-               
                 //update all the the current user notification in the current course
-                cmd = new MySqlCommand($"UPDATE  umdlalo_lms.private_chat_notification SET notification =0 WHERE course_id={course_id}  AND user_id={user_id} and belong_to={user_id} ", objConn);
+                cmd = new MySqlCommand(
+                    $"UPDATE  umdlalo_lms.private_chat_notification SET notification =0 WHERE course_id={course_id}  AND user_id={user_id} and belong_to={user_id} ",
+                    objConn);
                 cmd.ExecuteNonQuery();
 
-
-                cmd = new MySqlCommand($"SELECT * FROM  umdlalo_lms.private_chat_notification WHERE  course_id={course_id}  AND user_id={user_id} LIMIT 1 ", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM  umdlalo_lms.private_chat_notification WHERE  course_id={course_id}  AND user_id={user_id} LIMIT 1 ",
+                    objConn);
                 var notification = "";
                 var time = "";
 
@@ -238,6 +321,7 @@ namespace Business_Logic
                     notification = sqlReader.GetString("notification");
                     time = sqlReader.GetString("time");
                 }
+
                 sqlReader.Close();
                 return new { notification = notification, time = time };
             }
@@ -250,12 +334,11 @@ namespace Business_Logic
         /// <returns></returns>
         public object current_user_Notification(string course_id)
         {
-
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                
-
-                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.private_chat_notification WHERE  course_id={course_id}  AND user_id={user_id} LIMIT 1 ", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM umdlalo_lms.private_chat_notification WHERE  course_id={course_id}  AND user_id={user_id} LIMIT 1 ",
+                    objConn);
                 var notification = "";
                 var time = "";
                 sqlReader = cmd.ExecuteReader();
@@ -268,7 +351,6 @@ namespace Business_Logic
                 sqlReader.Close();
                 return new { notification = notification, time = time };
             }
-
         }
 
         /// <summary>
@@ -278,22 +360,16 @@ namespace Business_Logic
         /// <returns></returns>
         public void updateAllNotifications(string course_id, string time)
         {
-
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                
-
-
-
                 //update all the the current user notification in the current course
-                cmd = new MySqlCommand($"SELECT* FROM umdlalo_lms.private_chat_notification WHERE  course_id='{course_id}' AND user_id='{user_id}' ", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT* FROM umdlalo_lms.private_chat_notification WHERE  course_id='{course_id}' AND user_id='{user_id}' ",
+                    objConn);
                 sqlReader = cmd.ExecuteReader();
-
 
                 List<string> c_ids = new List<string>();
                 List<string> u_ids = new List<string>();
-               
-               
 
                 while (sqlReader.Read())
                 {
@@ -302,18 +378,16 @@ namespace Business_Logic
 
                     c_ids.Add(current_course_id);
                     u_ids.Add(current_user_id);
-
                 }
 
                 sqlReader.Close();
 
-
                 for (int i = 0; i < u_ids.Count; i++)
                 {
-                    
                     var c_id = c_ids[i];
                     var u_id = u_ids[i];
-                    var str = $"UPDATE umdlalo_lms.private_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{c_id}' and user_id='{u_id}'";
+                    var str =
+                        $"UPDATE umdlalo_lms.private_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{c_id}' and user_id='{u_id}'";
                     cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                 }
@@ -327,20 +401,18 @@ namespace Business_Logic
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-
                 //create notification when fetch messages
                 CreateNotification(course_id);
 
                 var ListOfMessages = new List<object>();
 
-                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.private_chat WHERE course_id='{course_id}' AND user_id='{user_id}' ", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM umdlalo_lms.private_chat WHERE course_id='{course_id}' AND user_id='{user_id}' ",
+                    objConn);
                 sqlReader = cmd.ExecuteReader();
-
-
 
                 while (sqlReader.Read())
                 {
-
                     var name = sqlReader.GetString("user_name");
                     var user_id = sqlReader.GetString("user_id");
 
@@ -348,16 +420,16 @@ namespace Business_Logic
                     var message = sqlReader.GetString("message");
                     ListOfMessages.Add(new { user_name = name, user_id = user_id, message = message, time = time });
                 }
+
                 sqlReader.Close();
                 return ListOfMessages;
             }
         }
 
-        public  Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
+        public Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-
                 //get user name
                 cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{user_id}' LIMIT 1", objConn);
                 var sqlReader = cmd.ExecuteReader();
@@ -366,10 +438,12 @@ namespace Business_Logic
                     var name = sqlReader.GetValue(0).ToString();
                     HttpContext.Current.Session["user_name"] = name;
                 }
+
                 //end user name
                 sqlReader.Close();
 
-                cmd = new MySqlCommand($"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
                 var keys = new List<string>();
 
                 sqlReader = cmd.ExecuteReader();
@@ -378,6 +452,7 @@ namespace Business_Logic
                     var course_id = sqlReader.GetValue(0).ToString();
                     keys.Add(course_id);
                 }
+
                 sqlReader.Close();
 
                 //remove duplicates keys
@@ -394,19 +469,14 @@ namespace Business_Logic
                     {
                         var course_name = sqlReader.GetValue(0).ToString();
                         course_list[item] = course_name;
-
                     }
-                    sqlReader.Close();
 
+                    sqlReader.Close();
                 }
 
                 return course_list;
             }
-
-
-
         }
-
 
         public void InsertMessage(string user_name, string user_id, string course_id, string time, string message)
         {
@@ -415,46 +485,39 @@ namespace Business_Logic
                 //Update all notification excpet the current user
                 updateAllNotifications(course_id, time);
                 //insert the message data
-                var str = $"INSERT INTO  umdlalo_lms.private_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
+                var str =
+                    $"INSERT INTO  umdlalo_lms.private_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
                 cmd = new MySqlCommand(str, objConn);
                 cmd.ExecuteNonQuery();
-
-                
-
             }
-
-
-
         }
     }
+
     public class clsGroupChat
     {
-        
-        MySqlCommand cmd;
-        MySqlDataReader sqlReader;
+        private MySqlCommand cmd;
+        private MySqlDataReader sqlReader;
 
-        string user_id;
+        private string user_id;
 
         public clsGroupChat(object user_id)
         {
             this.user_id = user_id.ToString();
         }
 
-
         //create notification on when fetching messages
         public void CreateNotification(object course_id)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-              
                 /*
                  * when fetch messages, we create the notification and set to 0 if not exist for later updates
                  * for later update
                  */
 
-
-                cmd = new MySqlCommand($"SELECT* FROM umdlalo_lms.group_chat_notification WHERE user_id='{user_id}'and  course_id='{course_id}'", objConn);
-
+                cmd = new MySqlCommand(
+                    $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE user_id='{user_id}'and  course_id='{course_id}'",
+                    objConn);
 
                 sqlReader = cmd.ExecuteReader();
 
@@ -464,20 +527,19 @@ namespace Business_Logic
                 {
                     list.Add("got a mtach");
                 }
+
                 sqlReader.Close();
 
                 if (list.Count == 0)
                 {
-                    var str = $"INSERT INTO  umdlalo_lms.group_chat_notification (user_id,course_id,notification,time) VALUES('{user_id}','{course_id}',0,'')";
+                    var str =
+                        $"INSERT INTO  umdlalo_lms.group_chat_notification (user_id,course_id,notification,time) VALUES('{user_id}','{course_id}',0,'')";
                     var cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
                     resetNotification(course_id); //set the current user notification to 0
                 }
-
             }
-            
-            
         }
 
         //set the notication value to 0 and return 0
@@ -485,13 +547,15 @@ namespace Business_Logic
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                
                 //update all the the current user notification in the current course
-                cmd = new MySqlCommand($"UPDATE umdlalo_lms.group_chat_notification SET notification =0 WHERE course_id='{course_id}'  AND user_id='{user_id}' ", objConn);
+                cmd = new MySqlCommand(
+                    $"UPDATE umdlalo_lms.group_chat_notification SET notification =0 WHERE course_id='{course_id}'  AND user_id='{user_id}' ",
+                    objConn);
                 cmd.ExecuteNonQuery();
 
-
-                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ",
+                    objConn);
                 var notification = "";
                 var time = "";
 
@@ -501,6 +565,7 @@ namespace Business_Logic
                     notification = sqlReader.GetString("notification");
                     time = sqlReader.GetString("time");
                 }
+
                 sqlReader.Close();
                 return new { notification = notification, time = time };
             }
@@ -513,12 +578,11 @@ namespace Business_Logic
         /// <returns></returns>
         public object current_user_Notification(string course_id)
         {
-            
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                
-
-                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ",
+                    objConn);
                 var notification = "";
                 var time = "";
                 sqlReader = cmd.ExecuteReader();
@@ -531,7 +595,6 @@ namespace Business_Logic
                 sqlReader.Close();
                 return new { notification = notification, time = time };
             }
-
         }
 
         /// <summary>
@@ -539,62 +602,54 @@ namespace Business_Logic
         /// </summary>
         /// <param name="course_id"></param>
         /// <returns></returns>
-        public void updateAllNotifications(string course_id,string time)
+        public void updateAllNotifications(string course_id, string time)
         {
-           
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                
-
-
-
                 //update all the the current user notification in the current course
-                cmd = new MySqlCommand($"SELECT* FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}' ", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}' ", objConn);
                 sqlReader = cmd.ExecuteReader();
 
+                var course_ids = new Dictionary<string, string>();
 
-                var course_ids = new Dictionary<string,string>();
-                
                 while (sqlReader.Read())
                 {
                     var current_course_id = sqlReader.GetString("course_id");
                     var current_user_id = sqlReader.GetString("user_id");
                     course_ids.Add(current_user_id, current_course_id);
-                    
                 }
 
                 sqlReader.Close();
 
                 foreach (var id in course_ids)
                 {
-                    var str = $"UPDATE umdlalo_lms.group_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{id.Value}' and user_id='{id.Key}'";
+                    var str =
+                        $"UPDATE umdlalo_lms.group_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{id.Value}' and user_id='{id.Key}'";
                     cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                 }
-               
+
                 //set the current user notification to 0
                 resetNotification(course_id);
             }
         }
 
-        public List<object> FetchMesssges( object course_id, object messagesLimit)
+        public List<object> FetchMesssges(object course_id, object messagesLimit)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                
                 //create notification when fetch messages
                 CreateNotification(course_id);
 
                 var ListOfMessages = new List<object>();
 
-                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat WHERE course_id= '{course_id}'  ", objConn);
-               sqlReader = cmd.ExecuteReader();
-
-
+                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat WHERE course_id= '{course_id}'  ",
+                    objConn);
+                sqlReader = cmd.ExecuteReader();
 
                 while (sqlReader.Read())
                 {
-
                     var name = sqlReader.GetString("user_name");
                     var user_id = sqlReader.GetString("user_id");
 
@@ -602,23 +657,27 @@ namespace Business_Logic
                     var message = sqlReader.GetString("message");
                     ListOfMessages.Add(new { user_name = name, user_id = user_id, message = message, time = time });
                 }
+
                 sqlReader.Close();
                 return ListOfMessages;
             }
         }
-        public class adminStore { 
-                public string course_name { get; set; }
-                public string course_id { get; set; }
-               public string user_id { get; set; }
+
+        public class adminStore
+        {
+            public string course_name { get; set; }
+            public string course_id { get; set; }
+            public string user_id { get; set; }
         }
+
         public List<adminStore> CURRENT_ADMIN_All_COURSE_ID_AND_NAME()
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-
                 List<adminStore> stores = new List<adminStore>();
-;                //get user name
-                cmd = new MySqlCommand($"SELECT Name,Code,User_id FROM  umdlalo_lms.course WHERE User_id='{user_id}'", objConn);
+                ; //get user name
+                cmd = new MySqlCommand($"SELECT Name,Code,User_id FROM  umdlalo_lms.course WHERE User_id='{user_id}'",
+                    objConn);
                 var sqlReader = cmd.ExecuteReader();
                 while (sqlReader.Read())
                 {
@@ -628,22 +687,23 @@ namespace Business_Logic
                     HttpContext.Current.Session["user_name"] = name;
 
                     var admin = new adminStore();
-                    admin.course_name= name;
+                    admin.course_name = name;
                     admin.course_id = code;
                     admin.user_id = id;
 
                     stores.Add(admin);
                 }
+
                 //end user name
                 sqlReader.Close();
                 return stores;
             }
         }
-        public Dictionary<string, string>  CURRENT_USER_All_COURSE_ID_AND_NAME()
+
+        public Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-               
                 //get user name
                 cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{user_id}' LIMIT 1", objConn);
                 var sqlReader = cmd.ExecuteReader();
@@ -652,10 +712,12 @@ namespace Business_Logic
                     var name = sqlReader.GetValue(0).ToString();
                     HttpContext.Current.Session["user_name"] = name;
                 }
+
                 //end user name
                 sqlReader.Close();
 
-                cmd = new MySqlCommand($"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
+                cmd = new MySqlCommand(
+                    $"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
                 var keys = new List<string>();
 
                 sqlReader = cmd.ExecuteReader();
@@ -664,12 +726,12 @@ namespace Business_Logic
                     var course_id = sqlReader.GetValue(0).ToString();
                     keys.Add(course_id);
                 }
+
                 sqlReader.Close();
 
                 //remove duplicates keys
                 keys = keys.Union(keys).ToList();
 
-              
                 Dictionary<string, string> course_list = new Dictionary<string, string>();
                 ///course names
                 foreach (var item in keys)
@@ -681,36 +743,28 @@ namespace Business_Logic
                     {
                         var course_name = sqlReader.GetValue(0).ToString();
                         course_list[item] = course_name;
-
                     }
-                    sqlReader.Close();
 
+                    sqlReader.Close();
                 }
 
                 return course_list;
             }
-
-          
-
         }
-
 
         public void InsertMessage(string user_name, string user_id, string course_id, string time, string message)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //insert the message data
-                var str = $"INSERT INTO  umdlalo_lms.group_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
+                var str =
+                    $"INSERT INTO  umdlalo_lms.group_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
                 cmd = new MySqlCommand(str, objConn);
                 cmd.ExecuteNonQuery();
-                
+
                 //Update all notification excpet the current user
                 updateAllNotifications(course_id, time);
-               
             }
-            
-
-
         }
     }
 }

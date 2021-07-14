@@ -12,13 +12,13 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
     {
         public object user_id;
         public object user_name;
-        public List<clsGroupChat.adminStore> course_list = new List<clsGroupChat.adminStore>();
+       public List<clsGroupChat.adminStore> course_list = new List<clsGroupChat.adminStore>();
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpContext.Current.Session["user_id"] = "98bc0920-e8c0-41da-a54e-855973651aff";
 
             var session = HttpContext.Current.Session["user_id"];
-            clsGroupChat groupChat = new clsGroupChat(session);//public chat
+           clsGroupChat groupChat = new clsGroupChat(session);//public chat
 
 
 
@@ -31,11 +31,11 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
                 var time = Request.Params["time"].ToString().Replace("_", " ");
                 var message = Request.Params["message"];
 
-                groupChat.InsertMessage(name, user_id, course_id, time, message);
+              //  groupChat.InsertMessage(name, user_id, course_id, time, message);
 
             }
 
-            course_list = groupChat.CURRENT_ADMIN_All_COURSE_ID_AND_NAME();
+           course_list = groupChat.CURRENT_ADMIN_All_COURSE_ID_AND_NAME();
 
             user_id = HttpContext.Current.Session["user_id"];
             user_name = HttpContext.Current.Session["user_name"];
