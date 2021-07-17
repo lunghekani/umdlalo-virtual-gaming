@@ -1067,6 +1067,7 @@
 											<!--end::Header-->
 											<!--begin::Body-->
 											<div class="card-body pt-8">
+												<%--code here--%>
 												<textarea id="htmlCode" cols="90" rows="2" runat="server" oninput="showPreview()"></textarea>
 											</div>
 											<!--end::Body-->
@@ -1107,7 +1108,7 @@
 											<!--begin::Header-->
 											<div class="card-header border-0 pt-5">
 												<h3 class="card-title align-items-start flex-column">
-													<span class="card-label font-weight-bolder text-dark">Tasks Overview</span>
+													<span class="card-label font-weight-bolder text-dark">Javascript Code</span>
 													<span class="text-muted mt-3 font-weight-bold font-size-sm">Pending 10 tasks</span>
 												</h3>
 												
@@ -1124,7 +1125,7 @@
                                     </div>
                                     </div>
 									<div class="col-6 " >
-										<iframe id="previewpane"  style="width: 100%; height: 100%; border: none; "></iframe>
+										<iframe id="previewpane"  style="width: 100%; height: 100%; border: 2px solid black; "></iframe>
                                     </div>
 								</div>
 								</div>

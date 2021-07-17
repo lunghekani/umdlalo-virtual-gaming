@@ -15,15 +15,6 @@ namespace UmdlaloVirtualGaming.Pages.auth
     {
 
         /// <summary>
-        /// kt_login_signin_form control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm kt_login_signin_form;
-
-        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -51,57 +42,57 @@ namespace UmdlaloVirtualGaming.Pages.auth
         protected global::System.Web.UI.HtmlControls.HtmlButton kt_login_signin_submit;
 
         /// <summary>
-        /// kt_login_signup_form control.
+        /// emailTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm kt_login_signup_form;
+        protected global::System.Web.UI.HtmlControls.HtmlButton emailTest;
 
         /// <summary>
-        /// txtFullname control.
+        /// txtSignUpFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFullname;
+        protected global::System.Web.UI.WebControls.TextBox txtSignUpFullName;
 
         /// <summary>
-        /// txtLastname control.
+        /// txtSignUpLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLastname;
+        protected global::System.Web.UI.WebControls.TextBox txtSignUpLastName;
 
         /// <summary>
-        /// txtemaill control.
+        /// txtSignUpEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtemaill;
+        protected global::System.Web.UI.WebControls.TextBox txtSignUpEmail;
 
         /// <summary>
-        /// txtpassword control.
+        /// txtSignUpPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtpassword;
+        protected global::System.Web.UI.WebControls.TextBox txtSignUpPassword;
 
         /// <summary>
-        /// kt_login_signup_submit control.
+        /// btnSignUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton kt_login_signup_submit;
+        protected global::System.Web.UI.WebControls.Button btnSignUp;
     }
 }

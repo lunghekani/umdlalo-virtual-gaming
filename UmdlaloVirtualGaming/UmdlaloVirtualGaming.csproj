@@ -2265,6 +2265,7 @@
     <Content Include="Pages\assets\plugins\global\fonts\socicon\socicon.svg" />
     <Content Include="Pages\assets\plugins\global\plugins.bundle.css" />
     <Content Include="Pages\assets\plugins\global\plugins.bundle.js" />
+    <Content Include="Pages\auth\email-reg.html" />
     <Content Include="Pages\auth\HelloWorld.aspx" />
     <Content Include="Pages\auth\index.aspx" />
     <Content Include="Pages\auth\WebForm2.aspx" />
@@ -2282,6 +2283,7 @@
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\lecturer\rest-chat-get.aspx" />
     <Content Include="Pages\student\code.aspx" />
+    <Content Include="Pages\student\HtmlPage1.html" />
     <Content Include="Pages\student\rest-chat-get.aspx" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
     <Content Include="Pages\student\student-chat-new.aspx" />

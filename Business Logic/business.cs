@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Configuration;
 using System.Net.Mail;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Web;
 
@@ -20,6 +21,8 @@ namespace Business_Logic
         public string msg { get; set; }
         public string uid { get; set; }
     }
+
+   
 
     public class clsAuthentication
     {
@@ -40,8 +43,42 @@ namespace Business_Logic
 
             return hashedPassword;
         }
+        //pumi's code for signup
+        public clsBasicUserDetails AddUser(string User_Name, string User_LstName, string User_Email, string User_Password)
+        {
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
 
-        public clsBasicUserDetails authUser(string username, string password)
+            cmd.CommandText = "New_User_Add";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Guid userGuid = Guid.NewGuid();
+            cmd.Parameters.AddWithValue("@UserID_In", userGuid.ToString());
+            cmd.Parameters.AddWithValue("@UserName_In", User_Name);
+            cmd.Parameters.AddWithValue("@UserLastName_In", User_LstName);
+            cmd.Parameters.AddWithValue("@UserEmail_In", User_Email);
+            cmd.Parameters.AddWithValue("@UserPassword_In", HashPassword(User_Password));
+            cmd.Parameters.AddWithValue("@DateAdded", DateTime.Now);
+            cmd.Parameters.AddWithValue("@UserRole_In", "Student");
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return new clsBasicUserDetails
+                {
+                    msg = "Success",
+                    uid = userGuid.ToString()
+                };
+            }
+            catch (Exception ex)
+            {
+                return new clsBasicUserDetails
+                {
+                    msg = ex.Message
+                };
+                throw;
+            }
+        }
+        public clsBasicUserDetails AuthUser(string username, string password)
         {
             var cmd = new MySqlCommand
             {
@@ -51,7 +88,7 @@ namespace Business_Logic
             };
 
             cmd.Parameters.AddWithValue("userEmail_IN", username);
-            cmd.Parameters.AddWithValue("UserPass_IN", HashPassword(password));
+            cmd.Parameters.AddWithValue("UserPass_IN", HashPassword((password)));
             cmd.Parameters.Add("Authenticated", MySqlDbType.Int64);
             cmd.Parameters.Add("userID_OUT", MySqlDbType.VarChar, 50);
             cmd.Parameters["Authenticated"].Direction = ParameterDirection.Output;
@@ -85,6 +122,8 @@ namespace Business_Logic
 
     public class clsUserDetails
     {
+        private clsAuthentication authclass = new clsAuthentication();
+        private clsDataConnection objConn = new clsDataConnection();
         public DataTable GetUserAccDetails(string userID)
         {
             clsDataConnection objConn = new clsDataConnection();
@@ -111,7 +150,7 @@ namespace Business_Logic
                 {
                     while (sqlReader.Read())
                     {
-                        string firstname = sqlReader.GetValue(0).ToString();
+                        string firstname = sqlReader.GetString(0);
                         string lastname = sqlReader.GetValue(1).ToString();
                         string email = sqlReader.GetValue(2).ToString();
                         string lastlogin = sqlReader.GetValue(3).ToString();
@@ -133,36 +172,8 @@ namespace Business_Logic
             conn.Close();
             return dt;
         }
-
-        public string CreateUserAcc(string username, string lastname, string email, string password, DateTime date,
-            string role = "Student")
-        {
-            clsDataConnection objConn = new clsDataConnection();
-            Guid obj = Guid.NewGuid();
-            var cmd = new MySqlCommand();
-            cmd.Connection = objConn.CreateSQLConnection();
-
-            cmd.CommandText = "Modules_Create";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@UserID_In", obj.ToString());
-            cmd.Parameters.AddWithValue("@UserName_In", username);
-            cmd.Parameters.AddWithValue("@UserLastName_In", lastname);
-            cmd.Parameters.AddWithValue("@UserEmail_In", email);
-            cmd.Parameters.AddWithValue("@UserPassword_In", password);
-            cmd.Parameters.AddWithValue("@DateAdded", date);
-            cmd.Parameters.AddWithValue("@UserRole_In", role);
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-                return "Success";
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-                throw;
-            }
-        }
+       
+       
     }
 
     public class clsModuleOperations
@@ -197,39 +208,12 @@ namespace Business_Logic
         }
     }
 
-    //pumi's code for signup
-    public class NewUserAdd
-    {
-        private clsDataConnection objConn = new clsDataConnection();
-
-        public string AddUser(string User_Name, string User_LstName, string User_Email, string User_Password)
-        {
-            var cmd = new MySqlCommand();
-            cmd.Connection = objConn.CreateSQLConnection();
-
-            cmd.CommandText = "New_User_Add";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@UserName_IN", User_Name);
-            cmd.Parameters.AddWithValue("@UserLastName_IN", User_LstName);
-            cmd.Parameters.AddWithValue("@User_Email_IN", User_Email);
-            cmd.Parameters.AddWithValue("@UserPassword_IN", User_Password);
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-                return "Success";
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-                throw;
-            }
-        }
-    }
+    
+    
 
     public class clsCommunicate
     {
-        public static void SendEmail(string mailto, string subject, string body)
+        public  void SendEmail(string mailto, string subject, string body)
         {
             SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
             using (MailMessage mm = new MailMessage(smtpSection.From, mailto))
@@ -237,6 +221,26 @@ namespace Business_Logic
                 mm.Subject = subject;
                 mm.Body = body;
                 mm.IsBodyHtml = false;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = smtpSection.Network.Host;
+                smtp.EnableSsl = smtpSection.Network.EnableSsl;
+                NetworkCredential networkCred =
+                    new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
+                smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
+                smtp.Credentials = networkCred;
+                smtp.Port = smtpSection.Network.Port;
+                smtp.Send(mm);
+            }
+        }
+
+        public  void SendHTMLEmail(string mailto, string subject, string body)
+        {
+            SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+            using (MailMessage mm = new MailMessage(smtpSection.From, mailto))
+            {
+                mm.Subject = subject;
+                mm.Body = body;
+                mm.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = smtpSection.Network.Host;
                 smtp.EnableSsl = smtpSection.Network.EnableSsl;
