@@ -206,7 +206,44 @@ namespace Business_Logic
                 throw;
             }
         }
+        //Start: Project creation command
+        public string CreateProject(string proj_Name, string User_id) 
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var cmd_session = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{User_id}' LIMIT 1", objConn);
+                var sqlReader = cmd_session.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    var name = sqlReader.GetValue(0).ToString();
+                    HttpContext.Current.Session["user_name"] = User_id;
+                }
+            }
+
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Projects_Create";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Name_IN", proj_Name);
+            cmd.Parameters.AddWithValue("@User_ID_IN", User_id);
+            
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return"Success";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+                throw;
+            }
+
+        }
+        //End of project creation command
     }
+
+    
 
     
     
