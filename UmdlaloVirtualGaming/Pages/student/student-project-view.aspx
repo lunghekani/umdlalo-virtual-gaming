@@ -87,7 +87,7 @@
 												<!--end::Label-->
 												<!--begin::Buttons-->
 												<div class="mt-9">
-													<a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase">view project</a>
+													<a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase" id="btnViewproject" OnClick="btnViewProject_OnClick" runat="server">view project</a>
 												</div>
 												<!--end::Buttons-->
 											</div>

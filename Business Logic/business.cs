@@ -241,12 +241,67 @@ namespace Business_Logic
 
         }
         //End of project creation command
+
+
+        //Start: Project View command
+        public DataTable View_Project(string hTML, string jSS, int User_ID)
+        {
+            clsDataConnection objConn = new clsDataConnection();
+            var dt = new DataTable();
+
+            HttpContext.Current.Session["user_id"] = User_ID;
+
+            dt.Columns.Add("HTML", typeof(string));
+            dt.Columns.Add("JSS", typeof(string));
+            dt.Columns.Add("CSS", typeof(string));
+
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Project_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("User_ID_IN", User_ID);
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    while (sqlReader.Read())
+                    {
+                        string HTML = sqlReader.GetString(0);
+                        string JSS = sqlReader.GetValue(1).ToString();
+                        string CSS = sqlReader.GetValue(2).ToString();
+
+
+                        dt.Rows.Add(HTML, JSS, CSS);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+            }
+
+            conn.Close();
+            return dt;
+        }
+
+        public object View_Project(string hTML, string jSS, string cSS)
+        {
+            throw new NotImplementedException();
+        }
+        //End: Project View command
     }
 
-    
 
-    
-    
+
 
     public class clsCommunicate
     {
