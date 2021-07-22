@@ -244,7 +244,7 @@ namespace Business_Logic
 
 
         //Start: Project View command
-        public DataTable View_Project(string hTML, string jSS, int User_ID)
+        public DataTable View_Project(int User_ID)
         {
             clsDataConnection objConn = new clsDataConnection();
             var dt = new DataTable();
