@@ -10,7 +10,7 @@ namespace UmdlaloVirtualGaming.Pages.auth
     public partial class index : System.Web.UI.Page
     {
         public clsAuthentication authclass = new clsAuthentication();
-        public clsModuleOperations objModOperations = new clsModuleOperations();
+        public clsCourseOperations objModOperations = new clsCourseOperations();
         public clsCommunicate communicateclass = new clsCommunicate();
         public clsUserDetails userclass = new clsUserDetails();
         public MySqlConnection conn;

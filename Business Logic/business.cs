@@ -176,7 +176,7 @@ namespace Business_Logic
        
     }
 
-    public class clsModuleOperations
+    public class clsCourseOperations
     {
         private clsDataConnection objConn = new clsDataConnection();
 
@@ -206,20 +206,26 @@ namespace Business_Logic
                 throw;
             }
         }
+    
+    }
+
+    public class clsProjects
+    {
         //Start: Project creation command
         public string CreateProject(string proj_Name, string User_id) 
         {
-            using (var objConn = new clsDataConnection().CreateSQLConnection())
-            {
-                var cmd_session = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{User_id}' LIMIT 1", objConn);
-                var sqlReader = cmd_session.ExecuteReader();
-                while (sqlReader.Read())
-                {
-                    var name = sqlReader.GetValue(0).ToString();
-                    HttpContext.Current.Session["user_name"] = User_id;
-                }
-            }
-
+            //using (var objConn = new clsDataConnection().CreateSQLConnection())
+            //{
+            //    var cmd_session = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{User_id}' LIMIT 1", objConn);
+            //    var sqlReader = cmd_session.ExecuteReader();
+            //    while (sqlReader.Read())
+            //    {
+            //        var name = sqlReader.GetValue(0).ToString();
+            //        HttpContext.Current.Session["user_name"] = User_id;
+            //    }
+            //}
+            // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
+            var objConn = new clsDataConnection();
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
 
@@ -242,8 +248,6 @@ namespace Business_Logic
         }
         //End of project creation command
     }
-
-    
 
     
     
