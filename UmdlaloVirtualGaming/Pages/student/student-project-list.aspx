@@ -19,8 +19,8 @@
 													<!--begin::Info-->
 													<div class="d-flex flex-column mr-auto">
 														<!--begin: Title-->
-														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1">Nexa - Next generation SAAS</a>
-														<span class="text-muted font-weight-bold">Creates Limitless possibilities</span>
+														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1">Kgati-project</a>
+														<span class="text-muted font-weight-bold">A skipping game</span>
 														<!--end::Title-->
 													</div>
 													<!--end::Info-->
@@ -113,18 +113,18 @@
 												<!--begin::Blog-->
 												<div class="d-flex flex-wrap">
 													<!--begin: Item-->
-													<div class="mr-12 d-flex flex-column mb-7">
+													<%--<div class="mr-12 d-flex flex-column mb-7">
 														<span class="font-weight-bolder mb-4">Budget</span>
 														<span class="font-weight-bolder font-size-h5 pt-1">
 														<span class="font-weight-bold text-dark-50">$</span>249,500</span>
-													</div>
+													</div>--%>
 													<!--end::Item-->
 													<!--begin::Item-->
-													<div class="mr-12 d-flex flex-column mb-7">
+													<%--<div class="mr-12 d-flex flex-column mb-7">
 														<span class="font-weight-bolder mb-4">Expenses</span>
 														<span class="font-weight-bolder font-size-h5 pt-1">
 														<span class="font-weight-bold text-dark-50">$</span>439,500</span>
-													</div>
+													</div>--%>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-column flex-lg-fill float-left mb-7">
@@ -208,8 +208,8 @@
 													<!--begin::Info-->
 													<div class="d-flex flex-column mr-auto">
 														<!--begin: Title-->
-														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1">B &amp; Q - Food Company</a>
-														<span class="text-muted font-weight-bold">Tasty food for everyone</span>
+														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1">Bunka- project</a>
+														<span class="text-muted font-weight-bold">A banking game </span>
 														<!--end::Title-->
 													</div>
 													<!--end::Info-->
@@ -277,11 +277,11 @@
 												<div class="d-flex flex-wrap mt-14">
 													<div class="mr-12 d-flex flex-column mb-7">
 														<span class="d-block font-weight-bold mb-4">Start Date</span>
-														<span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text">14 Jan, 16</span>
+														<span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text">14 Jan, 18</span>
 													</div>
 													<div class="mr-12 d-flex flex-column mb-7">
 														<span class="d-block font-weight-bold mb-4">Due Date</span>
-														<span class="btn btn-light-danger btn-sm font-weight-bold btn-upper btn-text">21 Nov, 18</span>
+														<span class="btn btn-light-danger btn-sm font-weight-bold btn-upper btn-text">21 Nov, 21</span>
 													</div>
 													<!--begin::Progress-->
 													<div class="flex-row-fluid mb-7">
@@ -302,18 +302,18 @@
 												<!--begin::Blog-->
 												<div class="d-flex flex-wrap">
 													<!--begin: Item-->
-													<div class="mr-12 d-flex flex-column mb-7">
+													<%--<div class="mr-12 d-flex flex-column mb-7">
 														<span class="font-weight-bolder mb-4">Budget</span>
 														<span class="font-weight-bolder font-size-h5 pt-1">
 														<span class="font-weight-bold text-dark-50">$</span>249,500</span>
-													</div>
+													</div>--%>
 													<!--end::Item-->
 													<!--begin::Item-->
-													<div class="mr-12 d-flex flex-column mb-7">
+													<%--<div class="mr-12 d-flex flex-column mb-7">
 														<span class="font-weight-bolder mb-4">Expenses</span>
 														<span class="font-weight-bolder font-size-h5 pt-1">
 														<span class="font-weight-bold text-dark-50">$</span>439,700</span>
-													</div>
+													</div>--%>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-column flex-lg-fill float-left mb-7">

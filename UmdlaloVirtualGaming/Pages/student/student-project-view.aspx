@@ -18,12 +18,12 @@
 														</a>
 														<div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
 															<!--begin::Navigation-->
-															<ul class="navi navi-hover">
+															<%--	<ul class="navi navi-hover">
 																<li class="navi-header font-weight-bold py-4">
 																	<span class="font-size-lg">Choose Label:</span>
 																	<i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
 																</li>
-																<li class="navi-separator mb-3 opacity-70"></li>
+																<%--<li class="navi-separator mb-3 opacity-70"></li>
 																<li class="navi-item">
 																	<a href="#" class="navi-link">
 																		<span class="navi-text">
@@ -64,7 +64,7 @@
 																	<a class="btn btn-clean font-weight-bold btn-sm" href="#">
 																	<i class="ki ki-plus icon-sm"></i>Add new</a>
 																</li>
-															</ul>
+															</ul>--%>
 															<!--end::Navigation-->
 														</div>
 													</div>
@@ -79,7 +79,7 @@
 												<!--end::User-->
 												<!--begin::Name-->
 												<div class="my-4">
-													<a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Air B - Real Estate</a>
+													<a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Diketo- Project</a>
 												</div>
 												<!--end::Name-->
 												<!--begin::Label-->
@@ -109,7 +109,7 @@
 														</a>
 														<div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
 															<!--begin::Navigation-->
-															<ul class="navi navi-hover">
+															<%--	<ul class="navi navi-hover">
 																<li class="navi-header font-weight-bold py-4">
 																	<span class="font-size-lg">Choose Label:</span>
 																	<i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
@@ -155,7 +155,7 @@
 																	<a class="btn btn-clean font-weight-bold btn-sm" href="#">
 																	<i class="ki ki-plus icon-sm"></i>Add new</a>
 																</li>
-															</ul>
+															</ul>--%>
 															<!--end::Navigation-->
 														</div>
 													</div>
@@ -170,7 +170,7 @@
 												<!--end::User-->
 												<!--begin::Name-->
 												<div class="my-4">
-													<a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Ad Brand - Fashion Footwear</a>
+													<a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Kgati- project</a>
 												</div>
 												<!--end::Name-->
 												<!--begin::Label-->
@@ -178,7 +178,7 @@
 												<!--end::Label-->
 												<!--begin::Buttons-->
 												<div class="mt-9">
-													<a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase">view project</a>
+													<a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase" id="btnView_project" OnClick="btnViewProject_OnClick" runat="server">view project</a>
 												</div>
 												<!--end::Buttons-->
 											</div>
@@ -199,7 +199,7 @@
 														</a>
 														<div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
 															<!--begin::Navigation-->
-															<ul class="navi navi-hover">
+													<%--		<ul class="navi navi-hover">
 																<li class="navi-header font-weight-bold py-4">
 																	<span class="font-size-lg">Choose Label:</span>
 																	<i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
@@ -245,7 +245,7 @@
 																	<a class="btn btn-clean font-weight-bold btn-sm" href="#">
 																	<i class="ki ki-plus icon-sm"></i>Add new</a>
 																</li>
-															</ul>
+															</ul>--%>
 															<!--end::Navigation-->
 														</div>
 													</div>
@@ -260,7 +260,7 @@
 												<!--end::User-->
 												<!--begin::Name-->
 												<div class="my-4">
-													<a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Nexa - Next generation SAAS</a>
+													<a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Bunka-project</a>
 												</div>
 												<!--end::Name-->
 												<!--begin::Label-->
@@ -268,7 +268,7 @@
 												<!--end::Label-->
 												<!--begin::Buttons-->
 												<div class="mt-9">
-													<a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase">view project</a>
+													<a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase" id="btn_Viewproject" OnClick="btnViewProject_OnClick" runat="server">view project</a>
 												</div>
 												<!--end::Buttons-->
 											</div>
