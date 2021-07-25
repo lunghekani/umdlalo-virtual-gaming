@@ -20,39 +20,39 @@ namespace UmdlaloVirtualGaming.Pages.student
         }
 
         //code to view the coding platform when view project is clciked 
-        protected void btnViewProject_OnClick(object sender, EventArgs e)
-        {
-            string HTML, JSS, CSS/*, FRAME*/;
+        //protected void btnViewProject_OnClick(object sender, EventArgs e)
+        //{
+        //    string HTML, JSS, CSS/*, FRAME*/;
 
-            HTML = btnViewproject.InnerHtml.Trim();
-            JSS = btnViewproject.InnerHtml.Trim();
-            CSS = btnViewproject.InnerHtml.Trim();
-            //FRAME = btnViewproject.Text.Trim();
+        //    HTML = btnViewproject.InnerHtml.Trim();
+        //    JSS = btnViewproject.InnerHtml.Trim();
+        //    CSS = btnViewproject.InnerHtml.Trim();
+        //    //FRAME = btnViewproject.Text.Trim();
 
-            if (!Page.IsPostBack)
-            {
-                if (HttpContext.Current.Session["user_id"] != null)
-                {
-                    var dt = objModOperations.View_Project(HTML, JSS, CSS);
+        //    if (!Page.IsPostBack)
+        //    {
+        //        if (HttpContext.Current.Session["user_id"] != null)
+        //        {
+        //            var dt = objModOperations.View_Project(HTML, JSS, CSS);
 
-                    if (HTML = btnViewproject.InnerHtml = dt.Rows[0].Field<string>("HTML")) 
-                    {
-                        Response.Redirect("~/Pages/student/code.aspx");
-                    }
-                    else if ( JSS = btnViewproject.InnerHtml= dt.Rows[0].Field<string>("JSS"))
-                    {
-                        Response.Redirect("~/Pages/student/code.aspx");
-                    }
-                    else if (CSS = btnViewproject.InnerHtml= dt.Rows[0].Field<string>("CSS"))
-                    {
-                        Response.Redirect("~/Pages/student/code.aspx");
-                    }              
+        //            if (HTML = btnViewproject.InnerHtml = dt.Rows[0].Field<string>("HTML")) 
+        //            {
+        //                Response.Redirect("~/Pages/student/code.aspx");
+        //            }
+        //            else if ( JSS = btnViewproject.InnerHtml= dt.Rows[0].Field<string>("JSS"))
+        //            {
+        //                Response.Redirect("~/Pages/student/code.aspx");
+        //            }
+        //            else if (CSS = btnViewproject.InnerHtml= dt.Rows[0].Field<string>("CSS"))
+        //            {
+        //                Response.Redirect("~/Pages/student/code.aspx");
+        //            }              
                                
-                }
-            }
+        //        }
+        //    }
                 
             
-        }
+        //}
 
 
     }
