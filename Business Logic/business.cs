@@ -309,7 +309,67 @@ namespace Business_Logic
             return dt; //Forgot to put a curly bracket and a return statement in the code
         }
 
-        
+        public DataTable GetAllProjects()
+        {
+            clsDataConnection objConn = new clsDataConnection();
+            var dt = new DataTable();
+            // Removed this because this gets passed in
+            // HttpContext.Current.Session["user_id"] = User_ID;
+
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Likes", typeof(string));
+            dt.Columns.Add("Comments", typeof(string));
+            dt.Columns.Add("Views", typeof(string));
+            dt.Columns.Add("HTMLLines", typeof(string));
+            dt.Columns.Add("JSSLines", typeof(string));
+            dt.Columns.Add("CSSLines", typeof(string));
+            dt.Columns.Add("DateCreated", typeof(DateTime));
+            dt.Columns.Add("Enabled", typeof(int));
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            //incorrect procedure name
+            cmd.CommandText = "E_Sports_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    while (sqlReader.Read())
+                    {
+
+                        int Id =Convert.ToInt32(sqlReader.GetValue(0));
+                        string name = sqlReader.GetValue(1).ToString();
+                        string likes = Convert.ToInt32( sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32( sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32( sqlReader.GetValue(4)).ToString("##,###");
+                        string HTML = sqlReader.GetValue(5).ToString().Split('\n').Length.ToString("##,###");
+                        string CSS = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
+                        string JSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
+                       string datecreated = Convert.ToDateTime( sqlReader.GetValue(8)).ToString("D");
+                       int enabled = Convert.ToInt32( sqlReader.GetValue(9));
+                        dt.Rows.Add(Id,name,likes,comments,views,HTML,JSS,CSS,datecreated,enabled);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+            }
+
+            return dt; //Forgot to put a curly bracket and a return statement in the code
+
+            
+        }
 
     }
     public class clsCommunicate

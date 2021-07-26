@@ -2285,6 +2285,8 @@
     <Content Include="Pages\student\code.aspx" />
     <Content Include="Pages\student\HtmlPage1.html" />
     <Content Include="Pages\student\rest-chat-get.aspx" />
+    <Content Include="Pages\student\sampleproject.txt" />
+    <Content Include="Pages\student\singleproj.html" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
     <Content Include="Pages\student\student-chat-new.aspx" />
     <Content Include="Pages\student\student-chat-view.aspx" />

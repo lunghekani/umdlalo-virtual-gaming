@@ -1,10 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="student-project-list.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.student.student_project_list" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-	<div class="row" id="projectInstance" runat="server"></div>
-    <div class="row">
-									<div class="col-6">
+﻿	<div class="col-6">
 										<!--begin::Card-->
 										<div class="card card-custom gutter-b card-stretch">
 											<!--begin::Body-->
@@ -13,13 +7,13 @@
 												<div class="d-flex align-items-center">
 													<!--begin::Pic-->
 													<div class="flex-shrink-0 mr-4 symbol symbol-65 symbol-circle">
-														<img src="/Pages/assets/media/project-logos/3.png" alt="image">
+														<img src="#projectPP#" alt="image">
 													</div>
 													<!--end::Pic-->
 													<!--begin::Info-->
 													<div class="d-flex flex-column mr-auto">
 														<!--begin: Title-->
-														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1" id="lblProjectName" runat="server">Nexa - Next generation SAAS</a>
+														<a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1" >#projectName#</a>
                                                         <!--end::Title-->
 													</div>
 													<!--end::Info-->
@@ -87,7 +81,7 @@
 												<div class="d-flex flex-wrap mt-14">
 													<div class="mr-12 d-flex flex-column mb-7">
 														<span class="d-block font-weight-bold mb-4">Created Date</span>
-														<span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text" id="lblProjectDate" runat="server">14 Jan, 16</span>
+														<span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text">#projectCreatedDate#</span>
 													</div>
 											
 												<%--	<!--begin::Progress-->
@@ -110,23 +104,23 @@
 												<div class="d-flex flex-wrap">
 													<!--begin: Item-->
 													<div class="mr-12 d-flex flex-column mb-7">
-														<span class="font-weight-bolder mb-4">Likes</span>
+														<span class="font-weight-bolder mb-4">HTML Lines</span>
 														<span class="font-weight-bolder font-size-h5 pt-1">
-														<span class="font-weight-bold text-dark-50" id="lblHTML" runat="server"></span>249,500</span>
+														<span class="font-weight-bold text-dark-50" ></span>#projectHTMLLines#</span>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="mr-12 d-flex flex-column mb-7">
-														<span class="font-weight-bolder mb-4">Comments</span>
+														<span class="font-weight-bolder mb-4">CSS Lines</span>
 														<span class="font-weight-bolder font-size-h5 pt-1">
-														<span class="font-weight-bold text-dark-50" id="lblCSS" runat="server"></span>439,500</span>
+														<span class="font-weight-bold text-dark-50" ></span>#projectCssLines#</span>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
                                                     <div class="mr-12 d-flex flex-column mb-7">
-                                                        <span class="font-weight-bolder mb-4">Views</span>
+                                                        <span class="font-weight-bolder mb-4">JS Lines</span>
                                                         <span class="font-weight-bolder font-size-h5 pt-1">
-                                                            <span class="font-weight-bold text-dark-50" id="lblJS" runat="server"></span>439,500</span>
+                                                            <span class="font-weight-bold text-dark-50" ></span>#projectJsLines#</span>
                                                     </div>
 													<!--end::Item-->
 												</div>
@@ -148,7 +142,7 @@
 															</svg>
 															<!--end::Svg Icon-->
 														</span>
-														<a href="#" class="font-weight-bolder text-primary ml-2" id="lblProjectLikes" runat="server">72 Tasks</a>
+														<a href="#" class="font-weight-bolder text-primary ml-2">#projectLikes# Likes</a>
 													</div>
 													<div class="d-flex align-items-center mr-7">
 														<span class="svg-icon svg-icon-gray-500">
@@ -162,7 +156,7 @@
 															</svg>
 															<!--end::Svg Icon-->
 														</span>
-														<a href="#" class="font-weight-bolder text-primary ml-2" id="lblProjectComments" runat="server">648 Comments</a>
+														<a href="#" class="font-weight-bolder text-primary ml-2" >#projectComments# Comments</a>
 													</div>
 														<div class="d-flex align-items-center mr-7">
 														<span class="svg-icon svg-icon-gray-500">
@@ -176,17 +170,12 @@
 															</svg>
 															<!--end::Svg Icon-->
 														</span>
-														<a href="#" class="font-weight-bolder text-primary ml-2" id="lblProjectViews" runat="server">648 Views</a>
+														<a href="#" class="font-weight-bolder text-primary ml-2">#projectViews# Views</a>
 													</div>
 												</div>
-												<button type="button" class="btn btn-primary btn-sm text-uppercase font-weight-bolder mt-5 mt-sm-0 mr-auto mr-sm-0 ml-sm-auto">Views</button>
+												<a href='student-project-view.aspx?ID=#projectID#' class="btn btn-primary btn-sm text-uppercase font-weight-bolder mt-5 mt-sm-0 mr-auto mr-sm-0 ml-sm-auto">View</a>
 											</div>
 											<!--end::Footer-->
 										</div>
 										<!--end::Card-->
 									</div>
-									
-								</div>
-
-
-</asp:Content>
