@@ -1,5 +1,7 @@
 ﻿using System;
+using Business_Logic;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,21 +16,51 @@ namespace UmdlaloVirtualGaming.Pages.student
         public clsAuthentication authclass = new clsAuthentication();
         public clsCourseOperations objModOperations = new clsCourseOperations();
         public clsCommunicate communicateclass = new clsCommunicate();
-        public clsProjects projectclass = new clsProjects();
         public clsUserDetails userclass = new clsUserDetails();
-        public MySqlConnection conn;
+        public clsProjects projectclass = new clsProjects();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            PopulateCode(1);   
         }
-
-        protected void btnCreateProject_OnClick(object sender, EventArgs e)
+        
+        protected void PopulateCode(int projectID)
         {
-            var name = txtName.Text.Trim();
-            var userid = Session["user_id"].ToString();
-            var msg = projectclass.CreateProject(name, userid);
+            int likes, comments, views;
+            DateTime date;
 
-            Response.Redirect("code.aspx");
+
+
+                var dt = projectclass.View_Project(projectID); // this is where the business code you created gets called
+            // this is how you populate the elements on the front end
+            
+            likes =dt.Rows[0].Field<int>("Likes");
+            comments =dt.Rows[0].Field<int>("Comments");
+            views =dt.Rows[0].Field<int>("Views");
+            date = dt.Rows[0].Field<DateTime>("DateCreated");
+            string details = $"Likes: {likes} \t Comments: {comments} \t Views:{views} \t\t Date Created: {date.ToString("D")}";
+            spName.InnerText = dt.Rows[0].Field<string>("Name");
+            spSubDetails.InnerText = details;
+           htmlCode.InnerText= dt.Rows[0].Field<string>("HTML");
+           cssCode.InnerText= dt.Rows[0].Field<string>("CSS");
+           jsCode.InnerText= dt.Rows[0].Field<string>("JSS");
+          
+        }
+        protected void btnViewProject_OnClick(object sender, EventArgs e)
+        {
+            //string HTML, JSS, CSS/*, FRAME*/;
+
+            //HTML = btnViewproject.InnerHtml.Trim();
+            //JSS = btnViewproject.InnerHtml.Trim();
+            //CSS = btnViewproject.InnerHtml.Trim();
+            ////FRAME = btnViewproject.Text.Trim();
+
+            //if (!Page.IsPostBack)
+            //{
+            //    if (HttpContext.Current.Session["user_id"] != null)
+            //    {
+            //        var dt = objModOperations.View_Project(HTML, JSS, CSS);
+
+
         }
     }
 }

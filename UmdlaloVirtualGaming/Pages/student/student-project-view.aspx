@@ -3,316 +3,129 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
-
-
-        <h1 class="flex-sm-fill h3 my-2">Projects <small class="d-block d-sm-inline-block mt-2 mt-sm-0 font-size-base font-w400 text-muted">Keep track of all your code by storing them in projects!</small>
-        </h1>
-
-        <%--<asp:Button CssClass="btn btn-primary" ID="btnCreateProject" runat="server" Text="Create New Project"/>--%>
-        <button type="button" class="btn btn-sm btn-primary push" data-toggle="modal" data-target="#modal-block-slideup">Launch Modal</button>
+	   <!--begin::Entry-->
+	<div class="card card-custom card-stretch gutter-b">
+    <!--begin::Header-->
+    <div class="card-header border-0 pt-5">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label font-weight-bolder text-dark"  id="spName" runat="server">HTML Code</span>
+            <span class="text-muted mt-3 font-weight-bold font-size-sm" id="spSubDetails" runat="server">0 Lines</span>
+        </h3>
     </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body pt-8">
+        <div class="row">
 
+										<div class="col-6">
 
+											<div class="row">
+												<%--HTML Container--%>
+												<div class="col-12">
+													<!--begin::List Widget 1-->
+													<div class="card card-custom card-stretch gutter-b">
+														<!--begin::Header-->
+														<div class="card-header border-0 pt-5">
+															<h3 class="card-title align-items-start flex-column">
+																<span class="card-label font-weight-bolder text-dark">HTML Code</span>
+																<span class="text-muted mt-3 font-weight-bold font-size-sm" >0 Lines</span>
+															</h3>
+														</div>
+														<!--end::Header-->
+														<!--begin::Body-->
+														<div class="card-body pt-8">
+															<%--code here--%>
+															<textarea id="htmlCode" cols="65" rows="2" runat="server" ClientIDMode="Static" oninput="showPreview()"></textarea>
+														</div>
+														<!--end::Body-->
+													</div>
+													<!--end::List Widget 1-->
+												</div>
+											</div>
+											<div class="row">
 
-    <div class="row">
-        <!--begin::Column-->
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-            <!--begin::Card-->
-            <div class="card card-custom gutter-b card-stretch">
-                <!--begin::Body-->
-                <div class="card-body text-center pt-4">
-                    <!--begin::Toolbar-->
-                    <div class="d-flex justify-content-end">
-                        <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-                            <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ki ki-bold-more-hor"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                                <!--begin::Navigation-->
-                                <ul class="navi navi-hover">
-                                    <li class="navi-header font-weight-bold py-4">
-                                        <span class="font-size-lg">Choose Label:</span>
-                                        <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
-                                    </li>
-                                    <li class="navi-separator mb-3 opacity-70"></li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-success">Customer</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-danger">Partner</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-warning">Suplier</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-primary">Member</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-dark">Staff</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-separator mt-3 opacity-70"></li>
-                                    <li class="navi-footer py-4">
-                                        <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                            <i class="ki ki-plus icon-sm"></i>Add new</a>
-                                    </li>
-                                </ul>
-                                <!--end::Navigation-->
-                            </div>
-                        </div>
-                    </div>
-                    <!--end::Toolbar-->
-                    <!--begin::User-->
-                    <div class="mt-7">
-                        <div class="symbol symbol-circle symbol-lg-90">
-                            <img src="assets/media/project-logos/1.png" alt="image">
-                        </div>
-                    </div>
-                    <!--end::User-->
-                    <!--begin::Name-->
-                    <div class="my-4">
-                        <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Air B - Real Estate</a>
-                    </div>
-                    <!--end::Name-->
-                    <!--begin::Label-->
-                    <span class="btn btn-text btn-light-warning btn-sm font-weight-bold">Active</span>
-                    <!--end::Label-->
-                    <!--begin::Buttons-->
-                    <div class="mt-9">
-                        <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase">view project</a>
-                    </div>
-                    <!--end::Buttons-->
-                </div>
-                <!--end::Body-->
-            </div>
-            <!--end::Card-->
-        </div>
-        <!--end::Column-->
-        <!--begin::Column-->
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-            <div class="card card-custom card-stretch gutter-b">
-                <!--begin::Body-->
-                <div class="card-body text-center pt-4">
-                    <!--begin::Toolbar-->
-                    <div class="d-flex justify-content-end">
-                        <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-                            <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ki ki-bold-more-hor"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                                <!--begin::Navigation-->
-                                <ul class="navi navi-hover">
-                                    <li class="navi-header font-weight-bold py-4">
-                                        <span class="font-size-lg">Choose Label:</span>
-                                        <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
-                                    </li>
-                                    <li class="navi-separator mb-3 opacity-70"></li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-success">Customer</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-danger">Partner</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-warning">Suplier</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-primary">Member</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-dark">Staff</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-separator mt-3 opacity-70"></li>
-                                    <li class="navi-footer py-4">
-                                        <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                            <i class="ki ki-plus icon-sm"></i>Add new</a>
-                                    </li>
-                                </ul>
-                                <!--end::Navigation-->
-                            </div>
-                        </div>
-                    </div>
-                    <!--end::Toolbar-->
-                    <!--begin::User-->
-                    <div class="mt-7">
-                        <div class="symbol symbol-circle symbol-lg-90">
-                            <img src="assets/media/project-logos/2.png" alt="image">
-                        </div>
-                    </div>
-                    <!--end::User-->
-                    <!--begin::Name-->
-                    <div class="my-4">
-                        <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Ad Brand - Fashion Footwear</a>
-                    </div>
-                    <!--end::Name-->
-                    <!--begin::Label-->
-                    <span class="btn btn-text btn-light-success btn-sm font-weight-bold">Active</span>
-                    <!--end::Label-->
-                    <!--begin::Buttons-->
-                    <div class="mt-9">
-                        <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase">view project</a>
-                    </div>
-                    <!--end::Buttons-->
-                </div>
-                <!--end::Body-->
-            </div>
-        </div>
-        <!--end::Column-->
-        <!--begin::Column-->
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-            <div class="card card-custom card-stretch gutter-b">
-                <!--begin::Body-->
-                <div class="card-body text-center pt-4">
-                    <!--begin::Toolbar-->
-                    <div class="d-flex justify-content-end">
-                        <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-                            <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ki ki-bold-more-hor"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                                <!--begin::Navigation-->
-                                <ul class="navi navi-hover">
-                                    <li class="navi-header font-weight-bold py-4">
-                                        <span class="font-size-lg">Choose Label:</span>
-                                        <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
-                                    </li>
-                                    <li class="navi-separator mb-3 opacity-70"></li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-success">Customer</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-danger">Partner</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-warning">Suplier</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-primary">Member</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-text">
-                                                <span class="label label-xl label-inline label-light-dark">Staff</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-separator mt-3 opacity-70"></li>
-                                    <li class="navi-footer py-4">
-                                        <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                            <i class="ki ki-plus icon-sm"></i>Add new</a>
-                                    </li>
-                                </ul>
-                                <!--end::Navigation-->
-                            </div>
-                        </div>
-                    </div>
-                    <!--end::Toolbar-->
-                    <!--begin::User-->
-                    <div class="mt-7">
-                        <div class="symbol symbol-circle symbol-lg-90">
-                            <img src="assets/media/project-logos/3.png" alt="image">
-                        </div>
-                    </div>
-                    <!--end::User-->
-                    <!--begin::Name-->
-                    <div class="my-4">
-                        <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Nexa - Next generation SAAS</a>
-                    </div>
-                    <!--end::Name-->
-                    <!--begin::Label-->
-                    <span class="btn btn-text btn-light-info btn-sm font-weight-bold">Active</span>
-                    <!--end::Label-->
-                    <!--begin::Buttons-->
-                    <div class="mt-9">
-                        <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm py-3 px-6 text-uppercase">view project</a>
-                    </div>
-                    <!--end::Buttons-->
-                </div>
-                <!--end::Body-->
-            </div>
-        </div>
-        <!--end::Column-->
+												<%--Css Container--%>
+												<div class="col-12">
+													<!--begin::List Widget 1-->
+													<div class="card card-custom card-stretch gutter-b">
+														<!--begin::Header-->
+														<div class="card-header border-0 pt-5">
+															<h3 class="card-title align-items-start flex-column">
+																<span class="card-label font-weight-bolder text-dark">CSS Code</span>
+																<span class="text-muted mt-3 font-weight-bold font-size-sm">Pending 10 tasks</span>
+															</h3>
+														</div>
+														<!--end::Header-->
+														<!--begin::Body-->
+														<div class="card-body pt-8">
+															<textarea id="cssCode" cols="65" rows="2" runat="server" ClientIDMode="Static"  oninput="showPreview()" ></textarea>
+														</div>
+														<!--end::Body-->
+													</div>
+													<!--end::List Widget 1-->
+												</div>
+											</div>
+											<div class="row">
+
+												<%--JS Container--%>
+												<div class="col-12">
+													<!--begin::List Widget 1-->
+													<div class="card card-custom card-stretch gutter-b">
+														<!--begin::Header-->
+														<div class="card-header border-0 pt-5">
+															<h3 class="card-title align-items-start flex-column">
+																<span class="card-label font-weight-bolder text-dark">Javascript Code</span>
+																<span class="text-muted mt-3 font-weight-bold font-size-sm">Pending 10 tasks</span>
+															</h3>
+														</div>
+														<!--end::Header-->
+														<!--begin::Body-->
+														<div class="card-body pt-8">
+															<textarea id="jsCode" cols="65" rows="2" runat="server" ClientIDMode="Static" oninput="showPreview()"></textarea>
+														</div>
+														<!--end::Body-->
+													</div>
+													<!--end::List Widget 1-->
+												</div>
+											</div>
+										</div>
+										<div class="col-6 ">
+											<iframe id="previewpane" style="width: 100%; height: 100%; border: 2px solid black;"></iframe>
+										</div>
+									</div>
+		</div>
     </div>
-    <!-- Slide Up Block Modal -->
-    <div class="modal fade" id="modal-block-slideup" tabindex="-1" role="dialog" aria-labelledby="modal-block-slideup" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-slideup" role="document">
-            <div class="modal-content">
-                <div class="block block-themed block-transparent mb-0">
-                    <div class="block-header bg-primary-dark">
-                        <h3 class="block-title">Create a new project</h3>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                                <i class="fa fa-fw fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="block-content font-size-sm">
-                        <label for="prname">Project Name</label>
-                        <asp:TextBox CssClass="form-control" name="prname" ID="txtName" runat="server"></asp:TextBox>
+						<div class="d-flex flex-column-fluid">
+							<!--begin::Container-->
+							<div class="container-fluid">
+								<div>
+									<style>
+										textarea {
+											overflow-y: scroll;
+											height: 100px;
+											resize: none;
+										}
+									</style>
+									
+								</div>
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Entry-->
+    <%--to use the damn thing--%>
+    <script type="text/javascript">
+        function showPreview() {
+			
+            var htmlCode = document.getElementById("htmlCode").value;
+            var cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
+            var jsCode = "<scri" + "pt>" + document.getElementById("jsCode").value + "</scri" + "pt>";
+            var frame = document.getElementById("previewpane").contentWindow.document;
+            frame.open();
+            frame.write(htmlCode + cssCode + jsCode);
+            frame.close();
+        }
 
-                    </div>
-                    <div class="block-content block-content-full text-right border-top">
-                        <button type="button" class="btn btn-sm btn-light" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnCreateProject" CssClass="btn btn-primary" Text="Create Project" runat="server" OnClick="btnCreateProject_OnClick" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        
+    </script>
+    <!--JQUERY-->
 </asp:Content>
