@@ -162,7 +162,7 @@
                         Selected
 												<span id="kt_datatable_selected_records">0</span>records:
                     </div>
-                    <div class="dropdown mr-2">
+                   <%-- <div class="dropdown mr-2">
                         <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Update status</button>
                         <div class="dropdown-menu dropdown-menu-sm">
                             <ul class="nav nav-hover flex-column">
@@ -183,7 +183,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div>--%>
                     <button class="btn btn-sm btn-danger mr-2" type="button" id="kt_datatable_delete_all">Delete All</button>
                     <button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#kt_datatable_fetch_modal">Fetch Selected Records</button>
                 </div>
@@ -201,20 +201,20 @@
 											<span></span>
                                 </label>
                             </span></th>
-                            <th data-field="OrderID" class="datatable-cell datatable-cell-sort">
-                                <span style="width: 110px;">Order ID</span></th>
-                            <th data-field="Country" class="datatable-cell datatable-cell-sort">
-                                <span style="width: 110px;">Country</span></th>
-                            <th data-field="ShipAddress" class="datatable-cell datatable-cell-sort">
-                                <span style="width: 110px;">Ship Address</span></th>
-                            <th data-field="ShipDate" class="datatable-cell datatable-cell-sort">
+                            <th data-field="Item" class="datatable-cell datatable-cell-sort">
+                                <span style="width: 110px;">Item</span></th>
+                            <th data-field="Last Activity" class="datatable-cell datatable-cell-sort">
+                                <span style="width: 110px;">Last Activity</span></th>
+                            <th data-field="Mark" class="datatable-cell datatable-cell-sort">
+                                <span style="width: 110px;">Mark</span></th>
+                            <%--<th data-field="ShipDate" class="datatable-cell datatable-cell-sort">
                                 <span style="width: 110px;">Ship Date</span></th>
                             <th data-field="Status" class="datatable-cell datatable-cell-sort" style="display: none;">
                                 <span style="width: 110px;">Status</span></th>
                             <th data-field="Type" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort">
                                 <span style="width: 110px;">Type</span></th>
                             <th data-field="Actions" data-autohide-disabled="false" class="datatable-cell-left datatable-cell datatable-cell-sort">
-                                <span style="width: 125px;">Actions</span></th>
+                                <span style="width: 125px;">Actions</span></th>--%>
                         </tr>
                     </thead>
                     <tbody class="datatable-body" style="">
@@ -223,14 +223,15 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="1"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="1">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="64616-103" class="datatable-cell"><span style="width: 110px;">64616-103</span></td>
-                            <td data-field="Country" aria-label="Brazil" class="datatable-cell"><span style="width: 110px;">Brazil BR</span></td>
-                            <td data-field="ShipAddress" aria-label="698 Oriole Pass" class="datatable-cell"><span style="width: 110px;">698 Oriole Pass</span></td>
-                            <td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
+                            <td data-field="Item" aria-label="HTML" class="datatable-cell"><span style="width: 110px;">HTML</span></td>
+                            <td data-field="Last Activity" aria-label="20 February 2021" class="datatable-cell"><span style="width: 110px;">20 February 2021</span></td>
+                            <td data-field="Mark" aria-label="75" class="datatable-cell"><span style="width: 110px;">75</span></td>
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
                             <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+       <%--                         <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -265,21 +266,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="1" class="datatable-row datatable-row-even" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="2"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="2">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="54868-3377" class="datatable-cell"><span style="width: 110px;">54868-3377</span></td>
-                            <td data-field="Country" aria-label="Vietnam" class="datatable-cell"><span style="width: 110px;">Vietnam VN</span></td>
-                            <td data-field="ShipAddress" aria-label="8998 Delaware Court" class="datatable-cell"><span style="width: 110px;">8998 Delaware Court</span></td>
-                            <td data-field="ShipDate" aria-label="4/24/2016" class="datatable-cell"><span style="width: 110px;">4/24/2016</span></td>
-                            <td data-field="Status" aria-label="2" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-danger label-inline">Delivered</span></span></td>
-                            <td data-field="Type" data-autohide-disabled="false" aria-label="2" class="datatable-cell"><span style="width: 110px;"><span class="label label-primary label-dot mr-2"></span><span class="font-weight-bold text-primary">Retail</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                            <td data-field="Item" aria-label="HTML" class="datatable-cell"><span style="width: 110px;">HTML</span></td>
+                            <td data-field="Last Activity" aria-label="28 February 2021" class="datatable-cell"><span style="width: 110px;">28 February 2021</span></td>
+                            <td data-field="Mark" aria-label="80" class="datatable-cell"><span style="width: 110px;">80</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
+                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+                          <%--      <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -314,21 +316,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="2" class="datatable-row" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="3"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="3">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="0998-0355" class="datatable-cell"><span style="width: 110px;">0998-0355</span></td>
-                            <td data-field="Country" aria-label="Philippines" class="datatable-cell"><span style="width: 110px;">Philippines PH</span></td>
-                            <td data-field="ShipAddress" aria-label="91796 Sutteridge Road" class="datatable-cell"><span style="width: 110px;">91796 Sutteridge Road</span></td>
-                            <td data-field="ShipDate" aria-label="7/11/2017" class="datatable-cell"><span style="width: 110px;">7/11/2017</span></td>
-                            <td data-field="Status" aria-label="6" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-danger label-inline">Danger</span></span></td>
-                            <td data-field="Type" data-autohide-disabled="false" aria-label="2" class="datatable-cell"><span style="width: 110px;"><span class="label label-primary label-dot mr-2"></span><span class="font-weight-bold text-primary">Retail</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                           <td data-field="Item" aria-label="CSS" class="datatable-cell"><span style="width: 110px;">CSS</span></td>
+                            <td data-field="Last Activity" aria-label="16 March 2021" class="datatable-cell"><span style="width: 110px;">16 March 2021</span></td>
+                            <td data-field="Mark" aria-label="67" class="datatable-cell"><span style="width: 110px;">67</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
+                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+                               <%-- <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -363,21 +366,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="3" class="datatable-row datatable-row-even" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="4"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="4">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="55154-6876" class="datatable-cell"><span style="width: 110px;">55154-6876</span></td>
-                            <td data-field="Country" aria-label="China" class="datatable-cell"><span style="width: 110px;">China CN</span></td>
-                            <td data-field="ShipAddress" aria-label="8 Muir Drive" class="datatable-cell"><span style="width: 110px;">8 Muir Drive</span></td>
-                            <td data-field="ShipDate" aria-label="2/5/2016" class="datatable-cell"><span style="width: 110px;">2/5/2016</span></td>
-                            <td data-field="Status" aria-label="1" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-boldlabel-light-primary label-inline">Pending</span></span></td>
+                            <td data-field="Item" aria-label="CSS" class="datatable-cell"><span style="width: 110px;">CSS</span></td>
+                           <td data-field="Last Activity" aria-label="22 March 2021" class="datatable-cell"><span style="width: 110px;">22 March 2021</span></td>
+                            <td data-field="Mark" aria-label="82" class="datatable-cell"><span style="width: 110px;">82</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
+                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+                      <%--          <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -412,21 +416,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="4" class="datatable-row" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="5"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="5">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="49349-069" class="datatable-cell"><span style="width: 110px;">49349-069</span></td>
-                            <td data-field="Country" aria-label="United States" class="datatable-cell"><span style="width: 110px;">United States US</span></td>
-                            <td data-field="ShipAddress" aria-label="782 Mallory Lane" class="datatable-cell"><span style="width: 110px;">782 Mallory Lane</span></td>
-                            <td data-field="ShipDate" aria-label="7/23/2017" class="datatable-cell"><span style="width: 110px;">7/23/2017</span></td>
+                            <td data-field="Item" aria-label="JavaScrip" class="datatable-cell"><span style="width: 110px;">JavaScrip</span></td>
+                            <td data-field="Last Activity" aria-label="27 March 2021" class="datatable-cell"><span style="width: 110px;">27 March 2021</span></td>
+                            <td data-field="Mark" aria-label="50" class="datatable-cell"><span style="width: 110px;">50</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
                             <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
-                            <td data-field="Type" data-autohide-disabled="false" aria-label="2" class="datatable-cell"><span style="width: 110px;"><span class="label label-primary label-dot mr-2"></span><span class="font-weight-bold text-primary">Retail</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                            <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+                               <%-- <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -461,21 +466,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="5" class="datatable-row datatable-row-even" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="6"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="6">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="53499-0393" class="datatable-cell"><span style="width: 110px;">53499-0393</span></td>
-                            <td data-field="Country" aria-label="Ukraine" class="datatable-cell"><span style="width: 110px;">Ukraine UA</span></td>
-                            <td data-field="ShipAddress" aria-label="02 Briar Crest Parkway" class="datatable-cell"><span style="width: 110px;">02 Briar Crest Parkway</span></td>
-                            <td data-field="ShipDate" aria-label="2/21/2016" class="datatable-cell"><span style="width: 110px;">2/21/2016</span></td>
-                            <td data-field="Status" aria-label="1" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-boldlabel-light-primary label-inline">Pending</span></span></td>
-                            <td data-field="Type" data-autohide-disabled="false" aria-label="3" class="datatable-cell"><span style="width: 110px;"><span class="label label-success label-dot mr-2"></span><span class="font-weight-bold text-success">Direct</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                            <td data-field="Item" aria-label="JavaScrip" class="datatable-cell"><span style="width: 110px;">JavaScrip</span></td>
+                            <td data-field="Last Activity" aria-label="3 April 2021" class="datatable-cell"><span style="width: 110px;">2 April 2021</span></td>
+                            <td data-field="Mark" aria-label="50" class="datatable-cell"><span style="width: 110px;">50</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
+                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+                              <%--  <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -510,21 +516,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="6" class="datatable-row" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="7"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="7">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="43074-105" class="datatable-cell"><span style="width: 110px;">43074-105</span></td>
-                            <td data-field="Country" aria-label="Philippines" class="datatable-cell"><span style="width: 110px;">Philippines PH</span></td>
-                            <td data-field="ShipAddress" aria-label="643 Mayer Road" class="datatable-cell"><span style="width: 110px;">643 Mayer Road</span></td>
-                            <td data-field="ShipDate" aria-label="10/25/2016" class="datatable-cell"><span style="width: 110px;">10/25/2016</span></td>
+                          <td data-field="Item" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
+                            <td data-field="Last Activity" aria-label="9 April 2021" class="datatable-cell"><span style="width: 110px;">9 April 2021</span></td>
+                            <td data-field="Mark" aria-label="58" class="datatable-cell"><span style="width: 110px;">58</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
                             <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
-                            <td data-field="Type" data-autohide-disabled="false" aria-label="2" class="datatable-cell"><span style="width: 110px;"><span class="label label-primary label-dot mr-2"></span><span class="font-weight-bold text-primary">Retail</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                            <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+                            <%--    <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -559,21 +566,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="7" class="datatable-row datatable-row-even" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="8"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="8">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="76328-333" class="datatable-cell"><span style="width: 110px;">76328-333</span></td>
-                            <td data-field="Country" aria-label="Portugal" class="datatable-cell"><span style="width: 110px;">Portugal PT</span></td>
-                            <td data-field="ShipAddress" aria-label="6715 Dakota Parkway" class="datatable-cell"><span style="width: 110px;">6715 Dakota Parkway</span></td>
-                            <td data-field="ShipDate" aria-label="2/18/2016" class="datatable-cell"><span style="width: 110px;">2/18/2016</span></td>
-                            <td data-field="Status" aria-label="3" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-primary label-inline">Canceled</span></span></td>
-                            <td data-field="Type" data-autohide-disabled="false" aria-label="2" class="datatable-cell"><span style="width: 110px;"><span class="label label-primary label-dot mr-2"></span><span class="font-weight-bold text-primary">Retail</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                           <td data-field="Item" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
+                            <td data-field="Last Activity" aria-label="15 April 2021" class="datatable-cell"><span style="width: 110px;">15 April 2021</span></td>
+                            <td data-field="Mark" aria-label="55" class="datatable-cell"><span style="width: 110px;">55</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
+                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+                  <%--              <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -608,21 +616,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="8" class="datatable-row" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="9"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="9">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="21130-054" class="datatable-cell"><span style="width: 110px;">21130-054</span></td>
-                            <td data-field="Country" aria-label="France" class="datatable-cell"><span style="width: 110px;">France FR</span></td>
-                            <td data-field="ShipAddress" aria-label="4942 Darwin Hill" class="datatable-cell"><span style="width: 110px;">4942 Darwin Hill</span></td>
-                            <td data-field="ShipDate" aria-label="3/26/2016" class="datatable-cell"><span style="width: 110px;">3/26/2016</span></td>
-                            <td data-field="Status" aria-label="2" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-danger label-inline">Delivered</span></span></td>
-                            <td data-field="Type" data-autohide-disabled="false" aria-label="2" class="datatable-cell"><span style="width: 110px;"><span class="label label-primary label-dot mr-2"></span><span class="font-weight-bold text-primary">Retail</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                            <td data-field="Item" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
+                            <td data-field="Last Activity" aria-label="22 April 2021" class="datatable-cell"><span style="width: 110px;">22 April 2021</span></td>
+                            <td data-field="Mark" aria-label="60" class="datatable-cell"><span style="width: 110px;">60</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
+                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+                               <%-- <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -657,21 +666,22 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                         <tr data-row="9" class="datatable-row datatable-row-even" style="left: 0px;">
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="10"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="10">&nbsp;<span></span></label></span></td>
-                            <td data-field="OrderID" aria-label="68788-9890" class="datatable-cell"><span style="width: 110px;">68788-9890</span></td>
-                            <td data-field="Country" aria-label="Dominican Republic" class="datatable-cell"><span style="width: 110px;">Dominican Republic DO</span></td>
-                            <td data-field="ShipAddress" aria-label="854 Dapin Terrace" class="datatable-cell"><span style="width: 110px;">854 Dapin Terrace</span></td>
-                            <td data-field="ShipDate" aria-label="8/10/2016" class="datatable-cell"><span style="width: 110px;">8/10/2016</span></td>
-                            <td data-field="Status" aria-label="1" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-boldlabel-light-primary label-inline">Pending</span></span></td>
-                            <td data-field="Type" data-autohide-disabled="false" aria-label="2" class="datatable-cell"><span style="width: 110px;"><span class="label label-primary label-dot mr-2"></span><span class="font-weight-bold text-primary">Retail</span></span></td>
-                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">
-                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
+                           <td data-field="Item" aria-label="HTML + CSS" class="datatable-cell"><span style="width: 110px;">HTML + CSS</span></td>
+                            <td data-field="Last Activity" aria-label="28 April 2021" class="datatable-cell"><span style="width: 110px;">28 April 2021</span></td>
+                            <td data-field="Mark" aria-label="70" class="datatable-cell"><span style="width: 110px;">70</span></td>            
+                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
+                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
+                            <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
+
+<%--                                <div class="dropdown dropdown-inline"><a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown"><span class="svg-icon svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -706,11 +716,11 @@
                                             <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                                         </g>
                                     </svg>
-                                </span></a></span></td>
+                                </span></a></span></td>--%>
                         </tr>
                     </tbody>
                 </table>
-                <div class="datatable-pager datatable-paging-loaded">
+               <%-- <div class="datatable-pager datatable-paging-loaded">
                     <ul class="datatable-pager-nav mb-5 mb-sm-0">
                         <li><a title="First" class="datatable-pager-link datatable-pager-link-first datatable-pager-link-disabled" data-page="1" disabled="disabled"><i class="flaticon2-fast-back"></i></a></li>
                         <li><a title="Previous" class="datatable-pager-link datatable-pager-link-prev datatable-pager-link-disabled" data-page="1" disabled="disabled"><i class="flaticon2-back"></i></a></li>
@@ -752,7 +762,7 @@
                         </div>
                         <span class="datatable-pager-detail">Showing 1 - 10 of 350</span></div>
                 </div>
-            </div>
+            </div>--%>
             <!--end: Datatable-->
         </div>
     </div>
