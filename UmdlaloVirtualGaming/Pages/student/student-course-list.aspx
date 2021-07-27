@@ -22,7 +22,7 @@
                                     <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/img-72.jpg)"></div>
                                     <!--end::Image-->
                                     <!--begin::Title-->
-                                    <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="module_name" runat="server">Maths Class</a>
+                                    <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="module_name" runat="server">C-sharp Class</a>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="font-weight-bold text-dark-50 font-size-sm pb-7">11:20-12:00, Mark Liam</div>
@@ -154,7 +154,7 @@
                                     <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/img-72.jpg)"></div>
                                     <!--end::Image-->
                                     <!--begin::Title-->
-                                    <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A1" runat="server">Maths Class</a>
+                                    <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A1" runat="server">HTML Class</a>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="font-weight-bold text-dark-50 font-size-sm pb-7">11:20-12:00, Mark Liam</div>
@@ -288,7 +288,7 @@
                                     <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/img-72.jpg)"></div>
                                     <!--end::Image-->
                                     <!--begin::Title-->
-                                    <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A2" runat="server">Maths Class</a>
+                                    <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A2" runat="server">CSS Class</a>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="font-weight-bold text-dark-50 font-size-sm pb-7">11:20-12:00, Mark Liam</div>
@@ -420,7 +420,7 @@
                                     <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/img-72.jpg)"></div>
                                     <!--end::Image-->
                                     <!--begin::Title-->
-                                    <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A3" runat="server">Maths Class</a>
+                                    <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A3" runat="server">JavaScript Class</a>
                                     <!--end::Title-->
                                     <!--begin::Text-->
                                     <div class="font-weight-bold text-dark-50 font-size-sm pb-7">11:20-12:00, Mark Liam</div>
