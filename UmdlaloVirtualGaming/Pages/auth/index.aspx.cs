@@ -22,9 +22,9 @@ namespace UmdlaloVirtualGaming.Pages.auth
         protected void kt_login_signin_submit_ServerClick(object sender, EventArgs e)
         {
             string username, password;
-            username = txtEmail.Value.ToString().ToLower().Trim();
-            password = txtPassword.Value.ToString().ToLower().Trim();
-
+            username = txtUsername.Text;
+            password = txtPass.Text;
+            
             var msg = authclass.AuthUser(username, password);
             var uID = msg.uid;
             if (msg.msg.Equals("Success"))

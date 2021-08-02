@@ -2282,8 +2282,12 @@
     <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\lecturer\rest-chat-get.aspx" />
+    <Content Include="Pages\sample-class-card.txt" />
+    <Content Include="Pages\student\create.aspx" />
+    <Content Include="Pages\student\class.aspx" />
     <Content Include="Pages\student\code.aspx" />
     <Content Include="Pages\student\HtmlPage1.html" />
+    <Content Include="Pages\student\personal-projects.aspx" />
     <Content Include="Pages\student\rest-chat-get.aspx" />
     <Content Include="Pages\student\sampleproject.txt" />
     <Content Include="Pages\student\singleproj.html" />
@@ -2562,12 +2566,33 @@
     <Compile Include="Pages\lecturer\rest-chat-get.aspx.designer.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\student\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\class.aspx.cs">
+      <DependentUpon>class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\class.aspx.designer.cs">
+      <DependentUpon>class.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\student\code.aspx.cs">
       <DependentUpon>code.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\student\code.aspx.designer.cs">
       <DependentUpon>code.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\personal-projects.aspx.cs">
+      <DependentUpon>personal-projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\personal-projects.aspx.designer.cs">
+      <DependentUpon>personal-projects.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\rest-chat-get.aspx.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>

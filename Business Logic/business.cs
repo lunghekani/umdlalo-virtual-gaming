@@ -4,17 +4,21 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Configuration;
 using System.Net.Mail;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Web.UI;
 
 namespace Business_Logic
 {
     // This is a comment to show how git works
+    
     public class clsBasicUserDetails
     {
         public string msg { get; set; }
@@ -58,9 +62,15 @@ namespace Business_Logic
             cmd.Parameters.AddWithValue("@DateAdded", DateTime.Now);
             cmd.Parameters.AddWithValue("@UserRole_In", "Student");
 
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+
             try
             {
                 cmd.ExecuteNonQuery();
+                myTrans.Commit();
                 return new clsBasicUserDetails
                 {
                     msg = "Success",
@@ -69,11 +79,12 @@ namespace Business_Logic
             }
             catch (Exception ex)
             {
+                myTrans.Rollback();
                 return new clsBasicUserDetails
                 {
                     msg = ex.Message
                 };
-                throw;
+                
             }
         }
 
@@ -117,6 +128,55 @@ namespace Business_Logic
                 };
             }
         }
+        // code to quickly decrypt 
+        public string DecryptString(string cipherText)
+        {
+            string EncryptionKey = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
+            cipherText = cipherText.Replace(" ", "+");  
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);  
+            using(Aes encryptor = Aes.Create())   
+            {  
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {  
+                    0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76  
+                });  
+                encryptor.Key = pdb.GetBytes(32);  
+                encryptor.IV = pdb.GetBytes(16);  
+                using(MemoryStream ms = new MemoryStream())   
+                {  
+                    using(CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write)) {  
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);  
+                        cs.Close();  
+                    }  
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());  
+                }  
+            }  
+            return cipherText;  
+        }
+        // code to quickly encrypt
+        public string EncryptString(string encryptString)
+        {
+            string EncryptionKey = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
+            byte[] clearBytes = Encoding.Unicode.GetBytes(encryptString);  
+            using(Aes encryptor = Aes.Create())   
+            {  
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {  
+                    0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76  
+                });  
+                encryptor.Key = pdb.GetBytes(32);  
+                encryptor.IV = pdb.GetBytes(16);  
+                using(MemoryStream ms = new MemoryStream())  
+                {  
+                    using(CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write)) {  
+                        cs.Write(clearBytes, 0, clearBytes.Length);  
+                        cs.Close();  
+                    }  
+                    encryptString = Convert.ToBase64String(ms.ToArray());  
+                }  
+            }  
+            return encryptString;  
+        }
+
+
     }
 
     public class clsUserDetails
@@ -204,12 +264,70 @@ namespace Business_Logic
                 throw;
             }
         }
+
+        public DataTable GetCourses()
+        {
+            var dt = new DataTable();
+            // Removed this because this gets passed in
+            // HttpContext.Current.Session["user_id"] = User_ID;
+
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("Code", typeof(string));
+            dt.Columns.Add("Start", typeof(string));
+            dt.Columns.Add("End", typeof(string));
+            dt.Columns.Add("Instructor", typeof(string));
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            //incorrect procedure name
+            cmd.CommandText = "E_Sports_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    while (sqlReader.Read())
+                    {
+
+                        int Id =Convert.ToInt32(sqlReader.GetValue(0));
+                        string name = sqlReader.GetValue(1).ToString();
+                        string description =sqlReader.GetValue(2).ToString();
+                        string code =sqlReader.GetValue(3).ToString();
+                        string start =sqlReader.GetValue(4).ToString();
+                        string end =sqlReader.GetValue(5).ToString();
+                        string lecturerName =sqlReader.GetValue(7).ToString();
+                        string lecturerEmail =sqlReader.GetValue(8).ToString();
+                        
+                        
+                        dt.Rows.Add(Id,name,description,code,start,end,lecturerName,lecturerEmail);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+            
+            return dt;
+        }
     }
 
     public class clsProjects
     {
+        public string lastProjectInsert;
         //Start: Project creation command
-        public string CreateProject(string proj_Name, string User_id)
+        public string CreateProject(string proj_Name, string htmlCode, string cssCode, string jsCode, int visibility, string User_id)
         {
             //using (var objConn = new clsDataConnection().CreateSQLConnection())
             //{
@@ -222,24 +340,41 @@ namespace Business_Logic
             //    }
             //}
             // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
+            
             var objConn = new clsDataConnection();
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
 
             cmd.CommandText = "Projects_Create";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Name_IN", proj_Name);
             cmd.Parameters.AddWithValue("@User_ID_IN", User_id);
+            cmd.Parameters.AddWithValue("@Name_IN", proj_Name);
+            cmd.Parameters.AddWithValue("@HTML_IN", htmlCode);
+            cmd.Parameters.AddWithValue("@CSS_IN", cssCode);
+            cmd.Parameters.AddWithValue("@JS_IN", jsCode);
+            cmd.Parameters.AddWithValue("@Enabled_IN", visibility);
+            MySqlTransaction myTrans;
 
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
             try
             {
                 cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                MySqlDataReader sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+
+                    lastProjectInsert = sqlReader.GetValue(0).ToString();
+
+                }
                 return "Success";
             }
             catch (Exception ex)
             {
+                myTrans.Rollback();
                 return ex.Message;
-                throw;
+                
             }
         }
 
@@ -247,6 +382,51 @@ namespace Business_Logic
 
         //Start: Project View command
 
+        public string UpdateProject(string proj_Name, string htmlCode, string cssCode, string jsCode, int visibility, string projectId)
+        {
+            //using (var objConn = new clsDataConnection().CreateSQLConnection())
+            //{
+            //    var cmd_session = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{User_id}' LIMIT 1", objConn);
+            //    var sqlReader = cmd_session.ExecuteReader();
+            //    while (sqlReader.Read())
+            //    {
+            //        var name = sqlReader.GetValue(0).ToString();
+            //        HttpContext.Current.Session["user_name"] = User_id;
+            //    }
+            //}
+            // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
+            
+            var objConn = new clsDataConnection();
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Projects_Update";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Project_ID_IN", projectId);
+            cmd.Parameters.AddWithValue("@Name_IN", proj_Name);
+            cmd.Parameters.AddWithValue("@HTML_IN", htmlCode);
+            cmd.Parameters.AddWithValue("@CSS_IN", cssCode);
+            cmd.Parameters.AddWithValue("@JS_IN", jsCode);
+            cmd.Parameters.AddWithValue("@Enabled_IN", visibility);
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                MySqlDataReader sqlReader = cmd.ExecuteReader();
+               
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                return ex.Message;
+                
+            }
+        }
         public DataTable View_Project(int projectId)
         { //public DataTable View_Project(int User_ID) - was here before
           //this should take in a project ID because we are viewing a project
@@ -257,14 +437,21 @@ namespace Business_Logic
 
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Likes", typeof(int));
-            dt.Columns.Add("Comments", typeof(int));
-            dt.Columns.Add("Views", typeof(int));
+            dt.Columns.Add("Creator", typeof(string));
+            dt.Columns.Add("Likes", typeof(string));
+            dt.Columns.Add("Comments", typeof(string));
+            dt.Columns.Add("Views", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
             dt.Columns.Add("HTML", typeof(string));
-            dt.Columns.Add("JSS", typeof(string));
+            dt.Columns.Add("HTMLLines", typeof(string));
+            dt.Columns.Add("JS", typeof(string));
+            dt.Columns.Add("JSSLines", typeof(string));
             dt.Columns.Add("CSS", typeof(string));
+            dt.Columns.Add("CSSLines", typeof(string));
+            dt.Columns.Add("UserID", typeof(string));
             dt.Columns.Add("DateCreated", typeof(DateTime));
             dt.Columns.Add("Enabled", typeof(int));
+
 
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -283,17 +470,24 @@ namespace Business_Logic
                     while (sqlReader.Read())
                     {
 
+                        
                         int Id =Convert.ToInt32(sqlReader.GetValue(0));
                         string name = sqlReader.GetValue(1).ToString();
-                        int likes = Convert.ToInt32( sqlReader.GetValue(2));
-                        int comments = Convert.ToInt32( sqlReader.GetValue(3));
-                        int views = Convert.ToInt32( sqlReader.GetValue(4));
-                        string HTML = sqlReader.GetValue(5).ToString();
-                        string CSS = sqlReader.GetValue(6).ToString();
-                        string JSS = sqlReader.GetValue(7).ToString();
-                       DateTime datecreated = Convert.ToDateTime( sqlReader.GetValue(8));
-                       int enabled = Convert.ToInt32( sqlReader.GetValue(9));
-                        dt.Rows.Add(Id,name,likes,comments,views,HTML,JSS,CSS,datecreated,enabled);
+                        string likes = Convert.ToInt32( sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32( sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32( sqlReader.GetValue(4)).ToString("##,###");
+                        string descr = sqlReader.GetValue(5).ToString();
+                        string HTML = sqlReader.GetValue(6).ToString();
+                        string htmlLines = HTML.Split('\n').Length.ToString("##,###");
+                        string CSS = sqlReader.GetValue(7).ToString();
+                        string cssLines = CSS.Split('\n').Length.ToString("##,###");
+                        string JSS = sqlReader.GetValue(8).ToString();
+                        string jsLines = JSS.Split('\n').Length.ToString("##,###");
+                        string datecreated = sqlReader.GetValue(9).ToString();
+                        int enabled = Convert.ToInt32( sqlReader.GetValue(10));
+                        string userId = sqlReader.GetValue(11).ToString();
+                        string creator = sqlReader.GetValue(12).ToString();
+                        dt.Rows.Add(Id,name,creator,likes,comments,views,descr,HTML,htmlLines,JSS,jsLines,CSS,cssLines,userId,datecreated,enabled);
                     }
                 }
             }
@@ -318,14 +512,17 @@ namespace Business_Logic
 
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Creator", typeof(string));
             dt.Columns.Add("Likes", typeof(string));
             dt.Columns.Add("Comments", typeof(string));
             dt.Columns.Add("Views", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
             dt.Columns.Add("HTMLLines", typeof(string));
             dt.Columns.Add("JSSLines", typeof(string));
             dt.Columns.Add("CSSLines", typeof(string));
             dt.Columns.Add("DateCreated", typeof(DateTime));
             dt.Columns.Add("Enabled", typeof(int));
+            
 
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -348,12 +545,14 @@ namespace Business_Logic
                         string likes = Convert.ToInt32( sqlReader.GetValue(2)).ToString("##,###");
                         string comments = Convert.ToInt32( sqlReader.GetValue(3)).ToString("##,###");
                         string views = Convert.ToInt32( sqlReader.GetValue(4)).ToString("##,###");
-                        string HTML = sqlReader.GetValue(5).ToString().Split('\n').Length.ToString("##,###");
-                        string CSS = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
-                        string JSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
-                       string datecreated = Convert.ToDateTime( sqlReader.GetValue(8)).ToString("D");
-                       int enabled = Convert.ToInt32( sqlReader.GetValue(9));
-                        dt.Rows.Add(Id,name,likes,comments,views,HTML,JSS,CSS,datecreated,enabled);
+                        string descr = sqlReader.GetValue(5).ToString();
+                        string HTML = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
+                        string CSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
+                        string JSS = sqlReader.GetValue(8).ToString().Split('\n').Length.ToString("##,###");
+                       string datecreated = sqlReader.GetValue(9).ToString();
+                       int enabled = Convert.ToInt32( sqlReader.GetValue(10));
+                       string creator = sqlReader.GetValue(12).ToString();
+                        dt.Rows.Add(Id,name,creator,likes,comments,views,descr,HTML,JSS,CSS,datecreated,enabled);
                     }
                 }
             }
@@ -364,6 +563,73 @@ namespace Business_Logic
             finally
             {
                 sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt; //Forgot to put a curly bracket and a return statement in the code
+
+            
+        }
+
+        public DataTable GetAllUserProjects(string userId)
+        {
+            clsDataConnection objConn = new clsDataConnection();
+            var dt = new DataTable();
+            // Removed this because this gets passed in
+            // HttpContext.Current.Session["user_id"] = User_ID;
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Creator", typeof(string));
+            dt.Columns.Add("Likes", typeof(string));
+            dt.Columns.Add("Comments", typeof(string));
+            dt.Columns.Add("Views", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("HTMLLines", typeof(string));
+            dt.Columns.Add("JSSLines", typeof(string));
+            dt.Columns.Add("CSSLines", typeof(string));
+            dt.Columns.Add("DateCreated", typeof(DateTime));
+            dt.Columns.Add("Enabled", typeof(int));
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            //incorrect procedure name
+            cmd.CommandText = "Personal_Projects_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@userID", userId);
+            
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    while (sqlReader.Read())
+                    {
+
+                        int Id =Convert.ToInt32(sqlReader.GetValue(0));
+                        string name = sqlReader.GetValue(1).ToString();
+                        string likes = Convert.ToInt32( sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32( sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32( sqlReader.GetValue(4)).ToString("##,###");
+                        string descr = sqlReader.GetValue(5).ToString();
+                        string HTML = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
+                        string CSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
+                        string JSS = sqlReader.GetValue(8).ToString().Split('\n').Length.ToString("##,###");
+                        string datecreated = sqlReader.GetValue(9).ToString();
+                        int enabled = Convert.ToInt32( sqlReader.GetValue(10));
+                        string creator = sqlReader.GetValue(12).ToString();
+                        dt.Rows.Add(Id,name,creator,likes,comments,views,descr,HTML,JSS,CSS,datecreated,enabled);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
             }
 
             return dt; //Forgot to put a curly bracket and a return statement in the code
@@ -412,6 +678,14 @@ namespace Business_Logic
                     smtp.Port = smtpSection.Network.Port;
                     smtp.Send(mm);
                 }
+            }
+
+            public enum MessageType { success, error, info, warning };
+            public void ShowMessage(Page page,string Message, MessageType type)
+            {
+                
+                ScriptManager.RegisterStartupScript(page, page.GetType(), System.Guid.NewGuid().ToString(), "$.notify({ message: '"+Message+".'},{type: '"+type+"',showProgressbar: true,animate: {\r\n\t\tenter: 'animated fadeInDown',\r\n\t\texit: 'animated fadeOutUp'\r\n\t},});", true);
+               
             }
         }
     public class clsPrivateChat

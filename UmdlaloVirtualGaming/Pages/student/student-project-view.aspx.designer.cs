@@ -15,48 +15,66 @@ namespace UmdlaloVirtualGaming.Pages.student
     {
 
         /// <summary>
-        /// spName control.
+        /// projectInstance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl projectInstance;
 
         /// <summary>
-        /// spSubDetails control.
+        /// lblProjectName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spSubDetails;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblProjectName;
 
         /// <summary>
-        /// htmlCode control.
+        /// lblProjectDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea htmlCode;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblProjectDate;
 
         /// <summary>
-        /// cssCode control.
+        /// lblJS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea cssCode;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblJS;
 
         /// <summary>
-        /// jsCode control.
+        /// lblProjectLikes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea jsCode;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblProjectLikes;
+
+        /// <summary>
+        /// lblProjectComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblProjectComments;
+
+        /// <summary>
+        /// lblProjectViews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblProjectViews;
     }
 }

@@ -11,7 +11,7 @@ namespace UmdlaloVirtualGaming.Pages.student
 {
 
 
-    public partial class student_project_list
+    public partial class personal_projects
     {
 
         /// <summary>

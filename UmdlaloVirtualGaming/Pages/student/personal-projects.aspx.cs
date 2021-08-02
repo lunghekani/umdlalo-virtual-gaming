@@ -10,19 +10,18 @@ using Business_Logic;
 
 namespace UmdlaloVirtualGaming.Pages.student
 {
-    public partial class student_project_list : System.Web.UI.Page
+    public partial class personal_projects : System.Web.UI.Page
     {
         public clsAuthentication authclass = new clsAuthentication();
         public clsCourseOperations objModOperations = new clsCourseOperations();
         public clsCommunicate communicateclass = new clsCommunicate();
         public clsUserDetails userclass = new clsUserDetails();
-        
-        private clsProjects projectsclass = new clsProjects(); 
-
+        public clsProjects projectclass = new clsProjects();
         protected void Page_Load(object sender, EventArgs e)
         {
             string projectlist = "";
-            var dt = projectsclass.GetAllProjects();
+            var uId = Session["user_id"].ToString();
+            var dt = projectclass.GetAllUserProjects(uId);
 
 
             foreach (DataRow row in dt.Rows)
@@ -34,7 +33,6 @@ namespace UmdlaloVirtualGaming.Pages.student
 
             projectInstance.InnerHtml = projectlist;
         }
-
         protected string DisplayProjects(string id, string name, string creator, string likes, string comments, string views, string description, string htmlLines, string jssLines, string cssLines, DateTime date)
         {
             var stream = new StreamReader(Server.MapPath("~/Pages/student/sampleproject.txt"));
@@ -57,6 +55,5 @@ namespace UmdlaloVirtualGaming.Pages.student
 
             return projectblock;
         }
-        
     }
 }

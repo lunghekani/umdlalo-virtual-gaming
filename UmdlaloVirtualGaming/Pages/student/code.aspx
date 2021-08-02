@@ -96,12 +96,12 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--begin::Page Heading-->
 									<div class="d-flex align-items-baseline flex-wrap mr-5">
 										<!--begin::Page Title-->
-										<h5 class="text-dark font-weight-bold my-1 mr-5">No Aside</h5>
+										<h5 class="text-dark font-weight-bold my-1 mr-5" id="lblName" runat="server">No Aside</h5>
 										<!--end::Page Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
 											<li class="breadcrumb-item">
-												<a href="" class="text-muted">General</a>
+												<a href="" class="text-muted" id="lblUsername" runat="server">General</a>
 											</li>
 											<li class="breadcrumb-item">
 												<a href="" class="text-muted">No Aside</a>
@@ -208,63 +208,26 @@ License: You must have a valid license purchased only from themeforest(the above
 													<!--begin::List Widget 1-->
 													<div class="card card-custom card-stretch ">
 														<!--begin::Header-->
-														<div class="card-header ">
-															<h3 class="card-title align-items-start flex-column">
-																<span class="card-label font-weight-bolder text-dark">HTML Code</span>
-																<span class="text-muted mt-3 font-weight-bold font-size-sm" >0 Lines</span>
-															</h3>
-														</div>
+													
 														<!--end::Header-->
 														<!--begin::Body-->
 														<div class="card-body pt-8">
 															<%--code here--%>
+                                                            <h3 class="card-title align-items-start flex-column">
+                                                                <span class="card-label font-weight-bolder text-dark">HTML Code</span>
+                                                                <span class="text-muted mt-3 font-weight-bold font-size-sm" >0 Lines</span>
+                                                            </h3>
 															<textarea id="htmlCode" cols="65" rows="2" runat="server" ClientIDMode="Static" oninput="showPreview()"></textarea>
-														</div>
-														<!--end::Body-->
-													</div>
-													<!--end::List Widget 1-->
-												</div>
-											</div>
-											<div class="row">
-
-												<%--Css Container--%>
-												<div class="col-12">
-													<!--begin::List Widget 1-->
-													<div class="card card-custom card-stretch">
-														<!--begin::Header-->
-														<div class="card-header border-0 pt-5">
-															<h3 class="card-title align-items-start flex-column">
-																<span class="card-label font-weight-bolder text-dark">CSS Code</span>
-																<span class="text-muted mt-3 font-weight-bold font-size-sm">Pending 10 tasks</span>
-															</h3>
-														</div>
-														<!--end::Header-->
-														<!--begin::Body-->
-														<div class="card-body pt-8">
-															<textarea id="cssCode" cols="65" rows="2" runat="server" ClientIDMode="Static"  oninput="showPreview()" ></textarea>
-														</div>
-														<!--end::Body-->
-													</div>
-													<!--end::List Widget 1-->
-												</div>
-											</div>
-											<div class="row">
-
-												<%--JS Container--%>
-												<div class="col-12">
-													<!--begin::List Widget 1-->
-													<div class="card card-custom card-stretch ">
-														<!--begin::Header-->
-														<div class="card-header border-0 pt-5">
-															<h3 class="card-title align-items-start flex-column">
-																<span class="card-label font-weight-bolder text-dark">Javascript Code</span>
-																<span class="text-muted mt-3 font-weight-bold font-size-sm">Pending 10 tasks</span>
-															</h3>
-														</div>
-														<!--end::Header-->
-														<!--begin::Body-->
-														<div class="card-body pt-8">
-															<textarea id="jsCode" cols="65" rows="2" runat="server" ClientIDMode="Static" oninput="showPreview()"></textarea>
+                                                            <h3 class="card-title align-items-start flex-column">
+                                                                <span class="card-label font-weight-bolder text-dark">CSS Code</span>
+                                                                <span class="text-muted mt-3 font-weight-bold font-size-sm" >0 Lines</span>
+                                                            </h3>
+                                                            <textarea id="cssCode" cols="65" rows="2" runat="server" ClientIDMode="Static"  oninput="showPreview()" ></textarea>
+                                                            <h3 class="card-title align-items-start flex-column">
+                                                                <span class="card-label font-weight-bolder text-dark">JS Code</span>
+                                                                <span class="text-muted mt-3 font-weight-bold font-size-sm" >0 Lines</span>
+                                                            </h3>
+                                                            <textarea id="jsCode" cols="65" rows="2" runat="server" ClientIDMode="Static" oninput="showPreview()"></textarea>
 														</div>
 														<!--end::Body-->
 													</div>
@@ -273,7 +236,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											</div>
 										</div>
 										<div class="col-6 ">
-											<iframe id="previewpane" style="width: 100%; border: 2px solid black;"></iframe>
+											<iframe id="previewpane" style="width: 100%; height: 100%; border: 2px solid black;"></iframe>
 										</div>
 									</div>
 		</div>

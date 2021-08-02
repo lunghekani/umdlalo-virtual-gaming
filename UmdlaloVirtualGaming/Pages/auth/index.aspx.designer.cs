@@ -15,22 +15,22 @@ namespace UmdlaloVirtualGaming.Pages.auth
     {
 
         /// <summary>
-        /// txtEmail control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
-        /// txtPassword control.
+        /// txtPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtPass;
 
         /// <summary>
         /// kt_login_signin_submit control.
@@ -40,15 +40,6 @@ namespace UmdlaloVirtualGaming.Pages.auth
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton kt_login_signin_submit;
-
-        /// <summary>
-        /// emailTest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton emailTest;
 
         /// <summary>
         /// txtSignUpFullName control.

@@ -3,6 +3,31 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <!--begin::Info-->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <!--begin::Mobile Toggle-->
+            <button class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none" id="kt_subheader_mobile_toggle">
+                <span></span>
+            </button>
+            <!--end::Mobile Toggle-->
+            <!--begin::Page Heading-->
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <!--begin::Page Title-->
+                <h5 class="text-dark font-weight-bold my-1 mr-5">My Dashboard</h5>
+                <!--end::Page Title-->
+
+            </div>
+            <!--end::Page Heading-->
+        </div>
+        <!--end::Info-->
+        <!--begin::Toolbar-->
+        <div class="d-flex align-items-center">
+        </div>
+        <!--end::Toolbar-->
+    </div>
+</div>
     <div class="row m-0">
         <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
             <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
@@ -32,7 +57,7 @@
                 </svg>
                 <!--end::Svg Icon-->
             </span>
-            <a href="#" class="text-primary font-weight-bold font-size-h6 mt-2">Projects</a>
+            <a href="student-project-list.aspx" class="text-primary font-weight-bold font-size-h6 mt-2">Projects</a>
         </div>
     </div>
     <div class="row m-0">
@@ -82,13 +107,13 @@
                             <!--begin::Header-->
                             <div class="d-flex flex-column flex-center">
                                 <!--begin::Image-->
-                                <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(assets/media/stock-600x400/img-72.jpg)"></div>
+                                <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/html-illustration.png)"></div>
                                 <!--end::Image-->
                                 <!--begin::Title-->
-                                <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="module_name" runat="server">Maths Class</a>
+                                <a href="class.aspx" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="module_name" runat="server">Introduction to HTML 5</a>
                                 <!--end::Title-->
                                 <!--begin::Text-->
-                                <div class="font-weight-bold text-dark-50 font-size-sm pb-7">11:20-12:00, Mark Liam</div>
+                                <div class="font-weight-bold text-dark-50 font-size-sm pb-7">11:20-12:00, John Lecturer</div>
                                 <!--end::Text-->
                             </div>
                             <!--end::Header-->
@@ -117,12 +142,12 @@
                                     <!--end::Symbol-->
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column flex-grow-1">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Modules</a>
-                                        <span class="text-muted font-weight-bold">Good Fellas</span>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Using the Canvas</a>
+                                        <span class="text-muted font-weight-bold">Reading</span>
                                     </div>
                                     <!--end::Text-->
                                     <!--begin::label-->
-                                    <span class="font-weight-bolder label label-xl label-light-success label-inline px-3 py-5 min-w-45px">14</span>
+                                    <span class="font-weight-bolder label label-xl label-light-success label-inline px-3 py-5 min-w-45px">2</span>
                                     <!--end::label-->
                                 </div>
                                 <!--end::Item-->
@@ -147,8 +172,8 @@
                                     <!--end::Symbol-->
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column flex-grow-1">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Topics</a>
-                                        <span class="text-muted font-weight-bold">Successful Fellas</span>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Group Discussion</a>
+                                        <span class="text-muted font-weight-bold">Disucssion</span>
                                     </div>
                                     <!--end::Text-->
                                     <!--begin::label-->
@@ -156,43 +181,16 @@
                                     <!--end::label-->
                                 </div>
                                 <!--end::Item-->
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center pb-9">
-                                    <!--begin::Symbol-->
-                                    <div class="symbol symbol-45 symbol-light mr-4">
-                                        <span class="symbol-label">
-                                            <span class="svg-icon svg-icon-2x svg-icon-dark-50">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Globe.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <rect x="0" y="0" width="24" height="24"></rect>
-                                                        <path d="M13,18.9450712 L13,20 L14,20 C15.1045695,20 16,20.8954305 16,22 L8,22 C8,20.8954305 8.8954305,20 10,20 L11,20 L11,18.9448245 C9.02872877,18.7261967 7.20827378,17.866394 5.79372555,16.5182701 L4.73856106,17.6741866 C4.36621808,18.0820826 3.73370941,18.110904 3.32581341,17.7385611 C2.9179174,17.3662181 2.88909597,16.7337094 3.26143894,16.3258134 L5.04940685,14.367122 C5.46150313,13.9156769 6.17860937,13.9363085 6.56406875,14.4106998 C7.88623094,16.037907 9.86320756,17 12,17 C15.8659932,17 19,13.8659932 19,10 C19,7.73468744 17.9175842,5.65198725 16.1214335,4.34123851 C15.6753081,4.01567657 15.5775721,3.39010038 15.903134,2.94397499 C16.228696,2.49784959 16.8542722,2.4001136 17.3003976,2.72567554 C19.6071362,4.40902808 21,7.08906798 21,10 C21,14.6325537 17.4999505,18.4476269 13,18.9450712 Z" fill="#000000" fill-rule="nonzero"></path>
-                                                        <circle fill="#000000" opacity="0.3" cx="12" cy="10" r="6"></circle>
-                                                    </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <!--end::Symbol-->
-                                    <!--begin::Text-->
-                                    <div class="d-flex flex-column flex-grow-1">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Hours</a>
-                                        <span class="text-muted font-weight-bold">Successful Fellas</span>
-                                    </div>
-                                    <!--end::Text-->
-                                    <!--begin::label-->
-                                    <span class="font-weight-bolder label label-xl label-light-primary label-inline py-5 min-w-45px">7-4</span>
-                                    <!--end::label-->
-                                </div>
-                                <!--end::Item-->
+                              
                             </div>
                             <!--end::Body-->
                         </div>
                         <!--eng::Container-->
                         <!--begin::Footer-->
                         <div class="d-flex flex-center" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="right" data-original-title="Chat Example">
-                            <button class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-toggle="modal" data-target="#kt_chat_modal">Contact Teacher</button>
+                            <a class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" href="student-chat-view.aspx">Contact Teacher</a>
+                            <%--TO DO Link To chat--%>
+                          <%--  <button class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-toggle="modal" data-target="#kt_chat_modal">Contact Teacher</button>--%>
                         </div>
                         <!--end::Footer-->
                     </div>
@@ -207,8 +205,8 @@
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
                         <span class="card-label font-weight-bolder text-dark">Timetable</span>
-                        <span class="text-muted mt-3 font-weight-bold font-size-sm">Maths is coming
-															<span class="text-primary">7 mins</span></span>
+                        <span class="text-muted mt-3 font-weight-bold font-size-sm">Introduction to HTML 5 is coming
+															<span class="text-primary">soon</span></span>
                     </h3>
                     <div class="card-toolbar">
                         <ul class="nav nav-pills nav-pills-sm nav-dark-75">
@@ -462,6 +460,28 @@
                         <!--begin::Tap pane-->
                         <div class="tab-pane fade show active" id="kt_tab_pane_2" role="tabpanel" aria-labelledby="kt_tab_pane_2">
                             <!--begin::Table-->
+                            <asp:GridView CssClass="table table-borderless table-vertical-center"
+                                          EmptyDataText="No Classes For Today"
+                                          Width="100%"
+                                          AutoGenerateColumns="False"
+                                          DataKeyNames="ID"
+                                          ID="gvTodayClasses"  runat="server">
+                                <Columns>
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField DataField="ID" HeaderText="#" Visible="False"/>
+                                    <asp:BoundField DataField="Name" HeaderText="Name" />
+                                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                                    <asp:BoundField DataField="Code" HeaderText="Course Code" />
+                                    <asp:BoundField DataField="Start" HeaderText="Start Time" />
+                                    <asp:BoundField DataField="End" HeaderText="End Time" />
+                                    <asp:BoundField DataField="Instructor" HeaderText="Instructor" />
+                                </Columns>
+
+                            </asp:GridView>
                             <div class="table-responsive">
                                 <table class="table table-borderless table-vertical-center">
                                     <!--begin::Thead-->
@@ -537,7 +557,7 @@
                                                 </div>
                                             </td>
                                             <td class="pl-0">
-                                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Maths</a>
+                                                <a href="class.aspx" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Creating a new game </a>
                                                 <span class="text-muted font-weight-bold d-block">By Tom Gere</span>
                                             </td>
                                             <td class="text-left">
@@ -579,11 +599,11 @@
                                                 </div>
                                             </td>
                                             <td class="pl-0">
-                                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Geography</a>
+                                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Programming Best Practices</a>
                                                 <span class="text-muted font-weight-bold d-block">By Zoey Dylan</span>
                                             </td>
                                             <td class="text-left">
-                                                <span class="text-dark-75 font-weight-bolder d-block font-size-lg">10:20 - 12:00</span>
+                                                <span class="text-dark-75 font-weight-bolder d-block font-size-lg">11:20 - 12:00</span>
                                                 <span class="text-muted font-weight-bold d-block font-size-sm">Time</span>
                                             </td>
                                             <td class="text-right pr-0">
@@ -621,7 +641,7 @@
                                                 </div>
                                             </td>
                                             <td class="pl-0">
-                                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">History</a>
+                                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">How to solve most javascript errors</a>
                                                 <span class="text-muted font-weight-bold d-block">By Luke Owen</span>
                                             </td>
                                             <td class="text-left">
@@ -663,7 +683,7 @@
                                                 </div>
                                             </td>
                                             <td class="pl-0">
-                                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Drawing</a>
+                                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Using CSS to style your game</a>
                                                 <span class="text-muted font-weight-bold d-block">By Ellie Cole</span>
                                             </td>
                                             <td class="text-left">
