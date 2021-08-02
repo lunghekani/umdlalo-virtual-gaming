@@ -28,5 +28,13 @@ namespace UmdlaloVirtualGaming
                 }
             }
         }
+
+        public void Signout()
+        {
+
+            Session.Abandon();
+            Session.Clear();
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }
