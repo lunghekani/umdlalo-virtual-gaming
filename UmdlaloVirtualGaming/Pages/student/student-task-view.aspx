@@ -21,7 +21,7 @@
 													<div class="d-flex flex-column mr-auto">
 														<!--begin: Title-->
 														<div class="d-flex flex-column mr-auto">
-															<a href="#" class="text-dark text-hover-primary font-size-h4 font-weight-bolder mb-1">Nexa - Next generation SAAS</a>
+															<a href="#" class="text-dark text-hover-primary font-size-h4 font-weight-bolder mb-1">Diketo- project</a>
 															<span class="text-muted font-weight-bold">Creates Limitless possibilities</span>
 														</div>
 														<!--end::Title-->
@@ -168,7 +168,7 @@
 													<div class="d-flex flex-column mr-auto">
 														<!--begin: Title-->
 														<div class="d-flex flex-column mr-auto">
-															<a href="#" class="text-dark text-hover-primary font-size-h4 font-weight-bolder mb-1">B &amp; Q - Food Company</a>
+															<a href="#" class="text-dark text-hover-primary font-size-h4 font-weight-bolder mb-1">B Bunka- project</a>
 															<span class="text-muted font-weight-bold">Creates Limitless possibilities</span>
 														</div>
 														<!--end::Title-->
@@ -315,7 +315,7 @@
 													<div class="d-flex flex-column mr-auto">
 														<!--begin: Title-->
 														<div class="d-flex flex-column mr-auto">
-															<a href="#" class="text-dark text-hover-primary font-size-h4 font-weight-bolder mb-1">Ad Brand - Luxury Footwear</a>
+															<a href="#" class="text-dark text-hover-primary font-size-h4 font-weight-bolder mb-1">Kgati- project</a>
 															<span class="text-muted font-weight-bold">Creates Limitless possibilities</span>
 														</div>
 														<!--end::Title-->

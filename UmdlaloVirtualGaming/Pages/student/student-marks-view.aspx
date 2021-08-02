@@ -201,15 +201,15 @@
 											<span></span>
                                 </label>
                             </span></th>
-                            <th data-field="Item" class="datatable-cell datatable-cell-sort">
-                                <span style="width: 110px;">Item</span></th>
-                            <th data-field="Last Activity" class="datatable-cell datatable-cell-sort">
-                                <span style="width: 110px;">Last Activity</span></th>
+                            <th data-field="Activity" class="datatable-cell datatable-cell-sort">
+                                <span style="width: 110px;">Activity</span></th>
+                            <th data-field="Description" class="datatable-cell datatable-cell-sort">
+                                <span style="width: 110px;">Description</span></th>
+                            <th data-field="Date" class="datatable-cell datatable-cell-sort">
+                                <span style="width: 110px;">Date</span></th>
                             <th data-field="Mark" class="datatable-cell datatable-cell-sort">
                                 <span style="width: 110px;">Mark</span></th>
-                            <%--<th data-field="ShipDate" class="datatable-cell datatable-cell-sort">
-                                <span style="width: 110px;">Ship Date</span></th>
-                            <th data-field="Status" class="datatable-cell datatable-cell-sort" style="display: none;">
+                           <%-- <th data-field="Status" class="datatable-cell datatable-cell-sort" style="display: none;">
                                 <span style="width: 110px;">Status</span></th>
                             <th data-field="Type" data-autohide-disabled="false" class="datatable-cell datatable-cell-sort">
                                 <span style="width: 110px;">Type</span></th>
@@ -222,12 +222,13 @@
                             <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="1"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
-                                    <input type="checkbox" value="1">&nbsp;<span></span></label></span></td>
-                            <td data-field="Item" aria-label="HTML" class="datatable-cell"><span style="width: 110px;">HTML</span></td>
-                            <td data-field="Last Activity" aria-label="20 February 2021" class="datatable-cell"><span style="width: 110px;">20 February 2021</span></td>
+                                    <input type="checkbox" value="1">&nbsp;<span></span></label></span></td> 
+                            <td data-field="Activity" aria-label="Assessment 1" class="datatable-cell"><span style="width: 110px;">Assessment 1</span></td>
+                            <td data-field="Description" aria-label="HTML" class="datatable-cell"><span style="width: 110px;">HTML</span></td>
+                            <td data-field="Date" aria-label="20 February 2021" class="datatable-cell"><span style="width: 110px;">20 February 2021</span></td>
                             <td data-field="Mark" aria-label="75" class="datatable-cell"><span style="width: 110px;">75</span></td>
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                           
+                           <%-- <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -273,11 +274,12 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="2"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="2">&nbsp;<span></span></label></span></td>
-                            <td data-field="Item" aria-label="HTML" class="datatable-cell"><span style="width: 110px;">HTML</span></td>
-                            <td data-field="Last Activity" aria-label="28 February 2021" class="datatable-cell"><span style="width: 110px;">28 February 2021</span></td>
+                            <td data-field="Activity" aria-label="Assessment 2" class="datatable-cell"><span style="width: 110px;">Assessment 2</span></td>
+                            <td data-field="Description" aria-label="HTML" class="datatable-cell"><span style="width: 110px;">HTML</span></td>
+                            <td data-field="Date" aria-label="28 February 2021" class="datatable-cell"><span style="width: 110px;">28 February 2021</span></td>
                             <td data-field="Mark" aria-label="80" class="datatable-cell"><span style="width: 110px;">80</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            
+                           <%-- <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -323,11 +325,11 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="3"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="3">&nbsp;<span></span></label></span></td>
-                           <td data-field="Item" aria-label="CSS" class="datatable-cell"><span style="width: 110px;">CSS</span></td>
-                            <td data-field="Last Activity" aria-label="16 March 2021" class="datatable-cell"><span style="width: 110px;">16 March 2021</span></td>
-                            <td data-field="Mark" aria-label="67" class="datatable-cell"><span style="width: 110px;">67</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <td data-field="Activity" aria-label="Assessment 3" class="datatable-cell"><span style="width: 110px;">Assessment 3</span></td>
+                            <td data-field="Description" aria-label="CSS" class="datatable-cell"><span style="width: 110px;">CSS</span></td>
+                            <td data-field="Date" aria-label="16 March 2021" class="datatable-cell"><span style="width: 110px;">16 March 2021</span></td>
+                            <td data-field="Mark" aria-label="67" class="datatable-cell"><span style="width: 110px;">67</span></td>      
+                           <%-- <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -373,11 +375,11 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="4"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="4">&nbsp;<span></span></label></span></td>
-                            <td data-field="Item" aria-label="CSS" class="datatable-cell"><span style="width: 110px;">CSS</span></td>
-                           <td data-field="Last Activity" aria-label="22 March 2021" class="datatable-cell"><span style="width: 110px;">22 March 2021</span></td>
+                            <td data-field="Activity" aria-label="Assessment 4" class="datatable-cell"><span style="width: 110px;">Assessment 4</span></td>
+                            <td data-field="Description" aria-label="CSS" class="datatable-cell"><span style="width: 110px;">CSS</span></td>
+                           <td data-field="Date" aria-label="22 March 2021" class="datatable-cell"><span style="width: 110px;">22 March 2021</span></td>
                             <td data-field="Mark" aria-label="82" class="datatable-cell"><span style="width: 110px;">82</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <%--<td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -423,11 +425,11 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="5"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="5">&nbsp;<span></span></label></span></td>
-                            <td data-field="Item" aria-label="JavaScrip" class="datatable-cell"><span style="width: 110px;">JavaScrip</span></td>
-                            <td data-field="Last Activity" aria-label="27 March 2021" class="datatable-cell"><span style="width: 110px;">27 March 2021</span></td>
+                            <td data-field="Activity" aria-label="Assessment 5" class="datatable-cell"><span style="width: 110px;">Assessment 5</span></td>
+                            <td data-field="Description" aria-label="JavaScrip" class="datatable-cell"><span style="width: 110px;">JavaScrip</span></td>
+                            <td data-field="Date" aria-label="27 March 2021" class="datatable-cell"><span style="width: 110px;">27 March 2021</span></td>
                             <td data-field="Mark" aria-label="50" class="datatable-cell"><span style="width: 110px;">50</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                           <%-- <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -473,11 +475,11 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="6"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="6">&nbsp;<span></span></label></span></td>
-                            <td data-field="Item" aria-label="JavaScrip" class="datatable-cell"><span style="width: 110px;">JavaScrip</span></td>
-                            <td data-field="Last Activity" aria-label="3 April 2021" class="datatable-cell"><span style="width: 110px;">2 April 2021</span></td>
+                             <td data-field="Activity" aria-label="Assessment 6" class="datatable-cell"><span style="width: 110px;">Assessment 6</span></td>
+                            <td data-field="Description" aria-label="JavaScrip" class="datatable-cell"><span style="width: 110px;">JavaScrip</span></td>
+                            <td data-field="Date" aria-label="3 April 2021" class="datatable-cell"><span style="width: 110px;">2 April 2021</span></td>
                             <td data-field="Mark" aria-label="50" class="datatable-cell"><span style="width: 110px;">50</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                           <%-- <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -523,11 +525,11 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="7"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="7">&nbsp;<span></span></label></span></td>
-                          <td data-field="Item" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
-                            <td data-field="Last Activity" aria-label="9 April 2021" class="datatable-cell"><span style="width: 110px;">9 April 2021</span></td>
+                            <td data-field="Activity" aria-label="Assessment 7" class="datatable-cell"><span style="width: 110px;">Assessment 7</span></td>
+                             <td data-field="Description" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
+                            <td data-field="Date" aria-label="9 April 2021" class="datatable-cell"><span style="width: 110px;">9 April 2021</span></td>
                             <td data-field="Mark" aria-label="58" class="datatable-cell"><span style="width: 110px;">58</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <%--<td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -573,11 +575,11 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="8"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="8">&nbsp;<span></span></label></span></td>
-                           <td data-field="Item" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
-                            <td data-field="Last Activity" aria-label="15 April 2021" class="datatable-cell"><span style="width: 110px;">15 April 2021</span></td>
+                            <td data-field="Activity" aria-label="Assessment 8" class="datatable-cell"><span style="width: 110px;">Assessment 8</span></td>
+                           <td data-field="Description" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
+                            <td data-field="Date" aria-label="15 April 2021" class="datatable-cell"><span style="width: 110px;">15 April 2021</span></td>
                             <td data-field="Mark" aria-label="55" class="datatable-cell"><span style="width: 110px;">55</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <%--<td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -623,11 +625,11 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="9"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="9">&nbsp;<span></span></label></span></td>
-                            <td data-field="Item" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
-                            <td data-field="Last Activity" aria-label="22 April 2021" class="datatable-cell"><span style="width: 110px;">22 April 2021</span></td>
+                            <td data-field="Activity" aria-label="Assessment 9" class="datatable-cell"><span style="width: 110px;">Assessment 9</span></td>
+                            <td data-field="Description" aria-label="C-sharp" class="datatable-cell"><span style="width: 110px;">C-sharp</span></td>
+                            <td data-field="Date" aria-label="22 April 2021" class="datatable-cell"><span style="width: 110px;">22 April 2021</span></td>
                             <td data-field="Mark" aria-label="60" class="datatable-cell"><span style="width: 110px;">60</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <%--<td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
@@ -673,11 +675,11 @@
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="10"><span style="width: 20px;">
                                 <label class="checkbox checkbox-single">
                                     <input type="checkbox" value="10">&nbsp;<span></span></label></span></td>
-                           <td data-field="Item" aria-label="HTML + CSS" class="datatable-cell"><span style="width: 110px;">HTML + CSS</span></td>
-                            <td data-field="Last Activity" aria-label="28 April 2021" class="datatable-cell"><span style="width: 110px;">28 April 2021</span></td>
+                            <td data-field="Activity" aria-label="Assessment 10" class="datatable-cell"><span style="width: 110px;">Assessment 10</span></td>
+                           <td data-field="Description" aria-label="HTML + CSS" class="datatable-cell"><span style="width: 110px;">HTML + CSS</span></td>
+                            <td data-field="Date" aria-label="28 April 2021" class="datatable-cell"><span style="width: 110px;">28 April 2021</span></td>
                             <td data-field="Mark" aria-label="70" class="datatable-cell"><span style="width: 110px;">70</span></td>            
-                            <%--<td data-field="ShipDate" aria-label="10/15/2017" class="datatable-cell"><span style="width: 110px;">10/15/2017</span></td>
-                            <td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
+                            <%--<td data-field="Status" aria-label="5" class="datatable-cell" style="display: none;"><span style="width: 110px;"><span class="label label-lg font-weight-bold label-light-info label-inline">Info</span></span></td>
                             <td data-field="Type" data-autohide-disabled="false" aria-label="1" class="datatable-cell"><span style="width: 110px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Online</span></span></td>
                             <td class="datatable-cell-left datatable-cell" data-field="Actions" data-autohide-disabled="false" aria-label="null"><span style="overflow: visible; position: relative; width: 125px;">--%>
 
