@@ -15,6 +15,7 @@ namespace UmdlaloVirtualGaming.Pages.student
         protected void Page_Load(object sender, EventArgs e)
         {
             var dt = objUserDtls.GetUserAccDetails(Session["user_id"].ToString());
+            student_fullname.InnerText = dt.Rows[0].Field<string>("Name") + " " + dt.Rows[0].Field<string>("LastName");
             txtName.Text = dt.Rows[0].Field<string>("Name");
             txtLastName.Text = dt.Rows[0].Field<string>("LastName");
             txtEmail.Text= dt.Rows[0].Field<string>("Role");

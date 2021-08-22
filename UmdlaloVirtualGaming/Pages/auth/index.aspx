@@ -56,11 +56,11 @@
 							</div>
 							<div class="form" id="kt_login_signin_form">
 								<div class="form-group">
-									<asp:TextBox CssClass="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txtUsername" runat="server"></asp:TextBox>
+									<asp:TextBox CssClass="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txtUsername" placeholder="Email" runat="server"></asp:TextBox>
 									<%--<input id="txtEmail" runat="server" class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text" placeholder="Email" name="username" autocomplete="off" />--%>
 								</div>
 								<div class="form-group">
-                                    <asp:TextBox CssClass="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txtPass" runat="server" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="txtPass" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
 									<%--<input id="txtPassword" runat="server" class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="password" placeholder="Password" name="password" />--%>
 								</div>
 								<div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8 opacity-60">

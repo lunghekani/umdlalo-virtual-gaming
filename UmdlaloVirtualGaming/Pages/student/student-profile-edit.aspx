@@ -16,7 +16,7 @@
                         <!--begin::Symbol-->
                         <div class="symbol symbol-120 symbol-circle symbol-success overflow-hidden">
                             <span class="symbol-label">
-                                <img src="assets/media/svg/avatars/007-boy-2.svg" class="h-75 align-self-end" alt="">
+                                <img src="/Pages/assets/media/svg/avatars/007-boy-2.svg" class="h-75 align-self-end" alt="">
                             </span>
                         </div>
                         <!--end::Symbol-->
@@ -24,7 +24,7 @@
                         <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="student_fullname" runat="server">Jerry Kane</a>
                         <!--end::Username-->
                         <!--begin::Info-->
-                        <div class="font-weight-bold text-dark-50 font-size-sm pb-6">Grade 8, AE3 Student</div>
+                        <div class="font-weight-bold text-dark-50 font-size-sm pb-6">Student</div>
                         <!--end::Info-->
                     </div>
                     <!--end::Header-->
