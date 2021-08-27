@@ -380,6 +380,102 @@ namespace Business_Logic
 
         //End of project creation command
 
+
+        //Start of Comment creation command
+        public string CreateComment(string Project_ID, string User_ID, string Comment) 
+        {
+            var objConn = new clsDataConnection();
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Projects_Create";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@User_ID_IN", User_ID);
+            cmd.Parameters.AddWithValue("@Project_ID_IN", Project_ID);
+            cmd.Parameters.AddWithValue("@Comment_IN", Comment);
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                MySqlDataReader sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+
+                    lastProjectInsert = sqlReader.GetValue(0).ToString();
+
+                }
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                return ex.Message;
+
+            }
+        }
+
+        public DataTable GetProjectComments(string project_ID)
+        {
+            clsDataConnection objConn = new clsDataConnection();
+            var dt = new DataTable();
+            // Removed this because this gets passed in
+            // HttpContext.Current.Session["user_id"] = User_ID;
+
+            
+            dt.Columns.Add("Name", typeof(string));
+            
+            dt.Columns.Add("Comments", typeof(string));
+            
+            dt.Columns.Add("DateCreated", typeof(DateTime));
+            
+
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            //incorrect procedure name
+            cmd.CommandText = "Comment_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    while (sqlReader.Read())
+                    {
+                        
+                        string name = sqlReader.GetValue(4).ToString();
+                        string comments = sqlReader.GetValue(2).ToString();
+                        
+                        
+                        string datecreated = sqlReader.GetValue(3).ToString();
+                        
+                        dt.Rows.Add(name,comments, datecreated );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt; //Forgot to put a curly bracket and a return statement in the code
+            
+        }
+
+        //End: Create Comment
+
         //Start: Project View command
 
         public string UpdateProject(string proj_Name, string htmlCode, string cssCode, string jsCode, int visibility, string projectId)
