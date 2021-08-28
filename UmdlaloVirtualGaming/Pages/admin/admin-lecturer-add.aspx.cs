@@ -11,7 +11,7 @@ namespace UmdlaloVirtualGaming.Pages.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+// todo make the page to add lecturers
         }
     }
 }

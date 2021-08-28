@@ -375,7 +375,7 @@
 
                                     <!--end::Header-->
                                     <!--begin::Body-->
-                                    <div class="card-body pt-8" style="margin-bottom: -20px">
+                                    <div class="card-body pt-8" style="margin-bottom: -50px">
                                         <%--code here--%>
                                         <h3 class="card-title align-items-start flex-column">
                                             <span class="card-label font-weight-bolder text-dark">HTML Code</span>
