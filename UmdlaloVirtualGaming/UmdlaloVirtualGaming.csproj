@@ -2284,7 +2284,7 @@
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\lecturer\rest-chat-get.aspx" />
     <Content Include="Pages\sample-class-card.txt" />
-    <Content Include="Pages\student\comments-page.aspx" />
+    <Content Include="Pages\student\commentSample.txt" />
     <Content Include="Pages\student\create.aspx" />
     <Content Include="Pages\student\class.aspx" />
     <Content Include="Pages\student\code.aspx" />
@@ -2574,13 +2574,6 @@
     </Compile>
     <Compile Include="Pages\lecturer\rest-chat-get.aspx.designer.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\student\comments-page.aspx.cs">
-      <DependentUpon>comments-page.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\student\comments-page.aspx.designer.cs">
-      <DependentUpon>comments-page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\create.aspx.cs">
       <DependentUpon>create.aspx</DependentUpon>

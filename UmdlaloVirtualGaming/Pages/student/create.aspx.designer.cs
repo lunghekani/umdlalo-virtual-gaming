@@ -114,6 +114,33 @@ namespace UmdlaloVirtualGaming.Pages.student
         protected global::System.Web.UI.WebControls.LinkButton btnDownload;
 
         /// <summary>
+        /// dvComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvComment;
+
+        /// <summary>
+        /// txtcomment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtcomment;
+
+        /// <summary>
+        /// btnSendcomment_OnClick control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl btnSendcomment_OnClick;
+
+        /// <summary>
         /// lblVisible control.
         /// </summary>
         /// <remarks>
