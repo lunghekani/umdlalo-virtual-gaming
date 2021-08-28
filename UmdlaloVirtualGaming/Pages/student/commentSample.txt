@@ -1,0 +1,30 @@
+﻿ <!--begin::Message-->
+                    <div class="cursor-pointer shadow-xs toggle-off" data-inbox="message">
+                        <!--begin::Info-->
+                        <div class="d-flex align-items-start card-spacer-x py-4">
+                            <!--begin::User Photo-->
+                            <span class="symbol symbol-35 mr-3 mt-1">
+                                <span class="symbol-label" style="background-image: url('/Pages/assets/media/users/100_13.jpg')"></span>
+                            </span>
+                            <!--end::User Photo-->
+                            <!--begin::User Details-->
+                            <div class="d-flex flex-column flex-grow-1 flex-wrap mr-2">
+                                <div class="d-flex">
+                                    <a href="#" class="font-size-lg font-weight-bolder text-dark-75 text-hover-primary mr-2">#CommentName#</a>
+                                   
+                                </div>
+                                <div class="d-flex flex-column">
+                                    
+                                    <div class="text-muted font-weight-bold toggle-on-item" data-inbox="toggle">#CommentText#</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="font-weight-bold text-muted mr-2">#CommentDate#</div>
+                                
+                            </div>
+                            <!--end::User Details-->
+                        </div>
+                        <!--end::Info-->
+                     
+                    </div>
+                    <!--end::Message-->

@@ -418,7 +418,7 @@ namespace Business_Logic
             }
         }
 
-        public DataTable GetProjectComments(string project_ID)
+        public DataTable GetProjectComments(int project_ID)
         {
             clsDataConnection objConn = new clsDataConnection();
             var dt = new DataTable();
@@ -440,7 +440,7 @@ namespace Business_Logic
             //incorrect procedure name
             cmd.CommandText = "Comment_Get";
             cmd.CommandType = CommandType.StoredProcedure;
-
+            cmd.Parameters.AddWithValue("Project_ID_IN", project_ID);
 
             MySqlDataReader sqlReader = cmd.ExecuteReader();
             try

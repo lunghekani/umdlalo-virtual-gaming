@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -33,7 +34,7 @@ namespace UmdlaloVirtualGaming.Pages.student
             else
             {
                 PopulateCode(int.Parse(authclass.DecryptString(id)));
-                
+                PopulateComments(int.Parse(authclass.DecryptString(id)));
                 if (Session["user_id"].ToString()==uId) // when it is your project
                 {
                     lblVisible.Visible = true;
@@ -57,7 +58,47 @@ namespace UmdlaloVirtualGaming.Pages.student
             }
             
         }
+        protected void PopulateComments(int projectID) {
+            var dt = projectclass.GetProjectComments(projectID); // this is where the business code you created gets called
 
+            ///put if statement here for no comments 
+            
+
+            string commentList = "";
+            
+            //if (commentList.Equals(null))
+            //{
+            //    GetProjectComments.ShowMessage("no comments");
+            //}
+            //else
+            //{
+
+            //}
+                  
+            foreach (DataRow row in dt.Rows)
+            {
+                commentList += DisplayComments(row["Name"].ToString(), row["Comments"].ToString(), Convert.ToDateTime(row["DateCreated"]));
+            }
+
+            
+
+            dvComment.InnerHtml = commentList;
+
+        }
+        protected string DisplayComments(string name, string comments, DateTime date)
+        {
+            var stream = new StreamReader(Server.MapPath("~/Pages/student/commentSample.txt"));
+            string projectblock = stream.ReadToEnd();
+
+
+
+            projectblock = projectblock.Replace("#CommentDate#", date.ToString("dd MMM  yy"));
+            projectblock = projectblock.Replace("#CommentText#", comments);
+            projectblock = projectblock.Replace("#CommentName#", name);
+           
+
+            return projectblock;
+        }
         protected void PopulateCode(int projectID)
         {
             string likes, comments, views;
@@ -163,6 +204,34 @@ namespace UmdlaloVirtualGaming.Pages.student
         protected void htmlCode_OnTextChanged(object sender, EventArgs e)
         {
             ClientScript.RegisterStartupScript(typeof(Page), "test", "showPreview();", true);
+        }
+
+        //send button for comments not working properly 
+        protected void btnSendcomment_OnClick(object sender, EventArgs e)
+        {
+            var id = Request.QueryString["ID"];
+            int Project_ID = int.Parse(authclass.DecryptString(id));                 
+            string Comment = txtcomment.Value;
+            string uId = Session["user_id"].ToString();
+
+            //int visibility = 0;
+            //if (!chkVisible.Checked)
+            //{
+            //    visibility = 1;
+            //}
+            var Comments = projectclass.CreateComment(Project_ID.ToString(),uId, Comment);
+
+            if (Comments.Equals("Success"))
+            {
+                // display a notification saying comment successfully sent
+                communicateclass.ShowMessage(this, "Comment sent", clsCommunicate.MessageType.success);
+
+                Response.Redirect("create.aspx?ID=" + authclass.EncryptString(projectclass.lastProjectInsert));
+            }
+            else
+            {
+                communicateclass.ShowMessage(this, "Error ocurred", clsCommunicate.MessageType.error);
+            }
         }
     }
 }
