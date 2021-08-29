@@ -2265,9 +2265,11 @@
     <Content Include="Pages\assets\plugins\global\fonts\socicon\socicon.svg" />
     <Content Include="Pages\assets\plugins\global\plugins.bundle.css" />
     <Content Include="Pages\assets\plugins\global\plugins.bundle.js" />
+    <Content Include="Pages\auth\email-reg.html" />
     <Content Include="Pages\auth\HelloWorld.aspx" />
     <Content Include="Pages\auth\index.aspx" />
     <Content Include="Pages\auth\WebForm2.aspx" />
+    <Content Include="Pages\admin\content-creator.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-calendar-view.aspx" />
@@ -2281,8 +2283,16 @@
     <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\lecturer\rest-chat-get.aspx" />
+    <Content Include="Pages\sample-class-card.txt" />
+    <Content Include="Pages\student\commentSample.txt" />
+    <Content Include="Pages\student\create.aspx" />
+    <Content Include="Pages\student\class.aspx" />
     <Content Include="Pages\student\code.aspx" />
+    <Content Include="Pages\student\HtmlPage1.html" />
+    <Content Include="Pages\student\personal-projects.aspx" />
     <Content Include="Pages\student\rest-chat-get.aspx" />
+    <Content Include="Pages\student\sampleproject.txt" />
+    <Content Include="Pages\student\singleproj.html" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
     <Content Include="Pages\student\student-chat-new.aspx" />
     <Content Include="Pages\student\student-chat-view.aspx" />
@@ -2467,6 +2477,13 @@
     <Compile Include="Pages\auth\WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\admin\content-creator.aspx.cs">
+      <DependentUpon>content-creator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\content-creator.aspx.designer.cs">
+      <DependentUpon>content-creator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\lecturer\lecturer-assessment-add.aspx.cs">
       <DependentUpon>lecturer-assessment-add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2558,12 +2575,33 @@
     <Compile Include="Pages\lecturer\rest-chat-get.aspx.designer.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\student\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\class.aspx.cs">
+      <DependentUpon>class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\class.aspx.designer.cs">
+      <DependentUpon>class.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\student\code.aspx.cs">
       <DependentUpon>code.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\student\code.aspx.designer.cs">
       <DependentUpon>code.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\personal-projects.aspx.cs">
+      <DependentUpon>personal-projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\personal-projects.aspx.designer.cs">
+      <DependentUpon>personal-projects.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\rest-chat-get.aspx.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>

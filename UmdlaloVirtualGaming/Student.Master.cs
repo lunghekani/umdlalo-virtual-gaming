@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business_Logic;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
+using System.Windows.Forms;
+
 namespace UmdlaloVirtualGaming
 {
     public partial class Student : System.Web.UI.MasterPage
@@ -23,6 +26,12 @@ namespace UmdlaloVirtualGaming
                     lblNames.InnerText = dt.Rows[0].Field<string>("Name") + " " + dt.Rows[0].Field<string>("LastName");
                     lblRole.InnerText = dt.Rows[0].Field<string>("Role");
                     lblEmail.InnerText = dt.Rows[0].Field<string>("Email");
+
+                    
+                }
+                else
+                {
+                    
                 }
             }
         }

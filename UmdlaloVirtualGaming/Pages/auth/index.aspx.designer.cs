@@ -15,31 +15,22 @@ namespace UmdlaloVirtualGaming.Pages.auth
     {
 
         /// <summary>
-        /// kt_login_signin_form control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm kt_login_signin_form;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
-        /// txtEmail control.
+        /// txtPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
-
-        /// <summary>
-        /// txtPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtPass;
 
         /// <summary>
         /// kt_login_signin_submit control.
@@ -51,57 +42,48 @@ namespace UmdlaloVirtualGaming.Pages.auth
         protected global::System.Web.UI.HtmlControls.HtmlButton kt_login_signin_submit;
 
         /// <summary>
-        /// kt_login_signup_form control.
+        /// txtSignUpFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm kt_login_signup_form;
+        protected global::System.Web.UI.WebControls.TextBox txtSignUpFullName;
 
         /// <summary>
-        /// txtFullname control.
+        /// txtSignUpLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFullname;
+        protected global::System.Web.UI.WebControls.TextBox txtSignUpLastName;
 
         /// <summary>
-        /// txtLastname control.
+        /// txtSignUpEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLastname;
+        protected global::System.Web.UI.WebControls.TextBox txtSignUpEmail;
 
         /// <summary>
-        /// txtemaill control.
+        /// txtSignUpPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtemaill;
+        protected global::System.Web.UI.WebControls.TextBox txtSignUpPassword;
 
         /// <summary>
-        /// txtpassword control.
+        /// btnSignUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtpassword;
-
-        /// <summary>
-        /// kt_login_signup_submit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton kt_login_signup_submit;
+        protected global::System.Web.UI.WebControls.Button btnSignUp;
     }
 }

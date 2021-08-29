@@ -11,6 +11,7 @@ namespace UmdlaloVirtualGaming.Pages.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+// todo make the screen be able to add users into the system
 
         }
     }
