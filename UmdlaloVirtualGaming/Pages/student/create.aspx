@@ -22,7 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.3/bootstrap-notify.min.js" integrity="sha512-d0ZsJAyXsXlpeDNAhXj4mbaqpLfdyoOaQFmaFVG/KodZnAaVrdOsO9KiG62V7dcV+sHIFb7VTMmkB5JntAoq+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<style>
+    <style>
     body {
         overflow: auto;
     }
@@ -33,20 +33,21 @@
         resize: none;
     }
 
-        textarea::-webkit-scrollbar {
-            width: 1em;
-        }
+    textarea::-webkit-scrollbar {
+        width: 1em;
+    }
 
-        textarea::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        }
+    textarea::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
 
-        textarea::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-            background-color: #555;
-        }
-</style>
+    textarea::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+    }
+  </style>
+
 
 <body>
     <form id="form1" runat="server">
@@ -127,7 +128,7 @@
                                                         <div class="d-flex align-items-center mr-3">
                                                             <!--begin::Send-->
                                                             <div class="btn-group mr-4">
-                                                                <asp:Button runat="server" ID="btnSendComment" CssClass="btn btn-primary font-weight-bold px-6" Text="Send" OnClick="btnSendComment_OnClick"/>
+                                                                <asp:Button runat="server" ID="btnSendComment" CssClass="btn btn-primary font-weight-bold px-6" Text="Send" OnClick=" btnSendcomment_OnClick"/>
                                                                 
                                                             </div>
                                                             <!--end::Send-->

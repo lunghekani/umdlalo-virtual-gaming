@@ -58,29 +58,35 @@ namespace UmdlaloVirtualGaming.Pages.student
             }
             
         }
-        protected void PopulateComments(int projectID) {
+        protected void PopulateComments(int projectID)
+        {
             var dt = projectclass.GetProjectComments(projectID); // this is where the business code you created gets called
 
-            ///put if statement here for no comments 
-            
+        
 
+           
             string commentList = "";
-            
-            //if (commentList.Equals(null))
-            //{
-            //    GetProjectComments.ShowMessage("no comments");
-            //}
-            //else
-            //{
 
-            //}
-                  
-            foreach (DataRow row in dt.Rows)
+            string Null = null;  
+            
+            ///put if statement here for no comments
+
+            if (commentList == Null)
             {
-                commentList += DisplayComments(row["Name"].ToString(), row["Comments"].ToString(), Convert.ToDateTime(row["DateCreated"]));
+                foreach (DataRow row in dt.Rows)
+                {
+                    commentList += DisplayComments(row["Name"].ToString(), row["Comments"].ToString(), Convert.ToDateTime(row["DateCreated"]));
+                }
+             
             }
+            else
+            {
+                 Console.WriteLine("No comments");
+            }
+           
 
-            
+
+
 
             dvComment.InnerHtml = commentList;
 
@@ -211,7 +217,7 @@ namespace UmdlaloVirtualGaming.Pages.student
         {
             var id = Request.QueryString["ID"];
             int Project_ID = int.Parse(authclass.DecryptString(id));                 
-            string Comment = txtcomment.Value;
+            string Comment = txtcomment.InnerText;
             string uId = Session["user_id"].ToString();
 
             //int visibility = 0;
@@ -225,8 +231,6 @@ namespace UmdlaloVirtualGaming.Pages.student
             {
                 // display a notification saying comment successfully sent
                 communicateclass.ShowMessage(this, "Comment sent", clsCommunicate.MessageType.success);
-
-                Response.Redirect("create.aspx?ID=" + authclass.EncryptString(projectclass.lastProjectInsert));
             }
             else
             {
