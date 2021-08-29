@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -382,13 +383,13 @@ namespace Business_Logic
 
 
         //Start of Comment creation command
-        public string CreateComment(string Project_ID, string User_ID, string Comment) 
+        public string CreateComment(int Project_ID, string User_ID, string Comment) 
         {
             var objConn = new clsDataConnection();
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
 
-            cmd.CommandText = "Projects_Create";
+            cmd.CommandText = "Comment_Create";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@User_ID_IN", User_ID);
             cmd.Parameters.AddWithValue("@Project_ID_IN", Project_ID);
@@ -449,12 +450,35 @@ namespace Business_Logic
                 {
                     while (sqlReader.Read())
                     {
-                        
-                        string name = sqlReader.GetValue(4).ToString();
-                        string comments = sqlReader.GetValue(2).ToString();
-                        
-                        
-                        string datecreated = sqlReader.GetValue(3).ToString();
+
+                        string name = string.Empty;
+                        if( sqlReader.GetValue(4).Equals(DBNull.Value))
+                        {
+                            name = "-";
+                        }
+                        else
+                        {
+                            name = sqlReader.GetValue(4).ToString();
+                        }
+                        string comments = string.Empty;
+                        if( sqlReader.GetValue(2).Equals(DBNull.Value))
+                        {
+                            comments = "-";
+                        }
+                        else
+                        {
+                            comments = sqlReader.GetValue(2).ToString();
+                        }
+                   
+                        string datecreated = string.Empty;
+                        if( sqlReader.GetValue(3).Equals(DBNull.Value))
+                        {
+                            datecreated = "-";
+                        }
+                        else
+                        {
+                            datecreated = sqlReader.GetValue(3).ToString();
+                        }
                         
                         dt.Rows.Add(name,comments, datecreated );
                     }

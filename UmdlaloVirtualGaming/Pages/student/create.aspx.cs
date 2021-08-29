@@ -219,7 +219,7 @@ namespace UmdlaloVirtualGaming.Pages.student
             //{
             //    visibility = 1;
             //}
-            var Comments = projectclass.CreateComment(Project_ID.ToString(),uId, Comment);
+            var Comments = projectclass.CreateComment(Project_ID,uId, Comment);
 
             if (Comments.Equals("Success"))
             {
