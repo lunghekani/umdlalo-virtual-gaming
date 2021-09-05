@@ -223,7 +223,7 @@
             <div class="tab-content pt-5">
                 <!--begin::Tab Content-->
                 <div class="tab-pane active" id="kt_apps_contacts_view_tab_2" role="tabpanel">
-                    <form class="form">
+                    
                         <!--begin::Heading-->
                         <div class="row">
                             <div class="col-lg-9 col-xl-6 offset-xl-3">
@@ -311,10 +311,11 @@
                         
                         
                         <div class="card-footer">
-                            <button type="reset" class="btn btn-success mr-2">Save Changes</button>
-                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                            <asp:Button ID="btnTest" OnClick="btnTest_OnClick" Text="Test" runat="server"/>
+                            <asp:Button  class="btn btn-success mr-2" id="btnSaveChanges" runat="server" onclick="btnSaveChanges_Click" Text="Save Changes"></asp:Button>
+                            <asp:Button class="btn btn-secondary" id="btnProfileCancel" runat="server"  Text="Cancel" onclick="btnProfileCancel_Click"></asp:Button>
                         </div>
-                    </form>
+                    
                 </div>
                 <!--end::Tab Content-->
                 <!--begin::Tab Content-->
