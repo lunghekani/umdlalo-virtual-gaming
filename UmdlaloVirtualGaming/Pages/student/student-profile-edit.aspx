@@ -368,22 +368,7 @@
                         </div>
                         
                       
-                        <div class="form-group row align-items-center">
-                            <label class="col-xl-3 col-lg-3 col-form-label text-right">Communication</label>
-                            <div class="col-lg-9 col-xl-6">
-                                <div class="checkbox-inline">
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                        <span></span>Email</label>
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                        <span></span>SMS</label>
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                        <span></span>Phone</label>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="separator separator-dashed my-10"></div>
                         <!--begin::Heading-->
                       <%--  <div class="row">
