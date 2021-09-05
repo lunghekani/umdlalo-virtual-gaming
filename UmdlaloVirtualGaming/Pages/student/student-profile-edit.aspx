@@ -315,25 +315,7 @@
                     
                         <!--begin::Notice-->
                         <div class="row">
-                            <div class="col-lg-9 col-xl-6 offset-xl-3">
-                                <div class="alert alert-custom alert-light-danger fade show mb-9" role="alert">
-                                    <div class="alert-icon">
-                                        <i class="flaticon-warning"></i>
-                                    </div>
-                                    <div class="alert-text">
-                                        Configure user passwords to expire periodically.
-																		<br>
-                                        Users will need warning that their passwords are going to expire, or they might inadvertently get locked out of the system!
-                                    </div>
-                                    <div class="alert-close">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">
-                                                <i class="ki ki-close"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                         <!--end::Notice-->
                         <!--begin::Heading-->

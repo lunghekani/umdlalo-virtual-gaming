@@ -22,5 +22,7 @@ namespace UmdlaloVirtualGaming.Pages.student
             txtEmail.Text= dt.Rows[0].Field<string>("Email");
             
         }
+
+
     }
 }
