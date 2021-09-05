@@ -304,10 +304,11 @@
                         
                         
                         <div class="card-footer">
-                            <button type="reset" class="btn btn-success mr-2" id="btnSaveChanges" runat="server" onclick="btnSaveChanges">Save Changes</button>
-                            <button type="reset" class="btn btn-secondary" id="btnCancel" runat="server" onclick="btnCancel">Cancel</button>
+                            <asp:Button ID="btnTest" OnClick="btnTest_OnClick" Text="Test" runat="server"/>
+                            <asp:Button  class="btn btn-success mr-2" id="btnSaveChanges" runat="server" onclick="btnSaveChanges_Click" Text="Save Changes"></asp:Button>
+                            <asp:Button class="btn btn-secondary" id="btnProfileCancel" runat="server"  Text="Cancel" onclick="btnProfileCancel_Click"></asp:Button>
                         </div>
-                   
+                    
                 </div>
                 <!--end::Tab Content-->
                 <!--begin::Tab Content-->

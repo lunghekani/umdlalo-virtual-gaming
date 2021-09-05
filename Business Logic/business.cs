@@ -77,6 +77,7 @@ namespace Business_Logic
                     msg = "Success",
                     uid = userGuid.ToString()
                 };
+                cmd.Connection.Close();
             }
             catch (Exception ex)
             {
@@ -87,6 +88,7 @@ namespace Business_Logic
                 };
                 
             }
+            
         }
 
         public clsBasicUserDetails AuthUser(string username, string password)
@@ -177,6 +179,7 @@ namespace Business_Logic
             return encryptString;  
         }
 
+        
 
     }
 
@@ -232,6 +235,41 @@ namespace Business_Logic
 
             conn.Close();
             return dt;
+        }
+        public string UpdateUser(string userId, string name, string lastName, string email, int disabled)
+        {
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "User_Self_Update";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@UserID_In", userId);
+            cmd.Parameters.AddWithValue("@Name_IN", name);
+            cmd.Parameters.AddWithValue("@LastName_IN", lastName);
+            cmd.Parameters.AddWithValue("@Email_IN", email);
+            cmd.Parameters.AddWithValue("@Disabled_IN", disabled);
+
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                cmd.Connection.Close();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                cmd.Connection.Close();
+                return ex.Message;
+
+            }
+
         }
     }
 
