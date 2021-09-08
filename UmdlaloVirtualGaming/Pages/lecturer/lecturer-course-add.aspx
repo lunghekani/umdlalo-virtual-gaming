@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form class="form">
  <div class="card-body">
-  <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Customer Info:</h3>
+  <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Course Name:</h3>
   <div class="mb-15">
    <div class="form-group row">
     <label class="col-lg-3 col-form-label">Full Name:</label>
