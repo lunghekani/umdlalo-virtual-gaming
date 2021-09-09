@@ -247,6 +247,7 @@
 								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
+
 											<!--begin::Svg Icon | path:/Pages/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -269,34 +270,9 @@
 												</span>
 											</li>
 
-
-
+							
 											<li class="menu-item" aria-haspopup="true">
-												<a href="student-task-view.aspx" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Latest Tasks</span>
-													<span class="menu-label">
-														<span class="label label-danger label-inline">new</span>
-													</span>
-												</a>
-											</li>
-
-											<li class="menu-item" aria-haspopup="true">
-												<a href="student-task-view.aspx" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Pending Tasks</span>
-													<span class="menu-label">
-														<span class="label label-danger label-inline">new</span>
-													</span>
-												</a>
-											</li>
-
-											<li class="menu-item" aria-haspopup="true">
-												<a href="student-task-view.aspx" class="menu-link">
+												<a href="student-task-urgent.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -309,7 +285,7 @@
 
 
 											<li class="menu-item" aria-haspopup="true">
-												<a href="student-task-view.aspx" class="menu-link">
+												<a href="student-task-completed.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -322,7 +298,7 @@
 
 
 											<li class="menu-item" aria-haspopup="true">
-												<a href="student-task-view.aspx" class="menu-link">
+												<a href="student-task-failed.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>

@@ -58,13 +58,32 @@ namespace UmdlaloVirtualGaming.Pages.student
             }
             
         }
+
+        //send button for comments  
+        protected void btnSendcomment_OnClick(object sender, EventArgs e)
+        {
+            var id = Request.QueryString["ID"];
+            int Project_ID = int.Parse(authclass.DecryptString(id));
+            string Comment = txtcomment.InnerText;
+            string uId = Session["user_id"].ToString();
+
+            var Comments = projectclass.CreateComment(Project_ID, uId, Comment);
+
+            if (Comments.Equals("Success"))
+            {
+                // display a notification saying comment successfully sent
+                communicateclass.ShowMessage(this, "Comment sent", clsCommunicate.MessageType.success);
+            }
+            else
+            {
+                communicateclass.ShowMessage(this, "Error ocurred", clsCommunicate.MessageType.error);
+            }
+        }
+        //end of send comments button 
         protected void PopulateComments(int projectID)
         {
             var dt = projectclass.GetProjectComments(projectID); // this is where the business code you created gets called
 
-        
-
-           
             string commentList = "";
 
             string Null = null;  
@@ -84,10 +103,6 @@ namespace UmdlaloVirtualGaming.Pages.student
                  Console.WriteLine("No comments");
             }
            
-
-
-
-
             dvComment.InnerHtml = commentList;
 
         }
@@ -212,30 +227,6 @@ namespace UmdlaloVirtualGaming.Pages.student
             ClientScript.RegisterStartupScript(typeof(Page), "test", "showPreview();", true);
         }
 
-        //send button for comments not working properly 
-        protected void btnSendcomment_OnClick(object sender, EventArgs e)
-        {
-            var id = Request.QueryString["ID"];
-            int Project_ID = int.Parse(authclass.DecryptString(id));                 
-            string Comment = txtcomment.InnerText;
-            string uId = Session["user_id"].ToString();
-
-            //int visibility = 0;
-            //if (!chkVisible.Checked)
-            //{
-            //    visibility = 1;
-            //}
-            var Comments = projectclass.CreateComment(Project_ID,uId, Comment);
-
-            if (Comments.Equals("Success"))
-            {
-                // display a notification saying comment successfully sent
-                communicateclass.ShowMessage(this, "Comment sent", clsCommunicate.MessageType.success);
-            }
-            else
-            {
-                communicateclass.ShowMessage(this, "Error ocurred", clsCommunicate.MessageType.error);
-            }
-        }
+      
     }
 }

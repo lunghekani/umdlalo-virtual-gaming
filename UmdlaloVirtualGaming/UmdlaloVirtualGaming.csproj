@@ -2303,6 +2303,9 @@
     <Content Include="Pages\student\student-profile-edit.aspx" />
     <Content Include="Pages\student\student-project-list.aspx" />
     <Content Include="Pages\student\student-project-view.aspx" />
+    <Content Include="Pages\student\student-task-completed.aspx" />
+    <Content Include="Pages\student\student-task-failed.aspx" />
+    <Content Include="Pages\student\student-task-urgent.aspx" />
     <Content Include="Pages\student\student-task-view.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2679,6 +2682,27 @@
     </Compile>
     <Compile Include="Pages\student\student-project-view.aspx.designer.cs">
       <DependentUpon>student-project-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-task-completed.aspx.cs">
+      <DependentUpon>student-task-completed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-task-completed.aspx.designer.cs">
+      <DependentUpon>student-task-completed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-task-failed.aspx.cs">
+      <DependentUpon>student-task-failed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-task-failed.aspx.designer.cs">
+      <DependentUpon>student-task-failed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-task-urgent.aspx.cs">
+      <DependentUpon>student-task-urgent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-task-urgent.aspx.designer.cs">
+      <DependentUpon>student-task-urgent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-task-view.aspx.cs">
       <DependentUpon>student-task-view.aspx</DependentUpon>
