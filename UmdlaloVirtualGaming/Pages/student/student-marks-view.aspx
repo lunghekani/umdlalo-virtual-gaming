@@ -79,7 +79,6 @@
             </div>
         </div>
         <div class="card-body">
-            <!--begin: Search Form-->
             <!--begin::Search Form-->
             <div class="mb-7">
                 <div class="row align-items-center">
@@ -95,46 +94,26 @@
                             </div>
                             <div class="col-md-4 my-2 my-md-0">
                                 <div class="d-flex align-items-center">
-                                    <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
-                                    <div class="dropdown bootstrap-select form-control">
-                                        <select class="form-control" id="kt_datatable_search_status">
-                                            <option value="">All</option>
-                                            <option value="1">Pending</option>
-                                            <option value="2">Delivered</option>
-                                            <option value="3">Canceled</option>
-                                            <option value="4">Success</option>
-                                            <option value="5">Info</option>
-                                            <option value="6">Danger</option>
-                                        </select>
-                                        <button type="button" tabindex="-1" class="btn dropdown-toggle btn-light bs-placeholder" data-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" data-id="kt_datatable_search_status" title="All">
-                                            <div class="filter-option">
-                                                <div class="filter-option-inner">
-                                                    <div class="filter-option-inner-inner">All</div>
-                                                </div>
-                                            </div>
-                                        </button>
-                                        <div class="dropdown-menu ">
-                                            <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
-                                                <ul class="dropdown-menu inner show" role="presentation"></ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 my-2 my-md-0">
-                                <div class="d-flex align-items-center">
                                     <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
-                                    <div class="dropdown bootstrap-select form-control">
+
+                                    <asp:DropDownList ID="DropDownList1" runat="server">
+                                     <asp:ListItem Value="-1">Select Type</asp:ListItem>
+                                    <asp:ListItem Value="1">Activity</asp:ListItem>
+                                    <asp:ListItem Value="2">Description</asp:ListItem>
+                                    <asp:ListItem Value="3">Mark</asp:ListItem>
+
+                                    </asp:DropDownList>
+
+                                   <%-- <div class="dropdown bootstrap-select form-control">
                                         <select class="form-control" id="kt_datatable_search_type">
-                                            <option value="">All</option>
-                                            <option value="1">Online</option>
-                                            <option value="2">Retail</option>
-                                            <option value="3">Direct</option>
+                                            <option value="">Acitvity </option>
+                                            <option value="1">Description</option>
+                                            <option value="2">Mark</option>
                                         </select>
-                                        <button type="button" tabindex="-1" class="btn dropdown-toggle btn-light bs-placeholder" data-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox" aria-expanded="false" data-id="kt_datatable_search_type" title="All">
+                                        <button type="button" tabindex="-1" class="btn dropdown-toggle btn-light bs-placeholder" data-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox" aria-expanded="false" data-id="kt_datatable_search_type" title="Activity">
                                             <div class="filter-option">
                                                 <div class="filter-option-inner">
-                                                    <div class="filter-option-inner-inner">All</div>
+                                                    <div class="filter-option-inner-inner">Activity</div>
                                                 </div>
                                             </div>
                                         </button>
@@ -143,18 +122,17 @@
                                                 <ul class="dropdown-menu inner show" role="presentation"></ul>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--%>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                        <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
+                        <asp:button href="#" class="btn btn-light-primary px-6 font-weight-bold" id="btnSearch" runat="server" Text="Search"></asp:button>
                     </div>
                 </div>
             </div>
             <!--end::Search Form-->
-            <!--end: Search Form-->
             <!--begin: Selected Rows Group Action Form-->
             <div class="mt-10 mb-5 collapse" id="kt_datatable_group_action_form">
                 <div class="d-flex align-items-center">
