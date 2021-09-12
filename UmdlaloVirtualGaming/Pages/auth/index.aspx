@@ -66,14 +66,14 @@
 								<div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8 opacity-60">
 									<div class="checkbox-inline">
 										<label class="checkbox checkbox-outline checkbox-white text-white m-0">
-										<input type="checkbox" name="remember" />
+										<input type="checkbox" id="checkRemember" runat="server" name="remember" />
 										<span></span>Remember me</label>
 									</div>
 									<a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">Forget Password ?</a>
 								</div>
                                 <div class="form-group text-center mt-10">
-                                    <button id="kt_login_signin_submit" class="btn btn-pill btn-primary opacity-90 px-15 py-3" runat="server" onserverclick="kt_login_signin_submit_ServerClick">Sign In</button>
-									
+                                    
+									<asp:Button ID="btnSignIn" Text="Sign In" CssClass="btn btn-pill btn-primary opacity-90 px-15 py-3" OnClick="btnSignIn_Click" runat="server" />
 							
                                 </div>
 							</div>

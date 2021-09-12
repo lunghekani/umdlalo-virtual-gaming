@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                        <asp:button href="#" class="btn btn-light-primary px-6 font-weight-bold" id="btnSearch" runat="server" Text="Search"></asp:button>
+                        <asp:button href="#" class="btn btn-light-primary px-6 font-weight-bold" id="btnFind" runat="server" Text="Search"></asp:button>
                     </div>
                 </div>
             </div>

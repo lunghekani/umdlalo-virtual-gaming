@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.IO;
+using System.Web;
 using System.Windows.Forms;
 
 namespace UmdlaloVirtualGaming.Pages.auth
@@ -17,49 +18,16 @@ namespace UmdlaloVirtualGaming.Pages.auth
 
         protected void Page_Load(object sender, EventArgs e)
         {
-        }
-
-        protected void kt_login_signin_submit_ServerClick(object sender, EventArgs e)
-        {
-            string username, password;
-            username = txtUsername.Text;
-            password = txtPass.Text;
-            
-            var msg = authclass.AuthUser(username, password);
-            var uID = msg.uid;
-            if (msg.msg.Equals("Success"))
+            if (!Page.IsPostBack)
             {
-                var dt = userclass.GetUserAccDetails(uID);
-
-                if (dt.Rows[0].Field<string>("Role") == "Admin")
+                if (Request.Cookies["secureVGC"] != null && Request.Cookies["secureMemcld"] != null)
                 {
-                    Response.Redirect("~/Pages/admin/admin-dashboard.aspx");
-                }
-                else if (dt.Rows[0].Field<string>("Role") == "Lecturer")
-                {
-                    Response.Redirect("~/Pages/lecturer/lecturer-dashboard.aspx");
-                }
-                else if (dt.Rows[0].Field<string>("Role") == "Student")
-                {
-                    Response.Redirect("~/Pages/student/student-dashboard.aspx");
+                    txtUsername.Text = authclass.DecryptString( Request.Cookies["secureVGC"].Value);
+                    txtPass.Attributes["value"] = authclass.DecryptString( Request.Cookies["secureMemcld"].Value);
                 }
             }
-            else
-            {
-                MessageBox.Show(msg.msg);
-            }
         }
-
         
-
-        protected void emailTest_OnServerClick(object sender, EventArgs e)
-        {
-            clsCommunicate objComm = new clsCommunicate();
-            var names = "Name" + " " + "Surname";
-            var body = PopulateBody("TestingUsername", names);
-            objComm.SendHTMLEmail("lunghivlanga@gmail.com", "Welcome To Umdlalo", body);
-        }
-
         protected string PopulateBody(string username, string fullname)
         {
             var stream = new StreamReader(Server.MapPath("~/Pages/auth/email-reg.html"));
@@ -105,6 +73,52 @@ namespace UmdlaloVirtualGaming.Pages.auth
             else
             {
                 MessageBox.Show(user.msg);
+            }
+        }
+
+        protected void btnSignIn_Click(object sender, EventArgs e)
+        {
+            string username, password;
+            username = txtUsername.Text;
+            password = txtPass.Text;
+
+            var msg = authclass.AuthUser(username, password);
+            var uID = msg.uid;
+            if (msg.msg.Equals("Success"))
+            {
+                if (checkRemember.Checked)
+                {
+                    Response.Cookies["secureVGC"].Expires = DateTime.Now.AddDays(30);
+                    Response.Cookies["secureMemcld"].Expires = DateTime.Now.AddDays(30);
+                }
+                else
+                {
+                    Response.Cookies["secureVGC"].Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies["secureMemcld"].Expires = DateTime.Now.AddDays(-1);
+
+                }
+                Response.Cookies["secureVGC"].Value = authclass.EncryptString( txtUsername.Text.Trim());
+                Response.Cookies["secureMemcld"].Value = authclass.EncryptString(txtPass.Text);
+
+
+                var dt = userclass.GetUserAccDetails(uID);
+
+                if (dt.Rows[0].Field<string>("Role") == "Admin")
+                {
+                    Response.Redirect("~/Pages/admin/admin-dashboard.aspx");
+                }
+                else if (dt.Rows[0].Field<string>("Role") == "Lecturer")
+                {
+                    Response.Redirect("~/Pages/lecturer/lecturer-dashboard.aspx");
+                }
+                else if (dt.Rows[0].Field<string>("Role") == "Student")
+                {
+                    Response.Redirect("~/Pages/student/student-dashboard.aspx");
+                }
+            }
+            else
+            {
+                MessageBox.Show(msg.msg);
             }
         }
     }
