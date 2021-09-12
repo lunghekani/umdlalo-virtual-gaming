@@ -278,32 +278,44 @@ namespace Business_Logic
     public class clsCourseOperations
     {
         private clsDataConnection objConn = new clsDataConnection();
-
-        public string CreateModule(int _moduleID, string _moduleName,
-            string _moduleCode, string _description,
-            int _disabled)
+        
+        public string CreateCourse(string name, string descr, string code, DateTime startTime, DateTime endTime, string Uid,
+            int disabledInt)
         {
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
 
-            cmd.CommandText = "Modules_Create";
+            cmd.CommandText = "Course_Create";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@modID_IN", _moduleID);
-            cmd.Parameters.AddWithValue("@modName_IN", _moduleName);
-            cmd.Parameters.AddWithValue("@modCode_IN", _moduleCode);
-            cmd.Parameters.AddWithValue("@modDescription_IN", _description);
-            cmd.Parameters.AddWithValue("@modDisabled_IN", _disabled);
+            cmd.Parameters.AddWithValue("@CourseName", name);
+            cmd.Parameters.AddWithValue("@CourseDescrip", descr);
+            cmd.Parameters.AddWithValue("@CourseCode", code);
+            cmd.Parameters.AddWithValue("@StartTime", startTime);
+            cmd.Parameters.AddWithValue("@EndTime", endTime);
+            cmd.Parameters.AddWithValue("@Uid", Uid);
+            cmd.Parameters.AddWithValue("@DisabledIN", disabledInt);
 
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
             try
             {
                 cmd.ExecuteNonQuery();
+                myTrans.Commit();
                 return "Success";
             }
             catch (Exception ex)
             {
+                myTrans.Rollback();
                 return ex.Message;
-                throw;
+
             }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
         }
 
         public DataTable GetCourses()
@@ -319,12 +331,13 @@ namespace Business_Logic
             dt.Columns.Add("Start", typeof(string));
             dt.Columns.Add("End", typeof(string));
             dt.Columns.Add("Instructor", typeof(string));
+            dt.Columns.Add("Email", typeof(string));
 
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
             //incorrect procedure name
-            cmd.CommandText = "E_Sports_Get";
+            cmd.CommandText = "Courses_Get";
             cmd.CommandType = CommandType.StoredProcedure;
 
             
@@ -335,18 +348,82 @@ namespace Business_Logic
                 {
                     while (sqlReader.Read())
                     {
+                        {
+                            int Id =Convert.ToInt32(sqlReader.GetValue(0).ToString());
+                            string name = String.Empty;
+                            if (sqlReader["Name"].Equals(DBNull.Value))
+                            {
+                                name = "-";
+                            }
+                            else
+                            {
+                                name = sqlReader["Name"].ToString();
+                            }
 
-                        int Id =Convert.ToInt32(sqlReader.GetValue(0));
-                        string name = sqlReader.GetValue(1).ToString();
-                        string description =sqlReader.GetValue(2).ToString();
-                        string code =sqlReader.GetValue(3).ToString();
-                        string start =sqlReader.GetValue(4).ToString();
-                        string end =sqlReader.GetValue(5).ToString();
-                        string lecturerName =sqlReader.GetValue(7).ToString();
-                        string lecturerEmail =sqlReader.GetValue(8).ToString();
+                            string descr = String.Empty;
+                            if (sqlReader["Description"].Equals(DBNull.Value))
+                            {
+                                descr = "No description provided";
+                            }
+                            else
+                            {
+                                descr = sqlReader["Description"].ToString();
+                            }
+
+                            string code = String.Empty;
+                            if (sqlReader["Code"].Equals(DBNull.Value))
+                            {
+                                code = "-";
+                            }
+                            else
+                            {
+                                code = sqlReader["Code"].ToString();
+                            }
+
+                            string start = String.Empty;
+                            if (sqlReader["Start"].Equals(DBNull.Value))
+                            {
+                                start = "-";
+                            }
+                            else
+                            {
+                                start = sqlReader["Start"].ToString();
+                            }
+                            string end = String.Empty;
+                            if (sqlReader["End"].Equals(DBNull.Value))
+                            {
+                                end = "-";
+                            }
+                            else
+                            {
+                                end = sqlReader["End"].ToString();
+                            }
+
+                            string lecturerName = String.Empty;
+                            if (sqlReader["Lecturer"].Equals(DBNull.Value))
+                            {
+                                lecturerName = "-";
+                            }
+                            else
+                            {
+                                lecturerName = sqlReader["Lecturer"].ToString();
+                            }
+
+                            string lecturerEmail = String.Empty;
+                            if (sqlReader["Email"].Equals(DBNull.Value))
+                            {
+                                lecturerEmail = "-";
+                            }
+                            else
+                            {
+                                lecturerEmail = sqlReader["Email"].ToString();
+                            }
+
+                            
                         
                         
-                        dt.Rows.Add(Id,name,description,code,start,end,lecturerName,lecturerEmail);
+                            dt.Rows.Add(Id,name,descr,code,start,end, lecturerName, lecturerEmail);
+                        }
                     }
                 }
             }
