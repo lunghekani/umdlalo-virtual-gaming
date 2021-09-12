@@ -9,7 +9,7 @@ using Business_Logic;
 
 namespace UmdlaloVirtualGaming.Pages.lecturer
 {
-    public partial class lecturer_course_list : System.Web.UI.Page
+    public partial class topics : System.Web.UI.Page
     {
         public clsAuthentication authclass = new clsAuthentication();
         public clsCourseOperations courseclass = new clsCourseOperations();
@@ -18,35 +18,14 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
         public clsProjects projectclass = new clsProjects();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                BindGridView();
-
-
-
-            }
+            BindGridView();
         }
-
         protected void BindGridView()
         {
 
             DataTable dt = courseclass.GetCourses();
-            gvCourses.DataSource = dt;
-            gvCourses.DataBind();
+            gvTopics.DataSource = dt;
+            gvTopics.DataBind();
         }
-
-        protected void gvCourses_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvCourses.PageIndex = e.NewPageIndex;
-            BindGridView();
-        }
-
-        protected void gvCourses_OnRowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            GridViewRow row = gvCourses.SelectedRow;
-            int Id = (int)gvCourses.DataKeys[row.RowIndex].Values["Id"];
-            string phone = (string)gvCourses.DataKeys[row.RowIndex].Values["Phone"];
-        }
-
     }
 }

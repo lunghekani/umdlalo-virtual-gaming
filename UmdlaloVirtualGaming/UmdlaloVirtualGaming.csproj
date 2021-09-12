@@ -2282,7 +2282,10 @@
     <Content Include="Pages\lecturer\lecturer-projects-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
+    <Content Include="Pages\lecturer\topic-create.aspx" />
+    <Content Include="Pages\lecturer\lecturer-topic-view.aspx" />
     <Content Include="Pages\lecturer\rest-chat-get.aspx" />
+    <Content Include="Pages\lecturer\topics.aspx" />
     <Content Include="Pages\sample-class-card.txt" />
     <Content Include="Pages\student\commentSample.txt" />
     <Content Include="Pages\student\create.aspx" />
@@ -2571,12 +2574,33 @@
     <Compile Include="Pages\lecturer\lecturer-student-list.aspx.designer.cs">
       <DependentUpon>lecturer-student-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\lecturer\topic-create.aspx.cs">
+      <DependentUpon>topic-create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\topic-create.aspx.designer.cs">
+      <DependentUpon>topic-create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-topic-view.aspx.cs">
+      <DependentUpon>lecturer-topic-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-topic-view.aspx.designer.cs">
+      <DependentUpon>lecturer-topic-view.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\lecturer\rest-chat-get.aspx.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\lecturer\rest-chat-get.aspx.designer.cs">
       <DependentUpon>rest-chat-get.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\topics.aspx.cs">
+      <DependentUpon>topics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\topics.aspx.designer.cs">
+      <DependentUpon>topics.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\create.aspx.cs">
       <DependentUpon>create.aspx</DependentUpon>

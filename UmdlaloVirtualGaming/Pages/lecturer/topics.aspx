@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="lecturer-course-list.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.lecturer.lecturer_course_list" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="topics.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.lecturer.topics" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card card-custom">
+        <div class="card card-custom">
         <div class="card-header py-3">
             <div class="card-title">
                 <span class="card-icon">
@@ -151,38 +150,7 @@
             <!--end::Search Form-->
             <!--end: Search Form-->
             <!--begin: Datatable-->
-            <asp:GridView runat="server" ID="gvCourses"
-                          CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
-                          AutoGenerateColumns="False"
-                          Style="text-align: center; word-wrap: break-word; " AllowPaging="True"
-                          OnPageIndexChanging="gvCourses_PageIndexChanging"
-                          OnRowCommand="gvCourses_OnRowCommand"
-                          AlternatingRowStyle-BorderWidth="0px"
-                          align-content="center"
-                          DataKeyNames="Topic_ID">
-                          
-                    <AlternatingRowStyle BorderWidth="0px" CssClass="bottomBorder"></AlternatingRowStyle>
-                                        <Columns  >
-                                            <asp:TemplateField >
-                                                <HeaderTemplate>
-                                                Action      
-                                                </HeaderTemplate>
-                                                
-                                                <ItemTemplate >
-                                                    <asp:Button CommandName="View" runat="server"  Class="btn btn-primary  fa" 
-                                                                Text="&#xf06e;" CommandArgument="<%# Container.DataItemIndex %>" UseSubmitBehavior="false"
-                                                                data-toggle="tooltip" data-placement="top" title="View"/>
-                                                    
-                                                 </ItemTemplate>
-                                            </asp:TemplateField>
-                                            
-                                            
-                                            <asp:BoundField DataField="Topic_ID" HeaderText="#" Visible="false" />
-                                            <asp:BoundField DataField="Module_ID" HeaderText="ModuleID" Visible="false" />
-                                            <asp:BoundField DataField="TopicName" HeaderText="Topic"  />
-                                        </Columns>
-
-            </asp:GridView>
+            <asp:GridView runat="server" ID="gvTopics" CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"></asp:GridView>
 
             <!--end: Datatable-->
         </div>

@@ -25,7 +25,7 @@ namespace Business_Logic
         public string msg { get; set; }
         public string uid { get; set; }
     }
-
+    
     public class clsAuthentication
     {
         private clsDataConnection objConn = new clsDataConnection();
@@ -178,11 +178,7 @@ namespace Business_Logic
             }  
             return encryptString;  
         }
-
-
-
         
-
     }
 
     public class clsUserDetails
@@ -439,6 +435,45 @@ namespace Business_Logic
             
             return dt;
         }
+
+        public string CreateTopic(string name, string descr, string Uid, int marks, int courseID,   int disabledInt)
+        {
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Topic_Create";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@TopicName", name);
+            cmd.Parameters.AddWithValue("@TopicDescription", descr);
+            cmd.Parameters.AddWithValue("@TopicMarks", marks);
+            cmd.Parameters.AddWithValue("@CourseID", courseID);
+            cmd.Parameters.AddWithValue("@Uid_in", Uid);
+            cmd.Parameters.AddWithValue("@disabled_in", disabledInt);
+         
+
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                return ex.Message;
+
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+        }
+
     }
 
     public class clsProjects
@@ -877,25 +912,7 @@ namespace Business_Logic
     }
     public class clsCommunicate
         {
-            public void SendEmail(string mailto, string subject, string body)
-            {
-                SmtpSection smtpSection = (SmtpSection) ConfigurationManager.GetSection("system.net/mailSettings/smtp");
-                using (MailMessage mm = new MailMessage(smtpSection.From, mailto))
-                {
-                    mm.Subject = subject;
-                    mm.Body = body;
-                    mm.IsBodyHtml = false;
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = smtpSection.Network.Host;
-                    smtp.EnableSsl = smtpSection.Network.EnableSsl;
-                    NetworkCredential networkCred =
-                        new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
-                    smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
-                    smtp.Credentials = networkCred;
-                    smtp.Port = smtpSection.Network.Port;
-                    smtp.Send(mm);
-                }
-            }
+            
 
             public void SendHTMLEmail(string mailto, string subject, string body)
             {
