@@ -337,7 +337,7 @@
 								</li>
 
 								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-									<a href="student-calendar-view.aspx" class="menu-link menu-toggle">
+									<a href="student-calendar.aspx" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:/Pages/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1028,7 +1028,7 @@
 				<!--begin::Nav-->
 				<div class="navi navi-spacer-x-0 p-0">
 					<!--begin::Item-->
-					<a href="/Pages/student/student-profile-edit.aspx" class="navi-item">
+					<a href="student-profile-edit.aspx" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
@@ -1056,7 +1056,7 @@
 					</a>
 					<!--end:Item-->
 					<!--begin::Item-->
-					<a href="custom/apps/user/profile-3.html" class="navi-item">
+					<a href="student-group-view" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
@@ -1083,7 +1083,7 @@
 					</a>
 					<!--end:Item-->
 					<!--begin::Item-->
-					<a href="custom/apps/user/profile-2.html" class="navi-item">
+					<a href="student-project-list.aspx" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
@@ -1108,7 +1108,7 @@
 					</a>
 					<!--end:Item-->
 					<!--begin::Item-->
-					<a href="custom/apps/userprofile-1/overview.html" class="navi-item">
+					<a href="student-task-urgent.aspx" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
@@ -1127,7 +1127,7 @@
 							</div>
 							<div class="navi-text">
 								<div class="font-weight-bold">My Tasks</div>
-								<div class="text-muted">latest tasks and projects</div>
+								<div class="text-muted">urgent tasks and projects</div>
 							</div>
 						</div>
 					</a>

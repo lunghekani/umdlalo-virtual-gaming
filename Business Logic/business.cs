@@ -362,6 +362,62 @@ namespace Business_Logic
         }
     }
 
+    //CODE TO STORE CALENDAR EVENT TO DATABASE
+
+    //public class clsCalendar
+    //{
+    //    private clsDataConnection objConn = new clsDataConnection();
+
+    //    public DataTable GetData()
+    //    {
+    //        var dt = new DataTable();
+
+    //        dt.Columns.Add("ScheduleId", typeof(int));
+    //        dt.Columns.Add("Title ", typeof(string));
+    //        dt.Columns.Add("ScheduleDate", typeof(string));
+
+    //        var conn = objConn.CreateSQLConnection();
+    //        MySqlCommand cmd = new MySqlCommand();
+    //        cmd.Connection = conn;
+
+    //        MySqlDataReader sqlReader = cmd.ExecuteReader();
+    //        try
+    //        {
+    //            if (sqlReader.HasRows)
+    //            {
+    //                while (sqlReader.Read())
+    //                {
+
+    //                    int ScheduleId = Convert.ToInt32(sqlReader.GetValue(0));
+    //                    string Title = sqlReader.GetValue(1).ToString();
+    //                    string ScheduleDate = sqlReader.GetValue(2).ToString();
+
+
+    //                    dt.Rows.Add(ScheduleId, Title, ScheduleDate);
+    //                }
+    //            }
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            dt.Rows.Add(ex.Message);
+    //        }
+    //        finally
+    //        {
+    //            sqlReader.Close();
+    //            cmd.Connection.Close();
+    //        }
+
+    //        return dt;
+        
+    //    }
+
+
+    //}
+
+    //END CALENDAR EVENT CODE
+
+    
+    
     public class clsProjects
     {
         public string lastProjectInsert;
@@ -1363,4 +1419,8 @@ namespace Business_Logic
                 }
             }
         }
-    }
+
+   
+
+
+}

@@ -2294,6 +2294,7 @@
     <Content Include="Pages\student\sampleproject.txt" />
     <Content Include="Pages\student\singleproj.html" />
     <Content Include="Pages\student\student-calendar-view.aspx" />
+    <Content Include="Pages\student\student-calendar.aspx" />
     <Content Include="Pages\student\student-chat-new.aspx" />
     <Content Include="Pages\student\student-chat-view.aspx" />
     <Content Include="Pages\student\student-course-list.aspx" />
@@ -2619,6 +2620,13 @@
     </Compile>
     <Compile Include="Pages\student\student-calendar-view.aspx.designer.cs">
       <DependentUpon>student-calendar-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-calendar.aspx.cs">
+      <DependentUpon>student-calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-calendar.aspx.designer.cs">
+      <DependentUpon>student-calendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-chat-new.aspx.cs">
       <DependentUpon>student-chat-new.aspx</DependentUpon>

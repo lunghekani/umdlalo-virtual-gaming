@@ -9,66 +9,7 @@
 										<div class="card card-custom gutter-b card-stretch">
 											<!--begin::Body-->
 											<div class="card-body pt-4">
-												<!--begin::Toolbar-->
-												<div class="d-flex justify-content-end">
-													<div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-														<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-															<i class="ki ki-bold-more-hor"></i>
-														</a>
-														<div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-															<!--begin::Navigation-->
-															<ul class="navi navi-hover">
-																<li class="navi-header font-weight-bold py-4">
-																	<span class="font-size-lg">Choose Label:</span>
-																	<i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
-																</li>
-																<li class="navi-separator mb-3 opacity-70"></li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-success">Customer</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-danger">Partner</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-warning">Suplier</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-primary">Member</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-dark">Staff</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-separator mt-3 opacity-70"></li>
-																<li class="navi-footer py-4">
-																	<a class="btn btn-clean font-weight-bold btn-sm" href="#">
-																	<i class="ki ki-plus icon-sm"></i>Add new</a>
-																</li>
-															</ul>
-															<!--end::Navigation-->
-														</div>
-													</div>
-												</div>
-												<!--end::Toolbar-->
+												
 												<!--begin::User-->
 												<div class="d-flex align-items-center mb-7">
 													<!--begin::Pic-->
@@ -121,84 +62,7 @@
 										<div class="card card-custom gutter-b card-stretch">
 											<!--begin::Body-->
 											<div class="card-body pt-4">
-												<!--begin::Toolbar-->
-												<div class="d-flex justify-content-end">
-													<div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-														<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-															<i class="ki ki-bold-more-hor"></i>
-														</a>
-														<div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-															<!--begin::Navigation-->
-															<ul class="navi navi-hover py-5">
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-drop"></i>
-																		</span>
-																		<span class="navi-text">New Group</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-list-3"></i>
-																		</span>
-																		<span class="navi-text">Contacts</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-rocket-1"></i>
-																		</span>
-																		<span class="navi-text">Groups</span>
-																		<span class="navi-link-badge">
-																			<span class="label label-light-primary label-inline font-weight-bold">new</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-bell-2"></i>
-																		</span>
-																		<span class="navi-text">Calls</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-gear"></i>
-																		</span>
-																		<span class="navi-text">Settings</span>
-																	</a>
-																</li>
-																<li class="navi-separator my-3"></li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-magnifier-tool"></i>
-																		</span>
-																		<span class="navi-text">Help</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-bell-2"></i>
-																		</span>
-																		<span class="navi-text">Privacy</span>
-																		<span class="navi-link-badge">
-																			<span class="label label-light-danger label-rounded font-weight-bold">5</span>
-																		</span>
-																	</a>
-																</li>
-															</ul>
-															<!--end::Navigation-->
-														</div>
-													</div>
-												</div>
-												<!--end::Toolbar-->
+												
 												<!--begin::User-->
 												<div class="d-flex align-items-center mb-7">
 													<!--begin::Pic-->
@@ -253,66 +117,7 @@
 										<div class="card card-custom gutter-b card-stretch">
 											<!--begin::Body-->
 											<div class="card-body pt-4">
-												<!--begin::Toolbar-->
-												<div class="d-flex justify-content-end">
-													<div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-														<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-															<i class="ki ki-bold-more-hor"></i>
-														</a>
-														<div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-															<!--begin::Navigation-->
-															<ul class="navi navi-hover">
-																<li class="navi-header font-weight-bold py-4">
-																	<span class="font-size-lg">Choose Label:</span>
-																	<i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
-																</li>
-																<li class="navi-separator mb-3 opacity-70"></li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-success">Customer</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-danger">Partner</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-warning">Suplier</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-primary">Member</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-text">
-																			<span class="label label-xl label-inline label-light-dark">Staff</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-separator mt-3 opacity-70"></li>
-																<li class="navi-footer py-4">
-																	<a class="btn btn-clean font-weight-bold btn-sm" href="#">
-																	<i class="ki ki-plus icon-sm"></i>Add new</a>
-																</li>
-															</ul>
-															<!--end::Navigation-->
-														</div>
-													</div>
-												</div>
-												<!--end::Toolbar-->
+												
 												<!--begin::User-->
 												<div class="d-flex align-items-center mb-7">
 													<!--begin::Pic-->
