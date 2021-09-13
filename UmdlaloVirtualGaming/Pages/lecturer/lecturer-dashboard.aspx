@@ -276,85 +276,9 @@
 											<!--begin::Header-->
 											<div class="card-header border-0 pt-5">
 												<h3 class="card-title align-items-start flex-column">
-													<span class="card-label font-weight-bolder text-dark">Tasks Overview</span>
+													<span class="card-label font-weight-bolder text-dark">Task Overview</span>
 													<span class="text-muted mt-3 font-weight-bold font-size-sm">Pending 10 tasks</span>
 												</h3>
-												<div class="card-toolbar">
-													<div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-														<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-															<i class="ki ki-bold-more-ver"></i>
-														</a>
-														<div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-															<!--begin::Navigation-->
-															<ul class="navi navi-hover py-5">
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-drop"></i>
-																		</span>
-																		<span class="navi-text">New Group</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-list-3"></i>
-																		</span>
-																		<span class="navi-text">Contacts</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-rocket-1"></i>
-																		</span>
-																		<span class="navi-text">Groups</span>
-																		<span class="navi-link-badge">
-																			<span class="label label-light-primary label-inline font-weight-bold">new</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-bell-2"></i>
-																		</span>
-																		<span class="navi-text">Calls</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-gear"></i>
-																		</span>
-																		<span class="navi-text">Settings</span>
-																	</a>
-																</li>
-																<li class="navi-separator my-3"></li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-magnifier-tool"></i>
-																		</span>
-																		<span class="navi-text">Help</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-bell-2"></i>
-																		</span>
-																		<span class="navi-text">Privacy</span>
-																		<span class="navi-link-badge">
-																			<span class="label label-light-danger label-rounded font-weight-bold">5</span>
-																		</span>
-																	</a>
-																</li>
-															</ul>
-															<!--end::Navigation-->
-														</div>
-													</div>
-												</div>
 											</div>
 											<!--end::Header-->
 											<!--begin::Body-->
@@ -380,8 +304,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Project Briefing</a>
-														<span class="text-muted">Project Manager</span>
+														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Upload New Course</a>
 													</div>
 													<!--end::Text-->
 												</div>
@@ -407,8 +330,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Concept Design</a>
-														<span class="text-muted">Art Director</span>
+														<a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Upload next Assessment date</a>
 													</div>
 													<!--end::Text-->
 												</div>
@@ -434,8 +356,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Functional Logics</a>
-														<span class="text-muted">Lead Developer</span>
+														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Mark latest Assessment</a>
 													</div>
 													<!--end::Text-->
 												</div>
@@ -463,8 +384,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Development</a>
-														<span class="text-muted">DevOps</span>
+														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">View latest Projects</a>
 													</div>
 													<!--end::Text-->
 												</div>
@@ -491,8 +411,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Testing</a>
-														<span class="text-muted">QA Managers</span>
+														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Check for any new chats</a>
 													</div>
 													<!--end::Text-->
 												</div>
