@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="lecturer-course-list.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.lecturer.lecturer_course_list" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="lecturer-course-list.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.lecturer.lecturer_course_list" %>
+<%--todo fix the event validation script rn--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -153,13 +153,13 @@
             <!--begin: Datatable-->
             <asp:GridView runat="server" ID="gvCourses"
                           CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
-                          AutoGenerateColumns="False"
+                          
                           Style="text-align: center; word-wrap: break-word; " AllowPaging="True"
                           OnPageIndexChanging="gvCourses_PageIndexChanging"
                           OnRowCommand="gvCourses_OnRowCommand"
                           AlternatingRowStyle-BorderWidth="0px"
                           align-content="center"
-                          DataKeyNames="Topic_ID">
+                          DataKeyNames="ID">
                           
                     <AlternatingRowStyle BorderWidth="0px" CssClass="bottomBorder"></AlternatingRowStyle>
                                         <Columns  >
@@ -175,11 +175,7 @@
                                                     
                                                  </ItemTemplate>
                                             </asp:TemplateField>
-                                            
-                                            
-                                            <asp:BoundField DataField="Topic_ID" HeaderText="#" Visible="false" />
-                                            <asp:BoundField DataField="Module_ID" HeaderText="ModuleID" Visible="false" />
-                                            <asp:BoundField DataField="TopicName" HeaderText="Topic"  />
+                                    
                                         </Columns>
 
             </asp:GridView>

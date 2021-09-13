@@ -150,7 +150,31 @@
             <!--end::Search Form-->
             <!--end: Search Form-->
             <!--begin: Datatable-->
-            <asp:GridView runat="server" ID="gvTopics" CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"></asp:GridView>
+            <asp:GridView runat="server" ID="gvTopics" CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
+                             
+                          Style="text-align: center; word-wrap: break-word; " AllowPaging="True"
+                          OnPageIndexChanging="gvTopics_OnPageIndexChanging"
+                          OnRowCommand="gvTopics_OnRowCommand"
+                          AlternatingRowStyle-BorderWidth="0px"
+                          align-content="center"
+                          DataKeyNames="ID">
+                <AlternatingRowStyle BorderWidth="0px" CssClass="bottomBorder"></AlternatingRowStyle>
+                <Columns  >
+                    <asp:TemplateField >
+                        <HeaderTemplate>
+                            Action      
+                        </HeaderTemplate>
+                                                
+                        <ItemTemplate >
+                            <asp:Button CommandName="View" runat="server"  Class="btn btn-primary  fa" 
+                                        Text="&#xf06e;" CommandArgument="<%# Container.DataItemIndex %>" UseSubmitBehavior="false"
+                                        data-toggle="tooltip" data-placement="top" title="View"/>
+                                                    
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                                    
+                </Columns>
+            </asp:GridView>
 
             <!--end: Datatable-->
         </div>

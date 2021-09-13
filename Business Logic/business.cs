@@ -25,7 +25,11 @@ namespace Business_Logic
         public string msg { get; set; }
         public string uid { get; set; }
     }
-    
+
+    public class genfunctions
+    {
+       
+    }
     public class clsAuthentication
     {
         private clsDataConnection objConn = new clsDataConnection();
@@ -472,6 +476,90 @@ namespace Business_Logic
                 cmd.Connection.Close();
             }
 
+        }
+
+        public DataTable GetTopics(int courseId)
+        {
+            var dt = new DataTable();
+            
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("Marks", typeof(string));
+            dt.Columns.Add("Disabled", typeof(string));
+           
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Topic_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("CourseId_in", courseId);
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    while (sqlReader.Read())
+                    {
+                        {
+                            int Id = Convert.ToInt32(sqlReader.GetValue(0).ToString());
+                            string name = String.Empty;
+                            if (sqlReader["Name"].Equals(DBNull.Value))
+                            {
+                                name = "-";
+                            }
+                            else
+                            {
+                                name = sqlReader["Name"].ToString();
+                            }
+
+                            string descr = String.Empty;
+                            if (sqlReader["Description"].Equals(DBNull.Value))
+                            {
+                                descr = "No description provided";
+                            }
+                            else
+                            {
+                                descr = sqlReader["Description"].ToString();
+                            }
+
+                            string marks = String.Empty;
+                            if (sqlReader["Marks"].Equals(DBNull.Value))
+                            {
+                                marks = "-";
+                            }
+                            else
+                            {
+                                marks = sqlReader["Marks"].ToString();
+                            }
+
+                            string status = String.Empty;
+                            if (sqlReader["Disabled"].Equals(DBNull.Value))
+                            {
+                                status = "-";
+                            }
+                            else
+                            {
+                                status = sqlReader["Disabled"].ToString();
+                            }
+                            dt.Rows.Add(Id, name, descr, marks, status);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt;
         }
 
     }

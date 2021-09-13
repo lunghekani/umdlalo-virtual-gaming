@@ -84,7 +84,7 @@ namespace UmdlaloVirtualGaming.Pages.auth
 
             var msg = authclass.AuthUser(username, password);
             var uID = msg.uid;
-            if (msg.msg.Equals("Success"))
+            if (!uID.Equals("-1"))
             {
                 if (checkRemember.Checked)
                 {
@@ -100,9 +100,9 @@ namespace UmdlaloVirtualGaming.Pages.auth
                 Response.Cookies["secureVGC"].Value = authclass.EncryptString( txtUsername.Text.Trim());
                 Response.Cookies["secureMemcld"].Value = authclass.EncryptString(txtPass.Text);
 
-
+                
                 var dt = userclass.GetUserAccDetails(uID);
-
+              
                 if (dt.Rows[0].Field<string>("Role") == "Admin")
                 {
                     Response.Redirect("~/Pages/admin/admin-dashboard.aspx");
@@ -118,7 +118,8 @@ namespace UmdlaloVirtualGaming.Pages.auth
             }
             else
             {
-                MessageBox.Show(msg.msg);
+                
+                communicateclass.ShowMessage(this, "Username/Password combination is incorrect", clsCommunicate.MessageType.error);
             }
         }
     }

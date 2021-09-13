@@ -43,9 +43,10 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 
         protected void gvCourses_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            GridViewRow row = gvCourses.SelectedRow;
-            int Id = (int)gvCourses.DataKeys[row.RowIndex].Values["Id"];
-            string phone = (string)gvCourses.DataKeys[row.RowIndex].Values["Phone"];
+            
+            int Id = Convert.ToInt32(e.CommandArgument)+1;
+            Session["course_id"] = Id;
+            Response.Redirect("topics.aspx");
         }
 
     }

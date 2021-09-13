@@ -22,10 +22,21 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
         }
         protected void BindGridView()
         {
-
-            DataTable dt = courseclass.GetCourses();
+            int courseId = Convert.ToInt32(Session["course_id"].ToString());
+            DataTable dt = courseclass.GetTopics(courseId);
             gvTopics.DataSource = dt;
             gvTopics.DataBind();
+        }
+
+
+        protected void gvTopics_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void gvTopics_OnRowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
