@@ -277,20 +277,22 @@ namespace Business_Logic
     {
         private clsDataConnection objConn = new clsDataConnection();
 
-        public string CreateModule(int _moduleID, string _moduleName,
-            string _moduleCode, string _description,
-            int _disabled)
+        public string CreateModule( string CourseName,
+            string CourseCode, string CourseDescrip,
+            DateTime start, DateTime end, int _disabled)
         {
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
 
-            cmd.CommandText = "Modules_Create";
+            cmd.CommandText = "Course_Create";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@modID_IN", _moduleID);
-            cmd.Parameters.AddWithValue("@modName_IN", _moduleName);
-            cmd.Parameters.AddWithValue("@modCode_IN", _moduleCode);
-            cmd.Parameters.AddWithValue("@modDescription_IN", _description);
-            cmd.Parameters.AddWithValue("@modDisabled_IN", _disabled);
+            //cmd.Parameters.AddWithValue("@modID_IN", _moduleID);
+            cmd.Parameters.AddWithValue("@CourseName", CourseName);
+            cmd.Parameters.AddWithValue("@CourseCode", CourseCode);
+            cmd.Parameters.AddWithValue("@CourseDescrip", CourseDescrip);
+            cmd.Parameters.AddWithValue("@DisabledIN", _disabled);
+            cmd.Parameters.AddWithValue("@StartTime", start);
+            cmd.Parameters.AddWithValue("@EndTime", end);
 
             try
             {
