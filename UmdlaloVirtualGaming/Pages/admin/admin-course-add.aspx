@@ -4,39 +4,48 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <form class="form">
  <div class="card-body">
-  <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Customer Info:</h3>
+  <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Course Info:</h3>
   <div class="mb-15">
    <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Full Name:</label>
+    <label class="col-lg-3 col-form-label">Course Name:</label>
     <div class="col-lg-6">
-     <input type="email" class="form-control" placeholder="Enter full name"/>
-     <span class="form-text text-muted">Please enter your full name</span>
+     <input type="text" class="form-control" placeholder="Enter Course Name" id="txt_course_name"/>
+     <span class="form-text text-muted">Please enter the name of the course</span>
     </div>
    </div>
    <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Email address:</label>
+    <label class="col-lg-3 col-form-label">Course Code:</label>
     <div class="col-lg-6">
-     <input type="email" class="form-control" placeholder="Enter email"/>
-     <span class="form-text text-muted">We'll never share your email with anyone else</span>
+     <input type="text" class="form-control" placeholder="Enter Course Code" id="txt_course_code"/>
+     
     </div>
    </div>
   </div>
 
-  <h3 class="font-size-lg text-dark font-weight-bold mb-6">2. Customer Account:</h3>
+  <h3 class="font-size-lg text-dark font-weight-bold mb-6">2. Course Content:</h3>
   <div class="mb-3">
    <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Holder:</label>
+    <label class="col-lg-3 col-form-label">Description:</label>
     <div class="col-lg-6">
-     <input type="email" class="form-control" placeholder="Enter full name"/>
-     <span class="form-text text-muted">Please enter your account holder</span>
+     <input type="text" class="form-control" placeholder="Description" id="txt_description"/>
+     <span class="form-text text-muted">Please enter a short description of the course</span>
     </div>
    </div>
    <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Contact</label>
+    <label class="col-lg-3 col-form-label">Start Date</label>
     <div class="col-lg-6">
      <div class="input-group">
       <div class="input-group-prepend"><span class="input-group-text"><i class="la la-chain"></i></span></div>
-      <input type="text" class="form-control" placeholder="Phone number"/>
+      <input type="datetime-local" class="form-control" id="Start"/>
+     </div>
+    </div>
+   </div>
+       <div class="form-group row">
+    <label class="col-lg-3 col-form-label">End Date</label>
+    <div class="col-lg-6">
+     <div class="input-group">
+      <div class="input-group-prepend"><span class="input-group-text"><i class="la la-chain"></i></span></div>
+      <input type="datetime-local" class="form-control" id="End"/>
      </div>
     </div>
    </div>
@@ -69,7 +78,7 @@
   <div class="row">
    <div class="col-lg-3"></div>
    <div class="col-lg-6">
-    <button type="reset" class="btn btn-success mr-2">Submit</button>
+    <button type="submit" class="btn btn-success mr-2" runat="server" onclick="btnSubmit_OnClick">Submit</button>
     <button type="reset" class="btn btn-secondary">Cancel</button>
    </div>
   </div>
