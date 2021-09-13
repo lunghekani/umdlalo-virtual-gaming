@@ -11,7 +11,10 @@ namespace UmdlaloVirtualGaming.Pages.student
     {
         clsUserDetails objUserDtls = new clsUserDetails();
         private clsCommunicate communicate = new clsCommunicate();
-        
+        //public string uId;
+
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             

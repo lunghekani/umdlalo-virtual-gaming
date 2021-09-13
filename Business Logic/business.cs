@@ -287,13 +287,11 @@ namespace Business_Logic
 
             cmd.CommandText = "Course_Create";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@CourseName", name);
-            cmd.Parameters.AddWithValue("@CourseDescrip", descr);
-            cmd.Parameters.AddWithValue("@CourseCode", code);
-            cmd.Parameters.AddWithValue("@StartTime", startTime);
-            cmd.Parameters.AddWithValue("@EndTime", endTime);
-            cmd.Parameters.AddWithValue("@Uid", Uid);
-            cmd.Parameters.AddWithValue("@DisabledIN", disabledInt);
+            cmd.Parameters.AddWithValue("@modID_IN", _moduleID);
+            cmd.Parameters.AddWithValue("@modName_IN", _moduleName);
+            cmd.Parameters.AddWithValue("@modCode_IN", _moduleCode);
+            cmd.Parameters.AddWithValue("@modDescription_IN", _description);
+            cmd.Parameters.AddWithValue("@modDisabled_IN", _disabled);
 
             MySqlTransaction myTrans;
 
@@ -564,6 +562,62 @@ namespace Business_Logic
 
     }
 
+    //CODE TO STORE CALENDAR EVENT TO DATABASE
+
+    //public class clsCalendar
+    //{
+    //    private clsDataConnection objConn = new clsDataConnection();
+
+    //    public DataTable GetData()
+    //    {
+    //        var dt = new DataTable();
+
+    //        dt.Columns.Add("ScheduleId", typeof(int));
+    //        dt.Columns.Add("Title ", typeof(string));
+    //        dt.Columns.Add("ScheduleDate", typeof(string));
+
+    //        var conn = objConn.CreateSQLConnection();
+    //        MySqlCommand cmd = new MySqlCommand();
+    //        cmd.Connection = conn;
+
+    //        MySqlDataReader sqlReader = cmd.ExecuteReader();
+    //        try
+    //        {
+    //            if (sqlReader.HasRows)
+    //            {
+    //                while (sqlReader.Read())
+    //                {
+
+    //                    int ScheduleId = Convert.ToInt32(sqlReader.GetValue(0));
+    //                    string Title = sqlReader.GetValue(1).ToString();
+    //                    string ScheduleDate = sqlReader.GetValue(2).ToString();
+
+
+    //                    dt.Rows.Add(ScheduleId, Title, ScheduleDate);
+    //                }
+    //            }
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            dt.Rows.Add(ex.Message);
+    //        }
+    //        finally
+    //        {
+    //            sqlReader.Close();
+    //            cmd.Connection.Close();
+    //        }
+
+    //        return dt;
+        
+    //    }
+
+
+    //}
+
+    //END CALENDAR EVENT CODE
+
+    
+    
     public class clsProjects
     {
         public string lastProjectInsert;
@@ -1547,4 +1601,8 @@ namespace Business_Logic
                 }
             }
         }
-    }
+
+   
+
+
+}

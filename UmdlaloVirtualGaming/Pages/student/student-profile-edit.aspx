@@ -300,13 +300,13 @@
                                     
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div>                       
                         
                         <div class="card-footer">
-                            <asp:Button ID="btnTest" OnClick="btnTest_OnClick" Text="Test" runat="server"/>
+
+<%--                          <%--            <asp:Button ID="btnTest" OnClick="btnTest_OnClick" Text="Test" runat="server"/>
                             <asp:Button  class="btn btn-success mr-2" id="btnSaveChanges" runat="server" onclick="btnSaveChanges_Click" Text="Save Changes"></asp:Button>
-                            <asp:Button class="btn btn-secondary" id="btnProfileCancel" runat="server"  Text="Cancel" onclick="btnProfileCancel_Click"></asp:Button>
+                            <asp:Button class="btn btn-secondary" id="btnProfileCancel" runat="server"  Text="Cancel" onclick="btnProfileCancel_Click"></asp:Button>--%>
                         </div>
                     
                 </div>
@@ -471,28 +471,6 @@
                             </div>
                         </div>
                         <!--end::Heading-->
-                        <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 text-right">Email You With</label>
-                            <div class="col-lg-9 col-xl-6">
-                                <div class="checkbox-list">
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                        <span></span>News about Metronic product and feature updates</label>
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                        <span></span>Tips on getting more out of Keen</label>
-                                    <label class="checkbox">
-                                        <input type="checkbox" checked="checked">
-                                        <span></span>Things you missed since you last logged into Keen</label>
-                                    <label class="checkbox">
-                                        <input type="checkbox" checked="checked">
-                                        <span></span>News about Metronic on partner products and other services</label>
-                                    <label class="checkbox">
-                                        <input type="checkbox" checked="checked">
-                                        <span></span>Tips on Metronic business products</label>
-                                </div>
-                            </div>
-                        </div>
                   
                 </div>
                 <!--end::Tab Content-->
