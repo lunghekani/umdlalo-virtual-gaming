@@ -2268,6 +2268,7 @@
     <Content Include="Pages\auth\email-reg.html" />
     <Content Include="Pages\auth\HelloWorld.aspx" />
     <Content Include="Pages\auth\index.aspx" />
+    <Content Include="Pages\auth\test.html" />
     <Content Include="Pages\auth\WebForm2.aspx" />
     <Content Include="Pages\admin\content-creator.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-add.aspx" />

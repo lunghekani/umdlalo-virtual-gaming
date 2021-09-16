@@ -55,7 +55,8 @@
 						<!--end::Login Header-->
 						<!--begin::Login Sign in form-->
 						<div class="login-signin">
-							<div  class="opacity-40 font-weight-normal">Sign In To Umdlalo</h3>
+							<div  class="opacity-40 font-weight-normal">
+                                <h3>Sign In To Umdlalo</h3>
 								<p class="opacity-40">Enter your details to login to your account:</p>
 							</div>
 							<div class="form" id="kt_login_signin_form">
