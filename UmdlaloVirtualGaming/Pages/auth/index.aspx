@@ -29,6 +29,10 @@
 		<link href="/Pages/assets/css/themes/layout/aside/dark.css?v=7.0.5" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="/Pages/assets/media/logos/favicon.ico" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css" integrity="sha512-GFm9O0arU56sgj5HX9IrEtyDqKx3XhbwiTA75XTWW5JoyKnhzQ1Qj3yYbA+MLmy4p+dg5K77NCVxa3nalA96LQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.3/bootstrap-notify.min.js" integrity="sha512-d0ZsJAyXsXlpeDNAhXj4mbaqpLfdyoOaQFmaFVG/KodZnAaVrdOsO9KiG62V7dcV+sHIFb7VTMmkB5JntAoq+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</head>
 	<!--end::Head-->
 
@@ -66,14 +70,14 @@
 								<div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8 opacity-60">
 									<div class="checkbox-inline">
 										<label class="checkbox checkbox-outline checkbox-white text-white m-0">
-										<input type="checkbox" name="remember" />
+										<input type="checkbox" id="checkRemember" runat="server" name="remember" />
 										<span></span>Remember me</label>
 									</div>
 									<a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">Forget Password ?</a>
 								</div>
                                 <div class="form-group text-center mt-10">
-                                    <button id="kt_login_signin_submit" class="btn btn-pill btn-primary opacity-90 px-15 py-3" runat="server" onserverclick="kt_login_signin_submit_ServerClick">Sign In</button>
-									
+                                    
+									<asp:Button ID="btnSignIn" Text="Sign In" CssClass="btn btn-pill btn-primary opacity-90 px-15 py-3" OnClick="btnSignIn_Click" runat="server" />
 							
                                 </div>
 							</div>

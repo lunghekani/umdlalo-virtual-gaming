@@ -1,78 +1,80 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="lecturer-course-add.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.lecturer.lecturer_course_add" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="lecturer-course-add.aspx.cs" EnableEventValidation="false" Inherits="UmdlaloVirtualGaming.Pages.lecturer.lecturer_course_add" %>
+<%--todo figure out the eventvalidation false thing--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form class="form">
- <div class="card-body">
-  <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Customer Info:</h3>
-  <div class="mb-15">
-   <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Full Name:</label>
-    <div class="col-lg-6">
-     <input type="email" class="form-control" placeholder="Enter full name"/>
-     <span class="form-text text-muted">Please enter your full name</span>
-    </div>
-   </div>
-   <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Email address:</label>
-    <div class="col-lg-6">
-     <input type="email" class="form-control" placeholder="Enter email"/>
-     <span class="form-text text-muted">We'll never share your email with anyone else</span>
-    </div>
-   </div>
-  </div>
 
-  <h3 class="font-size-lg text-dark font-weight-bold mb-6">2. Customer Account:</h3>
-  <div class="mb-3">
-   <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Holder:</label>
-    <div class="col-lg-6">
-     <input type="email" class="form-control" placeholder="Enter full name"/>
-     <span class="form-text text-muted">Please enter your account holder</span>
-    </div>
-   </div>
-   <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Contact</label>
-    <div class="col-lg-6">
-     <div class="input-group">
-      <div class="input-group-prepend"><span class="input-group-text"><i class="la la-chain"></i></span></div>
-      <input type="text" class="form-control" placeholder="Phone number"/>
-     </div>
-    </div>
-   </div>
-   <div class="form-group row align-items-center">
-    <label class="col-lg-3 col-form-label">Communication:</label>
-    <div class="col-lg-6">
-     <div class="checkbox-inline">
-      <label class="checkbox">
-       <input type="checkbox"/>
-       <span></span>
-       Email
-      </label>
-      <label class="checkbox">
-       <input type="checkbox"/>
-       <span></span>
-       SMS
-      </label>
-      <label class="checkbox">
-       <input type="checkbox"/>
-       <span></span>
-       Phone
-      </label>
-     </div>
-    </div>
-   </div>
-  </div>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="font-size-lg text-dark font-weight-bold mb-6">Add Course</h3>
+            <div class="mb-15">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Course Name:</label>
+                    <div class="col-lg-6">
+                        <asp:TextBox runat="server" placeholder="Enter course name" CssClass="form-control" ID="txtCourseName"></asp:TextBox>
 
- </div>
- <div class="card-footer">
-  <div class="row">
-   <div class="col-lg-3"></div>
-   <div class="col-lg-6">
-    <button type="reset" class="btn btn-success mr-2">Submit</button>
-    <button type="reset" class="btn btn-secondary">Cancel</button>
-   </div>
-  </div>
- </div>
-</form>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Course Description:</label>
+                    <div class="col-lg-6">
+                        <asp:TextBox runat="server" TextMode="MultiLine" Rows="3" Columns="75" CssClass="form-control" ID="txtDescription" placeholder="Enter a description"></asp:TextBox>
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Course Code:</label>
+                    <div class="col-lg-6">
+                        <asp:TextBox runat="server" CssClass="form-control" ID="txtCode" placeholder="#A0A0A0"></asp:TextBox>
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Start Time:</label>
+                    <div class="col-lg-6">
+                        <asp:TextBox class="form-control" type="datetime-local" value="2021-09-06T13:45:00" ID="txtStartTime" runat="server"></asp:TextBox>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">End Time:</label>
+                    <div class="col-lg-6">
+                        <asp:TextBox class="form-control" type="datetime-local" value="2022-01-19T13:45:00" ID="txtEndTime" runat="server"></asp:TextBox>
+
+
+                        <span class="form-text text-muted">Leave blank if there is no specific end time</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Visible</label>
+                    <div class="col-3">
+                        <span class="switch switch-success witch-outline switch-icon ">
+                            <label>
+                                <asp:CheckBox runat="server" ID="checkVisible" CssClass="form-control" />
+
+                                <span></span>
+                            </label>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        <asp:Button runat="server" Text="Create Course" ID="btnCreate" CssClass="btn btn-success mr-2" OnClick="btnCreate_Click" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </asp:Content>

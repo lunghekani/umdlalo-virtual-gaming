@@ -26,6 +26,10 @@ namespace Business_Logic
         public string uid { get; set; }
     }
 
+    public class genfunctions
+    {
+       
+    }
     public class clsAuthentication
     {
         private clsDataConnection objConn = new clsDataConnection();
@@ -178,9 +182,7 @@ namespace Business_Logic
             }  
             return encryptString;  
         }
-
         
-
     }
 
     public class clsUserDetails
@@ -276,34 +278,42 @@ namespace Business_Logic
     public class clsCourseOperations
     {
         private clsDataConnection objConn = new clsDataConnection();
-
-        public string CreateModule( string CourseName,
-            string CourseCode, string CourseDescrip,
-            DateTime start, DateTime end, int _disabled)
+        
+        public string CreateCourse(string name, string descr, string code, DateTime startTime, DateTime endTime, string Uid,
+            int disabledInt)
         {
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
 
             cmd.CommandText = "Course_Create";
             cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@modID_IN", _moduleID);
-            cmd.Parameters.AddWithValue("@CourseName", CourseName);
-            cmd.Parameters.AddWithValue("@CourseCode", CourseCode);
-            cmd.Parameters.AddWithValue("@CourseDescrip", CourseDescrip);
-            cmd.Parameters.AddWithValue("@DisabledIN", _disabled);
-            cmd.Parameters.AddWithValue("@StartTime", start);
-            cmd.Parameters.AddWithValue("@EndTime", end);
+            cmd.Parameters.AddWithValue("@modID_IN", _moduleID);
+            cmd.Parameters.AddWithValue("@modName_IN", _moduleName);
+            cmd.Parameters.AddWithValue("@modCode_IN", _moduleCode);
+            cmd.Parameters.AddWithValue("@modDescription_IN", _description);
+            cmd.Parameters.AddWithValue("@modDisabled_IN", _disabled);
 
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
             try
             {
                 cmd.ExecuteNonQuery();
+                myTrans.Commit();
                 return "Success";
             }
             catch (Exception ex)
             {
+                myTrans.Rollback();
                 return ex.Message;
-                throw;
+
             }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
         }
 
         public DataTable GetCourses()
@@ -319,12 +329,13 @@ namespace Business_Logic
             dt.Columns.Add("Start", typeof(string));
             dt.Columns.Add("End", typeof(string));
             dt.Columns.Add("Instructor", typeof(string));
+            dt.Columns.Add("Email", typeof(string));
 
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
             //incorrect procedure name
-            cmd.CommandText = "E_Sports_Get";
+            cmd.CommandText = "Courses_Get";
             cmd.CommandType = CommandType.StoredProcedure;
 
             
@@ -335,18 +346,82 @@ namespace Business_Logic
                 {
                     while (sqlReader.Read())
                     {
+                        {
+                            int Id =Convert.ToInt32(sqlReader.GetValue(0).ToString());
+                            string name = String.Empty;
+                            if (sqlReader["Name"].Equals(DBNull.Value))
+                            {
+                                name = "-";
+                            }
+                            else
+                            {
+                                name = sqlReader["Name"].ToString();
+                            }
 
-                        int Id =Convert.ToInt32(sqlReader.GetValue(0));
-                        string name = sqlReader.GetValue(1).ToString();
-                        string description =sqlReader.GetValue(2).ToString();
-                        string code =sqlReader.GetValue(3).ToString();
-                        string start =sqlReader.GetValue(4).ToString();
-                        string end =sqlReader.GetValue(5).ToString();
-                        string lecturerName =sqlReader.GetValue(7).ToString();
-                        string lecturerEmail =sqlReader.GetValue(8).ToString();
+                            string descr = String.Empty;
+                            if (sqlReader["Description"].Equals(DBNull.Value))
+                            {
+                                descr = "No description provided";
+                            }
+                            else
+                            {
+                                descr = sqlReader["Description"].ToString();
+                            }
+
+                            string code = String.Empty;
+                            if (sqlReader["Code"].Equals(DBNull.Value))
+                            {
+                                code = "-";
+                            }
+                            else
+                            {
+                                code = sqlReader["Code"].ToString();
+                            }
+
+                            string start = String.Empty;
+                            if (sqlReader["Start"].Equals(DBNull.Value))
+                            {
+                                start = "-";
+                            }
+                            else
+                            {
+                                start = sqlReader["Start"].ToString();
+                            }
+                            string end = String.Empty;
+                            if (sqlReader["End"].Equals(DBNull.Value))
+                            {
+                                end = "-";
+                            }
+                            else
+                            {
+                                end = sqlReader["End"].ToString();
+                            }
+
+                            string lecturerName = String.Empty;
+                            if (sqlReader["Lecturer"].Equals(DBNull.Value))
+                            {
+                                lecturerName = "-";
+                            }
+                            else
+                            {
+                                lecturerName = sqlReader["Lecturer"].ToString();
+                            }
+
+                            string lecturerEmail = String.Empty;
+                            if (sqlReader["Email"].Equals(DBNull.Value))
+                            {
+                                lecturerEmail = "-";
+                            }
+                            else
+                            {
+                                lecturerEmail = sqlReader["Email"].ToString();
+                            }
+
+                            
                         
                         
-                        dt.Rows.Add(Id,name,description,code,start,end,lecturerName,lecturerEmail);
+                            dt.Rows.Add(Id,name,descr,code,start,end, lecturerName, lecturerEmail);
+                        }
                     }
                 }
             }
@@ -362,6 +437,129 @@ namespace Business_Logic
             
             return dt;
         }
+
+        public string CreateTopic(string name, string descr, string Uid, int marks, int courseID,   int disabledInt)
+        {
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Topic_Create";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@TopicName", name);
+            cmd.Parameters.AddWithValue("@TopicDescription", descr);
+            cmd.Parameters.AddWithValue("@TopicMarks", marks);
+            cmd.Parameters.AddWithValue("@CourseID", courseID);
+            cmd.Parameters.AddWithValue("@Uid_in", Uid);
+            cmd.Parameters.AddWithValue("@disabled_in", disabledInt);
+         
+
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                return ex.Message;
+
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+        }
+
+        public DataTable GetTopics(int courseId)
+        {
+            var dt = new DataTable();
+            
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("Marks", typeof(string));
+            dt.Columns.Add("Disabled", typeof(string));
+           
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Topic_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("CourseId_in", courseId);
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    while (sqlReader.Read())
+                    {
+                        {
+                            int Id = Convert.ToInt32(sqlReader.GetValue(0).ToString());
+                            string name = String.Empty;
+                            if (sqlReader["Name"].Equals(DBNull.Value))
+                            {
+                                name = "-";
+                            }
+                            else
+                            {
+                                name = sqlReader["Name"].ToString();
+                            }
+
+                            string descr = String.Empty;
+                            if (sqlReader["Description"].Equals(DBNull.Value))
+                            {
+                                descr = "No description provided";
+                            }
+                            else
+                            {
+                                descr = sqlReader["Description"].ToString();
+                            }
+
+                            string marks = String.Empty;
+                            if (sqlReader["Marks"].Equals(DBNull.Value))
+                            {
+                                marks = "-";
+                            }
+                            else
+                            {
+                                marks = sqlReader["Marks"].ToString();
+                            }
+
+                            string status = String.Empty;
+                            if (sqlReader["Disabled"].Equals(DBNull.Value))
+                            {
+                                status = "-";
+                            }
+                            else
+                            {
+                                status = sqlReader["Disabled"].ToString();
+                            }
+                            dt.Rows.Add(Id, name, descr, marks, status);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt;
+        }
+
     }
 
     //CODE TO STORE CALENDAR EVENT TO DATABASE
@@ -856,25 +1054,7 @@ namespace Business_Logic
     }
     public class clsCommunicate
         {
-            public void SendEmail(string mailto, string subject, string body)
-            {
-                SmtpSection smtpSection = (SmtpSection) ConfigurationManager.GetSection("system.net/mailSettings/smtp");
-                using (MailMessage mm = new MailMessage(smtpSection.From, mailto))
-                {
-                    mm.Subject = subject;
-                    mm.Body = body;
-                    mm.IsBodyHtml = false;
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = smtpSection.Network.Host;
-                    smtp.EnableSsl = smtpSection.Network.EnableSsl;
-                    NetworkCredential networkCred =
-                        new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
-                    smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
-                    smtp.Credentials = networkCred;
-                    smtp.Port = smtpSection.Network.Port;
-                    smtp.Send(mm);
-                }
-            }
+            
 
             public void SendHTMLEmail(string mailto, string subject, string body)
             {

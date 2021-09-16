@@ -46,7 +46,7 @@
                                     </span>
                                     <span class="navi-text">PDF</span>
                                 </a>
-                            </li></ul>
+                            </li>
 
                             <!--end::Navigation-->
                     </div>
@@ -54,7 +54,7 @@
                 </div>
                 <!--end::Dropdown-->
             </div>
-        </div> </div>
+        </div>
         <div class="card-body">
             <!--begin::Search Form-->
             <div class="mb-7">
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                        <asp:button href="#" class="btn btn-light-primary px-6 font-weight-bold" id="btnSearch" OnClick="btnMarkSearch" runat="server" Text="Search"></asp:button>
+                        <asp:button href="#" class="btn btn-light-primary px-6 font-weight-bold" id="btnFind" runat="server" Text="Search"></asp:button>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
                     </thead>
                     <tbody class="datatable-body" style="">
                         <tr data-row="0" class="datatable-row" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="1"><span style="width: 20px;">
                               </span></td> 
                             <td data-field="Activity" aria-label="Assessment 1" class="datatable-cell"><span style="width: 110px;">Assessment 1</span></td>
@@ -182,7 +182,7 @@
                         
                         </tr>
                         <tr data-row="1" class="datatable-row datatable-row-even" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="2"><span style="width: 20px;">
                               </span></td>
                             <td data-field="Activity" aria-label="Assessment 2" class="datatable-cell"><span style="width: 110px;">Assessment 2</span></td>
@@ -193,7 +193,7 @@
                          
                         </tr>
                         <tr data-row="2" class="datatable-row" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="3"><span style="width: 20px;">
                              </span></td>
                             <td data-field="Activity" aria-label="Assessment 3" class="datatable-cell"><span style="width: 110px;">Assessment 3</span></td>
@@ -203,7 +203,7 @@
                           
                         </tr>
                         <tr data-row="3" class="datatable-row datatable-row-even" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="4"><span style="width: 20px;">
                                </span></td>
                             <td data-field="Activity" aria-label="Assessment 4" class="datatable-cell"><span style="width: 110px;">Assessment 4</span></td>
@@ -213,7 +213,7 @@
                           
                         </tr>
                         <tr data-row="4" class="datatable-row" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="5"><span style="width: 20px;">
                                 </span></td>
                             <td data-field="Activity" aria-label="Assessment 5" class="datatable-cell"><span style="width: 110px;">Assessment 5</span></td>
@@ -223,7 +223,7 @@
                           
                         </tr>
                         <tr data-row="5" class="datatable-row datatable-row-even" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="6"><span style="width: 20px;">
                               </span></td>
                              <td data-field="Activity" aria-label="Assessment 6" class="datatable-cell"><span style="width: 110px;">Assessment 6</span></td>
@@ -233,7 +233,7 @@
                       
                         </tr>
                         <tr data-row="6" class="datatable-row" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="7"><span style="width: 20px;">
                               </span></td>
                             <td data-field="Activity" aria-label="Assessment 7" class="datatable-cell"><span style="width: 110px;">Assessment 7</span></td>
@@ -243,7 +243,7 @@
                          
                         </tr>
                         <tr data-row="7" class="datatable-row datatable-row-even" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="8"><span style="width: 20px;">
                                </span></td>
                             <td data-field="Activity" aria-label="Assessment 8" class="datatable-cell"><span style="width: 110px;">Assessment 8</span></td>
@@ -253,7 +253,7 @@
 
                         </tr>
                         <tr data-row="8" class="datatable-row" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="9"><span style="width: 20px;">
                                </span></td>
                             <td data-field="Activity" aria-label="Assessment 9" class="datatable-cell"><span style="width: 110px;">Assessment 9</span></td>
@@ -263,7 +263,7 @@
                            
                         </tr>
                         <tr data-row="9" class="datatable-row datatable-row-even" style="left: 0px;">
-                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href="#"><i class="fa fa-caret-right"></i></a></td>
+                            <td class="datatable-cell datatable-toggle-detail"><a class="datatable-toggle-detail" href=""><i class="fa fa-caret-right"></i></a></td>
                             <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check" data-field="RecordID" aria-label="10"><span style="width: 20px;">
                                 </span></td>
                             <td data-field="Activity" aria-label="Assessment 10" class="datatable-cell"><span style="width: 110px;">Assessment 10</span></td>

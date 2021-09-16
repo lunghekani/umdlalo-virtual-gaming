@@ -49,11 +49,7 @@ namespace UmdlaloVirtualGaming.Pages.student
         {
             Response.Redirect("student-dashboard.aspx");
         }
-
-        protected void btnTest_OnClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Did");
-        }
+        
 
 
     }
