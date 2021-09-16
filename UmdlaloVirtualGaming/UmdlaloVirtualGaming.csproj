@@ -2272,17 +2272,16 @@
     <Content Include="Pages\auth\WebForm2.aspx" />
     <Content Include="Pages\admin\content-creator.aspx" />
     <Content Include="Pages\lecturer\content-creator.aspx" />
+    <Content Include="Pages\lecturer\courses.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-calendar-view.aspx" />
     <Content Include="Pages\lecturer\lecturer-chat-new.aspx" />
     <Content Include="Pages\lecturer\lecturer-chat-view.aspx" />
     <Content Include="Pages\lecturer\lecturer-course-add.aspx" />
-    <Content Include="Pages\lecturer\lecturer-course-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-dashboard.aspx" />
     <Content Include="Pages\lecturer\lecturer-group-view.aspx" />
     <Content Include="Pages\lecturer\lecturer-projects-list.aspx" />
-    <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\lecturer\topic-create.aspx" />
     <Content Include="Pages\lecturer\lecturer-topic-view.aspx" />
@@ -2500,6 +2499,13 @@
     <Compile Include="Pages\lecturer\content-creator.aspx.designer.cs">
       <DependentUpon>content-creator.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\lecturer\courses.aspx.cs">
+      <DependentUpon>courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\courses.aspx.designer.cs">
+      <DependentUpon>courses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\lecturer\lecturer-assessment-add.aspx.cs">
       <DependentUpon>lecturer-assessment-add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2542,13 +2548,6 @@
     <Compile Include="Pages\lecturer\lecturer-course-add.aspx.designer.cs">
       <DependentUpon>lecturer-course-add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\lecturer\lecturer-course-list.aspx.cs">
-      <DependentUpon>lecturer-course-list.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\lecturer\lecturer-course-list.aspx.designer.cs">
-      <DependentUpon>lecturer-course-list.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\lecturer\lecturer-dashboard.aspx.cs">
       <DependentUpon>lecturer-dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2569,12 +2568,6 @@
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-projects-list.aspx.designer.cs">
       <DependentUpon>lecturer-projects-list.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\lecturer\lecturer-student-add.aspx.cs">
-      <DependentUpon>lecturer-student-add.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\lecturer\lecturer-student-add.aspx.designer.cs">
-      <DependentUpon>lecturer-student-add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-student-list.aspx.cs">
       <DependentUpon>lecturer-student-list.aspx</DependentUpon>

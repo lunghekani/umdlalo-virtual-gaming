@@ -9,7 +9,7 @@ using Business_Logic;
 
 namespace UmdlaloVirtualGaming.Pages.lecturer
 {
-    public partial class lecturer_course_list : System.Web.UI.Page
+    public partial class courses : System.Web.UI.Page
     {
         public clsAuthentication authclass = new clsAuthentication();
         public clsCourseOperations courseclass = new clsCourseOperations();
@@ -40,8 +40,8 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 
         protected void gvCourses_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            
-            int Id = Convert.ToInt32(e.CommandArgument)+1;
+
+            int Id = Convert.ToInt32(e.CommandArgument) + 1;
             Session["course_id"] = Id;
             Response.Redirect("topics.aspx");
         }

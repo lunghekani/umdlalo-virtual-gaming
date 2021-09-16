@@ -163,7 +163,7 @@
 										
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="/Pages/lecturer/lecturer-course-list.aspx" class="menu-link">
+												<a href="/Pages/lecturer/courses.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
