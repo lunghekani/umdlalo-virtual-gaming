@@ -2572,7 +2572,6 @@
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-student-add.aspx.cs">
       <DependentUpon>lecturer-student-add.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-student-add.aspx.designer.cs">
       <DependentUpon>lecturer-student-add.aspx</DependentUpon>
