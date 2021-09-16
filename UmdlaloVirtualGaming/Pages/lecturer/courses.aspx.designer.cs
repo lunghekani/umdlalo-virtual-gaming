@@ -11,7 +11,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 {
 
 
-    public partial class lecturer_course_list
+    public partial class courses
     {
 
         /// <summary>
