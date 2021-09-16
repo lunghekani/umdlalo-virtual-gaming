@@ -11,53 +11,35 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 {
 
 
-    public partial class lecturer_course_add
+    public partial class lecturer_topic_create
     {
 
         /// <summary>
-        /// txtCourseName control.
+        /// txtTopicName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCourseName;
+        protected global::System.Web.UI.WebControls.TextBox txtTopicName;
 
         /// <summary>
-        /// txtDescription control.
+        /// txtDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtDescr;
 
         /// <summary>
-        /// txtCode control.
+        /// txtMark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCode;
-
-        /// <summary>
-        /// txtStartTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStartTime;
-
-        /// <summary>
-        /// txtEndTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEndTime;
+        protected global::System.Web.UI.WebControls.TextBox txtMark;
 
         /// <summary>
         /// checkVisible control.
@@ -69,12 +51,12 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
         protected global::System.Web.UI.WebControls.CheckBox checkVisible;
 
         /// <summary>
-        /// btnCreate control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreate;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

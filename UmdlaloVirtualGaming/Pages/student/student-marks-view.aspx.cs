@@ -13,5 +13,19 @@ namespace UmdlaloVirtualGaming.Pages.student
         {
 
         }
+
+        protected void btnSearch(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedValue == "-1")
+            {
+                Response.Write("please select type");
+            }
+            else
+            {
+                Response.Write(DropDownList1.SelectedItem.Text);
+
+                Response.Write(DropDownList1.SelectedItem.Value);
+            }
+        }
     }
 }

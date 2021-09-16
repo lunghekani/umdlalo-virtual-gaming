@@ -73,7 +73,7 @@
                 </svg>
                 <!--end::Svg Icon-->
             </span>
-            <a href="#" class="text-danger font-weight-bold font-size-h6 mt-2">Tasks</a>
+            <a href="student-task-urgent.aspx" class="text-danger font-weight-bold font-size-h6 mt-2">Tasks</a>
         </div>
         <div class="col bg-light-success px-6 py-8 rounded-xl">
             <span class="svg-icon svg-icon-3x svg-icon-success d-block my-2">
@@ -87,7 +87,7 @@
                 </svg>
                 <!--end::Svg Icon-->
             </span>
-            <a href="#" class="text-success font-weight-bold font-size-h6 mt-2">Marks</a>
+            <a href="student-marks-view.aspx" class="text-success font-weight-bold font-size-h6 mt-2">Marks</a>
 
         </div>
     </div>

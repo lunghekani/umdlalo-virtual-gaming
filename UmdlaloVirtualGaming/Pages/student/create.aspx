@@ -15,10 +15,7 @@
 
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.3/bootstrap-notify.min.js" integrity="sha512-d0ZsJAyXsXlpeDNAhXj4mbaqpLfdyoOaQFmaFVG/KodZnAaVrdOsO9KiG62V7dcV+sHIFb7VTMmkB5JntAoq+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
@@ -63,7 +60,7 @@
                     <span class="label label-info label-inline label-xl font-weight-boldest mr-2" id="lblProjectName" style="margin-right: 8px;" runat="server">Project Name Label</span>
                     <div id="divCreator" runat="server">
                         <i class="fa fa-user"></i>
-                        <span class="text-muted font-weight-bold " id="lblProjectCreator" runat="server" style="margin-left: 8px;">Kagiso Student</span>
+                        <span class="text-muted font-weight-bold " id="lblProjectCreator" runat="server" style="margin-left: 8px;">James Jones</span>
                     </div>
                 </div>
                 <!--end::Info-->

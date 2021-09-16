@@ -122,7 +122,8 @@
                         <!--eng::Container-->
                         <!--begin::Footer-->
                         <div class="d-flex flex-center" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="right" data-original-title="Chat Example">
-                            <button class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-toggle="modal" data-target="#kt_chat_modal">Contact Teacher</button>
+                          <a class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-target="#kt_chat_modal" href="student-chat-view.aspx">Contact Teacher</a>
+
                         </div>
                         <!--end::Footer-->
                     </div>
@@ -191,7 +192,7 @@
                         <!--eng::Container-->
                         <!--begin::Footer-->
                         <div class="d-flex flex-center" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="right" data-original-title="Chat Example">
-                            <button class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-toggle="modal" data-target="#kt_chat_modal">Contact Teacher</button>
+                          <a class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-target="#kt_chat_modal" href="student-chat-view.aspx">Contact Teacher</a>
                         </div>
                         <!--end::Footer-->
                     </div>
@@ -294,7 +295,7 @@
                         <!--eng::Container-->
                         <!--begin::Footer-->
                         <div class="d-flex flex-center" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="right" data-original-title="Chat Example">
-                            <button class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-toggle="modal" data-target="#kt_chat_modal">Contact Teacher</button>
+                          <a class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-target="#kt_chat_modal" href="student-chat-view.aspx">Contact Teacher</a>
                         </div>
                         <!--end::Footer-->
                     </div>
