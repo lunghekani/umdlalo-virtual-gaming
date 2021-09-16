@@ -2271,6 +2271,7 @@
     <Content Include="Pages\auth\test.html" />
     <Content Include="Pages\auth\WebForm2.aspx" />
     <Content Include="Pages\admin\content-creator.aspx" />
+    <Content Include="Pages\lecturer\content-creator.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-calendar-view.aspx" />
@@ -2492,6 +2493,13 @@
     <Compile Include="Pages\admin\content-creator.aspx.designer.cs">
       <DependentUpon>content-creator.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\lecturer\content-creator.aspx.cs">
+      <DependentUpon>content-creator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\content-creator.aspx.designer.cs">
+      <DependentUpon>content-creator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\lecturer\lecturer-assessment-add.aspx.cs">
       <DependentUpon>lecturer-assessment-add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2564,7 +2572,6 @@
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-student-add.aspx.cs">
       <DependentUpon>lecturer-student-add.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-student-add.aspx.designer.cs">
       <DependentUpon>lecturer-student-add.aspx</DependentUpon>
