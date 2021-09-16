@@ -19,7 +19,7 @@ using System.Web.UI;
 namespace Business_Logic
 {
     // This is a comment to show how git works
-    
+
     public class clsBasicUserDetails
     {
         public string msg { get; set; }
@@ -28,7 +28,7 @@ namespace Business_Logic
 
     public class genfunctions
     {
-       
+
     }
     public class clsAuthentication
     {
@@ -90,9 +90,9 @@ namespace Business_Logic
                 {
                     msg = ex.Message
                 };
-                
+
             }
-            
+
         }
 
         public clsBasicUserDetails AuthUser(string username, string password)
@@ -138,51 +138,53 @@ namespace Business_Logic
         // code to quickly decrypt 
         public string DecryptString(string cipherText)
         {
-            string EncryptionKey = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
-            cipherText = cipherText.Replace(" ", "+");  
-            byte[] cipherBytes = Convert.FromBase64String(cipherText);  
-            using(Aes encryptor = Aes.Create())   
-            {  
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {  
-                    0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76  
-                });  
-                encryptor.Key = pdb.GetBytes(32);  
-                encryptor.IV = pdb.GetBytes(16);  
-                using(MemoryStream ms = new MemoryStream())   
-                {  
-                    using(CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write)) {  
-                        cs.Write(cipherBytes, 0, cipherBytes.Length);  
-                        cs.Close();  
-                    }  
-                    cipherText = Encoding.Unicode.GetString(ms.ToArray());  
-                }  
-            }  
-            return cipherText;  
+            string EncryptionKey = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            cipherText = cipherText.Replace(" ", "+");
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {
+                    0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76
+                });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
         }
         // code to quickly encrypt
         public string EncryptString(string encryptString)
         {
-            string EncryptionKey = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
-            byte[] clearBytes = Encoding.Unicode.GetBytes(encryptString);  
-            using(Aes encryptor = Aes.Create())   
-            {  
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {  
-                    0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76  
-                });  
-                encryptor.Key = pdb.GetBytes(32);  
-                encryptor.IV = pdb.GetBytes(16);  
-                using(MemoryStream ms = new MemoryStream())  
-                {  
-                    using(CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write)) {  
-                        cs.Write(clearBytes, 0, clearBytes.Length);  
-                        cs.Close();  
-                    }  
-                    encryptString = Convert.ToBase64String(ms.ToArray());  
-                }  
-            }  
-            return encryptString;  
+            string EncryptionKey = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(encryptString);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {
+                    0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76
+                });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    encryptString = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return encryptString;
         }
-        
+
     }
 
     public class clsUserDetails
@@ -278,7 +280,7 @@ namespace Business_Logic
     public class clsCourseOperations
     {
         private clsDataConnection objConn = new clsDataConnection();
-        
+
         public string CreateCourse(string name, string descr, string code, DateTime startTime, DateTime endTime, string Uid,
             int disabledInt)
         {
@@ -287,11 +289,13 @@ namespace Business_Logic
 
             cmd.CommandText = "Course_Create";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@modID_IN", _moduleID);
-            cmd.Parameters.AddWithValue("@modName_IN", _moduleName);
-            cmd.Parameters.AddWithValue("@modCode_IN", _moduleCode);
-            cmd.Parameters.AddWithValue("@modDescription_IN", _description);
-            cmd.Parameters.AddWithValue("@modDisabled_IN", _disabled);
+            cmd.Parameters.AddWithValue("@CourseName", name);
+            cmd.Parameters.AddWithValue("@CourseDescrip", descr);
+            cmd.Parameters.AddWithValue("@CourseCode", code);
+            cmd.Parameters.AddWithValue("@StartTime", startTime);
+            cmd.Parameters.AddWithValue("@EndTime", endTime);
+            cmd.Parameters.AddWithValue("@Uid", Uid);
+            cmd.Parameters.AddWithValue("@DisabledIN", disabledInt);
 
             MySqlTransaction myTrans;
 
@@ -338,7 +342,7 @@ namespace Business_Logic
             cmd.CommandText = "Courses_Get";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            
+
             MySqlDataReader sqlReader = cmd.ExecuteReader();
             try
             {
@@ -347,7 +351,7 @@ namespace Business_Logic
                     while (sqlReader.Read())
                     {
                         {
-                            int Id =Convert.ToInt32(sqlReader.GetValue(0).ToString());
+                            int Id = Convert.ToInt32(sqlReader.GetValue(0).ToString());
                             string name = String.Empty;
                             if (sqlReader["Name"].Equals(DBNull.Value))
                             {
@@ -417,10 +421,10 @@ namespace Business_Logic
                                 lecturerEmail = sqlReader["Email"].ToString();
                             }
 
-                            
-                        
-                        
-                            dt.Rows.Add(Id,name,descr,code,start,end, lecturerName, lecturerEmail);
+
+
+
+                            dt.Rows.Add(Id, name, descr, code, start, end, lecturerName, lecturerEmail);
                         }
                     }
                 }
@@ -434,11 +438,11 @@ namespace Business_Logic
                 sqlReader.Close();
                 cmd.Connection.Close();
             }
-            
+
             return dt;
         }
 
-        public string CreateTopic(string name, string descr, string Uid, int marks, int courseID,   int disabledInt)
+        public string CreateTopic(string name, string descr, string Uid, int marks, int courseID, int disabledInt)
         {
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
@@ -451,7 +455,7 @@ namespace Business_Logic
             cmd.Parameters.AddWithValue("@CourseID", courseID);
             cmd.Parameters.AddWithValue("@Uid_in", Uid);
             cmd.Parameters.AddWithValue("@disabled_in", disabledInt);
-         
+
 
             MySqlTransaction myTrans;
 
@@ -479,13 +483,13 @@ namespace Business_Logic
         public DataTable GetTopics(int courseId)
         {
             var dt = new DataTable();
-            
+
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Name", typeof(string));
             dt.Columns.Add("Description", typeof(string));
             dt.Columns.Add("Marks", typeof(string));
             dt.Columns.Add("Disabled", typeof(string));
-           
+
 
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -562,62 +566,6 @@ namespace Business_Logic
 
     }
 
-    //CODE TO STORE CALENDAR EVENT TO DATABASE
-
-    //public class clsCalendar
-    //{
-    //    private clsDataConnection objConn = new clsDataConnection();
-
-    //    public DataTable GetData()
-    //    {
-    //        var dt = new DataTable();
-
-    //        dt.Columns.Add("ScheduleId", typeof(int));
-    //        dt.Columns.Add("Title ", typeof(string));
-    //        dt.Columns.Add("ScheduleDate", typeof(string));
-
-    //        var conn = objConn.CreateSQLConnection();
-    //        MySqlCommand cmd = new MySqlCommand();
-    //        cmd.Connection = conn;
-
-    //        MySqlDataReader sqlReader = cmd.ExecuteReader();
-    //        try
-    //        {
-    //            if (sqlReader.HasRows)
-    //            {
-    //                while (sqlReader.Read())
-    //                {
-
-    //                    int ScheduleId = Convert.ToInt32(sqlReader.GetValue(0));
-    //                    string Title = sqlReader.GetValue(1).ToString();
-    //                    string ScheduleDate = sqlReader.GetValue(2).ToString();
-
-
-    //                    dt.Rows.Add(ScheduleId, Title, ScheduleDate);
-    //                }
-    //            }
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            dt.Rows.Add(ex.Message);
-    //        }
-    //        finally
-    //        {
-    //            sqlReader.Close();
-    //            cmd.Connection.Close();
-    //        }
-
-    //        return dt;
-        
-    //    }
-
-
-    //}
-
-    //END CALENDAR EVENT CODE
-
-    
-    
     public class clsProjects
     {
         public string lastProjectInsert;
@@ -635,7 +583,7 @@ namespace Business_Logic
             //    }
             //}
             // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
-            
+
             var objConn = new clsDataConnection();
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
@@ -669,7 +617,7 @@ namespace Business_Logic
             {
                 myTrans.Rollback();
                 return ex.Message;
-                
+
             }
         }
 
@@ -677,7 +625,7 @@ namespace Business_Logic
 
 
         //Start of Comment creation command
-        public string CreateComment(int Project_ID, string User_ID, string Comment) 
+        public string CreateComment(int Project_ID, string User_ID, string Comment)
         {
             var objConn = new clsDataConnection();
             var cmd = new MySqlCommand();
@@ -720,13 +668,13 @@ namespace Business_Logic
             // Removed this because this gets passed in
             // HttpContext.Current.Session["user_id"] = User_ID;
 
-            
+
             dt.Columns.Add("Name", typeof(string));
-            
+
             dt.Columns.Add("Comments", typeof(string));
-            
+
             dt.Columns.Add("DateCreated", typeof(DateTime));
-            
+
 
 
             var conn = objConn.CreateSQLConnection();
@@ -746,7 +694,7 @@ namespace Business_Logic
                     {
 
                         string name = string.Empty;
-                        if( sqlReader.GetValue(4).Equals(DBNull.Value))
+                        if (sqlReader.GetValue(4).Equals(DBNull.Value))
                         {
                             name = "-";
                         }
@@ -755,7 +703,7 @@ namespace Business_Logic
                             name = sqlReader.GetValue(4).ToString();
                         }
                         string comments = string.Empty;
-                        if( sqlReader.GetValue(2).Equals(DBNull.Value))
+                        if (sqlReader.GetValue(2).Equals(DBNull.Value))
                         {
                             comments = "-";
                         }
@@ -763,9 +711,9 @@ namespace Business_Logic
                         {
                             comments = sqlReader.GetValue(2).ToString();
                         }
-                   
+
                         string datecreated = string.Empty;
-                        if( sqlReader.GetValue(3).Equals(DBNull.Value))
+                        if (sqlReader.GetValue(3).Equals(DBNull.Value))
                         {
                             datecreated = "-";
                         }
@@ -773,8 +721,8 @@ namespace Business_Logic
                         {
                             datecreated = sqlReader.GetValue(3).ToString();
                         }
-                        
-                        dt.Rows.Add(name,comments, datecreated );
+
+                        dt.Rows.Add(name, comments, datecreated);
                     }
                 }
             }
@@ -789,7 +737,7 @@ namespace Business_Logic
             }
 
             return dt; //Forgot to put a curly bracket and a return statement in the code
-            
+
         }
 
         //End: Create Comment
@@ -809,7 +757,7 @@ namespace Business_Logic
             //    }
             //}
             // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
-            
+
             var objConn = new clsDataConnection();
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
@@ -831,14 +779,14 @@ namespace Business_Logic
                 cmd.ExecuteNonQuery();
                 myTrans.Commit();
                 MySqlDataReader sqlReader = cmd.ExecuteReader();
-               
+
                 return "Success";
             }
             catch (Exception ex)
             {
                 myTrans.Rollback();
                 return ex.Message;
-                
+
             }
         }
         public DataTable View_Project(int projectId)
@@ -884,12 +832,12 @@ namespace Business_Logic
                     while (sqlReader.Read())
                     {
 
-                        
-                        int Id =Convert.ToInt32(sqlReader.GetValue(0));
+
+                        int Id = Convert.ToInt32(sqlReader.GetValue(0));
                         string name = sqlReader.GetValue(1).ToString();
-                        string likes = Convert.ToInt32( sqlReader.GetValue(2)).ToString("##,###");
-                        string comments = Convert.ToInt32( sqlReader.GetValue(3)).ToString("##,###");
-                        string views = Convert.ToInt32( sqlReader.GetValue(4)).ToString("##,###");
+                        string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
                         string descr = sqlReader.GetValue(5).ToString();
                         string HTML = sqlReader.GetValue(6).ToString();
                         string htmlLines = HTML.Split('\n').Length.ToString("##,###");
@@ -898,10 +846,10 @@ namespace Business_Logic
                         string JSS = sqlReader.GetValue(8).ToString();
                         string jsLines = JSS.Split('\n').Length.ToString("##,###");
                         string datecreated = sqlReader.GetValue(9).ToString();
-                        int enabled = Convert.ToInt32( sqlReader.GetValue(10));
+                        int enabled = Convert.ToInt32(sqlReader.GetValue(10));
                         string userId = sqlReader.GetValue(11).ToString();
                         string creator = sqlReader.GetValue(12).ToString();
-                        dt.Rows.Add(Id,name,creator,likes,comments,views,descr,HTML,htmlLines,JSS,jsLines,CSS,cssLines,userId,datecreated,enabled);
+                        dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, htmlLines, JSS, jsLines, CSS, cssLines, userId, datecreated, enabled);
                     }
                 }
             }
@@ -936,7 +884,7 @@ namespace Business_Logic
             dt.Columns.Add("CSSLines", typeof(string));
             dt.Columns.Add("DateCreated", typeof(DateTime));
             dt.Columns.Add("Enabled", typeof(int));
-            
+
 
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -945,7 +893,7 @@ namespace Business_Logic
             cmd.CommandText = "E_Sports_Get";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            
+
             MySqlDataReader sqlReader = cmd.ExecuteReader();
             try
             {
@@ -954,19 +902,19 @@ namespace Business_Logic
                     while (sqlReader.Read())
                     {
 
-                        int Id =Convert.ToInt32(sqlReader.GetValue(0));
+                        int Id = Convert.ToInt32(sqlReader.GetValue(0));
                         string name = sqlReader.GetValue(1).ToString();
-                        string likes = Convert.ToInt32( sqlReader.GetValue(2)).ToString("##,###");
-                        string comments = Convert.ToInt32( sqlReader.GetValue(3)).ToString("##,###");
-                        string views = Convert.ToInt32( sqlReader.GetValue(4)).ToString("##,###");
+                        string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
                         string descr = sqlReader.GetValue(5).ToString();
                         string HTML = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
                         string CSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
                         string JSS = sqlReader.GetValue(8).ToString().Split('\n').Length.ToString("##,###");
-                       string datecreated = sqlReader.GetValue(9).ToString();
-                       int enabled = Convert.ToInt32( sqlReader.GetValue(10));
-                       string creator = sqlReader.GetValue(12).ToString();
-                        dt.Rows.Add(Id,name,creator,likes,comments,views,descr,HTML,JSS,CSS,datecreated,enabled);
+                        string datecreated = sqlReader.GetValue(9).ToString();
+                        int enabled = Convert.ToInt32(sqlReader.GetValue(10));
+                        string creator = sqlReader.GetValue(12).ToString();
+                        dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, JSS, CSS, datecreated, enabled);
                     }
                 }
             }
@@ -982,7 +930,7 @@ namespace Business_Logic
 
             return dt; //Forgot to put a curly bracket and a return statement in the code
 
-            
+
         }
 
         public DataTable GetAllUserProjects(string userId)
@@ -1011,7 +959,7 @@ namespace Business_Logic
             cmd.CommandText = "Personal_Projects_Get";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@userID", userId);
-            
+
             MySqlDataReader sqlReader = cmd.ExecuteReader();
             try
             {
@@ -1020,19 +968,19 @@ namespace Business_Logic
                     while (sqlReader.Read())
                     {
 
-                        int Id =Convert.ToInt32(sqlReader.GetValue(0));
+                        int Id = Convert.ToInt32(sqlReader.GetValue(0));
                         string name = sqlReader.GetValue(1).ToString();
-                        string likes = Convert.ToInt32( sqlReader.GetValue(2)).ToString("##,###");
-                        string comments = Convert.ToInt32( sqlReader.GetValue(3)).ToString("##,###");
-                        string views = Convert.ToInt32( sqlReader.GetValue(4)).ToString("##,###");
+                        string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
                         string descr = sqlReader.GetValue(5).ToString();
                         string HTML = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
                         string CSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
                         string JSS = sqlReader.GetValue(8).ToString().Split('\n').Length.ToString("##,###");
                         string datecreated = sqlReader.GetValue(9).ToString();
-                        int enabled = Convert.ToInt32( sqlReader.GetValue(10));
+                        int enabled = Convert.ToInt32(sqlReader.GetValue(10));
                         string creator = sqlReader.GetValue(12).ToString();
-                        dt.Rows.Add(Id,name,creator,likes,comments,views,descr,HTML,JSS,CSS,datecreated,enabled);
+                        dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, JSS, CSS, datecreated, enabled);
                     }
                 }
             }
@@ -1048,561 +996,557 @@ namespace Business_Logic
 
             return dt; //Forgot to put a curly bracket and a return statement in the code
 
-            
+
         }
 
     }
     public class clsCommunicate
+    {
+
+
+        public void SendHTMLEmail(string mailto, string subject, string body)
         {
-            
-
-            public void SendHTMLEmail(string mailto, string subject, string body)
+            SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+            using (MailMessage mm = new MailMessage(smtpSection.From, mailto))
             {
-                SmtpSection smtpSection = (SmtpSection) ConfigurationManager.GetSection("system.net/mailSettings/smtp");
-                using (MailMessage mm = new MailMessage(smtpSection.From, mailto))
-                {
-                    mm.Subject = subject;
-                    mm.Body = body;
-                    mm.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = smtpSection.Network.Host;
-                    smtp.EnableSsl = smtpSection.Network.EnableSsl;
-                    NetworkCredential networkCred =
-                        new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
-                    smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
-                    smtp.Credentials = networkCred;
-                    smtp.Port = smtpSection.Network.Port;
-                    smtp.Send(mm);
-                }
-            }
-
-            public enum MessageType { success, error, info, warning };
-            public void ShowMessage(Page page,string Message, MessageType type)
-            {
-                
-                ScriptManager.RegisterStartupScript(page, page.GetType(), System.Guid.NewGuid().ToString(), "$.notify({ message: '"+Message+".'},{type: '"+type+"',showProgressbar: true,animate: {\r\n\t\tenter: 'animated fadeInDown',\r\n\t\texit: 'animated fadeOutUp'\r\n\t},});", true);
-               
+                mm.Subject = subject;
+                mm.Body = body;
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = smtpSection.Network.Host;
+                smtp.EnableSsl = smtpSection.Network.EnableSsl;
+                NetworkCredential networkCred =
+                    new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
+                smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
+                smtp.Credentials = networkCred;
+                smtp.Port = smtpSection.Network.Port;
+                smtp.Send(mm);
             }
         }
+
+        public enum MessageType { success, error, info, warning };
+        public void ShowMessage(Page page, string Message, MessageType type)
+        {
+
+            ScriptManager.RegisterStartupScript(page, page.GetType(), System.Guid.NewGuid().ToString(), "$.notify({ message: '" + Message + ".'},{type: '" + type + "',showProgressbar: true,animate: {\r\n\t\tenter: 'animated fadeInDown',\r\n\t\texit: 'animated fadeOutUp'\r\n\t},});", true);
+
+        }
+    }
     public class clsPrivateChat
+    {
+        private MySqlCommand cmd;
+        private MySqlDataReader sqlReader;
+        private string user_id;
+
+        public clsPrivateChat(object user_id)
         {
-            private MySqlCommand cmd;
-            private MySqlDataReader sqlReader;
-            private string user_id;
+            this.user_id = user_id.ToString();
+        }
 
-            public clsPrivateChat(object user_id)
+        //create notification on when fetching messages
+        public void CreateNotification(object course_id)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                this.user_id = user_id.ToString();
-            }
+                /*
+                 * when fetch messages, we create the notification and set to 0 if not exist for later updates
+                 * for later update
+                 */
 
-            //create notification on when fetching messages
-            public void CreateNotification(object course_id)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
+                cmd = new MySqlCommand(
+                    $"SELECT* FROM umdlalo_lms.private_chat_notification WHERE user_id='{user_id}'and  course_id={course_id}",
+                    objConn);
+
+                sqlReader = cmd.ExecuteReader();
+
+                var list = new List<string>();
+                //if not user_notification row then we create one
+                if (sqlReader.Read())
                 {
-                    /*
-                     * when fetch messages, we create the notification and set to 0 if not exist for later updates
-                     * for later update
-                     */
-
-                    cmd = new MySqlCommand(
-                        $"SELECT* FROM umdlalo_lms.private_chat_notification WHERE user_id='{user_id}'and  course_id={course_id}",
-                        objConn);
-
-                    sqlReader = cmd.ExecuteReader();
-
-                    var list = new List<string>();
-                    //if not user_notification row then we create one
-                    if (sqlReader.Read())
-                    {
-                        list.Add("got a mtach");
-                    }
-
-                    sqlReader.Close();
-
-                    if (list.Count == 0)
-                    {
-                        var str =
-                            $"INSERT INTO  umdlalo_lms.private_chat_notification (user_id,course_id,notification,time,belong_to) VALUES('{user_id}','{course_id}',0,'','{user_id}')";
-                        var cmd = new MySqlCommand(str, objConn);
-                        cmd.ExecuteNonQuery();
-                        cmd.Connection.Close();
-                        resetNotification(course_id); //set the current user notification to 0
-                    }
+                    list.Add("got a mtach");
                 }
-            }
 
-            //set the notication value to 0 and return 0
-            public object resetNotification(object course_id)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
+                sqlReader.Close();
+
+                if (list.Count == 0)
                 {
-                    //update all the the current user notification in the current course
-                    cmd = new MySqlCommand(
-                        $"UPDATE  umdlalo_lms.private_chat_notification SET notification =0 WHERE course_id={course_id}  AND user_id={user_id} and belong_to={user_id} ",
-                        objConn);
-                    cmd.ExecuteNonQuery();
-
-                    cmd = new MySqlCommand(
-                        $"SELECT * FROM  umdlalo_lms.private_chat_notification WHERE  course_id={course_id}  AND user_id={user_id} LIMIT 1 ",
-                        objConn);
-                    var notification = "";
-                    var time = "";
-
-                    sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        notification = sqlReader.GetString("notification");
-                        time = sqlReader.GetString("time");
-                    }
-
-                    sqlReader.Close();
-                    return new { notification = notification, time = time };
-                }
-            }
-
-            /// <summary>
-            /// return the current notification value
-            /// </summary>
-            /// <param name="course_id"></param>
-            /// <returns></returns>
-            public object current_user_Notification(string course_id)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    cmd = new MySqlCommand(
-                        $"SELECT * FROM umdlalo_lms.private_chat_notification WHERE  course_id={course_id}  AND user_id={user_id} LIMIT 1 ",
-                        objConn);
-                    var notification = "";
-                    var time = "";
-                    sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        notification = sqlReader.GetString("notification");
-                        time = sqlReader.GetString("time");
-                    }
-
-                    sqlReader.Close();
-                    return new { notification = notification, time = time };
-                }
-            }
-
-            /// <summary>
-            /// update all the user id
-            /// </summary>
-            /// <param name="course_id"></param>
-            /// <returns></returns>
-            public void updateAllNotifications(string course_id, string time)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    //update all the the current user notification in the current course
-                    cmd = new MySqlCommand(
-                        $"SELECT* FROM umdlalo_lms.private_chat_notification WHERE  course_id='{course_id}' AND user_id='{user_id}' ",
-                        objConn);
-                    sqlReader = cmd.ExecuteReader();
-
-                    List<string> c_ids = new List<string>();
-                    List<string> u_ids = new List<string>();
-
-                    while (sqlReader.Read())
-                    {
-                        var current_course_id = sqlReader.GetString("course_id");
-                        var current_user_id = sqlReader.GetString("user_id");
-
-                        c_ids.Add(current_course_id);
-                        u_ids.Add(current_user_id);
-                    }
-
-                    sqlReader.Close();
-
-                    for (int i = 0; i < u_ids.Count; i++)
-                    {
-                        var c_id = c_ids[i];
-                        var u_id = u_ids[i];
-                        var str =
-                            $"UPDATE umdlalo_lms.private_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{c_id}' and user_id='{u_id}'";
-                        cmd = new MySqlCommand(str, objConn);
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    //set the current user notification to 0
-                    resetNotification(course_id);
-                }
-            }
-
-            public List<object> FetchMesssges(object course_id, object messagesLimit)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    //create notification when fetch messages
-                    CreateNotification(course_id);
-
-                    var ListOfMessages = new List<object>();
-
-                    cmd = new MySqlCommand(
-                        $"SELECT * FROM umdlalo_lms.private_chat WHERE course_id='{course_id}' AND user_id='{user_id}' ",
-                        objConn);
-                    sqlReader = cmd.ExecuteReader();
-
-                    while (sqlReader.Read())
-                    {
-                        var name = sqlReader.GetString("user_name");
-                        var user_id = sqlReader.GetString("user_id");
-
-                        var time = sqlReader.GetString("time");
-                        var message = sqlReader.GetString("message");
-                        ListOfMessages.Add(new { user_name = name, user_id = user_id, message = message, time = time });
-                    }
-
-                    sqlReader.Close();
-                    return ListOfMessages;
-                }
-            }
-
-            public Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    //get user name
-                    cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{user_id}' LIMIT 1", objConn);
-                    var sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        var name = sqlReader.GetValue(0).ToString();
-                        HttpContext.Current.Session["user_name"] = name;
-                    }
-
-                    //end user name
-                    sqlReader.Close();
-
-                    cmd = new MySqlCommand(
-                        $"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
-                    var keys = new List<string>();
-
-                    sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        var course_id = sqlReader.GetValue(0).ToString();
-                        keys.Add(course_id);
-                    }
-
-                    sqlReader.Close();
-
-                    //remove duplicates keys
-                    keys = keys.Union(keys).ToList();
-
-                    Dictionary<string, string> course_list = new Dictionary<string, string>();
-                    ///course names
-                    foreach (var item in keys)
-                    {
-                        var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE code='{item}'", objConn);
-                        sqlReader = cmd.ExecuteReader();
-
-                        while (sqlReader.Read())
-                        {
-                            var course_name = sqlReader.GetValue(0).ToString();
-                            course_list[item] = course_name;
-                        }
-
-                        sqlReader.Close();
-                    }
-
-                    return course_list;
-                }
-            }
-
-            public void InsertMessage(string user_name, string user_id, string course_id, string time, string message)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    //Update all notification excpet the current user
-                    updateAllNotifications(course_id, time);
-                    //insert the message data
                     var str =
-                        $"INSERT INTO  umdlalo_lms.private_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
-                    cmd = new MySqlCommand(str, objConn);
+                        $"INSERT INTO  umdlalo_lms.private_chat_notification (user_id,course_id,notification,time,belong_to) VALUES('{user_id}','{course_id}',0,'','{user_id}')";
+                    var cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    resetNotification(course_id); //set the current user notification to 0
                 }
             }
         }
 
-        public class clsGroupChat
+        //set the notication value to 0 and return 0
+        public object resetNotification(object course_id)
         {
-            private MySqlCommand cmd;
-            private MySqlDataReader sqlReader;
-
-            private string user_id;
-
-            public clsGroupChat(object user_id)
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                this.user_id = user_id.ToString();
-            }
+                //update all the the current user notification in the current course
+                cmd = new MySqlCommand(
+                    $"UPDATE  umdlalo_lms.private_chat_notification SET notification =0 WHERE course_id={course_id}  AND user_id={user_id} and belong_to={user_id} ",
+                    objConn);
+                cmd.ExecuteNonQuery();
 
-            //create notification on when fetching messages
-            public void CreateNotification(object course_id)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM  umdlalo_lms.private_chat_notification WHERE  course_id={course_id}  AND user_id={user_id} LIMIT 1 ",
+                    objConn);
+                var notification = "";
+                var time = "";
+
+                sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
                 {
-                    /*
-                     * when fetch messages, we create the notification and set to 0 if not exist for later updates
-                     * for later update
-                     */
-
-                    cmd = new MySqlCommand(
-                        $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE user_id='{user_id}'and  course_id='{course_id}'",
-                        objConn);
-
-                    sqlReader = cmd.ExecuteReader();
-
-                    var list = new List<string>();
-                    //if not user_notification row then we create one
-                    if (sqlReader.Read())
-                    {
-                        list.Add("got a mtach");
-                    }
-
-                    sqlReader.Close();
-
-                    if (list.Count == 0)
-                    {
-                        var str =
-                            $"INSERT INTO  umdlalo_lms.group_chat_notification (user_id,course_id,notification,time) VALUES('{user_id}','{course_id}',0,'')";
-                        var cmd = new MySqlCommand(str, objConn);
-                        cmd.ExecuteNonQuery();
-                        cmd.Connection.Close();
-                        resetNotification(course_id); //set the current user notification to 0
-                    }
+                    notification = sqlReader.GetString("notification");
+                    time = sqlReader.GetString("time");
                 }
+
+                sqlReader.Close();
+                return new { notification = notification, time = time };
             }
+        }
 
-            //set the notication value to 0 and return 0
-            public object resetNotification(object course_id)
+        /// <summary>
+        /// return the current notification value
+        /// </summary>
+        /// <param name="course_id"></param>
+        /// <returns></returns>
+        public object current_user_Notification(string course_id)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM umdlalo_lms.private_chat_notification WHERE  course_id={course_id}  AND user_id={user_id} LIMIT 1 ",
+                    objConn);
+                var notification = "";
+                var time = "";
+                sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
                 {
-                    //update all the the current user notification in the current course
-                    cmd = new MySqlCommand(
-                        $"UPDATE umdlalo_lms.group_chat_notification SET notification =0 WHERE course_id='{course_id}'  AND user_id='{user_id}' ",
-                        objConn);
-                    cmd.ExecuteNonQuery();
-
-                    cmd = new MySqlCommand(
-                        $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ",
-                        objConn);
-                    var notification = "";
-                    var time = "";
-
-                    sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        notification = sqlReader.GetString("notification");
-                        time = sqlReader.GetString("time");
-                    }
-
-                    sqlReader.Close();
-                    return new { notification = notification, time = time };
+                    notification = sqlReader.GetString("notification");
+                    time = sqlReader.GetString("time");
                 }
+
+                sqlReader.Close();
+                return new { notification = notification, time = time };
             }
+        }
 
-            /// <summary>
-            /// return the current notification value
-            /// </summary>
-            /// <param name="course_id"></param>
-            /// <returns></returns>
-            public object current_user_Notification(string course_id)
+        /// <summary>
+        /// update all the user id
+        /// </summary>
+        /// <param name="course_id"></param>
+        /// <returns></returns>
+        public void updateAllNotifications(string course_id, string time)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    cmd = new MySqlCommand(
-                        $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ",
-                        objConn);
-                    var notification = "";
-                    var time = "";
-                    sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        notification = sqlReader.GetString("notification");
-                        time = sqlReader.GetString("time");
-                    }
+                //update all the the current user notification in the current course
+                cmd = new MySqlCommand(
+                    $"SELECT* FROM umdlalo_lms.private_chat_notification WHERE  course_id='{course_id}' AND user_id='{user_id}' ",
+                    objConn);
+                sqlReader = cmd.ExecuteReader();
 
-                    sqlReader.Close();
-                    return new { notification = notification, time = time };
+                List<string> c_ids = new List<string>();
+                List<string> u_ids = new List<string>();
+
+                while (sqlReader.Read())
+                {
+                    var current_course_id = sqlReader.GetString("course_id");
+                    var current_user_id = sqlReader.GetString("user_id");
+
+                    c_ids.Add(current_course_id);
+                    u_ids.Add(current_user_id);
                 }
-            }
 
-            /// <summary>
-            /// update all the user id
-            /// </summary>
-            /// <param name="course_id"></param>
-            /// <returns></returns>
-            public void updateAllNotifications(string course_id, string time)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
+                sqlReader.Close();
+
+                for (int i = 0; i < u_ids.Count; i++)
                 {
-                    //update all the the current user notification in the current course
-                    cmd = new MySqlCommand(
-                        $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}' ", objConn);
-                    sqlReader = cmd.ExecuteReader();
-
-                    var course_ids = new Dictionary<string, string>();
-
-                    while (sqlReader.Read())
-                    {
-                        var current_course_id = sqlReader.GetString("course_id");
-                        var current_user_id = sqlReader.GetString("user_id");
-                        course_ids.Add(current_user_id, current_course_id);
-                    }
-
-                    sqlReader.Close();
-
-                    foreach (var id in course_ids)
-                    {
-                        var str =
-                            $"UPDATE umdlalo_lms.group_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{id.Value}' and user_id='{id.Key}'";
-                        cmd = new MySqlCommand(str, objConn);
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    //set the current user notification to 0
-                    resetNotification(course_id);
-                }
-            }
-
-            public List<object> FetchMesssges(object course_id, object messagesLimit)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    //create notification when fetch messages
-                    CreateNotification(course_id);
-
-                    var ListOfMessages = new List<object>();
-
-                    cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat WHERE course_id= '{course_id}'  ",
-                        objConn);
-                    sqlReader = cmd.ExecuteReader();
-
-                    while (sqlReader.Read())
-                    {
-                        var name = sqlReader.GetString("user_name");
-                        var user_id = sqlReader.GetString("user_id");
-
-                        var time = sqlReader.GetString("time");
-                        var message = sqlReader.GetString("message");
-                        ListOfMessages.Add(new { user_name = name, user_id = user_id, message = message, time = time });
-                    }
-
-                    sqlReader.Close();
-                    return ListOfMessages;
-                }
-            }
-
-            public class adminStore
-            {
-                public string course_name { get; set; }
-                public string course_id { get; set; }
-                public string user_id { get; set; }
-            }
-
-            public List<adminStore> CURRENT_ADMIN_All_COURSE_ID_AND_NAME()
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    List<adminStore> stores = new List<adminStore>();
-                    ; //get user name
-                    cmd = new MySqlCommand($"SELECT Name,Code,User_id FROM  umdlalo_lms.course WHERE User_id='{user_id}'",
-                        objConn);
-                    var sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        var name = sqlReader.GetValue(0).ToString();
-                        var code = sqlReader.GetValue(1).ToString();
-                        var id = sqlReader.GetValue(2).ToString();
-                        HttpContext.Current.Session["user_name"] = name;
-
-                        var admin = new adminStore();
-                        admin.course_name = name;
-                        admin.course_id = code;
-                        admin.user_id = id;
-
-                        stores.Add(admin);
-                    }
-
-                    //end user name
-                    sqlReader.Close();
-                    return stores;
-                }
-            }
-
-            public Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    //get user name
-                    cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{user_id}' LIMIT 1", objConn);
-                    var sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        var name = sqlReader.GetValue(0).ToString();
-                        HttpContext.Current.Session["user_name"] = name;
-                    }
-
-                    //end user name
-                    sqlReader.Close();
-
-                    cmd = new MySqlCommand(
-                        $"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
-                    var keys = new List<string>();
-
-                    sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-                        var course_id = sqlReader.GetValue(0).ToString();
-                        keys.Add(course_id);
-                    }
-
-                    sqlReader.Close();
-
-                    //remove duplicates keys
-                    keys = keys.Union(keys).ToList();
-
-                    Dictionary<string, string> course_list = new Dictionary<string, string>();
-                    ///course names
-                    foreach (var item in keys)
-                    {
-                        var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE code='{item}'", objConn);
-                        sqlReader = cmd.ExecuteReader();
-
-                        while (sqlReader.Read())
-                        {
-                            var course_name = sqlReader.GetValue(0).ToString();
-                            course_list[item] = course_name;
-                        }
-
-                        sqlReader.Close();
-                    }
-
-                    return course_list;
-                }
-            }
-
-            public void InsertMessage(string user_name, string user_id, string course_id, string time, string message)
-            {
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
-                {
-                    //insert the message data
+                    var c_id = c_ids[i];
+                    var u_id = u_ids[i];
                     var str =
-                        $"INSERT INTO  umdlalo_lms.group_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
+                        $"UPDATE umdlalo_lms.private_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{c_id}' and user_id='{u_id}'";
                     cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
+                }
 
-                    //Update all notification excpet the current user
-                    updateAllNotifications(course_id, time);
+                //set the current user notification to 0
+                resetNotification(course_id);
+            }
+        }
+
+        public List<object> FetchMesssges(object course_id, object messagesLimit)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //create notification when fetch messages
+                CreateNotification(course_id);
+
+                var ListOfMessages = new List<object>();
+
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM umdlalo_lms.private_chat WHERE course_id='{course_id}' AND user_id='{user_id}' ",
+                    objConn);
+                sqlReader = cmd.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    var name = sqlReader.GetString("user_name");
+                    var user_id = sqlReader.GetString("user_id");
+
+                    var time = sqlReader.GetString("time");
+                    var message = sqlReader.GetString("message");
+                    ListOfMessages.Add(new { user_name = name, user_id = user_id, message = message, time = time });
+                }
+
+                sqlReader.Close();
+                return ListOfMessages;
+            }
+        }
+
+        public Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //get user name
+                cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{user_id}' LIMIT 1", objConn);
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    var name = sqlReader.GetValue(0).ToString();
+                    HttpContext.Current.Session["user_name"] = name;
+                }
+
+                //end user name
+                sqlReader.Close();
+
+                cmd = new MySqlCommand(
+                    $"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
+                var keys = new List<string>();
+
+                sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    var course_id = sqlReader.GetValue(0).ToString();
+                    keys.Add(course_id);
+                }
+
+                sqlReader.Close();
+
+                //remove duplicates keys
+                keys = keys.Union(keys).ToList();
+
+                Dictionary<string, string> course_list = new Dictionary<string, string>();
+                ///course names
+                foreach (var item in keys)
+                {
+                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE code='{item}'", objConn);
+                    sqlReader = cmd.ExecuteReader();
+
+                    while (sqlReader.Read())
+                    {
+                        var course_name = sqlReader.GetValue(0).ToString();
+                        course_list[item] = course_name;
+                    }
+
+                    sqlReader.Close();
+                }
+
+                return course_list;
+            }
+        }
+
+        public void InsertMessage(string user_name, string user_id, string course_id, string time, string message)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //Update all notification excpet the current user
+                updateAllNotifications(course_id, time);
+                //insert the message data
+                var str =
+                    $"INSERT INTO  umdlalo_lms.private_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
+                cmd = new MySqlCommand(str, objConn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
+
+    public class clsGroupChat
+    {
+        private MySqlCommand cmd;
+        private MySqlDataReader sqlReader;
+
+        private string user_id;
+
+        public clsGroupChat(object user_id)
+        {
+            this.user_id = user_id.ToString();
+        }
+
+        //create notification on when fetching messages
+        public void CreateNotification(object course_id)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                /*
+                 * when fetch messages, we create the notification and set to 0 if not exist for later updates
+                 * for later update
+                 */
+
+                cmd = new MySqlCommand(
+                    $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE user_id='{user_id}'and  course_id='{course_id}'",
+                    objConn);
+
+                sqlReader = cmd.ExecuteReader();
+
+                var list = new List<string>();
+                //if not user_notification row then we create one
+                if (sqlReader.Read())
+                {
+                    list.Add("got a mtach");
+                }
+
+                sqlReader.Close();
+
+                if (list.Count == 0)
+                {
+                    var str =
+                        $"INSERT INTO  umdlalo_lms.group_chat_notification (user_id,course_id,notification,time) VALUES('{user_id}','{course_id}',0,'')";
+                    var cmd = new MySqlCommand(str, objConn);
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                    resetNotification(course_id); //set the current user notification to 0
                 }
             }
         }
 
-   
+        //set the notication value to 0 and return 0
+        public object resetNotification(object course_id)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //update all the the current user notification in the current course
+                cmd = new MySqlCommand(
+                    $"UPDATE umdlalo_lms.group_chat_notification SET notification =0 WHERE course_id='{course_id}'  AND user_id='{user_id}' ",
+                    objConn);
+                cmd.ExecuteNonQuery();
 
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ",
+                    objConn);
+                var notification = "";
+                var time = "";
 
+                sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    notification = sqlReader.GetString("notification");
+                    time = sqlReader.GetString("time");
+                }
+
+                sqlReader.Close();
+                return new { notification = notification, time = time };
+            }
+        }
+
+        /// <summary>
+        /// return the current notification value
+        /// </summary>
+        /// <param name="course_id"></param>
+        /// <returns></returns>
+        public object current_user_Notification(string course_id)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                cmd = new MySqlCommand(
+                    $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ",
+                    objConn);
+                var notification = "";
+                var time = "";
+                sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    notification = sqlReader.GetString("notification");
+                    time = sqlReader.GetString("time");
+                }
+
+                sqlReader.Close();
+                return new { notification = notification, time = time };
+            }
+        }
+
+        /// <summary>
+        /// update all the user id
+        /// </summary>
+        /// <param name="course_id"></param>
+        /// <returns></returns>
+        public void updateAllNotifications(string course_id, string time)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //update all the the current user notification in the current course
+                cmd = new MySqlCommand(
+                    $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}' ", objConn);
+                sqlReader = cmd.ExecuteReader();
+
+                var course_ids = new Dictionary<string, string>();
+
+                while (sqlReader.Read())
+                {
+                    var current_course_id = sqlReader.GetString("course_id");
+                    var current_user_id = sqlReader.GetString("user_id");
+                    course_ids.Add(current_user_id, current_course_id);
+                }
+
+                sqlReader.Close();
+
+                foreach (var id in course_ids)
+                {
+                    var str =
+                        $"UPDATE umdlalo_lms.group_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{id.Value}' and user_id='{id.Key}'";
+                    cmd = new MySqlCommand(str, objConn);
+                    cmd.ExecuteNonQuery();
+                }
+
+                //set the current user notification to 0
+                resetNotification(course_id);
+            }
+        }
+
+        public List<object> FetchMesssges(object course_id, object messagesLimit)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //create notification when fetch messages
+                CreateNotification(course_id);
+
+                var ListOfMessages = new List<object>();
+
+                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat WHERE course_id= '{course_id}'  ",
+                    objConn);
+                sqlReader = cmd.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    var name = sqlReader.GetString("user_name");
+                    var user_id = sqlReader.GetString("user_id");
+
+                    var time = sqlReader.GetString("time");
+                    var message = sqlReader.GetString("message");
+                    ListOfMessages.Add(new { user_name = name, user_id = user_id, message = message, time = time });
+                }
+
+                sqlReader.Close();
+                return ListOfMessages;
+            }
+        }
+
+        public class adminStore
+        {
+            public string course_name { get; set; }
+            public string course_id { get; set; }
+            public string user_id { get; set; }
+        }
+
+        public List<adminStore> CURRENT_ADMIN_All_COURSE_ID_AND_NAME()
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                List<adminStore> stores = new List<adminStore>();
+                ; //get user name
+                cmd = new MySqlCommand($"SELECT Name,Code,User_id FROM  umdlalo_lms.course WHERE User_id='{user_id}'",
+                    objConn);
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    var name = sqlReader.GetValue(0).ToString();
+                    var code = sqlReader.GetValue(1).ToString();
+                    var id = sqlReader.GetValue(2).ToString();
+                    HttpContext.Current.Session["user_name"] = name;
+
+                    var admin = new adminStore();
+                    admin.course_name = name;
+                    admin.course_id = code;
+                    admin.user_id = id;
+
+                    stores.Add(admin);
+                }
+
+                //end user name
+                sqlReader.Close();
+                return stores;
+            }
+        }
+
+        public Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //get user name
+                cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{user_id}' LIMIT 1", objConn);
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    var name = sqlReader.GetValue(0).ToString();
+                    HttpContext.Current.Session["user_name"] = name;
+                }
+
+                //end user name
+                sqlReader.Close();
+
+                cmd = new MySqlCommand(
+                    $"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
+                var keys = new List<string>();
+
+                sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    var course_id = sqlReader.GetValue(0).ToString();
+                    keys.Add(course_id);
+                }
+
+                sqlReader.Close();
+
+                //remove duplicates keys
+                keys = keys.Union(keys).ToList();
+
+                Dictionary<string, string> course_list = new Dictionary<string, string>();
+                ///course names
+                foreach (var item in keys)
+                {
+                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE code='{item}'", objConn);
+                    sqlReader = cmd.ExecuteReader();
+
+                    while (sqlReader.Read())
+                    {
+                        var course_name = sqlReader.GetValue(0).ToString();
+                        course_list[item] = course_name;
+                    }
+
+                    sqlReader.Close();
+                }
+
+                return course_list;
+            }
+        }
+
+        public void InsertMessage(string user_name, string user_id, string course_id, string time, string message)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //insert the message data
+                var str =
+                    $"INSERT INTO  umdlalo_lms.group_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
+                cmd = new MySqlCommand(str, objConn);
+                cmd.ExecuteNonQuery();
+
+                //Update all notification excpet the current user
+                updateAllNotifications(course_id, time);
+            }
+        }
+    }
 }

@@ -2268,8 +2268,10 @@
     <Content Include="Pages\auth\email-reg.html" />
     <Content Include="Pages\auth\HelloWorld.aspx" />
     <Content Include="Pages\auth\index.aspx" />
+    <Content Include="Pages\auth\test.html" />
     <Content Include="Pages\auth\WebForm2.aspx" />
     <Content Include="Pages\admin\content-creator.aspx" />
+    <Content Include="Pages\lecturer\content-creator.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-calendar-view.aspx" />
@@ -2489,6 +2491,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\admin\content-creator.aspx.designer.cs">
+      <DependentUpon>content-creator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\content-creator.aspx.cs">
+      <DependentUpon>content-creator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\content-creator.aspx.designer.cs">
       <DependentUpon>content-creator.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-assessment-add.aspx.cs">

@@ -21,9 +21,6 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             if (!Page.IsPostBack)
             {
                 BindGridView();
-
-
-
             }
         }
 
