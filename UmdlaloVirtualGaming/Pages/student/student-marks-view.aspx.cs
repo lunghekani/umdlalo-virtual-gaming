@@ -14,7 +14,7 @@ namespace UmdlaloVirtualGaming.Pages.student
 
         }
 
-        protected void btnSearch(object sender, EventArgs e)
+        protected void btnMarkSearch(object sender, EventArgs e)
         {
             if (DropDownList1.SelectedValue == "-1")
             {
