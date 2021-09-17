@@ -165,24 +165,19 @@
 																			<!--end::Group-->
 																			<!--begin::Group-->
 																			<div class="form-group row fv-plugins-icon-container">
-																				<label class="col-xl-3 col-lg-3 col-form-label">Company Name</label>
+																				<label class="col-xl-3 col-lg-3 col-form-label">Course Name</label>
 																				<div class="col-lg-9 col-xl-9">
-																					<input class="form-control form-control-solid form-control-lg" name="companyname" type="text" value="Loop Inc.">
+																					<input class="form-control form-control-solid form-control-lg" name="coursename" type="text" placeholder="HTML/CSS/JS">
 																					<span class="form-text text-muted">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
 																				<div class="fv-plugins-message-container"></div></div>
 																			</div>
 																			<!--end::Group-->
 																			<!--begin::Group-->
 																			<div class="form-group row fv-plugins-icon-container">
-																				<label class="col-xl-3 col-lg-3 col-form-label">Contact Phone</label>
+																				<label class="col-xl-3 col-lg-3 col-form-label">Course ID</label>
 																				<div class="col-lg-9 col-xl-9">
 																					<div class="input-group input-group-solid input-group-lg">
-																						<div class="input-group-prepend">
-																							<span class="input-group-text">
-																								<i class="la la-phone"></i>
-																							</span>
-																						</div>
-																						<input type="text" class="form-control form-control-solid form-control-lg" name="phone" value="5678967456" placeholder="Phone">
+																						<input type="text" class="form-control form-control-solid form-control-lg" name="phone" placeholder="Course ID">
 																					</div>
 																					<span class="form-text text-muted">Enter valid US phone number(e.g: 5678967456).</span>
 																				<div class="fv-plugins-message-container"></div></div>
@@ -190,25 +185,20 @@
 																			<!--end::Group-->
 																			<!--begin::Group-->
 																			<div class="form-group row fv-plugins-icon-container">
-																				<label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
+																				<label class="col-xl-3 col-lg-3 col-form-label">Student ID</label>
 																				<div class="col-lg-9 col-xl-9">
 																					<div class="input-group input-group-solid input-group-lg">
-																						<div class="input-group-prepend">
-																							<span class="input-group-text">
-																								<i class="la la-at"></i>
-																							</span>
-																						</div>
-																						<input type="text" class="form-control form-control-solid form-control-lg" name="email" value="">
+																						<input type="text" class="form-control form-control-solid form-control-lg" name="studentID" value="">
 																					</div>
 																				<div class="fv-plugins-message-container"></div></div>
 																			</div>
 																			<!--end::Group-->
 																			<!--begin::Group-->
 																			<div class="form-group row fv-plugins-icon-container">
-																				<label class="col-xl-3 col-lg-3 col-form-label">Company Site</label>
+																				<label class="col-xl-3 col-lg-3 col-form-label">Year of Study</label>
 																				<div class="col-lg-9 col-xl-9">
 																					<div class="input-group input-group-solid input-group-lg">
-																						<input type="text" class="form-control form-control-solid form-control-lg" name="companywebsite" placeholder="Username" value="loop">
+																						<input type="text" class="form-control form-control-solid form-control-lg" name="companywebsite" placeholder="Username" value="">
 																						<div class="input-group-append">
 																							<span class="input-group-text">.com</span>
 																						</div>
