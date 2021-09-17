@@ -16,8 +16,8 @@ namespace UmdlaloVirtualGaming.Pages.student
         public clsCourseOperations objModOperations = new clsCourseOperations();
         public clsCommunicate communicateclass = new clsCommunicate();
         public clsUserDetails userclass = new clsUserDetails();
-        
-        private clsProjects projectsclass = new clsProjects(); 
+
+        private clsProjects projectsclass = new clsProjects();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,9 +27,9 @@ namespace UmdlaloVirtualGaming.Pages.student
 
             foreach (DataRow row in dt.Rows)
             {
-                projectlist += DisplayProjects(row["Id"].ToString(),row["Name"].ToString(),row["Creator"].ToString(),row["Likes"].ToString(),
-                    row["Comments"].ToString(),row["Views"].ToString(),row["Description"].ToString(),row["HTMLLines"].ToString(),
-                    row["JSSLines"].ToString(),row["CSSLines"].ToString(),Convert.ToDateTime( row["DateCreated"]) );
+                projectlist += DisplayProjects(row["Id"].ToString(), row["Name"].ToString(), row["Creator"].ToString(), row["Likes"].ToString(),
+                    row["Comments"].ToString(), row["Views"].ToString(), row["Description"].ToString(), row["HTMLLines"].ToString(),
+                    row["JSSLines"].ToString(), row["CSSLines"].ToString(), Convert.ToDateTime(row["DateCreated"]));
             }
 
             projectInstance.InnerHtml = projectlist;
@@ -57,6 +57,6 @@ namespace UmdlaloVirtualGaming.Pages.student
 
             return projectblock;
         }
-        
+
     }
 }
