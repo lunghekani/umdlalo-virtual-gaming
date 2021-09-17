@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="courses.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.lecturer.courses" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="courses.aspx.cs" EnableEventValidation="false" Inherits="UmdlaloVirtualGaming.Pages.lecturer.courses" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -169,7 +169,7 @@
                                                 
                                                 <ItemTemplate >
                                                     <asp:Button CommandName="View" runat="server"  Class="btn btn-primary  fa" 
-                                                                Text="&#xf06e;" CommandArgument="<%# Container.DataItemIndex %>" UseSubmitBehavior="false"
+                                                                Text="&#xf06e;" CommandArgument="<%# Container.DataItemIndex %>" 
                                                                 data-toggle="tooltip" data-placement="top" title="View"/>
                                                     
                                                  </ItemTemplate>

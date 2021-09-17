@@ -36,7 +36,16 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 
         protected void gvTopics_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.CommandName == "Edit")
+            {
+            }
+            else if (e.CommandName =="View")
+            {
+                int Id = Convert.ToInt32(e.CommandArgument) + 1;
+                Session["topic_id"] = Id;
+                Response.Redirect("content-view.aspx");
+            }
+           
         }
     }
 }
