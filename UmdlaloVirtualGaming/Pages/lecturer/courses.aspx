@@ -150,6 +150,17 @@
             <!--end::Search Form-->
             <!--end: Search Form-->
             <!--begin: Datatable-->
+            <style> td, th {
+display: table-cell;
+vertical-align: inherit;
+}.datatable.datatable-default > .datatable-table > .datatable-body .datatable-row > .datatable-cell {
+font-weight: regular;
+-webkit-transition: background 0.3s ease;
+transition: background 0.3s ease;
+}.card {
+-webkit-box-direction: normal;
+word-wrap: break-word;
+}</style>
             <asp:GridView runat="server" ID="gvCourses"
                           CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
                           
