@@ -222,28 +222,7 @@
 													</span>
 												</a>
 											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="/Pages/lecturer/lecturer-student-add.aspx" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Add Student</span>
-													<span class="menu-label">
-														<span class="label label-danger label-inline">new</span>
-													</span>
-												</a>
-											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="custom/apps/inbox.html" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Enrol Student</span>
-													<span class="menu-label">
-														<span class="label label-danger label-inline">new</span>
-													</span>
-												</a>
-											</li>
+											
 											
 										</ul>
 									</div>
