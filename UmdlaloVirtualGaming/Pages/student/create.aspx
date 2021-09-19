@@ -172,7 +172,7 @@
 
                                     <!--end::Header-->
                                     <!--begin::Body-->
-                                    <div class="card-body pt-8" style="margin-bottom: -50px">
+                                    <div class="card-body pt-8" style="margin-bottom: 0px">
                                         <%--code here--%>
                                         <h3 class="card-title align-items-start flex-column">
                                             <span class="card-label font-weight-bolder text-dark">HTML Code</span>
@@ -202,7 +202,7 @@
                         </div>
                     </div>
                     <div class="col-7 ">
-                        <iframe id="previewpane" style="width: 100%; height: 100%; border: 2px solid black;"></iframe>
+                        <iframe id="previewpane" style="width: 100%; height: 620px; border: 2px solid black;"></iframe>
                     </div>
                 </div>
             </div>

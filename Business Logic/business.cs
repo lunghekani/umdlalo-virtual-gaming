@@ -726,40 +726,7 @@ namespace Business_Logic
             {
                 if (sqlReader.HasRows)
                 {
-                    while (sqlReader.Read())
-                    {
-
-                        string name = string.Empty;
-                        if (sqlReader.GetValue(4).Equals(DBNull.Value))
-                        {
-                            name = "-";
-                        }
-                        else
-                        {
-                            name = sqlReader.GetValue(4).ToString();
-                        }
-                        string comments = string.Empty;
-                        if (sqlReader.GetValue(2).Equals(DBNull.Value))
-                        {
-                            comments = "-";
-                        }
-                        else
-                        {
-                            comments = sqlReader.GetValue(2).ToString();
-                        }
-
-                        string datecreated = string.Empty;
-                        if (sqlReader.GetValue(3).Equals(DBNull.Value))
-                        {
-                            datecreated = "-";
-                        }
-                        else
-                        {
-                            datecreated = sqlReader.GetValue(3).ToString();
-                        }
-
-                        dt.Rows.Add(name, comments, datecreated);
-                    }
+                  dt.Load(sqlReader);
                 }
             }
             catch (Exception ex)
