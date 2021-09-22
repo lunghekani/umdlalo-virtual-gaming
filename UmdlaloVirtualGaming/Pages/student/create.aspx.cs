@@ -86,21 +86,21 @@ namespace UmdlaloVirtualGaming.Pages.student
 
             string commentList = "";
 
-            string Null = null;  
+              
             
-            ///put if statement here for no comments
+            
 
-            if (commentList == Null)
+            if (dt.Rows.Count>0)
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    commentList += DisplayComments(row["Name"].ToString(), row["Comments"].ToString(), Convert.ToDateTime(row["DateCreated"]));
+                    commentList += DisplayComments(row["Creators"].ToString(), row["Comment"].ToString(), Convert.ToDateTime(row["TiimePosted"]));
                 }
              
             }
             else
             {
-                 Console.WriteLine("No comments");
+                commentList = "No comments have been made for this project";
             }
            
             dvComment.InnerHtml = commentList;

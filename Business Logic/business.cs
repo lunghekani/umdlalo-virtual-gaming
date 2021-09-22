@@ -564,6 +564,42 @@ namespace Business_Logic
             return dt;
         }
 
+        public DataTable GetTopicContent(int topicId)
+        {
+            var dt = new DataTable();
+            
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Content_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("topic_id", topicId);
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    dt.Load(sqlReader);
+                    
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+                return dt;
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            
+        }
+
     }
 
     public class clsProjects
@@ -690,40 +726,7 @@ namespace Business_Logic
             {
                 if (sqlReader.HasRows)
                 {
-                    while (sqlReader.Read())
-                    {
-
-                        string name = string.Empty;
-                        if (sqlReader.GetValue(4).Equals(DBNull.Value))
-                        {
-                            name = "-";
-                        }
-                        else
-                        {
-                            name = sqlReader.GetValue(4).ToString();
-                        }
-                        string comments = string.Empty;
-                        if (sqlReader.GetValue(2).Equals(DBNull.Value))
-                        {
-                            comments = "-";
-                        }
-                        else
-                        {
-                            comments = sqlReader.GetValue(2).ToString();
-                        }
-
-                        string datecreated = string.Empty;
-                        if (sqlReader.GetValue(3).Equals(DBNull.Value))
-                        {
-                            datecreated = "-";
-                        }
-                        else
-                        {
-                            datecreated = sqlReader.GetValue(3).ToString();
-                        }
-
-                        dt.Rows.Add(name, comments, datecreated);
-                    }
+                  dt.Load(sqlReader);
                 }
             }
             catch (Exception ex)
