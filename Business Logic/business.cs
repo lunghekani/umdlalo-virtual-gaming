@@ -51,7 +51,7 @@ namespace Business_Logic
         }
 
         //pumi's code for signup
-        public clsBasicUserDetails AddUser(string User_Name, string User_LstName, string User_Email, string User_Password)
+        public clsBasicUserDetails AddUser(string User_Name, string User_LstName, string User_Email, string User_Password, string Role)
         {
             var cmd = new MySqlCommand();
             cmd.Connection = objConn.CreateSQLConnection();
@@ -65,7 +65,7 @@ namespace Business_Logic
             cmd.Parameters.AddWithValue("@UserEmail_In", User_Email);
             cmd.Parameters.AddWithValue("@UserPassword_In", HashPassword(User_Password));
             cmd.Parameters.AddWithValue("@DateAdded", DateTime.Now);
-            cmd.Parameters.AddWithValue("@UserRole_In", "Student");
+            cmd.Parameters.AddWithValue("@UserRole_In", Role);
 
             MySqlTransaction myTrans;
 

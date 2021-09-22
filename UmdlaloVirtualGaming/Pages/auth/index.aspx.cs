@@ -48,7 +48,7 @@ namespace UmdlaloVirtualGaming.Pages.auth
             User_Email = txtSignUpEmail.Text.Trim();
             User_Password = txtSignUpPassword.Text.Trim();
 
-            var user = authclass.AddUser(User_Name, User_LstName, User_Email, User_Password);
+            var user = authclass.AddUser(User_Name, User_LstName, User_Email, User_Password, "Student");
             if (user.msg.Equals("Success"))
             {
                 var names = User_Name + " " + User_LstName;
