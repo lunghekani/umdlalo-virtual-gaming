@@ -1291,7 +1291,7 @@ namespace Business_Logic
         }
 
         //create notification on when fetching messages
-        public void CreateNotification(object course_id)
+        public void CreateNotification(object course_code)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
@@ -1301,7 +1301,7 @@ namespace Business_Logic
                  */
 
                 cmd = new MySqlCommand(
-                    $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE user_id='{user_id}'and  course_id='{course_id}'",
+                    $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE user_id='{user_id}'and  course_code='{course_code}'",
                     objConn);
 
                 sqlReader = cmd.ExecuteReader();
@@ -1318,28 +1318,28 @@ namespace Business_Logic
                 if (list.Count == 0)
                 {
                     var str =
-                        $"INSERT INTO  umdlalo_lms.group_chat_notification (user_id,course_id,notification,time) VALUES('{user_id}','{course_id}',0,'')";
+                        $"INSERT INTO  umdlalo_lms.group_chat_notification (user_id,course_code,notification,time) VALUES('{user_id}','{course_code}',0,'')";
                     var cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
-                    resetNotification(course_id); //set the current user notification to 0
+                    resetNotification(course_code); //set the current user notification to 0
                 }
             }
         }
 
         //set the notication value to 0 and return 0
-        public object resetNotification(object course_id)
+        public object resetNotification(object course_code)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //update all the the current user notification in the current course
                 cmd = new MySqlCommand(
-                    $"UPDATE umdlalo_lms.group_chat_notification SET notification =0 WHERE course_id='{course_id}'  AND user_id='{user_id}' ",
+                    $"UPDATE umdlalo_lms.group_chat_notification SET notification =0 WHERE course_code='{course_code}'  AND user_id='{user_id}' ",
                     objConn);
                 cmd.ExecuteNonQuery();
 
                 cmd = new MySqlCommand(
-                    $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ",
+                    $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_code='{course_code}'  AND user_id='{user_id}' LIMIT 1 ",
                     objConn);
                 var notification = "";
                 var time = "";
@@ -1361,12 +1361,12 @@ namespace Business_Logic
         /// </summary>
         /// <param name="course_id"></param>
         /// <returns></returns>
-        public object current_user_Notification(string course_id)
+        public object current_user_Notification(string course_code)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 cmd = new MySqlCommand(
-                    $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}'  AND user_id='{user_id}' LIMIT 1 ",
+                    $"SELECT * FROM umdlalo_lms.group_chat_notification WHERE  course_code='{course_code}'  AND user_id='{user_id}' LIMIT 1 ",
                     objConn);
                 var notification = "";
                 var time = "";
@@ -1387,22 +1387,22 @@ namespace Business_Logic
         /// </summary>
         /// <param name="course_id"></param>
         /// <returns></returns>
-        public void updateAllNotifications(string course_id, string time)
+        public void updateAllNotifications(string course_code, string time)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //update all the the current user notification in the current course
                 cmd = new MySqlCommand(
-                    $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE  course_id='{course_id}' ", objConn);
+                    $"SELECT* FROM umdlalo_lms.group_chat_notification WHERE  course_code='{course_code}' ", objConn);
                 sqlReader = cmd.ExecuteReader();
 
                 var course_ids = new Dictionary<string, string>();
 
                 while (sqlReader.Read())
                 {
-                    var current_course_id = sqlReader.GetString("course_id");
+                    var current_course_code = sqlReader.GetString("course_code");
                     var current_user_id = sqlReader.GetString("user_id");
-                    course_ids.Add(current_user_id, current_course_id);
+                    course_ids.Add(current_user_id, current_course_code);
                 }
 
                 sqlReader.Close();
@@ -1410,26 +1410,26 @@ namespace Business_Logic
                 foreach (var id in course_ids)
                 {
                     var str =
-                        $"UPDATE umdlalo_lms.group_chat_notification SET notification =notification+1,time='{time}' WHERE course_id ='{id.Value}' and user_id='{id.Key}'";
+                        $"UPDATE umdlalo_lms.group_chat_notification SET notification =notification+1,time='{time}' WHERE course_code ='{id.Value}' and user_id='{id.Key}'";
                     cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                 }
 
                 //set the current user notification to 0
-                resetNotification(course_id);
+                resetNotification(course_code);
             }
         }
 
-        public List<object> FetchMesssges(object course_id, object messagesLimit)
+        public List<object> FetchMesssges(object course_code ,object messagesLimit)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //create notification when fetch messages
-                CreateNotification(course_id);
+                CreateNotification(course_code);
 
                 var ListOfMessages = new List<object>();
 
-                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat WHERE course_id= '{course_id}'  ",
+                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat WHERE course_code= '{course_code}' ",
                     objConn);
                 sqlReader = cmd.ExecuteReader();
 
@@ -1459,9 +1459,10 @@ namespace Business_Logic
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
+                //admin data
                 List<adminStore> stores = new List<adminStore>();
-                ; //get user name
-                cmd = new MySqlCommand($"SELECT Name,Code,User_id FROM  umdlalo_lms.course WHERE User_id='{user_id}'",
+                //get user name
+                cmd = new MySqlCommand($"SELECT Name,Code,Uid FROM  umdlalo_lms.course WHERE Uid='{user_id}'",
                     objConn);
                 var sqlReader = cmd.ExecuteReader();
                 while (sqlReader.Read())
@@ -1521,7 +1522,7 @@ namespace Business_Logic
                 ///course names
                 foreach (var item in keys)
                 {
-                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE code='{item}'", objConn);
+                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE ID='{item}'", objConn);
                     sqlReader = cmd.ExecuteReader();
 
                     while (sqlReader.Read())
@@ -1537,18 +1538,18 @@ namespace Business_Logic
             }
         }
 
-        public void InsertMessage(string user_name, string user_id, string course_id, string time, string message)
+        public void InsertMessage(string user_name, string user_id, string course_code, string time, string message)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //insert the message data
                 var str =
-                    $"INSERT INTO  umdlalo_lms.group_chat(user_name,user_id,course_id,time,message) VALUES('{user_name}','{user_id}','{course_id}','{time}','{message}')";
+                    $"INSERT INTO  umdlalo_lms.group_chat(user_name,user_id,course_code,time,message) VALUES('{user_name}','{user_id}','{course_code}','{time}','{message}')";
                 cmd = new MySqlCommand(str, objConn);
                 cmd.ExecuteNonQuery();
 
                 //Update all notification excpet the current user
-                updateAllNotifications(course_id, time);
+                updateAllNotifications(course_code, time);
             }
         }
     }

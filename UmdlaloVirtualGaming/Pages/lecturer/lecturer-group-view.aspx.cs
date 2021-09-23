@@ -16,9 +16,8 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
         protected void Page_Load(object sender, EventArgs e)
         {
             HttpContext.Current.Session["user_id"] = "98bc0920-e8c0-41da-a54e-855973651aff";
-
             var session = HttpContext.Current.Session["user_id"];
-           clsGroupChat groupChat = new clsGroupChat(session);//public chat
+            clsGroupChat groupChat = new clsGroupChat(session);//public chat
 
 
 
@@ -31,7 +30,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
                 var time = Request.Params["time"].ToString().Replace("_", " ");
                 var message = Request.Params["message"];
 
-              //  groupChat.InsertMessage(name, user_id, course_id, time, message);
+              groupChat.InsertMessage(name, user_id, course_id, time, message);
 
             }
 
