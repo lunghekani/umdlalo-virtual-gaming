@@ -31,7 +31,7 @@
                 </svg>
                 <!--end::Svg Icon-->
             </span>
-            <a href="#" class="text-primary font-weight-bold font-size-h6 mt-2">Projects</a>
+            <a href="projects.aspx" class="text-primary font-weight-bold font-size-h6 mt-2">Projects</a>
         </div>
     </div>
 	<div class="row m-0">
