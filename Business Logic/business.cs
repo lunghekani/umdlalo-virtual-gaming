@@ -1416,7 +1416,7 @@ namespace Business_Logic
                 }
 
                 //set the current user notification to 0
-                resetNotification(course_code);
+               resetNotification(course_code);
             }
         }
 
@@ -1522,13 +1522,14 @@ namespace Business_Logic
                 ///course names
                 foreach (var item in keys)
                 {
-                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE ID='{item}'", objConn);
+                    var cmd = new MySqlCommand($"SELECT Name,Code  FROM umdlalo_lms.course WHERE ID='{item}'", objConn);
                     sqlReader = cmd.ExecuteReader();
 
                     while (sqlReader.Read())
                     {
                         var course_name = sqlReader.GetValue(0).ToString();
-                        course_list[item] = course_name;
+                        var course_code= sqlReader.GetValue(1).ToString();
+                        course_list[course_code] = course_name;
                     }
 
                     sqlReader.Close();

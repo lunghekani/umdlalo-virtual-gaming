@@ -317,7 +317,7 @@
     //end sending
 
 
-    function update_pooling_chat(name,token,time=65000) {
+    function update_pooling_chat(name,token,time=4000) {
 
         if ($('.'+name+'_chat_user').length > 0) {
             setInterval(() => {
