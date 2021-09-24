@@ -1,0 +1,47 @@
+couse table:
+	role_id  : was added to the db yo track the current lecture or current lecture
+
+//group chat css classes
+
+private_chat_user
+#private_chat_notification +_course_id
+#private_chat_time +_course_id
+
+
+group_chat_user: 
+	class for all the users
+
+group_chat_submit_button
+
+group_chat_textarea
+
+group_chat_messages_box
+
+
+group_chat_header
+
+#group_chat_notification +_course_id
+
+#group_chat_time +_course_id
+
+
+///end
+
+data-chatpanel=0   when the page load otherwise the button user click will determine the chatPanel id
+
+in:student_group_view
+	 user_id => was hard coded since the was no session in all the pages
+
+
+
+
+send  ***
+notification***
+update  **** update_group_pooling_chat(time=6000)
+
+
+
+THE NOTIFCATION IS CREATED WHEN THE CHAT LOAD ONCE AND THE TIME WILL BE ALWAYS EMPTY
+
+
+
