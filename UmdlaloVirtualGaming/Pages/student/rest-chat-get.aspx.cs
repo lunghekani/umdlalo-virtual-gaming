@@ -16,6 +16,7 @@ namespace UmdlaloVirtualGaming.Pages.student
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpContext.Current.Session["user_id"] = 6;
             var session = HttpContext.Current.Session["user_id"];
             clsGroupChat groupChat = new clsGroupChat(session);///group chat
 
@@ -36,7 +37,7 @@ namespace UmdlaloVirtualGaming.Pages.student
 
             else if (Request.Params["get_group_notification"]!=null)
             {
-                var notification= groupChat.current_user_Notification(course_id);
+                var notification= groupChat.Current_user_Notification(course_id);
                 //OBJECT -> JSON
                 string myObjectJson = javaScriptSerializer.Serialize(notification);
                 //return JSON   

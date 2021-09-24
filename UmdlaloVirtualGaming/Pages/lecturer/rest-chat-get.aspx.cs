@@ -37,7 +37,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 
             else if (Request.Params["get_group_notification"]!=null)
             {
-                var notification= groupChat.current_user_Notification(course_id);
+                var notification= groupChat.Current_user_Notification(course_id);
                 //OBJECT -> JSON
                 string myObjectJson = javaScriptSerializer.Serialize(notification);
                 //return JSON   

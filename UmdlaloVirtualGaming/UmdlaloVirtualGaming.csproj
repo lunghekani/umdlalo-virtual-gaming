@@ -2281,7 +2281,6 @@
     <Content Include="Pages\lecturer\lecturer-dashboard.aspx" />
     <Content Include="Pages\lecturer\lecturer-group-view.aspx" />
     <Content Include="Pages\lecturer\lecturer-projects-list.aspx" />
-    <Content Include="Pages\lecturer\lecturer-student-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\lecturer\topic-create.aspx" />
     <Content Include="Pages\lecturer\lecturer-topic-view.aspx" />
@@ -2561,13 +2560,6 @@
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-projects-list.aspx.designer.cs">
       <DependentUpon>lecturer-projects-list.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\lecturer\lecturer-student-add.aspx.cs">
-      <DependentUpon>lecturer-student-add.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\lecturer\lecturer-student-add.aspx.designer.cs">
-      <DependentUpon>lecturer-student-add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-student-list.aspx.cs">
       <DependentUpon>lecturer-student-list.aspx</DependentUpon>

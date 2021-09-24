@@ -17,7 +17,7 @@ namespace UmdlaloVirtualGaming.Pages.student
         protected void Page_Load(object sender, EventArgs e)
 
         {
-            HttpContext.Current.Session["user_id"] = 7;
+            HttpContext.Current.Session["user_id"] = 6;
 
             var session = HttpContext.Current.Session["user_id"];
             clsGroupChat groupChat =new clsGroupChat(session);//public chat

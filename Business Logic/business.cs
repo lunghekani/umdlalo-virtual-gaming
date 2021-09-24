@@ -15,6 +15,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Windows.Forms;
 
 namespace Business_Logic
 {
@@ -1220,7 +1221,7 @@ namespace Business_Logic
                     var name = sqlReader.GetValue(0).ToString();
                     HttpContext.Current.Session["user_name"] = name;
                 }
-
+                MessageBox.Show($"{user_id}");
                 //end user name
                 sqlReader.Close();
 
@@ -1233,6 +1234,7 @@ namespace Business_Logic
                 {
                     var course_id = sqlReader.GetValue(0).ToString();
                     keys.Add(course_id);
+                    MessageBox.Show($"{course_id}");
                 }
 
                 sqlReader.Close();
@@ -1244,13 +1246,16 @@ namespace Business_Logic
                 ///course names
                 foreach (var item in keys)
                 {
-                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE code='{item}'", objConn);
+                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE Code='{item}'", objConn);
                     sqlReader = cmd.ExecuteReader();
 
+                  
                     while (sqlReader.Read())
                     {
                         var course_name = sqlReader.GetValue(0).ToString();
                         course_list[item] = course_name;
+                        MessageBox.Show($"{course_name}");
+
                     }
 
                     sqlReader.Close();
@@ -1358,7 +1363,7 @@ namespace Business_Logic
         /// </summary>
         /// <param name="course_id"></param>
         /// <returns></returns>
-        public object current_user_Notification(string course_id)
+        public object Current_user_Notification(string course_id)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
@@ -1482,6 +1487,7 @@ namespace Business_Logic
             }
         }
 
+  
         public Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
@@ -1498,33 +1504,37 @@ namespace Business_Logic
                 //end user name
                 sqlReader.Close();
 
+                //CHECK THE USER IN THE enrollements
                 cmd = new MySqlCommand(
                     $"SELECT Course_ID FROM umdlalo_lms.courseenrollements WHERE User_ID='{user_id}'", objConn);
                 var keys = new List<string>();
-
+               
                 sqlReader = cmd.ExecuteReader();
                 while (sqlReader.Read())
                 {
                     var course_id = sqlReader.GetValue(0).ToString();
                     keys.Add(course_id);
+                    MessageBox.Show(course_id);
                 }
 
                 sqlReader.Close();
 
                 //remove duplicates keys
                 keys = keys.Union(keys).ToList();
+                //end
 
                 Dictionary<string, string> course_list = new Dictionary<string, string>();
-                ///course names
+                //course names 
                 foreach (var item in keys)
                 {
-                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE code='{item}'", objConn);
+                    var cmd = new MySqlCommand($"SELECT Name  FROM umdlalo_lms.course WHERE  Uid='{user_id}'", objConn);
                     sqlReader = cmd.ExecuteReader();
 
                     while (sqlReader.Read())
                     {
                         var course_name = sqlReader.GetValue(0).ToString();
                         course_list[item] = course_name;
+                        MessageBox.Show(course_name);
                     }
 
                     sqlReader.Close();
