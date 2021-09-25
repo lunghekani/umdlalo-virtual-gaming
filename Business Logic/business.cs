@@ -1278,24 +1278,37 @@ namespace Business_Logic
         }
     }
 
+    public class clsChatEmail
+    {
+        SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+        private string superEmail = "";
+        public string password = "";
+        public clsChatEmail() {
+            //this will be used to send notifications
+            client.Credentials = new System.Net.NetworkCredential(superEmail, password);
+            client.EnableSsl = true;
+            
+        }
+       
+        public void send(string studentEmail,string  course_code,string messageText)
+        {
+            
+            client.Send(superEmail, studentEmail, $"new chat in {course_code}",messageText);
+
+        }
+    }
     public class clsGroupChat
     {
         private MySqlCommand cmd;
         private MySqlDataReader sqlReader;
 
-        //setting up gmail
-        SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-
+    
         private string user_id;
 
         public clsGroupChat(object user_id)
         {
             this.user_id = user_id.ToString();
 
-            //this will be used to send notifications
-            //client.Credentials = new System.Net.NetworkCredential("username", "password");
-            //client.EnableSsl = true;
-            //client.Send(message);
         }
 
         //create notification on when fetching messages
