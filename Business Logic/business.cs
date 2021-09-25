@@ -1281,15 +1281,20 @@ namespace Business_Logic
     public class clsChatEmail
     {
         SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-        private string superEmail = "";
-        public string password = "";
+        private string superEmail = "";  //the super email
+        public string password = "";    //the super password
         public clsChatEmail() {
             //this will be used to send notifications
             client.Credentials = new System.Net.NetworkCredential(superEmail, password);
             client.EnableSsl = true;
             
         }
-       
+       /// <summary>
+       ///  loop in each item in the db relate to the course and  send the email to them
+       /// </summary>
+       /// <param name="studentEmail"></param>
+       /// <param name="course_code"></param>
+       /// <param name="messageText"></param>
         public void send(string studentEmail,string  course_code,string messageText)
         {
             
