@@ -2277,6 +2277,7 @@
     <Content Include="Pages\lecturer\content-creator.aspx" />
     <Content Include="Pages\lecturer\content-view.aspx" />
     <Content Include="Pages\lecturer\courses.aspx" />
+    <Content Include="Pages\lecturer\lecture-private-chat.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-assessment-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-calendar-view.aspx" />
@@ -2516,6 +2517,13 @@
     </Compile>
     <Compile Include="Pages\lecturer\courses.aspx.designer.cs">
       <DependentUpon>courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecture-private-chat.aspx.cs">
+      <DependentUpon>lecture-private-chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecture-private-chat.aspx.designer.cs">
+      <DependentUpon>lecture-private-chat.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\lecturer\lecturer-assessment-add.aspx.cs">
       <DependentUpon>lecturer-assessment-add.aspx</DependentUpon>
