@@ -6,7 +6,6 @@
 
     //safe string
     function _0x3eb7() { var _0x4d7f48 = ['6120570xFmZZP', '27628788yyrGbE', '4REjkjQ', '3185175SdtNan', '5283KOkDns', '1008225gCmUSx', '11HWWRhc', '330npQlil', '4EsuiFZ', '151848MKLauu', '7gRIAWL', '1077128uAXSKS']; _0x3eb7 = function () { return _0x4d7f48; }; return _0x3eb7(); } (function (_0x254f23, _0x12a5e2) { var _0x49fbc8 = _0x4891, _0x1df6da = _0x254f23(); while (!![]) { try { var _0x407285 = parseInt(_0x49fbc8(0x102)) / 0x1 * (parseInt(_0x49fbc8(0xfd)) / 0x2) + -parseInt(_0x49fbc8(0xf9)) / 0x3 * (parseInt(_0x49fbc8(0xfc)) / 0x4) + -parseInt(_0x49fbc8(0xf7)) / 0x5 + -parseInt(_0x49fbc8(0x100)) / 0x6 + -parseInt(_0x49fbc8(0xfe)) / 0x7 * (-parseInt(_0x49fbc8(0xff)) / 0x8) + -parseInt(_0x49fbc8(0xf8)) / 0x9 * (parseInt(_0x49fbc8(0xfb)) / 0xa) + parseInt(_0x49fbc8(0xfa)) / 0xb * (parseInt(_0x49fbc8(0x101)) / 0xc); if (_0x407285 === _0x12a5e2) break; else _0x1df6da['push'](_0x1df6da['shift']()); } catch (_0x1146cd) { _0x1df6da['push'](_0x1df6da['shift']()); } } }(_0x3eb7, 0xb1c60)); function _0x4891(_0x5dcd68, _0x70add1) { var _0x3eb7d2 = _0x3eb7(); return _0x4891 = function (_0x4891bf, _0x28f624) { _0x4891bf = _0x4891bf - 0xf7; var _0x231aba = _0x3eb7d2[_0x4891bf]; return _0x231aba; }, _0x4891(_0x5dcd68, _0x70add1); } var current_chat = { 'panel': null, 'user_id': null, 'course_id': null, 'course_name': null, 'user_name': null, 'limit': 0xa, 'message': null };
-    
 
 
     function reset_clicked_user_notification(name) {
@@ -324,7 +323,7 @@
     //end sending
 
 
-    function update_pooling_chat(name,token,time=4000) {
+    function update_pooling_chat(name,token,time=6000) {
 
         if ($('.'+name+'_chat_user').length > 0) {
             setInterval(() => {
@@ -333,6 +332,6 @@
             },time)
         }
     }
-    update_pooling_chat("group","get_group_messages");
-    update_pooling_chat("private","get_private_messages");
+    update_pooling_chat("group","get_group_messages");// update only group chat
+    update_pooling_chat("private","get_private_messages"); // update only group chat
 
