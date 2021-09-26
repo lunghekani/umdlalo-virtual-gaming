@@ -1291,9 +1291,9 @@ namespace Business_Logic
                 else
                 {
                     cmd = new MySqlCommand(
-                   $"SELECT * FROM umdlalo_lms.private_chat WHERE course_code='{course_code}' AND user_id='{user_id}' ",
+                   $"SELECT * FROM umdlalo_lms.private_chat WHERE course_code='{course_code}' AND user_id='{user_id}' AND user2_id='{current_chat_id}' ",
                    objConn);
-                    MessageBox.Show(current_chat_id);
+                  
                 }
 
                 sqlReader = cmd.ExecuteReader();
@@ -1402,10 +1402,10 @@ namespace Business_Logic
             var user2 = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
                 item.Lecturer_ID(course_code) /// if is a student
                 :
-                user_id;    /// if is a lectture
+                 chat_user_id;    /// if is a lectture
 
 
-            MessageBox.Show(item.User_Role(HttpContext.Current.Session["user_id"]));
+     
             var name = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
                 user_name  /// if is a student
                 :

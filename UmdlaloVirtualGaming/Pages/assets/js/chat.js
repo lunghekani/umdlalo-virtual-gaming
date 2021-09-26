@@ -285,9 +285,9 @@
     function send_message(name,url,token) {
             
         $("."+name+"_chat_submit_button").click(e => {
-            alert("send")
+            //alert("send")
             var current_URL = window.location.href.toLowerCase();
-            alert(current_URL);
+           // alert(current_URL);
             //if the current url is contain the run it
             if (current_URL.includes(url)) {
                 var message = $("." + name + "_chat_textarea").val();

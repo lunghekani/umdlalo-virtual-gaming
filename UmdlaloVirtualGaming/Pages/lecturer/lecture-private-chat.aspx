@@ -44,7 +44,7 @@
 																	</div>
 																	<div class="d-flex flex-column">
 																		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-lg" ><%=item.course_name %></a>
-																		<span class="text-muted font-weight-bold font-size-sm">Lecturer</span>
+																		<span class="text-muted font-weight-bold font-size-sm">Student</span>
 																	</div>
 																</div>
 															
