@@ -1062,6 +1062,8 @@ namespace Business_Logic
             }
             return value.ToLower() ;
         }
+        //session helper
+        public bool SessionIsSet => HttpContext.Current.Session["user_id"] == null ? false : true;
 
         public string Lecturer_ID(object course_code)
         {
