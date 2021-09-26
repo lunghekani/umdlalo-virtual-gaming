@@ -1285,13 +1285,16 @@ namespace Business_Logic
                 if (type == true)
                 {
                     cmd = new MySqlCommand(
-                    $"SELECT * FROM umdlalo_lms.private_chat WHERE course_code='{course_code}' AND user_id='{user_id}' ",
+                    $"SELECT * FROM umdlalo_lms.private_chat WHERE (course_code='{course_code}' AND user_id='{user_id}') OR " +
+                    $" (course_code='{course_code}' AND user2_id='{user_id}')  ",
                     objConn);
                 }// lecturer part
                 else
                 {
                     cmd = new MySqlCommand(
-                   $"SELECT * FROM umdlalo_lms.private_chat WHERE course_code='{course_code}' AND user_id='{user_id}' AND user2_id='{current_chat_id}' ",
+                   $"SELECT * FROM umdlalo_lms.private_chat WHERE " +
+                   $"(course_code='{course_code}' AND user_id='{user_id}' AND user2_id='{current_chat_id}')  OR  " +
+                   $"  (course_code='{course_code}' AND user_id='{current_chat_id}' AND user2_id='{user_id}') ",
                    objConn);
                   
                 }

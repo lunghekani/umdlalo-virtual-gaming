@@ -51,7 +51,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
                 var course_id = Request.Params["course_id"];
                 var time = Request.Params["time"].ToString().Replace("_", " ");
                 var message = Request.Params["message"];
-                MessageBox.Show(current_course_code);
+
                 privateChat.InsertMessage(name, user_id, course_id, time, message);
             }
 

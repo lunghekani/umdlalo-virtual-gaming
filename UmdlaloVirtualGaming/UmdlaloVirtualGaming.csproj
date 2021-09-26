@@ -181,7 +181,7 @@
     <Content Include="Pages\admin\admin-projects-view.aspx" />
     <Content Include="Pages\admin\admin-student-add.aspx" />
     <Content Include="Pages\admin\admin-student-list.aspx" />
-    <Content Include="Pages\assets\js\chat-for-prod.js">
+    <Content Include="Pages\assets\js\chat-test.js">
       <CustomToolNamespace>chat</CustomToolNamespace>
     </Content>
     <Content Include="Pages\assets\js\chat.js" />
