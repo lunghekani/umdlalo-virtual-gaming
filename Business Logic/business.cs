@@ -1195,7 +1195,7 @@ namespace Business_Logic
         /// </summary>
         /// <param name="course_id"></param>
         /// <returns></returns>
-        public object current_user_Notification(string course_code)
+        public object Current_user_Notification(string course_code)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
@@ -1221,7 +1221,7 @@ namespace Business_Logic
         /// </summary>
         /// <param name="course_id"></param>
         /// <returns></returns>
-        public void updateAllNotifications(string course_code, string time)
+        public void UpdateAllNotifications(string course_code, string time)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {

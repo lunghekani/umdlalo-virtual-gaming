@@ -24,7 +24,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             //end
 
 
-            //HttpContext.Current.Session["user_id"] = 6;
+            
             var session = HttpContext.Current.Session["user_id"];
 
             privateChat = new clsPrivateChat(session);
@@ -39,10 +39,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
                 user_id = HttpContext.Current.Session["user_id"];
                 user_name = HttpContext.Current.Session["user_name"];
             }
-            //foreach (var item in Request.Params.AllKeys)
-            //{
-            //    MessageBox.Show(item);
-            //}
+          
            
             if (Request.Params["user_id"] != null)
             {

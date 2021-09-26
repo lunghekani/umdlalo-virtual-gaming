@@ -71,7 +71,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             else if (Request.Params["get_private_notification"] != null)
             {
                 
-                var notification = privateChat.current_user_Notification(course_id);
+                var notification = privateChat.Current_user_Notification(course_id);
                 //OBJECT -> JSON
                 string myObjectJson = javaScriptSerializer.Serialize(notification);
                 //return JSON   
