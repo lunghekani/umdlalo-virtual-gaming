@@ -1269,10 +1269,6 @@ namespace Business_Logic
             var type = item.User_Role(HttpContext.Current.Session["user_id"]) == "student";
    
 
-            //var name = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
-               // user_name  /// if is a student
-               // :
-               //item.Course_Name(course_code);    /// if is a lectture
 
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {

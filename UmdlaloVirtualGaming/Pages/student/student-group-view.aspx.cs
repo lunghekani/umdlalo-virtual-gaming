@@ -20,7 +20,6 @@ namespace UmdlaloVirtualGaming.Pages.student
             if (clsSmallItemsHandler.SessionIdIsSet == false) Response.Redirect("/");
             //end
 
-            //HttpContext.Current.Session["user_id"] = 6;
 
             var session = HttpContext.Current.Session["user_id"];
             clsGroupChat groupChat =new clsGroupChat(session);//public chat

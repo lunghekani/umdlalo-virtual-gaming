@@ -17,7 +17,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             if (clsSmallItemsHandler.SessionIdIsSet == false) Response.Redirect("/");
             //end
 
-           // HttpContext.Current.Session["user_id"] = "98bc0920-e8c0-41da-a54e-855973651aff";
+          
             var session = HttpContext.Current.Session["user_id"];
             chat = new clsPrivateChat(session);
             
