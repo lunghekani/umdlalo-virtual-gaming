@@ -287,6 +287,7 @@
         $("."+name+"_chat_submit_button").click(e => {
             alert("send")
             var current_URL = window.location.href.toLowerCase();
+            alert(current_URL);
             //if the current url is contain the run it
             if (current_URL.includes(url)) {
                 var message = $("." + name + "_chat_textarea").val();
@@ -320,7 +321,9 @@
     send_message("private", "student-chat-view", "get_private_messages")
    //for the lecturer
     send_message("group", "lecturer-group-view", "get_group_messages")
-    send_message("private", "lecturer-chat-view", "get_private_messages")
+    //send_message("private", "lecturer-chat-view", "get_private_messages")
+    // this is where we send the messages  -> 
+    send_message("private", "lecture-private-chat", "get_private_messages")
     //end sending
 
 

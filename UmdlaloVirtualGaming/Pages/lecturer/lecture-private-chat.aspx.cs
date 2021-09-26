@@ -25,7 +25,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             privateChat = new clsPrivateChat(session);
 
             var current_course_code = Request.QueryString["course_code"];
-           
+            privateChat.param_course_code = current_course_code;
 
             //get the selected code
             if (current_course_code != null)
