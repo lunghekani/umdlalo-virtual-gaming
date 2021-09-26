@@ -1260,8 +1260,20 @@ namespace Business_Logic
             }
         }
 
-        public List<object> FetchMesssges(object course_code, object messagesLimit)
+        public List<object> FetchMesssges(object course_code, object messagesLimit, string current_chat_id ="")
         {
+
+
+            clsSmallItemsHandler item = new clsSmallItemsHandler();
+
+            var type = item.User_Role(HttpContext.Current.Session["user_id"]) == "student";
+   
+
+            //var name = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
+               // user_name  /// if is a student
+               // :
+               //item.Course_Name(course_code);    /// if is a lectture
+
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //create notification when fetch messages
@@ -1269,9 +1281,21 @@ namespace Business_Logic
 
                 var ListOfMessages = new List<object>();
 
-                cmd = new MySqlCommand(
+                //student part
+                if (type == true)
+                {
+                    cmd = new MySqlCommand(
                     $"SELECT * FROM umdlalo_lms.private_chat WHERE course_code='{course_code}' AND user_id='{user_id}' ",
                     objConn);
+                }// lecturer part
+                else
+                {
+                    cmd = new MySqlCommand(
+                   $"SELECT * FROM umdlalo_lms.private_chat WHERE course_code='{course_code}' AND user_id='{user_id}' ",
+                   objConn);
+                    MessageBox.Show(current_chat_id);
+                }
+
                 sqlReader = cmd.ExecuteReader();
 
                 while (sqlReader.Read())
@@ -1315,7 +1339,7 @@ namespace Business_Logic
                 sqlReader.Close();
 
                 cmd = new MySqlCommand(
-                 $"SELECT User_ID FROM umdlalo_lms.courseenrollements WHERE Course_ID={course_id} LIMIT 1",
+                 $"SELECT User_ID FROM umdlalo_lms.courseenrollements WHERE Course_ID={course_id} ",
                  objConn);
                 List<string> student_ids = new List<string>();
                 sqlReader = cmd.ExecuteReader();
@@ -1330,17 +1354,17 @@ namespace Business_Logic
                
                 foreach (var item in student_ids)
                 {
-                    cmd = new MySqlCommand( $"SELECT * FROM umdlalo_lms.user WHERE ID={item}",objConn);
+                    cmd = new MySqlCommand( $"SELECT * FROM umdlalo_lms.user WHERE ID='{item}'",objConn);
                     
                     sqlReader = cmd.ExecuteReader();
                     while (sqlReader.Read())
                     {
-                        var id = sqlReader.GetValue(0).ToString();
+                     
                         var name = sqlReader.GetValue(1).ToString();
                         var admin = new adminStore();
                         admin.course_id = current_course_code;
                         admin.course_name = name;
-                        admin.user_id = id;
+                        admin.user_id = item;
                         studentList.Add(admin);
                     }
                     sqlReader.Close();
@@ -1373,10 +1397,13 @@ namespace Business_Logic
         {
             clsSmallItemsHandler item = new clsSmallItemsHandler();
 
-            var pair_key = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
-                item.Lecturer_ID(course_code)+"+"+user_id   /// if is a student
+
+
+            var user2 = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
+                item.Lecturer_ID(course_code) /// if is a student
                 :
-                user_id + "+" + chat_user_id;    /// if is a lectture
+                user_id;    /// if is a lectture
+
 
             MessageBox.Show(item.User_Role(HttpContext.Current.Session["user_id"]));
             var name = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
@@ -1392,7 +1419,7 @@ namespace Business_Logic
                 //updateAllNotifications(course_code, time);
                 //insert the message data
                 var str =
-                    $"INSERT INTO  umdlalo_lms.private_chat(user_name,user_id,course_code,time,message,pair_key) VALUES('{name}','{chat_user_id}','{course_code}','{time}','{message}','{pair_key}')";
+                    $"INSERT INTO  umdlalo_lms.private_chat(user_name,user_id,course_code,time,message,user2_id) VALUES('{name}','{user_id}','{course_code}','{time}','{message}','{user2}')";
                 cmd = new MySqlCommand(str, objConn);
                 cmd.ExecuteNonQuery();
             }

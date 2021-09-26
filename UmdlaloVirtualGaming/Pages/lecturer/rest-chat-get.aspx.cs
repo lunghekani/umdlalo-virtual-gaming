@@ -31,6 +31,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 
             var course_id = Request.Params["course_id"];
             var messageLimit = Request.Params["limit"];
+            var current_chat_id = Request.Params["current_chat_id"];
 
             var token = Request.Params["token"];
             
@@ -82,7 +83,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             }
             else if (token == "get_private_messages")
             {
-                var messages = privateChat.FetchMesssges(course_id, messageLimit);
+                var messages = privateChat.FetchMesssges(course_id, messageLimit, current_chat_id);
                 //OBJECT -> JSON
                 string myObjectJson = javaScriptSerializer.Serialize(messages);
                 //return JSON   

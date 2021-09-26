@@ -83,7 +83,7 @@
         $.ajax({
             url: "rest-chat-get",
             method: "POST", //First change type to method here
-            data: { "limit": current_chat.limit, "course_id": current_chat.course_id , token:token },
+            data: { "limit": current_chat.limit, "course_id": current_chat.course_id, token: token, "current_chat_id": current_chat.user_id },
             success: function (e, status) {
                 console.log(e)
                 $("." + class_id_name +"_chat_header").html(current_chat.course_name)//set chat name

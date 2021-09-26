@@ -37,7 +37,7 @@
 												<div class="mt-7 scroll scroll-pull ps ps--active-y" style="height: 673px; overflow: hidden;">
 													<!--begin:User-->
 														<% foreach (var item in course_list) { %>
-															<div class="d-flex align-items-center justify-content-between mb-5  private_chat_user" style="cursor:pointer"  data-course="<%=item.course_name %>"  data-user-id="<%=user_id %>"   data-user-name="<%=item.course_name %>" data-id="<%=item.course_id %>">
+															<div class="d-flex align-items-center justify-content-between mb-5  private_chat_user" style="cursor:pointer"  data-course="<%=item.course_name %>"  data-user-id="<%=item.user_id %>"   data-user-name="<%=item.course_name %>" data-id="<%=item.course_id %>">
 																<div class="d-flex align-items-center">
 																	<div class="symbol symbol-circle symbol-50 mr-3 mt-2  p-5 bg-success text-white font-weight-bold font-size-lg  max-w-400px" >
 																		 <%=item.course_name.Substring(0,2) %>
