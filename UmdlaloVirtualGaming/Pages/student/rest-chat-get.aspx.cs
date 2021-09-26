@@ -16,6 +16,11 @@ namespace UmdlaloVirtualGaming.Pages.student
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //redirect to the main page
+            if (clsSmallItemsHandler.SessionIdIsSet == false) Response.Redirect("/");
+            //end
+
             var session = HttpContext.Current.Session["user_id"];
             clsGroupChat groupChat = new clsGroupChat(session);///group chat
 

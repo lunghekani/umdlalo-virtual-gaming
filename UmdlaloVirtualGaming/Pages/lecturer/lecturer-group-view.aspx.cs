@@ -15,7 +15,12 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
        public List<clsGroupChat.adminStore> course_list = new List<clsGroupChat.adminStore>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["user_id"] = "98bc0920-e8c0-41da-a54e-855973651aff";
+
+            //redirect to the main page
+            if (clsSmallItemsHandler.SessionIdIsSet == false) Response.Redirect("/");
+            //end
+
+            //HttpContext.Current.Session["user_id"] = "98bc0920-e8c0-41da-a54e-855973651aff";
             var session = HttpContext.Current.Session["user_id"];
             clsGroupChat groupChat = new clsGroupChat(session);//public chat
 
