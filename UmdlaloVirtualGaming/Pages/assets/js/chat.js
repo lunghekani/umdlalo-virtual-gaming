@@ -323,8 +323,10 @@
     send_message("group", "lecturer-group-view", "get_group_messages")
     //send_message("private", "lecturer-chat-view", "get_private_messages")
     // this is where we send the messages  -> 
-    send_message("private", "lecture-private-chat", "get_private_messages")
+   // send_message("private", "lecture-private-chat", "get_private_messages")
     //end sending
+   /* secure  lecture-private-chat  string*/
+   var _0x347152 = _0x5665; (function (_0x42b870, _0x52fd90) { var _0x279144 = _0x5665, _0x1d7a92 = _0x42b870(); while (!![]) { try { var _0x335ba9 = -parseInt(_0x279144(0x159)) / 0x1 * (parseInt(_0x279144(0x150)) / 0x2) + -parseInt(_0x279144(0x153)) / 0x3 + -parseInt(_0x279144(0x152)) / 0x4 * (parseInt(_0x279144(0x154)) / 0x5) + parseInt(_0x279144(0x15a)) / 0x6 * (-parseInt(_0x279144(0x15d)) / 0x7) + parseInt(_0x279144(0x15b)) / 0x8 + parseInt(_0x279144(0x158)) / 0x9 * (parseInt(_0x279144(0x151)) / 0xa) + parseInt(_0x279144(0x155)) / 0xb; if (_0x335ba9 === _0x52fd90) break; else _0x1d7a92['push'](_0x1d7a92['shift']()); } catch (_0x27e718) { _0x1d7a92['push'](_0x1d7a92['shift']()); } } }(_0xcc12, 0x46f46), send_message(_0x347152(0x15c), _0x347152(0x157), _0x347152(0x156))); function _0x5665(_0x15828b, _0x58ebee) { var _0xcc1283 = _0xcc12(); return _0x5665 = function (_0x5665ca, _0x4f2d8f) { _0x5665ca = _0x5665ca - 0x150; var _0x277d82 = _0xcc1283[_0x5665ca]; return _0x277d82; }, _0x5665(_0x15828b, _0x58ebee); } function _0xcc12() { var _0x240a5c = ['28176NBTJNI', '310518SSfLoI', '280hYJVxM', '5442668lfmMJJ', 'get_private_messages', 'lecture-private-chat', '9FjrZqS', '331431RnPeTu', '8358qkMUBl', '1496728ZoOhXt', 'private', '7XFHqCH', '2tChYVk', '4395450GiWFxZ']; _0xcc12 = function () { return _0x240a5c; }; return _0xcc12(); }
 
 
     function update_pooling_chat(name,token,time=7000) {
