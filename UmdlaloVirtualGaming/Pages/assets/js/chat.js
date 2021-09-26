@@ -285,7 +285,7 @@
     function send_message(name,url,token) {
             
         $("."+name+"_chat_submit_button").click(e => {
-
+            alert("send")
             var current_URL = window.location.href.toLowerCase();
             //if the current url is contain the run it
             if (current_URL.includes(url)) {
@@ -306,6 +306,7 @@
                         "time": new Date().toString(),
                         "message": message
                     }, (data, status) => {
+                        console.log(data)
                         console.log(status)
                         fetch_messages(name, token);
                         get_notification(name);

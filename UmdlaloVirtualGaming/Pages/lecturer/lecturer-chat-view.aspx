@@ -3,10 +3,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-	<ul class="list-group">
-  <li class="list-group-item">First item</li>
-  <li class="list-group-item">Second item</li>
-  <li class="list-group-item">Third item</li>
+ <h3>Private Chat Course List</h3>
+  <ul class="list-group">
+	<%
+        foreach (var item in  chat.CURRENT_ADMIN_All_COURSE_ID_AND_NAME()	)
+        {  
+	%>
+          <li class="list-group-item">
+              <a href="lecture-private-chat.aspx?course_code=<%=item.course_id %>"><%=item.course_name %></a>
+          </li>
+          
+        
+
+    <% } %>
 </ul>
 					
 </asp:Content>

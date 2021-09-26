@@ -15,6 +15,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Windows.Forms;
+using static Business_Logic.clsGroupChat;
 
 namespace Business_Logic
 {
@@ -1042,6 +1044,8 @@ namespace Business_Logic
         private MySqlDataReader sqlReader;
         private string user_id;
 
+        public string setCurrentCourse_code { get; set; }
+
         public clsPrivateChat(object user_id)
         {
             this.user_id = user_id.ToString();
@@ -1079,7 +1083,7 @@ namespace Business_Logic
                     var cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
-                    resetNotification(course_code); //set the current user notification to 0
+                    //resetNotification(course_code); //set the current user notification to 0
                 }
             }
         }
@@ -1091,7 +1095,7 @@ namespace Business_Logic
             {
                 //update all the the current user notification in the current course
                 cmd = new MySqlCommand(
-                    $"UPDATE  umdlalo_lms.private_chat_notification SET notification =0 WHERE course_code='{course_code}'  AND user_id={user_id} and belong_to={user_id} ",
+                    $"UPDATE  umdlalo_lms.private_chat_notification SET notification =0 WHERE course_code='{course_code}'  AND user_id='{user_id}' and belong_to={user_id} ",
                     objConn);
                 cmd.ExecuteNonQuery();
 
@@ -1123,7 +1127,7 @@ namespace Business_Logic
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 cmd = new MySqlCommand(
-                    $"SELECT * FROM umdlalo_lms.private_chat_notification WHERE  course_code='{course_code}'  AND user_id={user_id} LIMIT 1 ",
+                    $"SELECT * FROM umdlalo_lms.private_chat_notification WHERE  course_code='{course_code}'  AND user_id='{user_id}' LIMIT 1 ",
                     objConn);
                 var notification = "";
                 var time = "";
@@ -1179,7 +1183,7 @@ namespace Business_Logic
                 }
 
                 //set the current user notification to 0
-                resetNotification(course_code);
+               // resetNotification(course_code);
             }
         }
 
@@ -1188,7 +1192,7 @@ namespace Business_Logic
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //create notification when fetch messages
-                CreateNotification(course_code);
+               // CreateNotification(course_code);
 
                 var ListOfMessages = new List<object>();
 
@@ -1212,11 +1216,84 @@ namespace Business_Logic
             }
         }
 
+
+        /// <summary>
+        /// method overloading , use the current course code to get the course data
+        /// </summary>
+        /// <param name="current_course_code"></param>
+        /// <returns></returns>
+     
+        public List<adminStore> CURRENT_STUDENT_LIST(string current_course_code)
+        {
+            List<adminStore> studentList = new List<adminStore>();
+
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                cmd = new MySqlCommand(
+                 $"SELECT ID FROM umdlalo_lms.Course WHERE  Code='{current_course_code}'  LIMIT 1 ",
+                 objConn);
+                var course_id= "";
+                sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    course_id = sqlReader.GetValue(0).ToString();
+                    
+                }
+                sqlReader.Close();
+
+                cmd = new MySqlCommand(
+                 $"SELECT User_ID FROM umdlalo_lms.courseenrollements WHERE Course_ID={course_id} LIMIT 1",
+                 objConn);
+                List<string> student_ids = new List<string>();
+                sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    var id = sqlReader.GetValue(0).ToString();
+                    student_ids.Add(id);
+                }
+                sqlReader.Close();
+
+
+               
+                foreach (var item in student_ids)
+                {
+                    cmd = new MySqlCommand( $"SELECT * FROM umdlalo_lms.user WHERE ID={item}",objConn);
+                    
+                    sqlReader = cmd.ExecuteReader();
+                    while (sqlReader.Read())
+                    {
+                        var id = sqlReader.GetValue(0).ToString();
+                        var name = sqlReader.GetValue(1).ToString();
+                        var admin = new adminStore();
+                        admin.course_id = id;
+                        admin.course_name = name;
+                        admin.user_id = id;
+                        studentList.Add(admin);
+                    }
+                    sqlReader.Close();
+                }
+
+               
+
+            }
+
+           
+            return studentList;
+        }
+
+        public List<adminStore> CURRENT_ADMIN_All_COURSE_ID_AND_NAME()
+        {
+            var all = new clsGroupChat(user_id);
+           
+            return all.CURRENT_ADMIN_All_COURSE_ID_AND_NAME();
+        }
+
         public Dictionary<string, string> CURRENT_USER_All_COURSE_ID_AND_NAME()
         {
             var all = new clsGroupChat(user_id);
             return all.CURRENT_USER_All_COURSE_ID_AND_NAME();
         }
+
 
 
         public void InsertMessage(string user_name, string user_id, string course_code, string time, string message)
@@ -1304,7 +1381,7 @@ namespace Business_Logic
                     var cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
-                    resetNotification(course_code); //set the current user notification to 0
+                   // resetNotification(course_code); //set the current user notification to 0
                 }
             }
         }
@@ -1398,7 +1475,7 @@ namespace Business_Logic
                 }
 
                 //set the current user notification to 0
-               resetNotification(course_code);
+               //resetNotification(course_code);
             }
         }
 
@@ -1407,7 +1484,7 @@ namespace Business_Logic
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //create notification when fetch messages
-                CreateNotification(course_code);
+                //CreateNotification(course_code);
 
                 var ListOfMessages = new List<object>();
 

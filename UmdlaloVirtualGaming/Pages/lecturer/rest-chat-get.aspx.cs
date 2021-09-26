@@ -29,6 +29,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             var messageLimit = Request.Params["limit"];
 
             var token = Request.Params["token"];
+            
 
             if (Request.Params["reset_group_notification"] != null)
             {
