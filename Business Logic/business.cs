@@ -315,8 +315,8 @@ namespace Business_Logic
                 return ex.Message;
 
             }
-            finally
-            {
+            finally { 
+            
                 cmd.Connection.Close();
             }
 
@@ -952,6 +952,72 @@ namespace Business_Logic
 
         }
 
+        public int getLikes(object project_id) {
+
+            var count = 0;
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var cmd = new MySqlCommand(
+                 $" SELECT * FROM umdlalo_lms.likes  WHERE Project_Id='{project_id}'",
+                 objConn);
+
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    count++;
+
+                }
+                sqlReader.Close();
+
+            }
+
+            return count;
+        }
+
+        public void checkLikes(object project_id , object user_id)
+        {
+            //not logged in
+            if (clsSmallItemsHandler.SessionIdIsSet == false) return;
+
+            var value = false;
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var cmd = new MySqlCommand(
+                 $" SELECT * FROM umdlalo_lms.likes  WHERE Project_Id='{project_id}'  AND User_Id='{user_id}' LIMIT 1 ",
+                 objConn);
+
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    value = true;
+
+                }
+                sqlReader.Close();
+
+            }
+
+            if (value == true) return;
+            //inserting like to the likes table
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var str =
+                    $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
+                var cmd = new MySqlCommand(str, objConn);
+                cmd.ExecuteNonQuery();
+            }
+
+            ////inserting like to the likes table
+            //using (var objConn = new clsDataConnection().CreateSQLConnection())
+            //{
+            //    var str =
+            //        $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
+            //    var cmd = new MySqlCommand(str, objConn);
+            //    cmd.ExecuteNonQuery();
+            //}
+
+
+        }
+
     }
     public class clsCommunicate
     {
@@ -1012,6 +1078,7 @@ namespace Business_Logic
         }
         //session helper
         public static bool SessionIdIsSet => HttpContext.Current.Session["user_id"] == null ? false : true;
+        public static object GetSessionId => HttpContext.Current.Session["user_id"];
 
         public string Lecturer_ID(object course_code)
         {

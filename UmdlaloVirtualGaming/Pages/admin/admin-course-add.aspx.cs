@@ -22,33 +22,32 @@ namespace UmdlaloVirtualGaming.Pages.admin
         }
         protected void btnSubmit_Onclick(object sender, EventArgs e)
         {
-            string name = txt_course_name.Value.Trim();
-            string description = txt_description.Value.Trim();
-            string code = txt_course_code.Value.Trim();
-            DateTime startTime = Convert.ToDateTime(Start.Value.Trim());
-            DateTime endTime = Convert.ToDateTime(End.Value.Trim());
+
+            string name = txt_course_name.Text.ToString().Trim();
+            string Code = txt_course_code.Text;
+            string Description = txt_description.Text;
+            DateTime Startdate = this.Start.Value;
+            DateTime Enddate = this.End.Value;
             string uId = Session["user_id"].ToString();
-            int visible = 0;
-            if (!checkVisible.Checked)
+            int visibility = 0;
+            if (!chkVisible.Checked)
             {
-                visible = 1;
+                visibility = 1;
             }
-            string msgCourse = objModOperations.CreateCourse(name, description, code, startTime, endTime, uId, visible);
+            var Course = objModOperations.CreateModule(name, Code, Description,Startdate,Enddate, visibility);
 
-            if (msgCourse.Equals("Success"))
+            if (Course.Equals("Success"))
             {
-                // display a notification saying project changes successfully implemented
-                communicateclass.ShowMessage(this, "Course has been created successfully", clsCommunicate.MessageType.success);
+                // display a notification saying course successfully added
+                communicateclass.ShowMessage(this, "Course Created Successfully", clsCommunicate.MessageType.success);
 
-                Response.Redirect("admin-course-list.aspx");
+                Response.Redirect("create.aspx?ID=" + authclass.EncryptString(projectclass.lastProjectInsert));
             }
             else
             {
-                communicateclass.ShowMessage(this, msgCourse, clsCommunicate.MessageType.error);
+                communicateclass.ShowMessage(this, "There was an error in creating the course, try again in a few minutes", clsCommunicate.MessageType.error);
             }
-
-
-        }
+        }*/
 
 
     }
