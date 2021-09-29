@@ -2294,6 +2294,7 @@
     <Content Include="Pages\lecturer\topics.aspx" />
     <Content Include="Pages\sample-class-card.txt" />
     <Content Include="Pages\student\commentSample.txt" />
+    <Content Include="Pages\student\course-single.aspx" />
     <Content Include="Pages\student\create.aspx" />
     <Content Include="Pages\student\class.aspx" />
     <Content Include="Pages\student\code.aspx" />
@@ -2622,6 +2623,13 @@
     </Compile>
     <Compile Include="Pages\lecturer\topics.aspx.designer.cs">
       <DependentUpon>topics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\course-single.aspx.cs">
+      <DependentUpon>course-single.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\course-single.aspx.designer.cs">
+      <DependentUpon>course-single.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\create.aspx.cs">
       <DependentUpon>create.aspx</DependentUpon>
