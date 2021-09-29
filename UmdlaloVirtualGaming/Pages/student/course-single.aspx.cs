@@ -9,14 +9,13 @@ using Business_Logic;
 
 namespace UmdlaloVirtualGaming.Pages.student
 {
-    public partial class student_course_list : System.Web.UI.Page
+    public partial class course_single : System.Web.UI.Page
     {
         public clsAuthentication authclass = new clsAuthentication();
         public clsCourseOperations courseclass = new clsCourseOperations();
         public clsCommunicate communicateclass = new clsCommunicate();
         public clsUserDetails userclass = new clsUserDetails();
         public clsProjects projectclass = new clsProjects();
-       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,28 +23,25 @@ namespace UmdlaloVirtualGaming.Pages.student
                 BindGridView();
             }
         }
-
         protected void BindGridView()
         {
-
-            DataTable dt = courseclass.GetCourses();
-            gvCourses.DataSource = dt;
-            gvCourses.DataBind();
+            int courseId = Convert.ToInt32(Session["course_id"]);
+            DataTable dt = courseclass.GetTopics(courseId);
+            gvTopics.DataSource = dt;
+            gvTopics.DataBind();
         }
 
-        protected void gvCourses_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gvTopics_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvCourses.PageIndex = e.NewPageIndex;
-            BindGridView();
+            throw new NotImplementedException();
         }
 
-        protected void gvCourses_OnRowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gvTopics_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
-
             int Id = Convert.ToInt32(e.CommandArgument) + 1;
-            Session["course_id"] = Id;
-            Response.Redirect("course-single.aspx");
+            Session["topic_id"] = Id;
+            Response.Redirect("class.aspx");
         }
-
+        
     }
 }
