@@ -2310,6 +2310,7 @@
     <Content Include="Pages\student\student-course-list.aspx" />
     <Content Include="Pages\student\student-dashboard.aspx" />
     <Content Include="Pages\student\student-group-view.aspx" />
+    <Content Include="Pages\student\student-likes-comments.aspx" />
     <Content Include="Pages\student\student-marks-view.aspx" />
     <Content Include="Pages\student\student-profile-edit.aspx" />
     <Content Include="Pages\student\student-project-list.aspx" />
@@ -2714,6 +2715,13 @@
     </Compile>
     <Compile Include="Pages\student\student-group-view.aspx.designer.cs">
       <DependentUpon>student-group-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-likes-comments.aspx.cs">
+      <DependentUpon>student-likes-comments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-likes-comments.aspx.designer.cs">
+      <DependentUpon>student-likes-comments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-marks-view.aspx.cs">
       <DependentUpon>student-marks-view.aspx</DependentUpon>

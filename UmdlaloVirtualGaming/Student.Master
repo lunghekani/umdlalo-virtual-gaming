@@ -823,6 +823,32 @@
 	<script src="/Pages/assets/js/chat.js"></script>
 	<!-- END JQUERY -->
 
+     <script>
+		 document.querySelectorAll(".like-button").forEach(btn => {
+			
+			 btn.addEventListener("click", () => {
+
+				 var project_id = btn.getAttribute("data-project-id");
+				 //send likes
+				 $.post("student-likes-comments", { "id": project_id, "type": "send-likes" }, (e) => { }).done(e => {
+					 console.log(e)
+				 })
+
+
+     //            //get the likes
+				 //$.post("student-likes-comments", { "id": project_id, "type": "get-likes" }, (e) => {
+     //                console.log(e)
+				 //}).done(likes => {
+     //                $(node).text(likes["likes"] + " likes");
+     //                console.log(likes)
+     //            });
+					// //end
+
+             })
+         })
+
+     </script>
+
 
 
 	<script>var HOST_URL = "https://keenthemes.com/metronic/tools/preview";</script>
