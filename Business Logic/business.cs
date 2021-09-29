@@ -1086,6 +1086,27 @@ namespace Business_Logic
             return value;
         }
 
+        public string FullCourseName(object course_code)
+        {
+            var value = "";
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+               cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.course WHERE Code='{course_code}'  LIMIT 1", objConn);
+                var sqlReader = cmd.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    value= sqlReader.GetValue(0).ToString();
+
+                   
+                }
+
+                sqlReader.Close();
+
+            }
+            return value;
+        }
+
         public string GetEmail(object user_id)
         {
             var value = "";
@@ -1470,8 +1491,9 @@ namespace Business_Logic
                 cmd.ExecuteNonQuery();
             }
 
+            var full_course_name = item.FullCourseName(course_code);
             //send the email
-            item.SendEmail(email, message, course_code);
+            item.SendEmail(email, message, $" {full_course_name}({course_code})");
             //end
         }
     }
