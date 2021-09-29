@@ -48,7 +48,7 @@
                 </svg>
                 <!--end::Svg Icon-->
             </span>
-            <a href="#" class="text-success font-weight-bold font-size-h6 mt-2">Marks</a>
+            <a href="lecturer-assessment-list.aspx" class="text-success font-weight-bold font-size-h6 mt-2">Marks</a>
 
         </div>
     </div>
