@@ -16,13 +16,7 @@ namespace UmdlaloVirtualGaming.Pages.student
         public clsCommunicate communicateclass = new clsCommunicate();
         public clsUserDetails userclass = new clsUserDetails();
         public clsProjects projectclass = new clsProjects();
-        protected void gvCourses_OnRowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
-            int Id = Convert.ToInt32(e.CommandArgument) + 1;
-            Session["course_id"] = Id;
-            Response.Redirect("");
-        }
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -45,7 +39,13 @@ namespace UmdlaloVirtualGaming.Pages.student
             BindGridView();
         }
 
-       
+        protected void gvCourses_OnRowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+            int Id = Convert.ToInt32(e.CommandArgument) + 1;
+            Session["course_id"] = Id;
+            Response.Redirect("course-single.aspx");
+        }
 
     }
 }

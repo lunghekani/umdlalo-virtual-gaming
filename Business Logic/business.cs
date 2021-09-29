@@ -486,13 +486,6 @@ namespace Business_Logic
         {
             var dt = new DataTable();
 
-            dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Description", typeof(string));
-            dt.Columns.Add("Marks", typeof(string));
-            dt.Columns.Add("Disabled", typeof(string));
-
-
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -505,52 +498,7 @@ namespace Business_Logic
             {
                 if (sqlReader.HasRows)
                 {
-                    while (sqlReader.Read())
-                    {
-                        {
-                            int Id = Convert.ToInt32(sqlReader.GetValue(0).ToString());
-                            string name = String.Empty;
-                            if (sqlReader["Name"].Equals(DBNull.Value))
-                            {
-                                name = "-";
-                            }
-                            else
-                            {
-                                name = sqlReader["Name"].ToString();
-                            }
-
-                            string descr = String.Empty;
-                            if (sqlReader["Description"].Equals(DBNull.Value))
-                            {
-                                descr = "No description provided";
-                            }
-                            else
-                            {
-                                descr = sqlReader["Description"].ToString();
-                            }
-
-                            string marks = String.Empty;
-                            if (sqlReader["Marks"].Equals(DBNull.Value))
-                            {
-                                marks = "-";
-                            }
-                            else
-                            {
-                                marks = sqlReader["Marks"].ToString();
-                            }
-
-                            string status = String.Empty;
-                            if (sqlReader["Disabled"].Equals(DBNull.Value))
-                            {
-                                status = "-";
-                            }
-                            else
-                            {
-                                status = sqlReader["Disabled"].ToString();
-                            }
-                            dt.Rows.Add(Id, name, descr, marks, status);
-                        }
-                    }
+                   dt.Load(sqlReader);
                 }
             }
             catch (Exception ex)

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	<div class="row">
-		<div class="col-xxl-6">
+		<div class="col-xxl-12">
 			<!--begin::Forms Widget 8-->
 			<div class="card card-custom gutter-b">
 				<!--begin::Body-->
@@ -32,7 +32,7 @@
 						<!--end::Symbol-->
 						<!--begin::Info-->
 						<div class="d-flex flex-column flex-grow-1">
-							<a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">HTML Canvas</a>
+							<a id="lblTopicName" runat="server" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">HTML Canvas</a>
 							<div class="d-flex">
 								<div class="d-flex align-items-center pr-5">
 									<span class="svg-icon svg-icon-md svg-icon-primary pr-1">
@@ -46,7 +46,7 @@
 										</svg>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="text-muted font-weight-bold">Due 04 Sep</span>
+									
 								</div>
 								<div class="d-flex align-items-center">
 									<span class="svg-icon svg-icon-md svg-icon-primary pr-1">
@@ -60,74 +60,18 @@
 										</svg>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="text-muted font-weight-bold">Introduction To HTML</span>
+									<span id="lblDescription" runat="server" class="text-muted font-weight-bold">Introduction To HTML</span>
 								</div>
 							</div>
 						</div>
 						<!--end::Info-->
-						<!--begin::Dropdown-->
-						<div class="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-							<a href="#" class="btn btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="ki ki-bold-more-hor"></i>
-							</a>
-							<div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
-								<!--begin::Navigation-->
-								<ul class="navi navi-hover">
-									<li class="navi-header font-weight-bold py-4">
-										<span class="font-size-lg">Choose Label:</span>
-										<i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
-									</li>
-									<li class="navi-separator mb-3 opacity-70"></li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-success">Customer</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-danger">Partner</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-warning">Suplier</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-primary">Member</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-dark">Staff</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-separator mt-3 opacity-70"></li>
-									<li class="navi-footer py-4">
-										<a class="btn btn-clean font-weight-bold btn-sm" href="#">
-											<i class="ki ki-plus icon-sm"></i>Add new</a>
-									</li>
-								</ul>
-								<!--end::Navigation-->
-							</div>
-						</div>
-						<!--end::Dropdown-->
+						
 					</div>
 					<!--end::Top-->
 					<!--begin::Bottom-->
 					<div class="pt-3">
 						<!--begin::Text-->
+						<div id="dvClassContent" runat="server"></div>
 						<p class="text-dark-75 font-size-lg font-weight-normal pt-5 mb-2">The HTML <code>"<"canvas>" </code>element is displayed as a rectangular object on a web page:</p>
 						<!--end::Text-->
 						<!--begin::Description-->

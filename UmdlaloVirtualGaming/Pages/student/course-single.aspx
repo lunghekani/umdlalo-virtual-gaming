@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="course-single.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.student.course_single" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="course-single.aspx.cs" EnableEventValidation="false" Inherits="UmdlaloVirtualGaming.Pages.student.course_single" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
