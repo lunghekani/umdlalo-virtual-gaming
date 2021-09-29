@@ -135,6 +135,7 @@
 											</div>
 											<!--end::Header-->
 											<!--begin::Body-->
+											 <div class="row">
 											<div class="card-body pt-4">
 												<div class="timeline timeline-5 mt-3">
 													<!--begin::Item-->
@@ -171,6 +172,7 @@
 													<!--end::Item-->
 												</div>
 												<!--end: Items-->
+											</div>
 											</div>
 											<!--end: Card Body-->
 										</div>
