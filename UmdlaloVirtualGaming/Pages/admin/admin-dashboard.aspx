@@ -175,7 +175,7 @@
                                     </svg>
                                     <!--end::Svg Icon-->
                                 </span>
-                                <a href="#" class="text-warning font-weight-bold font-size-h6">Weekly Sales</a>
+                                <a href="#" class="text-warning font-weight-bold font-size-h6">View Users</a>
                             </div>
                             <div class="col bg-light-primary px-6 py-8 rounded-xl mb-7">
                                 <span class="svg-icon svg-icon-3x svg-icon-primary d-block my-2">
@@ -207,7 +207,7 @@
                                     </svg>
                                     <!--end::Svg Icon-->
                                 </span>
-                                <a href="#" class="text-danger font-weight-bold font-size-h6 mt-2">Item Orders</a>
+                                <a href="#" class="text-danger font-weight-bold font-size-h6 mt-2">Courses</a>
                             </div>
                             <div class="col bg-light-success px-6 py-8 rounded-xl">
                                 <span class="svg-icon svg-icon-3x svg-icon-success d-block my-2">
@@ -221,7 +221,7 @@
                                     </svg>
                                     <!--end::Svg Icon-->
                                 </span>
-                                <a href="#" class="text-success font-weight-bold font-size-h6 mt-2">Bug Reports</a>
+                                <a href="#" class="text-success font-weight-bold font-size-h6 mt-2">Projects</a>
                             </div>
                         </div>
                         <!--end::Row-->
