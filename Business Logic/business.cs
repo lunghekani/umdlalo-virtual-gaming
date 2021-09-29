@@ -1034,6 +1034,67 @@ namespace Business_Logic
             return value;
         }
 
+        public string FullCourseName(object course_code)
+        {
+            var value = "";
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+               cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.course WHERE Code='{course_code}'  LIMIT 1", objConn);
+                var sqlReader = cmd.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    value= sqlReader.GetValue(0).ToString();
+
+                   
+                }
+
+                sqlReader.Close();
+
+            }
+            return value;
+        }
+
+        public string GetEmail(object user_id)
+        {
+            var value = "";
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                cmd = new MySqlCommand(
+                 $"SELECT Email FROM umdlalo_lms.user WHERE  ID='{user_id}'  LIMIT 1 ",
+                 objConn);
+
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    value = sqlReader.GetValue(0).ToString();
+
+                }
+                sqlReader.Close();
+
+            }
+            return value;
+        }
+
+        public void SendEmail(string to_email,string message,string course_name)
+        {
+
+
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            mail.From = new MailAddress("api.noreplay.test@gmail.com");
+            mail.To.Add(to_email);
+            mail.Subject = $"New Message From  {course_name}";
+            mail.Body = $"{message}";
+
+     
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("api.noreplay.test@gmail.com", "api.noreplay@12");
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
+        }
         public string Course_Name(object course_code)
         {
             var value = "";
@@ -1352,7 +1413,14 @@ namespace Business_Logic
                  chat_user_id;    /// if is a lectture
 
 
-     
+            /// ge the current user email
+            var email = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
+                item.GetEmail(item.Lecturer_ID(course_code)) // get the lecture email
+                :
+                 item.GetEmail(chat_user_id);    //student email
+
+
+
             var name = item.User_Role(HttpContext.Current.Session["user_id"]) == "student" ?
                 user_name  /// if is a student
                 :
@@ -1370,33 +1438,15 @@ namespace Business_Logic
                 cmd = new MySqlCommand(str, objConn);
                 cmd.ExecuteNonQuery();
             }
+
+            var full_course_name = item.FullCourseName(course_code);
+            //send the email
+            item.SendEmail(email, message, $"{full_course_name}({course_code})");
+            //end
         }
     }
 
-    public class clsChatEmail
-    {
-        SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-        private string superEmail = "";  //the super email
-        public string password = "";    //the super password
-        public clsChatEmail() {
-            //this will be used to send notifications
-            client.Credentials = new System.Net.NetworkCredential(superEmail, password);
-            client.EnableSsl = true;
-            
-        }
-       /// <summary>
-       ///  loop in each item in the db relate to the course and  send the email to them
-       /// </summary>
-       /// <param name="studentEmail"></param>
-       /// <param name="course_code"></param>
-       /// <param name="messageText"></param>
-        public void send(string studentEmail,string  course_code,string messageText)
-        {
-            
-            client.Send(superEmail, studentEmail, $"new chat in {course_code}",messageText);
-
-        }
-    }
+    
     public class clsGroupChat
     {
         private MySqlCommand cmd;
