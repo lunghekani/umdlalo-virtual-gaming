@@ -1092,7 +1092,7 @@ namespace Business_Logic
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 cmd = new MySqlCommand(
-                 $"SELECT Uid FROM umdlalo_lms.Course WHERE  ID='{user_id}'  LIMIT 1 ",
+                 $"SELECT Email FROM umdlalo_lms.user WHERE  ID='{user_id}'  LIMIT 1 ",
                  objConn);
 
                 var sqlReader = cmd.ExecuteReader();
