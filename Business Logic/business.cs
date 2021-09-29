@@ -1493,7 +1493,7 @@ namespace Business_Logic
 
             var full_course_name = item.FullCourseName(course_code);
             //send the email
-            item.SendEmail(email, message, $" {full_course_name}({course_code})");
+            item.SendEmail(email, message, $"{full_course_name}({course_code})");
             //end
         }
     }
