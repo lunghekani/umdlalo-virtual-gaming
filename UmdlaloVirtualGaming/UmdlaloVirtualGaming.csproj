@@ -2306,6 +2306,7 @@
     <Content Include="Pages\student\student-calendar.aspx" />
     <Content Include="Pages\student\student-chat-new.aspx" />
     <Content Include="Pages\student\student-chat-view.aspx" />
+    <Content Include="Pages\student\student-comment-chat.aspx" />
     <Content Include="Pages\student\student-course-list.aspx" />
     <Content Include="Pages\student\student-dashboard.aspx" />
     <Content Include="Pages\student\student-group-view.aspx" />
@@ -2685,6 +2686,13 @@
     </Compile>
     <Compile Include="Pages\student\student-chat-view.aspx.designer.cs">
       <DependentUpon>student-chat-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-comment-chat.aspx.cs">
+      <DependentUpon>student-comment-chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-comment-chat.aspx.designer.cs">
+      <DependentUpon>student-comment-chat.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-course-list.aspx.cs">
       <DependentUpon>student-course-list.aspx</DependentUpon>
