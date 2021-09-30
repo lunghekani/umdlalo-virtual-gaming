@@ -524,8 +524,7 @@
 		<div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
 			<!--begin::Header-->
 			<div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
-				<h3 class="font-weight-bold m-0">User Profile
-				<small class="text-muted font-size-sm ml-2">12 messages</small></h3>
+				<h3 class="font-weight-bold m-0">Your Profile</h3>
 				<a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
 					<i class="ki ki-close icon-xs text-muted"></i>
 				</a>
@@ -572,7 +571,7 @@
 				<!--begin::Nav-->
 				<div class="navi navi-spacer-x-0 p-0">
 					<!--begin::Item-->
-					<a href="custom/apps/user/profile-1/personal-information.html" class="navi-item">
+					<a href="lecture-profile-edit.aspx" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
@@ -598,7 +597,7 @@
 					</a>
 					<!--end:Item-->
 					<!--begin::Item-->
-					<a href="custom/apps/user/profile-3.html" class="navi-item">
+					<a href="lecturer-chat-view.aspx" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
@@ -625,7 +624,7 @@
 					</a>
 					<!--end:Item-->
 					<!--begin::Item-->
-					<a href="custom/apps/user/profile-2.html" class="navi-item">
+					<a href="lecturer-student-list.aspx" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
@@ -643,14 +642,14 @@
 								</div>
 							</div>
 							<div class="navi-text">
-								<div class="font-weight-bold">My Activities</div>
-								<div class="text-muted">Logs and notifications</div>
+								<div class="font-weight-bold">View Students</div>
+								<div class="text-muted">Marks and More</div>
 							</div>
 						</div>
 					</a>
 					<!--end:Item-->
 					<!--begin::Item-->
-					<a href="custom/apps/userprofile-1/overview.html" class="navi-item">
+					<a href="lecturer-projects-list.aspx" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
@@ -668,7 +667,7 @@
 								</div>
 							</div>
 							<div class="navi-text">
-								<div class="font-weight-bold">My Tasks</div>
+								<div class="font-weight-bold">View Projects</div>
 								<div class="text-muted">latest tasks and projects</div>
 							</div>
 						</div>

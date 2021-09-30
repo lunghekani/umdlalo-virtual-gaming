@@ -190,6 +190,38 @@ namespace Business_Logic
 
     }
 
+    public DataTable GetStudents(int userId)
+        {
+            var dt = new DataTable();
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Students_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                dt.Load(sqlReader);
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt;
+         }
+
+
     public class clsUserDetails
     {
         private clsAuthentication authclass = new clsAuthentication();
@@ -1057,6 +1089,55 @@ namespace Business_Logic
             }
 
             return dt; //Forgot to put a curly bracket and a return statement in the code
+
+
+        }
+
+            }
+
+            return count;
+        }
+
+        public void checkLikes(object project_id , object user_id)
+        {
+            //not logged in
+            if (clsSmallItemsHandler.SessionIdIsSet == false) return;
+
+            var value = false;
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var cmd = new MySqlCommand(
+                 $" SELECT * FROM umdlalo_lms.likes  WHERE Project_Id='{project_id}'  AND User_Id='{user_id}' LIMIT 1 ",
+                 objConn);
+
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    value = true;
+
+                }
+                sqlReader.Close();
+
+            }
+
+            if (value == true) return;
+            //inserting like to the likes table
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var str =
+                    $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
+                var cmd = new MySqlCommand(str, objConn);
+                cmd.ExecuteNonQuery();
+            }
+
+            ////inserting like to the likes table
+            //using (var objConn = new clsDataConnection().CreateSQLConnection())
+            //{
+            //    var str =
+            //        $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
+            //    var cmd = new MySqlCommand(str, objConn);
+            //    cmd.ExecuteNonQuery();
+            //}
 
 
         }

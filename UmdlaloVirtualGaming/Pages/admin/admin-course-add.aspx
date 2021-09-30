@@ -9,14 +9,14 @@
    <div class="form-group row">
     <label class="col-lg-3 col-form-label">Course Name:</label>
     <div class="col-lg-6">
-     <input type="text" class="form-control" placeholder="Enter Course Name" id="txt_course_name"/>
+     <input type="text" class="form-control" placeholder="Enter Course Name" id="txt_course_name" runat="server"/>
      <span class="form-text text-muted">Please enter the name of the course</span>
     </div>
    </div>
    <div class="form-group row">
     <label class="col-lg-3 col-form-label">Course Code:</label>
     <div class="col-lg-6">
-     <input type="text" class="form-control" placeholder="Enter Course Code" id="txt_course_code"/>
+     <input type="text" class="form-control" placeholder="Enter Course Code" id="txt_course_code" runat="server"/>
      
     </div>
    </div>
@@ -27,7 +27,7 @@
    <div class="form-group row">
     <label class="col-lg-3 col-form-label">Description:</label>
     <div class="col-lg-6">
-     <input type="text" class="form-control" placeholder="Description" id="txt_description"/>
+     <input type="text" class="form-control" placeholder="Description" id="txt_description" runat="server"/>
      <span class="form-text text-muted">Please enter a short description of the course</span>
     </div>
    </div>
@@ -36,7 +36,7 @@
     <div class="col-lg-6">
      <div class="input-group">
       <div class="input-group-prepend"><span class="input-group-text"><i class="la la-chain"></i></span></div>
-      <input type="datetime-local" class="form-control" id="Start"/>
+      <input type="datetime-local" class="form-control" id="Start" runat="server"/>
      </div>
     </div>
    </div>
@@ -45,7 +45,7 @@
     <div class="col-lg-6">
      <div class="input-group">
       <div class="input-group-prepend"><span class="input-group-text"><i class="la la-chain"></i></span></div>
-      <input type="datetime-local" class="form-control" id="End"/>
+      <input type="datetime-local" class="form-control" id="End" runat="server"/>
      </div>
     </div>
    </div>
