@@ -189,6 +189,38 @@ namespace Business_Logic
 
     }
 
+    public DataTable GetStudents(int userId)
+        {
+            var dt = new DataTable();
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Students_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                dt.Load(sqlReader);
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt;
+         }
+
+
     public class clsUserDetails
     {
         private clsAuthentication authclass = new clsAuthentication();
@@ -315,8 +347,8 @@ namespace Business_Logic
                 return ex.Message;
 
             }
-            finally { 
-            
+            finally
+            {
                 cmd.Connection.Close();
             }
 
@@ -952,23 +984,6 @@ namespace Business_Logic
 
         }
 
-        public int getLikes(object project_id) {
-
-            var count = 0;
-            using (var objConn = new clsDataConnection().CreateSQLConnection())
-            {
-                var cmd = new MySqlCommand(
-                 $" SELECT * FROM umdlalo_lms.likes  WHERE Project_Id='{project_id}'",
-                 objConn);
-
-                var sqlReader = cmd.ExecuteReader();
-                while (sqlReader.Read())
-                {
-                    count++;
-
-                }
-                sqlReader.Close();
-
             }
 
             return count;
@@ -1016,29 +1031,6 @@ namespace Business_Logic
             //}
 
 
-        }
-
-        //the current comment
-        public Dictionary<string, string> current_project_chats(object project_id)
-        {
-            using (var objConn = new clsDataConnection().CreateSQLConnection())
-            {
-                
-                Dictionary<string, string> course_list = new Dictionary<string, string>();
-                var cmd = new MySqlCommand($"SELECT Name,ID FROM umdlalo_lms.projects WHERE ID={project_id} ", objConn);
-                var sqlReader = cmd.ExecuteReader();
-
-                while (sqlReader.Read())
-                {
-                    var course_name = sqlReader.GetValue(0).ToString();  //replace course_name to project user name
-                    var course_code = sqlReader.GetValue(1).ToString();  //replace course code to project id
-                    course_list[course_code] = course_name;
-                }
-
-                sqlReader.Close();
-               
-                return course_list;
-            }
         }
 
     }
@@ -1101,7 +1093,6 @@ namespace Business_Logic
         }
         //session helper
         public static bool SessionIdIsSet => HttpContext.Current.Session["user_id"] == null ? false : true;
-        public static object GetSessionId => HttpContext.Current.Session["user_id"];
 
         public string Lecturer_ID(object course_code)
         {
@@ -1176,6 +1167,8 @@ namespace Business_Logic
             mail.To.Add(to_email);
             mail.Subject = $"New Message From  {course_name}";
             mail.Body = $"{message}";
+
+     
 
             SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential("api.noreplay.test@gmail.com", "api.noreplay@12");
