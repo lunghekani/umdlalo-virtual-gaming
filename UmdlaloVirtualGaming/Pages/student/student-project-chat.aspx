@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="student-comment-chat.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.student.student_comment_chat" %>
-
-
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="student-project-chat.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.student.student_project_chat" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="d-flex flex-row">

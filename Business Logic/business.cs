@@ -1018,6 +1018,29 @@ namespace Business_Logic
 
         }
 
+        //the current comment
+        public Dictionary<string, string> current_project_chats(object project_id)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                
+                Dictionary<string, string> course_list = new Dictionary<string, string>();
+                var cmd = new MySqlCommand($"SELECT Name,ID FROM umdlalo_lms.projects WHERE ID={project_id} ", objConn);
+                var sqlReader = cmd.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    var course_name = sqlReader.GetValue(0).ToString();  //replace course_name to project user name
+                    var course_code = sqlReader.GetValue(1).ToString();  //replace course code to project id
+                    course_list[course_code] = course_name;
+                }
+
+                sqlReader.Close();
+               
+                return course_list;
+            }
+        }
+
     }
     public class clsCommunicate
     {
