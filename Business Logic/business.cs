@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
 using static Business_Logic.clsGroupChat;
 
+
 namespace Business_Logic
 {
     // This is a comment to show how git works
@@ -188,7 +189,7 @@ namespace Business_Logic
             return encryptString;
         }
 
-    }
+
 
    public class clsUserDetails
     {
