@@ -1154,8 +1154,6 @@ namespace Business_Logic
             mail.Subject = $"New Message From  {course_name}";
             mail.Body = $"{message}";
 
-     
-
             SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential("api.noreplay.test@gmail.com", "api.noreplay@12");
             SmtpServer.EnableSsl = true;
