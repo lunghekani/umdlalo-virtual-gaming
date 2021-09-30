@@ -1,1 +1,344 @@
-﻿var _0x14a10a = _0x1f4b; function _0x4628() { var _0x47433a = ['</span>\x0a\x09\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09<div\x20class=\x22mt-2\x20rounded\x20p-5\x20bg-light-success\x20text-dark-50\x20font-weight-bold\x20font-size-lg\x20text-left\x20max-w-400px\x22>', 'data-user-name', 'location', '\x20minutes\x20ago', '16353EHMEkg', 'student-chat-view', 'private', 'limit', '\x0a\x09\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09\x09<div>\x0a\x09\x09\x09\x09\x09\x09\x09<a\x20href=\x22#\x22\x20class=\x22text-dark-75\x20text-hover-primary\x20font-weight-bold\x20font-size-h6\x22>', '\x20days\x20ago', '1077128uAXSKS', '11HWWRhc', 'reset_', 'ajax', 'POST', '\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<!--begin::Message\x20In-->\x0a\x09\x09\x09\x09<div\x20class=\x22d-flex\x20flex-column\x20mb-5\x20align-items-start\x22>\x0a\x09\x09\x09\x09\x09<div\x20class=\x22d-flex\x20align-items-center\x22>\x0a\x09\x09\x09\x09\x09\x09<div\x20class=\x22symbol\x20symbol-circle\x20symbol-50\x20mr-3\x20mt-2\x20\x20p-5\x20bg-success\x20text-white\x20font-weight-bold\x20font-size-lg\x20\x20\x22\x20style=\x27text-transform:\x20uppercase;\x27>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20', 'click', '27516liqIaS', '8462InYXUf', '6120570xFmZZP', '6490800TAvjVb', '27628788yyrGbE', 'length', 'reset\x20chat\x20notification\x20fetch\x20error', 'includes', 'post', '930reJSWJ', '\x20years\x20ago', 'panel', 'data-course', 'get_group_messages', 'message', '27573ghDbtb', '3185175SdtNan', 'href', '330npQlil', 'substring', 'user_id', 'time', '5283KOkDns', '151848MKLauu', '4EsuiFZ', 'getAttribute', 'append', 'data-id', 'push', '\x20hours\x20ago', 'parse', 'currentTarget', '1328WuFNRR', 'course_name', 'shift', 'btn-primary', '15eEAmCE', '643444mvCXKE', '_chat_user', 'btn-disable', 'data-user-id', '7gRIAWL', 'user_name', 'student-group-view', 'each', '_chat_submit_button', 'label-light-success', '4REjkjQ', '</div>\x0a\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09<!--end::Message\x20In-->\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20', 'log', '</a>\x0a\x09\x09\x09\x09\x09\x09\x09<span\x20class=\x22text-muted\x20font-size-sm\x22>', 'course_id', '777IAgYmY', '9141dPvmoM', 'rest-chat-get', 'toString', 'chat\x20fetch\x20error', 'label-danger', 'group', 'get', 'get_private_messages', 'removeClass', 'addClass', 'text', '\x20months\x20ago', '421600VlhRcV', '_chat_textarea', 'html', 'toLowerCase', 'round', '_chat_messages_box', 'attr', '_notification', '_chat_time', '1008225gCmUSx', 'val', 'trim', '\x20seconds\x20ago']; _0x4628 = function () { return _0x47433a; }; return _0x4628(); } (function (_0x4bbcf0, _0x1aa203) { var _0x568ed2 = _0x1f4b, _0x5e5b27 = _0x4bbcf0(); while (!![]) { try { var _0x3880aa = -parseInt(_0x568ed2(0x19b)) / 0x1 + -parseInt(_0x568ed2(0x1ba)) / 0x2 * (parseInt(_0x568ed2(0x18e)) / 0x3) + -parseInt(_0x568ed2(0x17f)) / 0x4 * (-parseInt(_0x568ed2(0x17e)) / 0x5) + -parseInt(_0x568ed2(0x1c2)) / 0x6 * (parseInt(_0x568ed2(0x169)) / 0x7) + parseInt(_0x568ed2(0x17a)) / 0x8 * (-parseInt(_0x568ed2(0x1ac)) / 0x9) + parseInt(_0x568ed2(0x1bc)) / 0xa + parseInt(_0x568ed2(0x18f)) / 0xb * (parseInt(_0x568ed2(0x1b9)) / 0xc); if (_0x3880aa === _0x1aa203) break; else _0x5e5b27['push'](_0x5e5b27['shift']()); } catch (_0x1e88f5) { _0x5e5b27['push'](_0x5e5b27['shift']()); } } }(_0x4628, 0x9453e)); function _0x3eb7() { var _0x3b1ae0 = _0x1f4b, _0x572bca = [_0x3b1ae0(0x1bb), _0x3b1ae0(0x1bd), _0x3b1ae0(0x189), _0x3b1ae0(0x16a), _0x3b1ae0(0x170), _0x3b1ae0(0x1a4), _0x3b1ae0(0x1b3), _0x3b1ae0(0x16c), _0x3b1ae0(0x172), _0x3b1ae0(0x171), _0x3b1ae0(0x183), _0x3b1ae0(0x1b2)]; return _0x3eb7 = function () { return _0x572bca; }, _0x3eb7(); } (function (_0x4d2070, _0x5f575c) { var _0x535471 = _0x1f4b, _0x1e7981 = _0x4891, _0xe12712 = _0x4d2070(); while (!![]) { try { var _0x492179 = parseInt(_0x1e7981(0x102)) / 0x1 * (parseInt(_0x1e7981(0xfd)) / 0x2) + -parseInt(_0x1e7981(0xf9)) / 0x3 * (parseInt(_0x1e7981(0xfc)) / 0x4) + -parseInt(_0x1e7981(0xf7)) / 0x5 + -parseInt(_0x1e7981(0x100)) / 0x6 + -parseInt(_0x1e7981(0xfe)) / 0x7 * (-parseInt(_0x1e7981(0xff)) / 0x8) + -parseInt(_0x1e7981(0xf8)) / 0x9 * (parseInt(_0x1e7981(0xfb)) / 0xa) + parseInt(_0x1e7981(0xfa)) / 0xb * (parseInt(_0x1e7981(0x101)) / 0xc); if (_0x492179 === _0x5f575c) break; else _0xe12712[_0x535471(0x176)](_0xe12712[_0x535471(0x17c)]()); } catch (_0x3bd12a) { _0xe12712[_0x535471(0x176)](_0xe12712[_0x535471(0x17c)]()); } } }(_0x3eb7, 0xb1c60)); function _0x4891(_0x48ad23, _0x3f7e53) { var _0x2ef365 = _0x3eb7(); return _0x4891 = function (_0x32cbf6, _0x1ffab4) { _0x32cbf6 = _0x32cbf6 - 0xf7; var _0x41abb7 = _0x2ef365[_0x32cbf6]; return _0x41abb7; }, _0x4891(_0x48ad23, _0x3f7e53); } var current_chat = { 'panel': null, 'user_id': null, 'course_id': null, 'course_name': null, 'user_name': null, 'limit': 0xa, 'message': null }; function reset_clicked_user_notification(_0x5854cc) { var _0x160914 = _0x1f4b; $['ajax']({ 'url': _0x160914(0x190), 'method': 'POST', 'data': { [_0x160914(0x1b4) + _0x5854cc + _0x160914(0x1a2)]: !![], 'course_id': current_chat[_0x160914(0x18d)] }, 'success': function (_0x2cfd08, _0x44a2e7) { var _0x36ea7d = _0x160914; console[_0x36ea7d(0x18b)](_0x2cfd08); }, 'error': function (_0x23866b) { var _0x4ed712 = _0x160914; console[_0x4ed712(0x18b)](_0x23866b), alert(_0x4ed712(0x1bf)); } }); } function get_notification(_0x3b8f4c) { var _0x5b8e9d = _0x1f4b; $('.' + _0x3b8f4c + '_chat_user')[_0x5b8e9d(0x186)](function (_0x8434fc) { var _0x3ba2cd = _0x5b8e9d, _0x598628 = $(this)[_0x3ba2cd(0x1a1)](_0x3ba2cd(0x175)), _0x4f9d23 = 'get_' + _0x3b8f4c + _0x3ba2cd(0x1a2); $[_0x3ba2cd(0x1b5)]({ 'url': 'rest-chat-get', 'method': 'POST', 'data': { [_0x4f9d23]: !![], 'course_id': _0x598628 }, 'success': function (_0x547e71, _0x5f2ff8) { var _0x3df78b = _0x3ba2cd; console[_0x3df78b(0x18b)](_0x547e71); var _0x23b874 = _0x547e71['notification'], _0x104f33 = _0x547e71[_0x3df78b(0x16f)], _0x3ce116 = $('#' + _0x3b8f4c + '_chat_notification' + _0x598628), _0x47dc2f = $('#' + _0x3b8f4c + _0x3df78b(0x1a3) + _0x598628); _0x104f33 != '' && _0x23b874 == '' && (_0x3ce116[_0x3df78b(0x198)]('label-light-success'), _0x3ce116['removeClass']('label-danger'), _0x3ce116[_0x3df78b(0x199)](_0x23b874), _0x47dc2f[_0x3df78b(0x199)](timeDifference(_0x104f33))); if (_0x104f33 != '' && _0x23b874 == '0') _0x3ce116[_0x3df78b(0x198)]('label-light-success'), _0x3ce116[_0x3df78b(0x197)](_0x3df78b(0x193)), _0x3ce116[_0x3df78b(0x199)](_0x23b874), _0x47dc2f['text'](timeDifference(_0x104f33)); else _0x104f33 != '' && _0x23b874 != '' && (_0x3ce116[_0x3df78b(0x197)](_0x3df78b(0x188)), _0x3ce116[_0x3df78b(0x198)]('label-danger'), _0x3ce116[_0x3df78b(0x199)](_0x23b874), _0x47dc2f['text'](timeDifference(_0x104f33))); }, 'error': function () { alert('chat\x20notification\x20fetch\x20error'); } }); }); } function fetch_messages(_0x21a6b0, _0x184044) { var _0x1915dd = _0x1f4b; $[_0x1915dd(0x1b5)]({ 'url': 'rest-chat-get', 'method': _0x1915dd(0x1b6), 'data': { 'limit': current_chat[_0x1915dd(0x1af)], 'course_id': current_chat[_0x1915dd(0x18d)], 'token': _0x184044, 'current_chat_id': current_chat[_0x1915dd(0x16e)] }, 'success': function (_0x1b20e0, _0x2e1c9d) { var _0x2d579a = _0x1915dd; console[_0x2d579a(0x18b)](_0x1b20e0), $('.' + _0x21a6b0 + '_chat_header')[_0x2d579a(0x19d)](current_chat[_0x2d579a(0x17b)]), $('.' + _0x21a6b0 + _0x2d579a(0x1a0))[_0x2d579a(0x19d)](''), _0x1b20e0['forEach']((_0x51c107, _0x3acade) => { var _0x5d0e1d = _0x2d579a, _0x5ef1e8 = _0x51c107['user_name'], _0x136c58 = _0x51c107[_0x5d0e1d(0x16f)], _0x50e57e = _0x51c107[_0x5d0e1d(0x16e)], _0x5281de = _0x51c107[_0x5d0e1d(0x168)]; _0x1b20e0[0x0][_0x5d0e1d(0x16e)][_0x5d0e1d(0x1a6)]() == current_chat[_0x5d0e1d(0x16e)][_0x5d0e1d(0x1a6)]() ? _0x51c107[_0x5d0e1d(0x16e)] == current_chat[_0x5d0e1d(0x16e)] ? $('.' + _0x21a6b0 + _0x5d0e1d(0x1a0))[_0x5d0e1d(0x174)](left_box(_0x5ef1e8, _0x5281de, _0x136c58)) : $('.' + _0x21a6b0 + _0x5d0e1d(0x1a0))['append'](right_box(_0x5ef1e8, _0x5281de, _0x136c58)) : _0x51c107['user_id'] != current_chat[_0x5d0e1d(0x16e)] ? $('.' + _0x21a6b0 + _0x5d0e1d(0x1a0))[_0x5d0e1d(0x174)](left_box(_0x5ef1e8, _0x5281de, _0x136c58)) : $('.' + _0x21a6b0 + _0x5d0e1d(0x1a0))[_0x5d0e1d(0x174)](right_box(_0x5ef1e8, _0x5281de, _0x136c58)); }); }, 'error': function () { var _0x304c55 = _0x1915dd; alert(_0x304c55(0x192)); } }); } function _0x1f4b(_0x5ca985, _0x3748c4) { var _0x462842 = _0x4628(); return _0x1f4b = function (_0x1f4b40, _0x35872e) { _0x1f4b40 = _0x1f4b40 - 0x168; var _0x39e96a = _0x462842[_0x1f4b40]; return _0x39e96a; }, _0x1f4b(_0x5ca985, _0x3748c4); } function timeDifference(_0x161b90) { var _0x5ad5bc = _0x1f4b, _0x440ee4 = 0x3c * 0x3e8, _0x4f23d6 = _0x440ee4 * 0x3c, _0x2dc9be = _0x4f23d6 * 0x18, _0x3dc09b = _0x2dc9be * 0x1e, _0xd48fd2 = _0x2dc9be * 0x16d, _0x1f3a30 = new Date() - Date[_0x5ad5bc(0x178)](_0x161b90); if (_0x1f3a30 < _0x440ee4) return Math[_0x5ad5bc(0x19f)](_0x1f3a30 / 0x3e8) + _0x5ad5bc(0x1a7); else { if (_0x1f3a30 < _0x4f23d6) return Math['round'](_0x1f3a30 / _0x440ee4) + _0x5ad5bc(0x1ab); else { if (_0x1f3a30 < _0x2dc9be) return Math[_0x5ad5bc(0x19f)](_0x1f3a30 / _0x4f23d6) + _0x5ad5bc(0x177); else { if (_0x1f3a30 < _0x3dc09b) return Math[_0x5ad5bc(0x19f)](_0x1f3a30 / _0x2dc9be) + _0x5ad5bc(0x1b1); else return _0x1f3a30 < _0xd48fd2 ? Math[_0x5ad5bc(0x19f)](_0x1f3a30 / _0x3dc09b) + _0x5ad5bc(0x19a) : Math[_0x5ad5bc(0x19f)](_0x1f3a30 / _0xd48fd2) + _0x5ad5bc(0x1c3); } } } } function left_box(_0x2c9a6b, _0x180c51, _0x36323f) { var _0x536dce = _0x1f4b, _0x494af8 = timeDifference(_0x36323f); return _0x536dce(0x1b7) + _0x2c9a6b[_0x536dce(0x16d)](0x0, 0x2) + _0x536dce(0x1b0) + _0x2c9a6b + _0x536dce(0x18c) + _0x494af8 + '</span>\x0a\x09\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09</div>\x0a\x09\x09\x09\x09\x09<div\x20class=\x22mt-2\x20rounded\x20p-5\x20bg-light-success\x20text-dark-50\x20font-weight-bold\x20font-size-lg\x20text-left\x20max-w-400px\x22>' + _0x180c51 + _0x536dce(0x18a); } function right_box(_0x2caf9d, _0x7906, _0x3b6c59) { var _0x145a60 = _0x1f4b, _0x363970 = timeDifference(_0x3b6c59); return '\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<!--begin::Message\x20In-->\x0a\x09\x09\x09\x09<div\x20class=\x22d-flex\x20flex-column\x20mb-5\x20align-items-end\x22>\x0a\x09\x09\x09\x09\x09<div\x20class=\x22d-flex\x20align-items-center\x22>\x0a\x09\x09\x09\x09\x09\x09<div\x20class=\x22symbol\x20symbol-circle\x20symbol-50\x20mr-3\x20mt-2\x20\x20p-5\x20bg-success\x20text-white\x20font-weight-bold\x20font-size-lg\x20\x20\x22\x20\x20style=\x27text-transform:\x20uppercase;\x27>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20' + _0x2caf9d[_0x145a60(0x16d)](0x0, 0x2) + _0x145a60(0x1b0) + _0x2caf9d + _0x145a60(0x18c) + _0x363970 + _0x145a60(0x1a8) + _0x7906 + _0x145a60(0x18a); } function change_user_chat(_0x2346aa, _0x3da3b6) { var _0x74b270 = _0x1f4b; $('.' + _0x2346aa + '_chat_user')[_0x74b270(0x1b8)](_0x12b864 => { var _0x93574c = _0x74b270; current_chat[_0x93574c(0x1c4)] = _0x12b864, current_chat[_0x93574c(0x16e)] = _0x12b864[_0x93574c(0x179)][_0x93574c(0x173)](_0x93574c(0x182)), current_chat[_0x93574c(0x18d)] = _0x12b864[_0x93574c(0x179)]['getAttribute']('data-id'), current_chat[_0x93574c(0x17b)] = _0x12b864[_0x93574c(0x179)][_0x93574c(0x173)](_0x93574c(0x1c5)), current_chat[_0x93574c(0x184)] = _0x12b864[_0x93574c(0x179)][_0x93574c(0x173)]('data-user-name'), fetch_messages(_0x2346aa, _0x3da3b6), reset_clicked_user_notification(_0x2346aa), get_notification(_0x2346aa); }); } change_user_chat(_0x14a10a(0x194), 'get_group_messages'), change_user_chat(_0x14a10a(0x1ae), _0x14a10a(0x196)); function pageLoad(_0x271c40, _0x23b8a3) { var _0x347d4d = _0x14a10a; if ($('.' + _0x271c40 + _0x347d4d(0x180))['length'] > 0x0) { var _0x4a33a6 = $('.' + _0x271c40 + _0x347d4d(0x180))[_0x347d4d(0x195)](0x0); current_chat['panel'] = _0x4a33a6, current_chat['user_id'] = _0x4a33a6[_0x347d4d(0x173)](_0x347d4d(0x182)), current_chat[_0x347d4d(0x18d)] = _0x4a33a6[_0x347d4d(0x173)]('data-id'), current_chat[_0x347d4d(0x17b)] = _0x4a33a6[_0x347d4d(0x173)](_0x347d4d(0x1c5)), current_chat[_0x347d4d(0x184)] = _0x4a33a6['getAttribute'](_0x347d4d(0x1a9)), fetch_messages(_0x271c40, _0x23b8a3), get_notification(_0x271c40); } } pageLoad('group', _0x14a10a(0x1c6)), pageLoad(_0x14a10a(0x1ae), 'get_private_messages'); function chat_textArea(_0x3f6668) { var _0x35f617 = _0x14a10a; $('.' + _0x3f6668 + _0x35f617(0x187))[_0x35f617(0x197)]('btn-primary'), $('.' + _0x3f6668 + _0x35f617(0x187))[_0x35f617(0x198)]('btn-disable'), $('.' + _0x3f6668 + _0x35f617(0x19c))['on']('keyup\x20keydown\x20keypres', _0x2b1362 => { var _0xc559e = _0x35f617, _0x4c8872 = $('.' + _0x3f6668 + '_chat_textarea')['val'](); current_chat['message'] = _0x4c8872, _0x4c8872['trim']()[_0xc559e(0x1be)] == 0x0 ? ($('.' + _0x3f6668 + _0xc559e(0x187))[_0xc559e(0x197)](_0xc559e(0x17d)), $('.' + _0x3f6668 + _0xc559e(0x187))[_0xc559e(0x198)](_0xc559e(0x181))) : ($('.' + _0x3f6668 + _0xc559e(0x187))['removeClass'](_0xc559e(0x181)), $('.' + _0x3f6668 + _0xc559e(0x187))[_0xc559e(0x198)](_0xc559e(0x17d))); }); } chat_textArea('group'), chat_textArea(_0x14a10a(0x1ae)); function send_message(_0xbb0509, _0x5da58e, _0x1003ad) { var _0x2a034c = _0x14a10a; $('.' + _0xbb0509 + _0x2a034c(0x187))[_0x2a034c(0x1b8)](_0x589c6c => { var _0x5919a6 = _0x2a034c, _0xf798e = window[_0x5919a6(0x1aa)][_0x5919a6(0x16b)][_0x5919a6(0x19e)](); if (_0xf798e[_0x5919a6(0x1c0)](_0x5da58e)) { var _0x50bb93 = $('.' + _0xbb0509 + _0x5919a6(0x19c))[_0x5919a6(0x1a5)](); if (_0x50bb93[_0x5919a6(0x1a6)]()[_0x5919a6(0x1be)] == 0x0) return ![]; $('.' + _0xbb0509 + _0x5919a6(0x19c))[_0x5919a6(0x1a5)](''), $('.' + _0xbb0509 + _0x5919a6(0x187))[_0x5919a6(0x197)](_0x5919a6(0x17d)), $('.' + _0xbb0509 + '_chat_submit_button')['addClass']('btn-disable'), $[_0x5919a6(0x1c1)](_0x5da58e, { 'user_name': current_chat[_0x5919a6(0x184)], 'course_id': current_chat['course_id'], 'user_id': current_chat['user_id'], 'time': new Date()[_0x5919a6(0x191)](), 'message': _0x50bb93 }, (_0xffb742, _0x5a3407) => { var _0x6aaaca = _0x5919a6; console[_0x6aaaca(0x18b)](_0xffb742), console[_0x6aaaca(0x18b)](_0x5a3407), fetch_messages(_0xbb0509, _0x1003ad), get_notification(_0xbb0509); }); } }); } send_message(_0x14a10a(0x194), _0x14a10a(0x185), _0x14a10a(0x1c6)), send_message(_0x14a10a(0x1ae), _0x14a10a(0x1ad), _0x14a10a(0x196)), send_message(_0x14a10a(0x194), 'lecturer-group-view', _0x14a10a(0x1c6)), send_message('private', 'lecture-private-chat', _0x14a10a(0x196)); function update_pooling_chat(_0x1f38dd, _0x11ff7d, _0x1816b7 = 0x1b58) { var _0x499daa = _0x14a10a; $('.' + _0x1f38dd + _0x499daa(0x180))[_0x499daa(0x1be)] > 0x0 && setInterval(() => { get_notification(_0x1f38dd), fetch_messages(_0x1f38dd, _0x11ff7d); }, _0x1816b7); } update_pooling_chat(_0x14a10a(0x194), _0x14a10a(0x1c6)), update_pooling_chat('private', _0x14a10a(0x196));
+﻿
+//current_chat state control
+
+//not safe
+//var current_chat = { "panel": null, "user_id": null, "course_id": null, "course_name": null, "user_name": null, 'limit': 10, message: null };
+
+//safe string
+function _0x3eb7() { var _0x4d7f48 = ['6120570xFmZZP', '27628788yyrGbE', '4REjkjQ', '3185175SdtNan', '5283KOkDns', '1008225gCmUSx', '11HWWRhc', '330npQlil', '4EsuiFZ', '151848MKLauu', '7gRIAWL', '1077128uAXSKS']; _0x3eb7 = function () { return _0x4d7f48; }; return _0x3eb7(); } (function (_0x254f23, _0x12a5e2) { var _0x49fbc8 = _0x4891, _0x1df6da = _0x254f23(); while (!![]) { try { var _0x407285 = parseInt(_0x49fbc8(0x102)) / 0x1 * (parseInt(_0x49fbc8(0xfd)) / 0x2) + -parseInt(_0x49fbc8(0xf9)) / 0x3 * (parseInt(_0x49fbc8(0xfc)) / 0x4) + -parseInt(_0x49fbc8(0xf7)) / 0x5 + -parseInt(_0x49fbc8(0x100)) / 0x6 + -parseInt(_0x49fbc8(0xfe)) / 0x7 * (-parseInt(_0x49fbc8(0xff)) / 0x8) + -parseInt(_0x49fbc8(0xf8)) / 0x9 * (parseInt(_0x49fbc8(0xfb)) / 0xa) + parseInt(_0x49fbc8(0xfa)) / 0xb * (parseInt(_0x49fbc8(0x101)) / 0xc); if (_0x407285 === _0x12a5e2) break; else _0x1df6da['push'](_0x1df6da['shift']()); } catch (_0x1146cd) { _0x1df6da['push'](_0x1df6da['shift']()); } } }(_0x3eb7, 0xb1c60)); function _0x4891(_0x5dcd68, _0x70add1) { var _0x3eb7d2 = _0x3eb7(); return _0x4891 = function (_0x4891bf, _0x28f624) { _0x4891bf = _0x4891bf - 0xf7; var _0x231aba = _0x3eb7d2[_0x4891bf]; return _0x231aba; }, _0x4891(_0x5dcd68, _0x70add1); } var current_chat = { 'panel': null, 'user_id': null, 'course_id': null, 'course_name': null, 'user_name': null, 'limit': 0xa, 'message': null };
+
+
+function reset_clicked_user_notification(name) {
+
+    $.ajax({
+        url: "rest-chat-get",
+        method: "POST", //First change type to method here
+        data: { ["reset_" + name + "_notification"]: true, "course_id": current_chat.course_id },
+        success: function (data, status) {
+            console.log(data)
+
+        },
+        error: function (e) {
+            console.log(e)
+            alert("reset chat notification fetch error");
+        }
+
+    });
+}
+
+
+function get_notification(name) {
+
+    $("." + name + "_chat_user").each(function (e) {
+        var c_id = $(this).attr("data-id");
+        var key = "get_" + name + "_notification"
+        $.ajax({
+            url: "rest-chat-get",
+            method: "POST", //First change type to method here
+            data: { [key]: true, "course_id": c_id },
+            success: function (data, status) {
+                console.log(data)
+
+                var notification = data.notification
+                var time = data.time
+                var no = $("#" + name + "_chat_notification" + c_id);
+                var ti = $("#" + name + "_chat_time" + c_id)
+
+                if (time != "" && notification == "") {
+                    no.addClass("label-light-success")
+                    no.removeClass("label-danger")
+                    no.text(notification)
+                    ti.text(timeDifference(time))
+
+
+                } if (time != "" && notification == "0") {
+                    no.addClass("label-light-success")
+                    no.removeClass("label-danger")
+                    no.text(notification)
+                    ti.text(timeDifference(time))
+                }
+                else if (time != "" && notification != "") {
+                    no.removeClass("label-light-success")
+                    no.addClass("label-danger")
+                    no.text(notification)
+                    ti.text(timeDifference(time))
+                }
+
+            },
+            error: function () {
+                alert("chat notification fetch error");
+            }
+
+        });
+
+
+
+
+    })
+
+}
+
+function fetch_messages(class_id_name, token) {
+
+    $.ajax({
+        url: "rest-chat-get",
+        method: "POST", //First change type to method here
+        data: { "limit": current_chat.limit, "course_id": current_chat.course_id, token: token, "current_chat_id": current_chat.user_id },
+        success: function (e, status) {
+            console.log(e)
+            $("." + class_id_name + "_chat_header").html(current_chat.course_name)//set chat name
+            $("." + class_id_name + "_chat_messages_box").html("")//clear the chat
+
+            e.forEach((user, index) => {
+                var name = user.user_name
+                var time = user.time
+                var u_id = user.user_id
+                var m = user.message;
+
+                if (e[0].user_id.trim() == current_chat.user_id.trim()) {
+
+                    if (user.user_id == current_chat.user_id) {
+                        $("." + class_id_name + "_chat_messages_box").append(left_box(name, m, time))
+                    } else {
+                        $("." + class_id_name + "_chat_messages_box").append(right_box(name, m, time))
+                    }
+
+                } else {
+                    if (user.user_id != current_chat.user_id) {
+                        $("." + class_id_name + "_chat_messages_box").append(left_box(name, m, time))
+                    } else {
+                        $("." + class_id_name + "_chat_messages_box").append(right_box(name, m, time))
+                    }
+                }
+
+
+            })
+
+        },
+        error: function () {
+            alert("chat fetch error");
+        }
+
+    });
+
+}
+
+
+//current_time
+function timeDifference(previous) {
+
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
+
+    var elapsed = new Date() - Date.parse(previous);
+
+    if (elapsed < msPerMinute) {
+        return Math.round(elapsed / 1000) + ' seconds ago';
+    }
+
+    else if (elapsed < msPerHour) {
+        return Math.round(elapsed / msPerMinute) + ' minutes ago';
+    }
+
+    else if (elapsed < msPerDay) {
+        return Math.round(elapsed / msPerHour) + ' hours ago';
+    }
+
+    else if (elapsed < msPerMonth) {
+        return Math.round(elapsed / msPerDay) + ' days ago';
+    }
+
+    else if (elapsed < msPerYear) {
+        return Math.round(elapsed / msPerMonth) + ' months ago';
+    }
+
+    else {
+        return Math.round(elapsed / msPerYear) + ' years ago';
+    }
+}
+
+//end time
+
+
+
+function left_box(name, message, time) {
+    var d = timeDifference(time)
+    return `
+                <!--begin::Message In-->
+				<div class="d-flex flex-column mb-5 align-items-start">
+					<div class="d-flex align-items-center">
+						<div class="symbol symbol-circle symbol-50 mr-3 mt-2  p-5 bg-success text-white font-weight-bold font-size-lg  " style='text-transform: uppercase;'>
+                ${name.substring(0, 2)}
+						</div>
+						<div>
+							<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">${name}</a>
+							<span class="text-muted font-size-sm">${d}</span>
+						</div>
+					</div>
+					<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">${message}</div>
+				</div>
+				<!--end::Message In-->
+                `
+}
+
+
+function right_box(name, message, time) {
+    var d = timeDifference(time)
+    return `
+                <!--begin::Message In-->
+				<div class="d-flex flex-column mb-5 align-items-end">
+					<div class="d-flex align-items-center">
+						<div class="symbol symbol-circle symbol-50 mr-3 mt-2  p-5 bg-success text-white font-weight-bold font-size-lg  "  style='text-transform: uppercase;'>
+                ${name.substring(0, 2)}
+						</div>
+						<div>
+							<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">${name}</a>
+							<span class="text-muted font-size-sm">${d}</span>
+						</div>
+					</div>
+					<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">${message}</div>
+				</div>
+				<!--end::Message In-->
+                `
+}
+
+
+
+
+
+
+///this use to change the user chat
+function change_user_chat(name, token) {
+    $("." + name + "_chat_user").click(e => {
+        current_chat.panel = e;
+
+        current_chat.user_id = e.currentTarget.getAttribute("data-user-id");
+        current_chat.course_id = e.currentTarget.getAttribute("data-id")
+        current_chat.course_name = e.currentTarget.getAttribute("data-course");
+        current_chat.user_name = e.currentTarget.getAttribute("data-user-name")
+
+        //when you click a specific chat we clear that chat norification
+        fetch_messages(name, token);//get messages
+        reset_clicked_user_notification(name)//reset the chat value
+        get_notification(name);// update the chat time
+
+    })
+}
+change_user_chat("group", "get_group_messages")
+change_user_chat("private", "get_private_messages")
+//end"
+
+
+//when the page load , we check for any user assigned and load the first chat panel
+function pageLoad(name, token) {
+    if ($('.' + name + '_chat_user').length > 0) {
+
+        /// get the first user class and update the current_chat state
+        var first_class = $("." + name + "_chat_user").get(0)
+        current_chat.panel = first_class;
+        current_chat.user_id = first_class.getAttribute("data-user-id");
+        current_chat.course_id = first_class.getAttribute("data-id")
+        current_chat.course_name = first_class.getAttribute("data-course");
+        current_chat.user_name = first_class.getAttribute("data-user-name")
+
+        fetch_messages(name, token);
+        get_notification(name);
+
+    }
+}
+pageLoad("group", "get_group_messages")
+pageLoad("private", "get_private_messages")
+//end
+
+//disable the button when is empty and on the page load
+function chat_textArea(name) {
+    $("." + name + "_chat_submit_button").removeClass("btn-primary");
+    $("." + name + "_chat_submit_button").addClass("btn-disable");
+
+    $("." + name + "_chat_textarea").on('keyup keydown keypres', e => {
+
+        var value = $("." + name + "_chat_textarea").val();
+        current_chat.message = value;
+        if (value.trim().length == 0) {
+
+            $("." + name + "_chat_submit_button").removeClass("btn-primary");
+            $("." + name + "_chat_submit_button").addClass("btn-disable");
+
+        } else {
+            $("." + name + "_chat_submit_button").removeClass("btn-disable");
+            $("." + name + "_chat_submit_button").addClass("btn-primary");
+
+        }
+
+    })
+}
+chat_textArea("group")
+chat_textArea("private")
+//use to update the chat input and enable or disable the user_button
+//end
+
+
+///sending message
+function send_message(name, url, token) {
+
+    $("." + name + "_chat_submit_button").click(e => {
+        //alert("send")
+        var current_URL = window.location.href.toLowerCase();
+        // alert(current_URL);
+        //if the current url is contain the run it
+        if (current_URL.includes(url)) {
+            var message = $("." + name + "_chat_textarea").val();
+            if (message.trim().length == 0) return false;// stop excuting when dont have any text
+
+            //clear input
+            $("." + name + "_chat_textarea").val("");
+            //disable the button
+            $("." + name + "_chat_submit_button").removeClass("btn-primary");
+            $("." + name + "_chat_submit_button").addClass("btn-disable");
+
+            $.post(url,
+                {
+                    "user_name": current_chat.user_name,
+                    "course_id": current_chat.course_id,
+                    "user_id": current_chat.user_id,
+                    "time": new Date().toString(),
+                    "message": message
+                }, (data, status) => {
+                    console.log(data)
+                    console.log(status)
+                    fetch_messages(name, token);
+                    get_notification(name);
+
+                });
+
+        }
+    })
+}
+send_message("group", "student-project-chat", "get_group_messages")
+
+send_message("group", "student-group-view", "get_group_messages")
+
+send_message("private", "student-chat-view", "get_private_messages")
+//for the lecturer
+send_message("group", "lecturer-group-view", "get_group_messages")
+//send_message("private", "lecturer-chat-view", "get_private_messages")
+// this is where we send the messages  -> 
+send_message("private", "lecture-private-chat", "get_private_messages")
+
+
+
+function update_pooling_chat(name, token, time = 7000) {
+
+    if ($('.' + name + '_chat_user').length > 0) {
+        setInterval(() => {
+            get_notification(name);
+            fetch_messages(name, token);
+        }, time)
+    }
+}
+update_pooling_chat("group", "get_group_messages");// update only group chat
+update_pooling_chat("private", "get_private_messages"); // update only group chat
+

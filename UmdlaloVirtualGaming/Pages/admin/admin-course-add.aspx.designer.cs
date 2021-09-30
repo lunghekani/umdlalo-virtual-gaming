@@ -15,50 +15,57 @@ namespace UmdlaloVirtualGaming.Pages.admin
     {
 
         /// <summary>
-        /// txt_course_name control.
+        /// txtCourseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_course_name;
+        protected global::System.Web.UI.WebControls.TextBox txtCourseName;
 
         /// <summary>
-        /// txt_course_code control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_course_code;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// txt_description control.
+        /// txtCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_description;
+        protected global::System.Web.UI.WebControls.TextBox txtCode;
 
         /// <summary>
-        /// Start control.
+        /// txtStartTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Start;
+        protected global::System.Web.UI.WebControls.TextBox txtStartTime;
 
         /// <summary>
-        /// End control.
+        /// txtEndTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        /// 
+        protected global::System.Web.UI.WebControls.TextBox txtEndTime;
 
+        /// <summary>
+        /// checkVisible control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox checkVisible;
 
         /// <summary>
@@ -68,6 +75,6 @@ namespace UmdlaloVirtualGaming.Pages.admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl End;
+        protected global::System.Web.UI.WebControls.Button btnCreate;
     }
 }

@@ -30,8 +30,7 @@ namespace UmdlaloVirtualGaming.Pages.student
             {
                 //return JSON   
                 Response.ContentType = "application/json; charset=utf-8";
-                // undone this line gives an error
-                //Response.Write("{'likes':" + project.getLikes(project_id) + "}");
+               // Response.Write("{'likes':" + project.getLikes(project_id) + "}");
                 Response.End();
 
             }
