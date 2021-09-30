@@ -73,15 +73,5 @@
             </div>
         </div>
     </div>
- <div class="card-footer">
-  <div class="row">
-   <div class="col-lg-3"></div>
-   <div class="col-lg-6">
-    <button type="reset" class="btn btn-success mr-2">Submit</button>
-    <button type="reset" class="btn btn-secondary">Cancel</button>
-   </div>
-  </div>
- </div>
-</form>
-
+ 
 </asp:Content>
