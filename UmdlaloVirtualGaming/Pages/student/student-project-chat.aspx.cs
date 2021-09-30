@@ -16,16 +16,20 @@ namespace UmdlaloVirtualGaming.Pages.student
         public object user_name;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+            //redirect to the main page
+            if (clsSmallItemsHandler.SessionIdIsSet == false) Response.Redirect("/");
+            //end
+
+
             clsAuthentication authclass = new clsAuthentication();
             clsProjects projects = new clsProjects();
 
             var id = Request.QueryString["id"]==null?"" : Request.QueryString["id"];
             var decoded_id = authclass.DecryptString(id);
 
-            //redirect to the main page
-            //if (clsSmallItemsHandler.SessionIdIsSet == false) Response.Redirect("/");
-            //end
-
+           
 
             //var session = HttpContext.Current.Session["user_id"];
             //clsPrivateChat privateChat = new clsPrivateChat(session);

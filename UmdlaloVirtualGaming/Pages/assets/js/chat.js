@@ -317,7 +317,7 @@ function send_message(name, url, token) {
         }
     })
 }
-send_message("group", "student-project-chat", "get_group_messages")
+send_message("group", "student-project-chat", "get_comment_messages")
 
 send_message("group", "student-group-view", "get_group_messages")
 

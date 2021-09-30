@@ -1200,6 +1200,13 @@ namespace Business_Logic
         public Dictionary<string, string> current_project_chats(string decoded_id)
         {
             Dictionary<string, string> course_list = new Dictionary<string, string>();
+            if (decoded_id.Trim().Length == 0) return course_list;
+            //is a numer
+            int num;
+            var isNumber = int.TryParse(decoded_id.Trim(), out num);
+            if(isNumber==false) return course_list;
+            //end
+
             ///course names
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
@@ -1223,11 +1230,39 @@ namespace Business_Logic
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 var str =
-                    $"INSERT INTO umdlalo_lms.comments_clone(project_id,user_id,message,time,name) VALUES({project_id},'{user_id}','{message}','{time}','{name}')";
+                    $"INSERT INTO umdlalo_lms.comments_clone(project_id,user_id,message,time,user_name) VALUES('{project_id}','{user_id}','{message}','{time}','{name}')";
                  var cmd = new MySqlCommand(str, objConn);
                 cmd.ExecuteNonQuery();
 
                
+            }
+        }
+
+        public object FetchMesssges(string project_id, string messageLimit)
+        {
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //create notification when fetch messages
+                //CreateNotification(course_code);
+
+                var ListOfMessages = new List<object>();
+
+                var cmd = new MySqlCommand($"SELECT * FROM   umdlalo_lms.comments_clone WHERE project_id= '{project_id}' ",
+                    objConn);
+                var sqlReader = cmd.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    var name = sqlReader.GetString("user_name");
+                    var user_id = sqlReader.GetString("user_id");
+
+                    var time = sqlReader.GetString("time");
+                    var message = sqlReader.GetString("message");
+                    ListOfMessages.Add(new { user_name = name, user_id = user_id, message = message, time = time });
+                }
+
+                sqlReader.Close();
+                return ListOfMessages;
             }
         }
     }

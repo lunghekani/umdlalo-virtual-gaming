@@ -25,6 +25,7 @@ namespace UmdlaloVirtualGaming.Pages.student
             clsGroupChat groupChat = new clsGroupChat(session);///group chat
 
             clsPrivateChat privateChat = new clsPrivateChat(session);//private
+            clsProjects projects = new clsProjects();
 
 
             var javaScriptSerializer = new JavaScriptSerializer();
@@ -54,6 +55,23 @@ namespace UmdlaloVirtualGaming.Pages.student
             { 
                 
                 var messages = groupChat.FetchMesssges(course_id, messageLimit);
+                //OBJECT -> JSON
+                string myObjectJson = javaScriptSerializer.Serialize(messages);
+                //return JSON   
+                Response.Clear();
+                Response.ContentType = "application/json; charset=utf-8";
+                Response.Write(myObjectJson);
+                Response.End();
+            }
+
+            else if (token == "get_comment_messages")
+            {
+
+                clsAuthentication authclass = new clsAuthentication();
+
+                var project_id = course_id;
+
+                var messages = projects.FetchMesssges(project_id, messageLimit);
                 //OBJECT -> JSON
                 string myObjectJson = javaScriptSerializer.Serialize(messages);
                 //return JSON   
