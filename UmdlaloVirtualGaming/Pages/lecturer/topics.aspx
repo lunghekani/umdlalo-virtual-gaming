@@ -169,6 +169,9 @@
                             <asp:Button CommandName="View" runat="server"  Class="btn btn-primary  fa" 
                                         Text="&#xf06e;" CommandArgument="<%# Container.DataItemIndex %>" UseSubmitBehavior="false"
                                         data-toggle="tooltip" data-placement="top" title="View"/>
+                            <asp:Button CommandName="Edit" runat="server"  Class="btn btn-primary  fa" 
+                                        Text="&#xf044;" CommandArgument="<%# Container.DataItemIndex %>" UseSubmitBehavior="false"
+                                        data-toggle="tooltip" data-placement="top" title="Edit"/>
                                                     
                         </ItemTemplate>
                     </asp:TemplateField>

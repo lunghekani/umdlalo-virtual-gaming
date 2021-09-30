@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="row">
         <div class="col-lg-12">
             <!--begin::Forms Widget 8-->
@@ -126,6 +127,8 @@
                     <!--end::Top-->
                     <!--begin::Bottom-->
                     <div class="pt-3">
+                        <div id="test" runat="server" ClientIDMode="Static"></div>
+                        <div id="test2" runat="server" ClientIDMode="Static"></div>
                         <!--begin::Text-->
                         <p class="text-dark-75 font-size-lg font-weight-normal pt-5 mb-2">The HTML <code>"<"canvas>" </code>element is displayed as a rectangular object on a web page:</p>
                         <!--end::Text-->
