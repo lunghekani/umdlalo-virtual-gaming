@@ -21,7 +21,7 @@
                         <!--end::Svg Icon-->
                     </span>
                 </span>
-                <h3 class="card-label">Row Details</h3>
+                <h3 class="card-label">Courses Available</h3>
             </div>
             <div class="card-toolbar">
                 <!--begin::Dropdown-->
