@@ -17,7 +17,7 @@ namespace UmdlaloVirtualGaming.Pages.student
             //undone there is an error and exception on this variable 
           //  var session = clsSmallItemsHandler.GetSessionId;
 
-            clsAuthentication.clsProjects project = new clsAuthentication.clsProjects();
+            clsProjects project = new clsProjects();
 
             if (type == "send-likes")
             {
