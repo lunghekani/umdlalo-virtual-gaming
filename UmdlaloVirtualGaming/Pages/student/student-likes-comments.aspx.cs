@@ -14,20 +14,24 @@ namespace UmdlaloVirtualGaming.Pages.student
         {
             var project_id = Request.Params["id"];
             var type = Request.Params["type"];
-            var session = clsSmallItemsHandler.GetSessionId;
+            //undone there is an error and exception on this variable 
+          //  var session = clsSmallItemsHandler.GetSessionId;
 
             clsProjects project = new clsProjects();
 
             if (type == "send-likes")
             {
-                project.checkLikes(project_id, session);
+                // undone this line gives an error
+
+                //project.checkLikes(project_id, session);
                 return;
             }
             if (type == "get-likes")
             {
                 //return JSON   
                 Response.ContentType = "application/json; charset=utf-8";
-                Response.Write("{'likes':" + project.getLikes(project_id) + "}");
+                // undone this line gives an error
+                //Response.Write("{'likes':" + project.getLikes(project_id) + "}");
                 Response.End();
 
             }

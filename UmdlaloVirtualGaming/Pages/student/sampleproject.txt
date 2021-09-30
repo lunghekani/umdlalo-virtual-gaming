@@ -91,7 +91,7 @@
 															</svg>
 															<!--end::Svg Icon-->
 														</span>
-														<a href="#" class="font-weight-bolder text-primary ml-2" >#projectComments# Comments</a>
+														<a href="student-project-chat?id=#projectID#" class="font-weight-bolder text-primary ml-2" >#projectComments# Comments</a>
 													</div>
 														<div class="d-flex align-items-center mr-7">
 														<span class="svg-icon svg-icon-gray-500">
