@@ -30,16 +30,16 @@ namespace UmdlaloVirtualGaming.Pages.student
             //var session = HttpContext.Current.Session["user_id"];
             //clsPrivateChat privateChat = new clsPrivateChat(session);
 
-            //if (Request.Params["user_id"] != null)
-            //{
-            //    var name = Request.Params["user_name"];
-            //    var user_id = Request.Params["user_id"];
-            //    var course_id = Request.Params["course_id"];
-            //    var time = Request.Params["time"].ToString().Replace("_", " ");
-            //    var message = Request.Params["message"];
+            if (Request.Params["user_id"] != null)
+            {
+                var name = Request.Params["user_name"];
+                var user_id = Request.Params["user_id"];
+                var course_id = Request.Params["course_id"];
+                var time = Request.Params["time"].ToString().Replace("_", " ");
+                var message = Request.Params["message"];
 
-            //    privateChat.InsertMessage(name, user_id, course_id, time, message);
-            //}
+                //privateChat.InsertMessage(name, user_id, course_id, time, message);
+            }
 
             course_list = projects.current_project_chats(decoded_id);
             //user_id = HttpContext.Current.Session["user_id"];
