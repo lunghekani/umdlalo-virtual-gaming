@@ -1217,6 +1217,19 @@ namespace Business_Logic
             return course_list;
         }
 
+        public void InsertMessage(string name, string user_id, string project_id, string time, string message)
+        {
+
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var str =
+                    $"INSERT INTO umdlalo_lms.comments_clone(project_id,user_id,message,time,name) VALUES({project_id},'{user_id}','{message}','{time}','{name}')";
+                 var cmd = new MySqlCommand(str, objConn);
+                cmd.ExecuteNonQuery();
+
+               
+            }
+        }
     }
     public class clsCommunicate
     {
