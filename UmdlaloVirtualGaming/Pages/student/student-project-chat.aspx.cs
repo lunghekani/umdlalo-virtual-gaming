@@ -41,7 +41,8 @@ namespace UmdlaloVirtualGaming.Pages.student
             //    privateChat.InsertMessage(name, user_id, course_id, time, message);
             //}
 
-            course_list = projects.current_project_chats(decoded_id);
+            // undone there is an error on the line below
+          //  course_list = projects.current_project_chats(decoded_id);
             //user_id = HttpContext.Current.Session["user_id"];
             //user_name = HttpContext.Current.Session["user_name"];
 

@@ -190,39 +190,7 @@ namespace Business_Logic
 
     }
 
-    public DataTable GetStudents(int userId)
-        {
-            var dt = new DataTable();
-
-            var conn = objConn.CreateSQLConnection();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = "Students_Get";
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            MySqlDataReader sqlReader = cmd.ExecuteReader();
-            try
-            {
-                if (sqlReader.HasRows)
-                {
-                dt.Load(sqlReader);
-                }
-            }
-            catch (Exception ex)
-            {
-                dt.Rows.Add(ex.Message);
-            }
-            finally
-            {
-                sqlReader.Close();
-                cmd.Connection.Close();
-            }
-
-            return dt;
-         }
-
-
-    public class clsUserDetails
+   public class clsUserDetails
     {
         private clsAuthentication authclass = new clsAuthentication();
         private clsDataConnection objConn = new clsDataConnection();
@@ -310,7 +278,38 @@ namespace Business_Logic
             }
 
         }
+        public DataTable GetStudents(int userId)
+        {
+            var dt = new DataTable();
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Students_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    dt.Load(sqlReader);
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt;
+        }
     }
+   
 
     public class clsCourseOperations
     {
@@ -567,7 +566,7 @@ namespace Business_Logic
             {
                 if (sqlReader.HasRows)
                 {
-                   dt.Load(sqlReader);
+                    dt.Load(sqlReader);
                 }
             }
             catch (Exception ex)
@@ -619,7 +618,7 @@ namespace Business_Logic
         public DataTable GetTopicContent(int topicId)
         {
             var dt = new DataTable();
-            
+
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -633,7 +632,7 @@ namespace Business_Logic
                 if (sqlReader.HasRows)
                 {
                     dt.Load(sqlReader);
-                    
+
                 }
 
                 return dt;
@@ -649,7 +648,7 @@ namespace Business_Logic
                 cmd.Connection.Close();
             }
 
-            
+
         }
 
         public string UpdateContent(int topicId)
@@ -817,7 +816,7 @@ namespace Business_Logic
             {
                 if (sqlReader.HasRows)
                 {
-                  dt.Load(sqlReader);
+                    dt.Load(sqlReader);
                 }
             }
             catch (Exception ex)
@@ -1093,12 +1092,9 @@ namespace Business_Logic
 
         }
 
-            }
 
-            return count;
-        }
 
-        public void checkLikes(object project_id , object user_id)
+        public void checkLikes(object project_id, object user_id)
         {
             //not logged in
             if (clsSmallItemsHandler.SessionIdIsSet == false) return;
@@ -1176,10 +1172,10 @@ namespace Business_Logic
         }
     }
 
-   public class clsSmallItemsHandler
+    public class clsSmallItemsHandler
     {
         private MySqlCommand cmd;
-        
+
         //get the user role
         public string User_Role(object user_id)
         {
@@ -1192,13 +1188,13 @@ namespace Business_Logic
                 while (sqlReader.Read())
                 {
                     var role = sqlReader.GetValue(0).ToString();
-                   value=role;
+                    value = role;
                 }
 
                 //end user name
                 sqlReader.Close();
             }
-            return value.ToLower() ;
+            return value.ToLower();
         }
         //session helper
         public static bool SessionIdIsSet => HttpContext.Current.Session["user_id"] == null ? false : true;
@@ -1211,8 +1207,8 @@ namespace Business_Logic
                 cmd = new MySqlCommand(
                  $"SELECT Uid FROM umdlalo_lms.Course WHERE  Code='{course_code}'  LIMIT 1 ",
                  objConn);
-                
-               var  sqlReader = cmd.ExecuteReader();
+
+                var sqlReader = cmd.ExecuteReader();
                 while (sqlReader.Read())
                 {
                     value = sqlReader.GetValue(0).ToString();
@@ -1229,14 +1225,14 @@ namespace Business_Logic
             var value = "";
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
-               cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.course WHERE Code='{course_code}'  LIMIT 1", objConn);
+                cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.course WHERE Code='{course_code}'  LIMIT 1", objConn);
                 var sqlReader = cmd.ExecuteReader();
 
                 while (sqlReader.Read())
                 {
-                    value= sqlReader.GetValue(0).ToString();
+                    value = sqlReader.GetValue(0).ToString();
 
-                   
+
                 }
 
                 sqlReader.Close();
@@ -1266,7 +1262,7 @@ namespace Business_Logic
             return value;
         }
 
-        public void SendEmail(string to_email,string message,string course_name)
+        public void SendEmail(string to_email, string message, string course_name)
         {
 
 
@@ -1277,7 +1273,7 @@ namespace Business_Logic
             mail.Subject = $"New Message From  {course_name}";
             mail.Body = $"{message}";
 
-     
+
 
             SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential("api.noreplay.test@gmail.com", "api.noreplay@12");
@@ -1455,24 +1451,24 @@ namespace Business_Logic
                 }
 
                 //set the current user notification to 0
-               // resetNotification(course_code);
+                // resetNotification(course_code);
             }
         }
 
-        public List<object> FetchMesssges(object course_code, object messagesLimit, string current_chat_id ="")
+        public List<object> FetchMesssges(object course_code, object messagesLimit, string current_chat_id = "")
         {
 
 
             clsSmallItemsHandler item = new clsSmallItemsHandler();
 
             var type = item.User_Role(HttpContext.Current.Session["user_id"]) == "student";
-   
+
 
 
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 //create notification when fetch messages
-               // CreateNotification(course_code);
+                // CreateNotification(course_code);
 
                 var ListOfMessages = new List<object>();
 
@@ -1491,7 +1487,7 @@ namespace Business_Logic
                    $"(course_code='{course_code}' AND user_id='{user_id}' AND user2_id='{current_chat_id}')  OR  " +
                    $"  (course_code='{course_code}' AND user_id='{current_chat_id}' AND user2_id='{user_id}') ",
                    objConn);
-                  
+
                 }
 
                 sqlReader = cmd.ExecuteReader();
@@ -1517,7 +1513,7 @@ namespace Business_Logic
         /// </summary>
         /// <param name="current_course_code"></param>
         /// <returns></returns>
-     
+
         public List<adminStore> CURRENT_STUDENT_LIST(string current_course_code)
         {
             List<adminStore> studentList = new List<adminStore>();
@@ -1527,12 +1523,12 @@ namespace Business_Logic
                 cmd = new MySqlCommand(
                  $"SELECT ID FROM umdlalo_lms.Course WHERE  Code='{current_course_code}'  LIMIT 1 ",
                  objConn);
-                var course_id= "";
+                var course_id = "";
                 sqlReader = cmd.ExecuteReader();
                 while (sqlReader.Read())
                 {
                     course_id = sqlReader.GetValue(0).ToString();
-                    
+
                 }
                 sqlReader.Close();
 
@@ -1549,15 +1545,15 @@ namespace Business_Logic
                 sqlReader.Close();
 
 
-               
+
                 foreach (var item in student_ids)
                 {
-                    cmd = new MySqlCommand( $"SELECT * FROM umdlalo_lms.user WHERE ID='{item}'",objConn);
-                    
+                    cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.user WHERE ID='{item}'", objConn);
+
                     sqlReader = cmd.ExecuteReader();
                     while (sqlReader.Read())
                     {
-                     
+
                         var name = sqlReader.GetValue(1).ToString();
                         var admin = new adminStore();
                         admin.course_id = current_course_code;
@@ -1568,18 +1564,18 @@ namespace Business_Logic
                     sqlReader.Close();
                 }
 
-               
+
 
             }
 
-           
+
             return studentList;
         }
 
         public List<adminStore> CURRENT_ADMIN_All_COURSE_ID_AND_NAME()
         {
             var all = new clsGroupChat(user_id);
-           
+
             return all.CURRENT_ADMIN_All_COURSE_ID_AND_NAME();
         }
 
@@ -1636,13 +1632,13 @@ namespace Business_Logic
         }
     }
 
-    
+
     public class clsGroupChat
     {
         private MySqlCommand cmd;
         private MySqlDataReader sqlReader;
 
-    
+
         private string user_id;
 
         public clsGroupChat(object user_id)
@@ -1683,7 +1679,7 @@ namespace Business_Logic
                     var cmd = new MySqlCommand(str, objConn);
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
-                   // resetNotification(course_code); //set the current user notification to 0
+                    // resetNotification(course_code); //set the current user notification to 0
                 }
             }
         }
@@ -1777,11 +1773,11 @@ namespace Business_Logic
                 }
 
                 //set the current user notification to 0
-               //resetNotification(course_code);
+                //resetNotification(course_code);
             }
         }
 
-        public List<object> FetchMesssges(object course_code ,object messagesLimit)
+        public List<object> FetchMesssges(object course_code, object messagesLimit)
         {
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
@@ -1889,7 +1885,7 @@ namespace Business_Logic
                     while (sqlReader.Read())
                     {
                         var course_name = sqlReader.GetValue(0).ToString();
-                        var course_code= sqlReader.GetValue(1).ToString();
+                        var course_code = sqlReader.GetValue(1).ToString();
                         course_list[course_code] = course_name;
                     }
 
