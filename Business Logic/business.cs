@@ -315,8 +315,8 @@ namespace Business_Logic
                 return ex.Message;
 
             }
-            finally
-            {
+            finally { 
+            
                 cmd.Connection.Close();
             }
 
@@ -486,13 +486,6 @@ namespace Business_Logic
         {
             var dt = new DataTable();
 
-            dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Description", typeof(string));
-            dt.Columns.Add("Marks", typeof(string));
-            dt.Columns.Add("Disabled", typeof(string));
-
-
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -505,52 +498,7 @@ namespace Business_Logic
             {
                 if (sqlReader.HasRows)
                 {
-                    while (sqlReader.Read())
-                    {
-                        {
-                            int Id = Convert.ToInt32(sqlReader.GetValue(0).ToString());
-                            string name = String.Empty;
-                            if (sqlReader["Name"].Equals(DBNull.Value))
-                            {
-                                name = "-";
-                            }
-                            else
-                            {
-                                name = sqlReader["Name"].ToString();
-                            }
-
-                            string descr = String.Empty;
-                            if (sqlReader["Description"].Equals(DBNull.Value))
-                            {
-                                descr = "No description provided";
-                            }
-                            else
-                            {
-                                descr = sqlReader["Description"].ToString();
-                            }
-
-                            string marks = String.Empty;
-                            if (sqlReader["Marks"].Equals(DBNull.Value))
-                            {
-                                marks = "-";
-                            }
-                            else
-                            {
-                                marks = sqlReader["Marks"].ToString();
-                            }
-
-                            string status = String.Empty;
-                            if (sqlReader["Disabled"].Equals(DBNull.Value))
-                            {
-                                status = "-";
-                            }
-                            else
-                            {
-                                status = sqlReader["Disabled"].ToString();
-                            }
-                            dt.Rows.Add(Id, name, descr, marks, status);
-                        }
-                    }
+                   dt.Load(sqlReader);
                 }
             }
             catch (Exception ex)
@@ -1004,6 +952,72 @@ namespace Business_Logic
 
         }
 
+        public int getLikes(object project_id) {
+
+            var count = 0;
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var cmd = new MySqlCommand(
+                 $" SELECT * FROM umdlalo_lms.likes  WHERE Project_Id='{project_id}'",
+                 objConn);
+
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    count++;
+
+                }
+                sqlReader.Close();
+
+            }
+
+            return count;
+        }
+
+        public void checkLikes(object project_id , object user_id)
+        {
+            //not logged in
+            if (clsSmallItemsHandler.SessionIdIsSet == false) return;
+
+            var value = false;
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var cmd = new MySqlCommand(
+                 $" SELECT * FROM umdlalo_lms.likes  WHERE Project_Id='{project_id}'  AND User_Id='{user_id}' LIMIT 1 ",
+                 objConn);
+
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    value = true;
+
+                }
+                sqlReader.Close();
+
+            }
+
+            if (value == true) return;
+            //inserting like to the likes table
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var str =
+                    $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
+                var cmd = new MySqlCommand(str, objConn);
+                cmd.ExecuteNonQuery();
+            }
+
+            ////inserting like to the likes table
+            //using (var objConn = new clsDataConnection().CreateSQLConnection())
+            //{
+            //    var str =
+            //        $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
+            //    var cmd = new MySqlCommand(str, objConn);
+            //    cmd.ExecuteNonQuery();
+            //}
+
+
+        }
+
     }
     public class clsCommunicate
     {
@@ -1064,6 +1078,7 @@ namespace Business_Logic
         }
         //session helper
         public static bool SessionIdIsSet => HttpContext.Current.Session["user_id"] == null ? false : true;
+        public static object GetSessionId => HttpContext.Current.Session["user_id"];
 
         public string Lecturer_ID(object course_code)
         {

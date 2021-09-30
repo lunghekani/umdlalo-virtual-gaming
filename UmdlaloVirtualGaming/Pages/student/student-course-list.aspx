@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="student-course-list.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.student.student_course_list" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="student-course-list.aspx.cs" EnableEventValidation="false" Inherits="UmdlaloVirtualGaming.Pages.student.student_course_list" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader"> 
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mr-1">
@@ -29,6 +29,34 @@
             <!--end::Toolbar-->
         </div>
     </div>
+<asp:GridView runat="server" ID="gvCourses"
+              CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
+                          
+              Style="text-align: center; word-wrap: break-word; " AllowPaging="True"
+              OnPageIndexChanging="gvCourses_PageIndexChanging"
+              OnRowCommand="gvCourses_OnRowCommand"
+              AlternatingRowStyle-BorderWidth="0px"
+              align-content="center"
+              DataKeyNames="ID">
+                          
+    <AlternatingRowStyle BorderWidth="0px" CssClass="bottomBorder"></AlternatingRowStyle>
+    <Columns  >
+        <asp:TemplateField >
+            <HeaderTemplate>
+                Action      
+            </HeaderTemplate>
+                                                
+            <ItemTemplate >
+                <asp:Button CommandName="View" runat="server"  Class="btn btn-primary  fa" 
+                            Text="&#xf06e;" CommandArgument="<%# Container.DataItemIndex %>" 
+                            data-toggle="tooltip" data-placement="top" title="View"/>
+                                                    
+            </ItemTemplate>
+        </asp:TemplateField>
+                                    
+    </Columns>
+
+</asp:GridView>
     <div class="row">
         <div class="col-4">
             <div class="card card-custom gutter-b">

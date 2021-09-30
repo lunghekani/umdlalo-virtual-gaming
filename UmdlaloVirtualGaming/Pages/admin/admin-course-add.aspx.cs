@@ -20,7 +20,7 @@ namespace UmdlaloVirtualGaming.Pages.admin
         {
 
         }
-        /*protected void btnSubmit_Onclick(object sender, EventArgs e)
+        protected void btnSubmit_Onclick(object sender, EventArgs e)
         {
 
             string name = txt_course_name.Text.ToString().Trim();
@@ -49,6 +49,6 @@ namespace UmdlaloVirtualGaming.Pages.admin
             }
         }*/
 
-        
+
     }
 }
