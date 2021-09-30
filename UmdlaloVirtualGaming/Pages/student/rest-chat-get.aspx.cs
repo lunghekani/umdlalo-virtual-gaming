@@ -67,10 +67,9 @@ namespace UmdlaloVirtualGaming.Pages.student
             else if (token == "get_comment_messages")
             {
 
-                clsAuthentication authclass = new clsAuthentication();
+                
 
                 var project_id = course_id;
-
                 var messages = projects.FetchMesssges(project_id, messageLimit);
                 //OBJECT -> JSON
                 string myObjectJson = javaScriptSerializer.Serialize(messages);

@@ -228,7 +228,12 @@ function change_user_chat(name, token) {
     })
 }
 change_user_chat("group", "get_group_messages")
+change_user_chat("group", "get_group_messages")
 change_user_chat("private", "get_private_messages")
+change_user_chat("private", "get_comment_messages")
+
+
+
 //end"
 
 
@@ -250,6 +255,7 @@ function pageLoad(name, token) {
     }
 }
 pageLoad("group", "get_group_messages")
+pageLoad("group", "get_comment_messages")
 pageLoad("private", "get_private_messages")
 //end
 
@@ -339,6 +345,7 @@ function update_pooling_chat(name, token, time = 7000) {
         }, time)
     }
 }
+update_pooling_chat("group", "get_comment_messages");// update only group chat
 update_pooling_chat("group", "get_group_messages");// update only group chat
 update_pooling_chat("private", "get_private_messages"); // update only group chat
 

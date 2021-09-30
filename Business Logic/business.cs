@@ -1257,11 +1257,11 @@ namespace Business_Logic
 
         public void InsertMessage(string name, string user_id, string project_id, string time, string message)
         {
-
+            var user_name = clsSmallItemsHandler.User_Name(user_id);
             using (var objConn = new clsDataConnection().CreateSQLConnection())
             {
                 var str =
-                    $"INSERT INTO umdlalo_lms.comments_clone(project_id,user_id,message,time,user_name) VALUES('{project_id}','{user_id}','{message}','{time}','{name}')";
+                    $"INSERT INTO umdlalo_lms.comments_clone(project_id,user_id,message,time,user_name) VALUES('{project_id}','{user_id}','{message}','{time}','{user_name}')";
                  var cmd = new MySqlCommand(str, objConn);
                 cmd.ExecuteNonQuery();
 
@@ -1344,8 +1344,28 @@ namespace Business_Logic
         {
             private MySqlCommand cmd;
 
-            //get the user role
-            public string User_Role(object user_id)
+        public static string User_Name(object user_id)
+        {
+            var value = "";
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                //get user name
+               var  cmd = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{user_id}' LIMIT 1", objConn);
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    var role = sqlReader.GetValue(0).ToString();
+                    value = role;
+                }
+
+                //end user name
+                sqlReader.Close();
+            }
+            return value.ToLower();
+        }
+
+        //get the user role
+        public string User_Role(object user_id)
             {
                 var value = "";
                 using (var objConn = new clsDataConnection().CreateSQLConnection())
