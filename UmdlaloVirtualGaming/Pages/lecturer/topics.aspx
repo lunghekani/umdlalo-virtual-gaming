@@ -67,7 +67,7 @@
                 </div>
                 <!--end::Dropdown-->
                 <!--begin::Button-->
-                <a href="topics.aspx" class="btn btn-primary font-weight-bolder">
+                <a href="topic-create.aspx" class="btn btn-primary font-weight-bolder">
                     <i class="la la-plus"></i>Add Topic</a>
                 <!--end::Button-->
             </div>
