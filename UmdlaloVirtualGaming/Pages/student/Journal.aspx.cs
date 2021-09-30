@@ -7,11 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace UmdlaloVirtualGaming.Pages.student
 {
-    public partial class student_journal_view : System.Web.UI.Page
+    public partial class Journal : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 }

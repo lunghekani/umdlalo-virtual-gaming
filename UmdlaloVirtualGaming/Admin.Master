@@ -185,18 +185,7 @@
 
 												</a>
 											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="/Pages/admin/admin-course-edit.aspx" class="menu-link">
-													<i class="menu-bullet menu-bullet-line">
-														<span></span>
-													</i>
-													<span class="menu-text">Edit Course</span>
-													<span class="menu-label">
-														<span class="label label-danger label-inline">new</span>
-													</span>
-
-												</a>
-											</li>
+										
 										</ul>
 									</div>
 
