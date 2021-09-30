@@ -559,6 +559,37 @@ namespace Business_Logic
 
             }
 
+            public DataTable CreateAssessment(int topicId)
+            {
+                var dt = new DataTable();
+
+                var conn = objConn.CreateSQLConnection();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "Assessment_Create";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlDataReader sqlReader = cmd.ExecuteReader();
+                try
+                {
+                    if (sqlReader.HasRows)
+                    {
+                        dt.Load(sqlReader);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dt.Rows.Add(ex.Message);
+                }
+                finally
+                {
+                    sqlReader.Close();
+                    cmd.Connection.Close();
+                }
+
+                return dt;
+            }
+
             public string UpdateTopic(string name, string descr, string Uid, int marks, int disabledInt)
             {
                 var cmd = new MySqlCommand();
