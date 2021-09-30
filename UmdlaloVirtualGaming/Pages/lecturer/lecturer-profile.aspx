@@ -1,9 +1,8 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="lecture-profile-edit.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.lecturer.lecture_profile_edit" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Lecturer.Master" AutoEventWireup="true" CodeBehind="lecturer-profile.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.lecturer.lecturer_profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class= "row">
+    <div class= "row">
                 <div class= "col">   <div class="card card-custom gutter-b">
                 <!--begin::Body-->
                 <div class="card-body">

@@ -2286,6 +2286,7 @@
     <Content Include="Pages\lecturer\lecturer-course-add.aspx" />
     <Content Include="Pages\lecturer\lecturer-dashboard.aspx" />
     <Content Include="Pages\lecturer\lecturer-group-view.aspx" />
+    <Content Include="Pages\lecturer\lecturer-profile.aspx" />
     <Content Include="Pages\lecturer\lecturer-projects-list.aspx" />
     <Content Include="Pages\lecturer\lecturer-student-list.aspx" />
     <Content Include="Pages\lecturer\topic-create.aspx" />
@@ -2299,6 +2300,7 @@
     <Content Include="Pages\student\class.aspx" />
     <Content Include="Pages\student\code.aspx" />
     <Content Include="Pages\student\HtmlPage1.html" />
+    <Content Include="Pages\student\Journal.aspx" />
     <Content Include="Pages\student\personal-projects.aspx" />
     <Content Include="Pages\student\rest-chat-get.aspx" />
     <Content Include="Pages\student\sampleproject.txt" />
@@ -2310,7 +2312,6 @@
     <Content Include="Pages\student\student-course-list.aspx" />
     <Content Include="Pages\student\student-dashboard.aspx" />
     <Content Include="Pages\student\student-group-view.aspx" />
-    <Content Include="Pages\student\student-journal-view.aspx" />
     <Content Include="Pages\student\student-likes-comments.aspx" />
     <Content Include="Pages\student\student-marks-view.aspx" />
     <Content Include="Pages\student\student-profile-edit.aspx" />
@@ -2585,6 +2586,13 @@
     <Compile Include="Pages\lecturer\lecturer-group-view.aspx.designer.cs">
       <DependentUpon>lecturer-group-view.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\lecturer\lecturer-profile.aspx.cs">
+      <DependentUpon>lecturer-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\lecturer\lecturer-profile.aspx.designer.cs">
+      <DependentUpon>lecturer-profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\lecturer\lecturer-projects-list.aspx.cs">
       <DependentUpon>lecturer-projects-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2655,6 +2663,13 @@
     <Compile Include="Pages\student\code.aspx.designer.cs">
       <DependentUpon>code.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\student\Journal.aspx.cs">
+      <DependentUpon>Journal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\Journal.aspx.designer.cs">
+      <DependentUpon>Journal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\student\personal-projects.aspx.cs">
       <DependentUpon>personal-projects.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2717,13 +2732,6 @@
     </Compile>
     <Compile Include="Pages\student\student-group-view.aspx.designer.cs">
       <DependentUpon>student-group-view.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\student\student-journal-view.aspx.cs">
-      <DependentUpon>student-journal-view.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\student\student-journal-view.aspx.designer.cs">
-      <DependentUpon>student-journal-view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\student-likes-comments.aspx.cs">
       <DependentUpon>student-likes-comments.aspx</DependentUpon>

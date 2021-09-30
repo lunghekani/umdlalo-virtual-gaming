@@ -7,21 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UmdlaloVirtualGaming.Pages.lecturer
+namespace UmdlaloVirtualGaming.Pages.student
 {
 
 
-    public partial class content_creator
+    public partial class Journal
     {
 
         /// <summary>
-        /// txtTest control.
+        /// txtStartTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtTest;
+        protected global::System.Web.UI.WebControls.TextBox txtStartTime;
+
+        /// <summary>
+        /// txtContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtContent;
 
         /// <summary>
         /// btnSubmit control.

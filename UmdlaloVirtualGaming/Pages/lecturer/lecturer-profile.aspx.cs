@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace UmdlaloVirtualGaming.Pages.student
+namespace UmdlaloVirtualGaming.Pages.lecturer
 {
-    public partial class student_journal_view : System.Web.UI.Page
+    public partial class lecturer_profile : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
