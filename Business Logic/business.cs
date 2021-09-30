@@ -16,6 +16,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Windows.Forms;
+using Microsoft.SqlServer.Server;
 using static Business_Logic.clsGroupChat;
 
 namespace Business_Logic
@@ -513,6 +514,42 @@ namespace Business_Logic
             }
 
         }
+        public string UpdateTopic(string name, string descr, string Uid, int marks, int disabledInt)
+        {
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Topic_Update";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Name_In", name);
+            cmd.Parameters.AddWithValue("@Descr_In", descr);
+            cmd.Parameters.AddWithValue("@Marks_In", marks);
+            cmd.Parameters.AddWithValue("@Uid", Uid);
+            cmd.Parameters.AddWithValue("@Disabled_In", disabledInt);
+
+
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                return ex.Message;
+
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+        }
 
         public DataTable GetTopics(int courseId)
         {
@@ -521,9 +558,9 @@ namespace Business_Logic
             var conn = objConn.CreateSQLConnection();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "Topic_Get";
+            cmd.CommandText = "Topics_Per_Course_Get";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("CourseId_in", courseId);
+            cmd.Parameters.AddWithValue("Course_ID_IN", courseId);
 
             MySqlDataReader sqlReader = cmd.ExecuteReader();
             try
@@ -544,6 +581,39 @@ namespace Business_Logic
             }
 
             return dt;
+        }
+
+        public DataTable GetTopic(int topicId)
+        {
+            var dt = new DataTable();
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "Topic_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("topicId", topicId);
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    dt.Load(sqlReader);
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt;
+
         }
 
         public DataTable GetTopicContent(int topicId)
@@ -580,6 +650,45 @@ namespace Business_Logic
             }
 
             
+        }
+
+        public string UpdateContent(int topicId)
+        {
+            //todo finsih the parameters for this procedure on both ends
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Topic_Update";
+            cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.AddWithValue("@Name_In", name);
+            //cmd.Parameters.AddWithValue("@Descr_In", descr);
+            //cmd.Parameters.AddWithValue("@Marks_In", marks);
+            //cmd.Parameters.AddWithValue("@Uid", Uid);
+            //cmd.Parameters.AddWithValue("@Disabled_In", disabledInt);
+
+
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                return ex.Message;
+
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+
         }
 
     }
