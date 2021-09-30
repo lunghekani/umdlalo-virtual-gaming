@@ -571,7 +571,7 @@
 				<!--begin::Nav-->
 				<div class="navi navi-spacer-x-0 p-0">
 					<!--begin::Item-->
-					<a href="lecture-profile-edit.aspx" class="navi-item">
+					<a href="lecturer-profile.aspx" class="navi-item">
 						<div class="navi-link">
 							<div class="symbol symbol-40 bg-light mr-3">
 								<div class="symbol-label">
