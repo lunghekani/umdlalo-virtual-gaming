@@ -199,7 +199,7 @@ namespace Business_Logic
         }
 
 
-    public DataTable GetStudents(int userId)
+        public DataTable GetStudents(int userId)
         {
             var dt = new DataTable();
 
@@ -214,7 +214,7 @@ namespace Business_Logic
             {
                 if (sqlReader.HasRows)
                 {
-                dt.Load(sqlReader);
+                    dt.Load(sqlReader);
                 }
             }
             catch (Exception ex)
@@ -228,9 +228,9 @@ namespace Business_Logic
             }
 
             return dt;
-         }
+        }
 
-
+    }
     public class clsUserDetails
         {
             private clsAuthentication authclass = new clsAuthentication();
@@ -738,462 +738,461 @@ namespace Business_Logic
 
         }
 
-        public class clsProjects
+    public class clsProjects
+    {
+        public string lastProjectInsert;
+
+        //Start: Project creation command
+        public string CreateProject(string proj_Name, string htmlCode, string cssCode, string jsCode,
+            int visibility, string User_id)
         {
-            public string lastProjectInsert;
+            //using (var objConn = new clsDataConnection().CreateSQLConnection())
+            //{
+            //    var cmd_session = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{User_id}' LIMIT 1", objConn);
+            //    var sqlReader = cmd_session.ExecuteReader();
+            //    while (sqlReader.Read())
+            //    {
+            //        var name = sqlReader.GetValue(0).ToString();
+            //        HttpContext.Current.Session["user_name"] = User_id;
+            //    }
+            //}
+            // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
 
-            //Start: Project creation command
-            public string CreateProject(string proj_Name, string htmlCode, string cssCode, string jsCode,
-                int visibility, string User_id)
+            var objConn = new clsDataConnection();
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Projects_Create";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@User_ID_IN", User_id);
+            cmd.Parameters.AddWithValue("@Name_IN", proj_Name);
+            cmd.Parameters.AddWithValue("@HTML_IN", htmlCode);
+            cmd.Parameters.AddWithValue("@CSS_IN", cssCode);
+            cmd.Parameters.AddWithValue("@JS_IN", jsCode);
+            cmd.Parameters.AddWithValue("@Enabled_IN", visibility);
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
             {
-                //using (var objConn = new clsDataConnection().CreateSQLConnection())
-                //{
-                //    var cmd_session = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{User_id}' LIMIT 1", objConn);
-                //    var sqlReader = cmd_session.ExecuteReader();
-                //    while (sqlReader.Read())
-                //    {
-                //        var name = sqlReader.GetValue(0).ToString();
-                //        HttpContext.Current.Session["user_name"] = User_id;
-                //    }
-                //}
-                // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
-
-                var objConn = new clsDataConnection();
-                var cmd = new MySqlCommand();
-                cmd.Connection = objConn.CreateSQLConnection();
-
-                cmd.CommandText = "Projects_Create";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@User_ID_IN", User_id);
-                cmd.Parameters.AddWithValue("@Name_IN", proj_Name);
-                cmd.Parameters.AddWithValue("@HTML_IN", htmlCode);
-                cmd.Parameters.AddWithValue("@CSS_IN", cssCode);
-                cmd.Parameters.AddWithValue("@JS_IN", jsCode);
-                cmd.Parameters.AddWithValue("@Enabled_IN", visibility);
-                MySqlTransaction myTrans;
-
-                myTrans = cmd.Connection.BeginTransaction();
-                cmd.Transaction = myTrans;
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                    myTrans.Commit();
-                    MySqlDataReader sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-
-                        lastProjectInsert = sqlReader.GetValue(0).ToString();
-
-                    }
-
-                    return "Success";
-                }
-                catch (Exception ex)
-                {
-                    myTrans.Rollback();
-                    return ex.Message;
-
-                }
-            }
-
-            //End of project creation command
-
-
-            //Start of Comment creation command
-            public string CreateComment(int Project_ID, string User_ID, string Comment)
-            {
-                var objConn = new clsDataConnection();
-                var cmd = new MySqlCommand();
-                cmd.Connection = objConn.CreateSQLConnection();
-
-                cmd.CommandText = "Comment_Create";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@User_ID_IN", User_ID);
-                cmd.Parameters.AddWithValue("@Project_ID_IN", Project_ID);
-                cmd.Parameters.AddWithValue("@Comment_IN", Comment);
-                MySqlTransaction myTrans;
-
-                myTrans = cmd.Connection.BeginTransaction();
-                cmd.Transaction = myTrans;
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                    myTrans.Commit();
-                    MySqlDataReader sqlReader = cmd.ExecuteReader();
-                    while (sqlReader.Read())
-                    {
-
-                        lastProjectInsert = sqlReader.GetValue(0).ToString();
-
-                    }
-
-                    return "Success";
-                }
-                catch (Exception ex)
-                {
-                    myTrans.Rollback();
-                    return ex.Message;
-
-                }
-            }
-
-            public DataTable GetProjectComments(int project_ID)
-            {
-                clsDataConnection objConn = new clsDataConnection();
-                var dt = new DataTable();
-                // Removed this because this gets passed in
-                // HttpContext.Current.Session["user_id"] = User_ID;
-
-
-                dt.Columns.Add("Name", typeof(string));
-
-                dt.Columns.Add("Comments", typeof(string));
-
-                dt.Columns.Add("DateCreated", typeof(DateTime));
-
-
-
-                var conn = objConn.CreateSQLConnection();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = conn;
-                //incorrect procedure name
-                cmd.CommandText = "Comment_Get";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Project_ID_IN", project_ID);
-
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
                 MySqlDataReader sqlReader = cmd.ExecuteReader();
-                try
+                while (sqlReader.Read())
                 {
-                    if (sqlReader.HasRows)
-                    {
-                        dt.Load(sqlReader);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    dt.Rows.Add(ex.Message);
-                }
-                finally
-                {
-                    sqlReader.Close();
-                    cmd.Connection.Close();
+
+                    lastProjectInsert = sqlReader.GetValue(0).ToString();
+
                 }
 
-                return dt; //Forgot to put a curly bracket and a return statement in the code
-
+                return "Success";
             }
-
-            //End: Create Comment
-
-            //Start: Project View command
-
-            public string UpdateProject(string proj_Name, string htmlCode, string cssCode, string jsCode,
-                int visibility, string projectId)
+            catch (Exception ex)
             {
-                //using (var objConn = new clsDataConnection().CreateSQLConnection())
-                //{
-                //    var cmd_session = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{User_id}' LIMIT 1", objConn);
-                //    var sqlReader = cmd_session.ExecuteReader();
-                //    while (sqlReader.Read())
-                //    {
-                //        var name = sqlReader.GetValue(0).ToString();
-                //        HttpContext.Current.Session["user_name"] = User_id;
-                //    }
-                //}
-                // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
-
-                var objConn = new clsDataConnection();
-                var cmd = new MySqlCommand();
-                cmd.Connection = objConn.CreateSQLConnection();
-
-                cmd.CommandText = "Projects_Update";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Project_ID_IN", projectId);
-                cmd.Parameters.AddWithValue("@Name_IN", proj_Name);
-                cmd.Parameters.AddWithValue("@HTML_IN", htmlCode);
-                cmd.Parameters.AddWithValue("@CSS_IN", cssCode);
-                cmd.Parameters.AddWithValue("@JS_IN", jsCode);
-                cmd.Parameters.AddWithValue("@Enabled_IN", visibility);
-                MySqlTransaction myTrans;
-
-                myTrans = cmd.Connection.BeginTransaction();
-                cmd.Transaction = myTrans;
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                    myTrans.Commit();
-                    MySqlDataReader sqlReader = cmd.ExecuteReader();
-
-                    return "Success";
-                }
-                catch (Exception ex)
-                {
-                    myTrans.Rollback();
-                    return ex.Message;
-
-                }
-            }
-
-            public DataTable View_Project(int projectId)
-            {
-                //public DataTable View_Project(int User_ID) - was here before
-                //this should take in a project ID because we are viewing a project
-                clsDataConnection objConn = new clsDataConnection();
-                var dt = new DataTable();
-                // Removed this because this gets passed in
-                // HttpContext.Current.Session["user_id"] = User_ID;
-
-                dt.Columns.Add("Id", typeof(int));
-                dt.Columns.Add("Name", typeof(string));
-                dt.Columns.Add("Creator", typeof(string));
-                dt.Columns.Add("Likes", typeof(string));
-                dt.Columns.Add("Comments", typeof(string));
-                dt.Columns.Add("Views", typeof(string));
-                dt.Columns.Add("Description", typeof(string));
-                dt.Columns.Add("HTML", typeof(string));
-                dt.Columns.Add("HTMLLines", typeof(string));
-                dt.Columns.Add("JS", typeof(string));
-                dt.Columns.Add("JSSLines", typeof(string));
-                dt.Columns.Add("CSS", typeof(string));
-                dt.Columns.Add("CSSLines", typeof(string));
-                dt.Columns.Add("UserID", typeof(string));
-                dt.Columns.Add("DateCreated", typeof(DateTime));
-                dt.Columns.Add("Enabled", typeof(int));
-
-
-                var conn = objConn.CreateSQLConnection();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = conn;
-                //incorrect procedure name
-                cmd.CommandText = "Projects_Get";
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("Project_ID_IN", projectId);
-
-                MySqlDataReader sqlReader = cmd.ExecuteReader();
-                try
-                {
-                    if (sqlReader.HasRows)
-                    {
-                        while (sqlReader.Read())
-                        {
-
-
-                            int Id = Convert.ToInt32(sqlReader.GetValue(0));
-                            string name = sqlReader.GetValue(1).ToString();
-                            string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
-                            string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
-                            string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
-                            string descr = sqlReader.GetValue(5).ToString();
-                            string HTML = sqlReader.GetValue(6).ToString();
-                            string htmlLines = HTML.Split('\n').Length.ToString("##,###");
-                            string CSS = sqlReader.GetValue(7).ToString();
-                            string cssLines = CSS.Split('\n').Length.ToString("##,###");
-                            string JSS = sqlReader.GetValue(8).ToString();
-                            string jsLines = JSS.Split('\n').Length.ToString("##,###");
-                            string datecreated = sqlReader.GetValue(9).ToString();
-                            int enabled = Convert.ToInt32(sqlReader.GetValue(10));
-                            string userId = sqlReader.GetValue(11).ToString();
-                            string creator = sqlReader.GetValue(12).ToString();
-                            dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, htmlLines, JSS, jsLines,
-                                CSS, cssLines, userId, datecreated, enabled);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    dt.Rows.Add(ex.Message);
-                }
-                finally
-                {
-                    sqlReader.Close();
-                }
-
-                return dt; //Forgot to put a curly bracket and a return statement in the code
-            }
-
-            public DataTable GetAllProjects()
-            {
-                clsDataConnection objConn = new clsDataConnection();
-                var dt = new DataTable();
-                // Removed this because this gets passed in
-                // HttpContext.Current.Session["user_id"] = User_ID;
-
-                dt.Columns.Add("Id", typeof(int));
-                dt.Columns.Add("Name", typeof(string));
-                dt.Columns.Add("Creator", typeof(string));
-                dt.Columns.Add("Likes", typeof(string));
-                dt.Columns.Add("Comments", typeof(string));
-                dt.Columns.Add("Views", typeof(string));
-                dt.Columns.Add("Description", typeof(string));
-                dt.Columns.Add("HTMLLines", typeof(string));
-                dt.Columns.Add("JSSLines", typeof(string));
-                dt.Columns.Add("CSSLines", typeof(string));
-                dt.Columns.Add("DateCreated", typeof(DateTime));
-                dt.Columns.Add("Enabled", typeof(int));
-
-
-                var conn = objConn.CreateSQLConnection();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = conn;
-                //incorrect procedure name
-                cmd.CommandText = "E_Sports_Get";
-                cmd.CommandType = CommandType.StoredProcedure;
-
-
-                MySqlDataReader sqlReader = cmd.ExecuteReader();
-                try
-                {
-                    if (sqlReader.HasRows)
-                    {
-                        while (sqlReader.Read())
-                        {
-
-                            int Id = Convert.ToInt32(sqlReader.GetValue(0));
-                            string name = sqlReader.GetValue(1).ToString();
-                            string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
-                            string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
-                            string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
-                            string descr = sqlReader.GetValue(5).ToString();
-                            string HTML = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
-                            string CSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
-                            string JSS = sqlReader.GetValue(8).ToString().Split('\n').Length.ToString("##,###");
-                            string datecreated = sqlReader.GetValue(9).ToString();
-                            int enabled = Convert.ToInt32(sqlReader.GetValue(10));
-                            string creator = sqlReader.GetValue(12).ToString();
-                            dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, JSS, CSS, datecreated,
-                                enabled);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    dt.Rows.Add(ex.Message);
-                }
-                finally
-                {
-                    sqlReader.Close();
-                    cmd.Connection.Close();
-                }
-
-                return dt; //Forgot to put a curly bracket and a return statement in the code
-
+                myTrans.Rollback();
+                return ex.Message;
 
             }
-
-            public DataTable GetAllUserProjects(string userId)
-            {
-                clsDataConnection objConn = new clsDataConnection();
-                var dt = new DataTable();
-                // Removed this because this gets passed in
-                // HttpContext.Current.Session["user_id"] = User_ID;
-                dt.Columns.Add("Id", typeof(int));
-                dt.Columns.Add("Name", typeof(string));
-                dt.Columns.Add("Creator", typeof(string));
-                dt.Columns.Add("Likes", typeof(string));
-                dt.Columns.Add("Comments", typeof(string));
-                dt.Columns.Add("Views", typeof(string));
-                dt.Columns.Add("Description", typeof(string));
-                dt.Columns.Add("HTMLLines", typeof(string));
-                dt.Columns.Add("JSSLines", typeof(string));
-                dt.Columns.Add("CSSLines", typeof(string));
-                dt.Columns.Add("DateCreated", typeof(DateTime));
-                dt.Columns.Add("Enabled", typeof(int));
-
-                var conn = objConn.CreateSQLConnection();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = conn;
-                //incorrect procedure name
-                cmd.CommandText = "Personal_Projects_Get";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@userID", userId);
-
-                MySqlDataReader sqlReader = cmd.ExecuteReader();
-                try
-                {
-                    if (sqlReader.HasRows)
-                    {
-                        while (sqlReader.Read())
-                        {
-
-                            int Id = Convert.ToInt32(sqlReader.GetValue(0));
-                            string name = sqlReader.GetValue(1).ToString();
-                            string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
-                            string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
-                            string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
-                            string descr = sqlReader.GetValue(5).ToString();
-                            string HTML = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
-                            string CSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
-                            string JSS = sqlReader.GetValue(8).ToString().Split('\n').Length.ToString("##,###");
-                            string datecreated = sqlReader.GetValue(9).ToString();
-                            int enabled = Convert.ToInt32(sqlReader.GetValue(10));
-                            string creator = sqlReader.GetValue(12).ToString();
-                            dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, JSS, CSS, datecreated,
-                                enabled);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    dt.Rows.Add(ex.Message);
-                }
-                finally
-                {
-                    sqlReader.Close();
-                    cmd.Connection.Close();
-                }
-
-                return dt; //Forgot to put a curly bracket and a return statement in the code
-
-
-            }
-
-            }
-
-            return count;
         }
 
-            public void checkLikes(object project_id, object user_id)
+        //End of project creation command
+
+
+        //Start of Comment creation command
+        public string CreateComment(int Project_ID, string User_ID, string Comment)
+        {
+            var objConn = new clsDataConnection();
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Comment_Create";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@User_ID_IN", User_ID);
+            cmd.Parameters.AddWithValue("@Project_ID_IN", Project_ID);
+            cmd.Parameters.AddWithValue("@Comment_IN", Comment);
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
             {
-                //not logged in
-                if (clsSmallItemsHandler.SessionIdIsSet == false) return;
-
-                var value = false;
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                MySqlDataReader sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
                 {
-                    var cmd = new MySqlCommand(
-                        $" SELECT * FROM umdlalo_lms.likes  WHERE Project_Id='{project_id}'  AND User_Id='{user_id}' LIMIT 1 ",
-                        objConn);
 
-                    var sqlReader = cmd.ExecuteReader();
+                    lastProjectInsert = sqlReader.GetValue(0).ToString();
+
+                }
+
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                return ex.Message;
+
+            }
+        }
+
+        public DataTable GetProjectComments(int project_ID)
+        {
+            clsDataConnection objConn = new clsDataConnection();
+            var dt = new DataTable();
+            // Removed this because this gets passed in
+            // HttpContext.Current.Session["user_id"] = User_ID;
+
+
+            dt.Columns.Add("Name", typeof(string));
+
+            dt.Columns.Add("Comments", typeof(string));
+
+            dt.Columns.Add("DateCreated", typeof(DateTime));
+
+
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            //incorrect procedure name
+            cmd.CommandText = "Comment_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("Project_ID_IN", project_ID);
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    dt.Load(sqlReader);
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt; //Forgot to put a curly bracket and a return statement in the code
+
+        }
+
+        //End: Create Comment
+
+        //Start: Project View command
+
+        public string UpdateProject(string proj_Name, string htmlCode, string cssCode, string jsCode,
+            int visibility, string projectId)
+        {
+            //using (var objConn = new clsDataConnection().CreateSQLConnection())
+            //{
+            //    var cmd_session = new MySqlCommand($"SELECT Name FROM umdlalo_lms.user WHERE ID='{User_id}' LIMIT 1", objConn);
+            //    var sqlReader = cmd_session.ExecuteReader();
+            //    while (sqlReader.Read())
+            //    {
+            //        var name = sqlReader.GetValue(0).ToString();
+            //        HttpContext.Current.Session["user_name"] = User_id;
+            //    }
+            //}
+            // Use the following to get the user ID it gets created when the user logs in Session["user_id"].ToString()
+
+            var objConn = new clsDataConnection();
+            var cmd = new MySqlCommand();
+            cmd.Connection = objConn.CreateSQLConnection();
+
+            cmd.CommandText = "Projects_Update";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Project_ID_IN", projectId);
+            cmd.Parameters.AddWithValue("@Name_IN", proj_Name);
+            cmd.Parameters.AddWithValue("@HTML_IN", htmlCode);
+            cmd.Parameters.AddWithValue("@CSS_IN", cssCode);
+            cmd.Parameters.AddWithValue("@JS_IN", jsCode);
+            cmd.Parameters.AddWithValue("@Enabled_IN", visibility);
+            MySqlTransaction myTrans;
+
+            myTrans = cmd.Connection.BeginTransaction();
+            cmd.Transaction = myTrans;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                MySqlDataReader sqlReader = cmd.ExecuteReader();
+
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                myTrans.Rollback();
+                return ex.Message;
+
+            }
+        }
+
+        public DataTable View_Project(int projectId)
+        {
+            //public DataTable View_Project(int User_ID) - was here before
+            //this should take in a project ID because we are viewing a project
+            clsDataConnection objConn = new clsDataConnection();
+            var dt = new DataTable();
+            // Removed this because this gets passed in
+            // HttpContext.Current.Session["user_id"] = User_ID;
+
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Creator", typeof(string));
+            dt.Columns.Add("Likes", typeof(string));
+            dt.Columns.Add("Comments", typeof(string));
+            dt.Columns.Add("Views", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("HTML", typeof(string));
+            dt.Columns.Add("HTMLLines", typeof(string));
+            dt.Columns.Add("JS", typeof(string));
+            dt.Columns.Add("JSSLines", typeof(string));
+            dt.Columns.Add("CSS", typeof(string));
+            dt.Columns.Add("CSSLines", typeof(string));
+            dt.Columns.Add("UserID", typeof(string));
+            dt.Columns.Add("DateCreated", typeof(DateTime));
+            dt.Columns.Add("Enabled", typeof(int));
+
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            //incorrect procedure name
+            cmd.CommandText = "Projects_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("Project_ID_IN", projectId);
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
                     while (sqlReader.Read())
                     {
-                        value = true;
 
+
+                        int Id = Convert.ToInt32(sqlReader.GetValue(0));
+                        string name = sqlReader.GetValue(1).ToString();
+                        string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
+                        string descr = sqlReader.GetValue(5).ToString();
+                        string HTML = sqlReader.GetValue(6).ToString();
+                        string htmlLines = HTML.Split('\n').Length.ToString("##,###");
+                        string CSS = sqlReader.GetValue(7).ToString();
+                        string cssLines = CSS.Split('\n').Length.ToString("##,###");
+                        string JSS = sqlReader.GetValue(8).ToString();
+                        string jsLines = JSS.Split('\n').Length.ToString("##,###");
+                        string datecreated = sqlReader.GetValue(9).ToString();
+                        int enabled = Convert.ToInt32(sqlReader.GetValue(10));
+                        string userId = sqlReader.GetValue(11).ToString();
+                        string creator = sqlReader.GetValue(12).ToString();
+                        dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, htmlLines, JSS, jsLines,
+                            CSS, cssLines, userId, datecreated, enabled);
                     }
-
-                    sqlReader.Close();
-
                 }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+            }
 
-                if (value == true) return;
-                //inserting like to the likes table
-                using (var objConn = new clsDataConnection().CreateSQLConnection())
+            return dt; //Forgot to put a curly bracket and a return statement in the code
+        }
+
+        public DataTable GetAllProjects()
+        {
+            clsDataConnection objConn = new clsDataConnection();
+            var dt = new DataTable();
+            // Removed this because this gets passed in
+            // HttpContext.Current.Session["user_id"] = User_ID;
+
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Creator", typeof(string));
+            dt.Columns.Add("Likes", typeof(string));
+            dt.Columns.Add("Comments", typeof(string));
+            dt.Columns.Add("Views", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("HTMLLines", typeof(string));
+            dt.Columns.Add("JSSLines", typeof(string));
+            dt.Columns.Add("CSSLines", typeof(string));
+            dt.Columns.Add("DateCreated", typeof(DateTime));
+            dt.Columns.Add("Enabled", typeof(int));
+
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            //incorrect procedure name
+            cmd.CommandText = "E_Sports_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
                 {
-                    var str =
-                        $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
-                    var cmd = new MySqlCommand(str, objConn);
-                    cmd.ExecuteNonQuery();
+                    while (sqlReader.Read())
+                    {
+
+                        int Id = Convert.ToInt32(sqlReader.GetValue(0));
+                        string name = sqlReader.GetValue(1).ToString();
+                        string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
+                        string descr = sqlReader.GetValue(5).ToString();
+                        string HTML = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
+                        string CSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
+                        string JSS = sqlReader.GetValue(8).ToString().Split('\n').Length.ToString("##,###");
+                        string datecreated = sqlReader.GetValue(9).ToString();
+                        int enabled = Convert.ToInt32(sqlReader.GetValue(10));
+                        string creator = sqlReader.GetValue(12).ToString();
+                        dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, JSS, CSS, datecreated,
+                            enabled);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt; //Forgot to put a curly bracket and a return statement in the code
+
+
+        }
+
+        public DataTable GetAllUserProjects(string userId)
+        {
+            clsDataConnection objConn = new clsDataConnection();
+            var dt = new DataTable();
+            // Removed this because this gets passed in
+            // HttpContext.Current.Session["user_id"] = User_ID;
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Creator", typeof(string));
+            dt.Columns.Add("Likes", typeof(string));
+            dt.Columns.Add("Comments", typeof(string));
+            dt.Columns.Add("Views", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("HTMLLines", typeof(string));
+            dt.Columns.Add("JSSLines", typeof(string));
+            dt.Columns.Add("CSSLines", typeof(string));
+            dt.Columns.Add("DateCreated", typeof(DateTime));
+            dt.Columns.Add("Enabled", typeof(int));
+
+            var conn = objConn.CreateSQLConnection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            //incorrect procedure name
+            cmd.CommandText = "Personal_Projects_Get";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@userID", userId);
+
+            MySqlDataReader sqlReader = cmd.ExecuteReader();
+            try
+            {
+                if (sqlReader.HasRows)
+                {
+                    while (sqlReader.Read())
+                    {
+
+                        int Id = Convert.ToInt32(sqlReader.GetValue(0));
+                        string name = sqlReader.GetValue(1).ToString();
+                        string likes = Convert.ToInt32(sqlReader.GetValue(2)).ToString("##,###");
+                        string comments = Convert.ToInt32(sqlReader.GetValue(3)).ToString("##,###");
+                        string views = Convert.ToInt32(sqlReader.GetValue(4)).ToString("##,###");
+                        string descr = sqlReader.GetValue(5).ToString();
+                        string HTML = sqlReader.GetValue(6).ToString().Split('\n').Length.ToString("##,###");
+                        string CSS = sqlReader.GetValue(7).ToString().Split('\n').Length.ToString("##,###");
+                        string JSS = sqlReader.GetValue(8).ToString().Split('\n').Length.ToString("##,###");
+                        string datecreated = sqlReader.GetValue(9).ToString();
+                        int enabled = Convert.ToInt32(sqlReader.GetValue(10));
+                        string creator = sqlReader.GetValue(12).ToString();
+                        dt.Rows.Add(Id, name, creator, likes, comments, views, descr, HTML, JSS, CSS, datecreated,
+                            enabled);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                dt.Rows.Add(ex.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Connection.Close();
+            }
+
+            return dt; //Forgot to put a curly bracket and a return statement in the code
+
+
+        }
+
+
+
+
+
+        public void checkLikes(object project_id, object user_id)
+        {
+            //not logged in
+            if (clsSmallItemsHandler.SessionIdIsSet == false) return;
+
+            var value = false;
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var cmd = new MySqlCommand(
+                    $" SELECT * FROM umdlalo_lms.likes  WHERE Project_Id='{project_id}'  AND User_Id='{user_id}' LIMIT 1 ",
+                    objConn);
+
+                var sqlReader = cmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                    value = true;
+
                 }
 
-                ////inserting like to the likes table
-                //using (var objConn = new clsDataConnection().CreateSQLConnection())
-                //{
-                //    var str =
-                //        $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
-                //    var cmd = new MySqlCommand(str, objConn);
-                //    cmd.ExecuteNonQuery();
-                //}
+                sqlReader.Close();
+
+            }
+
+            if (value == true) return;
+            //inserting like to the likes table
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var str =
+                    $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
+                var cmd = new MySqlCommand(str, objConn);
+                cmd.ExecuteNonQuery();
+            }
+
+            ////inserting like to the likes table
+            //using (var objConn = new clsDataConnection().CreateSQLConnection())
+            //{
+            //    var str =
+            //        $"INSERT INTO  umdlalo_lms.likes(Project_Id,User_Id) VALUES('{project_id}', '{user_id}')";
+            //    var cmd = new MySqlCommand(str, objConn);
+            //    cmd.ExecuteNonQuery();
+            //}
 
 
         }
@@ -1214,6 +1213,8 @@ namespace Business_Logic
                     course_list[course_code] = course_name;
                 }
 
+            }
+            return course_list;
         }
 
     }
@@ -1258,7 +1259,7 @@ namespace Business_Logic
                     true);
 
             }
-        }
+     }
 
         public class clsSmallItemsHandler
         {
