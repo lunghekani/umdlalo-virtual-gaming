@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
 using static Business_Logic.clsGroupChat;
 
+
 namespace Business_Logic
 {
     // This is a comment to show how git works
@@ -188,9 +189,9 @@ namespace Business_Logic
             return encryptString;
         }
 
-    }
 
-    public DataTable GetStudents(int userId)
+
+        public DataTable GetStudents(int userId)
         {
             var dt = new DataTable();
 
@@ -205,7 +206,7 @@ namespace Business_Logic
             {
                 if (sqlReader.HasRows)
                 {
-                dt.Load(sqlReader);
+                    dt.Load(sqlReader);
                 }
             }
             catch (Exception ex)
@@ -219,9 +220,9 @@ namespace Business_Logic
             }
 
             return dt;
-         }
+        }
 
-
+    }
     public class clsUserDetails
     {
         private clsAuthentication authclass = new clsAuthentication();
@@ -1093,10 +1094,8 @@ namespace Business_Logic
 
         }
 
-            }
-
-            return count;
-        }
+         
+        
 
         public void checkLikes(object project_id , object user_id)
         {
@@ -1142,6 +1141,27 @@ namespace Business_Logic
 
         }
 
+        public Dictionary<string, string> current_project_chats(string decoded_id)
+        {
+            Dictionary<string, string> course_list = new Dictionary<string, string>();
+            ///course names
+            using (var objConn = new clsDataConnection().CreateSQLConnection())
+            {
+                var cmd = new MySqlCommand($"SELECT Name,ID  FROM umdlalo_lms.projects WHERE ID={decoded_id}", objConn);
+                var sqlReader = cmd.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    var course_name = sqlReader.GetValue(0).ToString();
+                    var course_code = sqlReader.GetValue(1).ToString();
+                    course_list[course_code] = course_name;
+                }
+
+                sqlReader.Close();
+            }
+
+            return course_list;
+        }
     }
     public class clsCommunicate
     {
@@ -1202,6 +1222,7 @@ namespace Business_Logic
         }
         //session helper
         public static bool SessionIdIsSet => HttpContext.Current.Session["user_id"] == null ? false : true;
+        public static object GetSessionId => HttpContext.Current.Session["user_id"];
 
         public string Lecturer_ID(object course_code)
         {
@@ -1636,7 +1657,6 @@ namespace Business_Logic
         }
     }
 
-    
     public class clsGroupChat
     {
         private MySqlCommand cmd;
