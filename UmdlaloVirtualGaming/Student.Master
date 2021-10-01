@@ -1,4 +1,4 @@
-﻿chat<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Student.master.cs" Inherits="UmdlaloVirtualGaming.Student" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Student.master.cs" Inherits="UmdlaloVirtualGaming.Student" %>
 
 <!DOCTYPE html>
 
