@@ -30,33 +30,6 @@
 							</span>
 						</div>
 						<!--end::Symbol-->
-						<div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-								<!--begin::Info-->
-								<div class="d-flex align-items-center flex-wrap mr-1">
-									<!--begin::Page Heading-->
-									<div class="d-flex align-items-baseline flex-wrap mr-5">
-										<!--begin::Page Title-->
-										<h5 class="text-dark font-weight-bold my-1 mr-5">Utilities</h5>
-										<!--end::Page Title-->
-										<!--begin::Breadcrumb-->
-										<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
-											<li class="breadcrumb-item text-muted">
-												<a href="" class="text-muted">Features</a>
-											</li>
-											<li class="breadcrumb-item text-muted">
-												<a href="" class="text-muted">Custom</a>
-											</li>
-											<li class="breadcrumb-item text-muted">
-												<a href="" class="text-muted">Utilities</a>
-											</li>
-										</ul>
-										<!--end::Breadcrumb-->
-									</div>
-									<!--end::Page Heading-->
-								</div>
-								<!--end::Info-->
-							
-							</div>
                 </div>
 						<!--begin::Info-->
 						<div class="d-flex flex-column flex-grow-1">
@@ -122,8 +95,9 @@
 															<span class="pt-7 d-block">Mr. Liam</span>
 						</p>
 						<!--end::Description-->
+
 						<!--begin::Action-->
-						<a href="#" class="btn btn-hover-text-primary btn-hover-icon-primary btn-sm btn-text-dark-50 bg-hover-light-primary rounded font-weight-bolder font-size-sm p-2">
+						<%--<a href="#" class="btn btn-hover-text-primary btn-hover-icon-primary btn-sm btn-text-dark-50 bg-hover-light-primary rounded font-weight-bolder font-size-sm p-2">
 							<span class="svg-icon svg-icon-md svg-icon-dark-25 pr-2">
 								<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group-chat.svg-->
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -150,7 +124,7 @@
 							</span>
 						</div>
 					</form>
-					<!--edit::Editor-->
+					<!--edit::Editor-->--%>
 				</div>
 				<!--end::Body-->
 			</div>
@@ -215,64 +189,7 @@
 							</div>
 						</div>
 						<!--end::Info-->
-						<!--begin::Dropdown-->
-						<div class="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-							<a href="#" class="btn btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="ki ki-bold-more-hor"></i>
-							</a>
-							<div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
-								<!--begin::Navigation-->
-								<ul class="navi navi-hover">
-									<li class="navi-header font-weight-bold py-4">
-										<span class="font-size-lg">Choose Label:</span>
-										<i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
-									</li>
-									<li class="navi-separator mb-3 opacity-70"></li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-success">Customer</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-danger">Partner</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-warning">Suplier</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-primary">Member</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-text">
-												<span class="label label-xl label-inline label-light-dark">Staff</span>
-											</span>
-										</a>
-									</li>
-									<li class="navi-separator mt-3 opacity-70"></li>
-									<li class="navi-footer py-4">
-										<a class="btn btn-clean font-weight-bold btn-sm" href="#">
-											<i class="ki ki-plus icon-sm"></i>Add new</a>
-									</li>
-								</ul>
-								<!--end::Navigation-->
-							</div>
-						</div>
-						<!--end::Dropdown-->
+						
 					</div>
 					<!--end::Top-->
 					<!--begin::Bottom-->
@@ -287,7 +204,7 @@
 						</div>
 						<!--end::Video-->
 						<!--begin::Action-->
-						<a href="#" class="btn btn-hover-text-primary btn-hover-icon-primary btn-sm btn-text-dark-50 bg-hover-light-primary rounded font-weight-bolder font-size-sm p-2 mt-7">
+						<%--<a href="#" class="btn btn-hover-text-primary btn-hover-icon-primary btn-sm btn-text-dark-50 bg-hover-light-primary rounded font-weight-bolder font-size-sm p-2 mt-7">
 							<span class="svg-icon svg-icon-md svg-icon-dark-25 pr-2">
 								<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group-chat.svg-->
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -298,7 +215,7 @@
 									</g>
 								</svg>
 								<!--end::Svg Icon-->
-							</span>268 Comments</a>
+							</span>268 Comments</a>--%>
 						<!--end::Action-->
 					</div>
 					<!--end::Bottom-->
@@ -306,14 +223,14 @@
 					<div class="separator separator-solid mt-5 mb-4"></div>
 					<!--end::Separator-->
 					<!--begin::Editor-->
-					<form class="position-relative">
+					<%--<form class="position-relative">
 						<textarea id="kt_forms_widget_9_input" class="form-control border-0 p-0 pr-10 resize-none" rows="1" placeholder="Any Question?" style="overflow: hidden; overflow-wrap: break-word; height: 18px;"></textarea>
 						<div class="position-absolute top-0 right-0 mt-n1 mr-n2">
 							<span class="btn btn-icon btn-sm btn-hover-icon-primary">
 								<i class="flaticon2-clip-symbol icon-ms"></i>
 							</span>
 						</div>
-					</form>
+					</form>--%>
 					<!--edit::Editor-->
 				</div>
 				<!--end::Body-->
