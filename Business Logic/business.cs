@@ -2176,7 +2176,31 @@ namespace Business_Logic
 
                     //Update all notification excpet the current user
                     updateAllNotifications(course_code, time);
+
+                //var full_course_name = item.FullCourseName(course_code);
+                //send the email
+                //item.SendEmail(email, message, $"{full_course_name}({course_code})");
+
+                cmd = new MySqlCommand($"SELECT * FROM umdlalo_lms.group_chat WHERE course_code= '{course_code}' ", objConn);
+                sqlReader = cmd.ExecuteReader();
+                clsSmallItemsHandler item = new clsSmallItemsHandler();
+                var full_course_name= item.Course_Name(course_code);
+                while (sqlReader.Read())
+                {
+                    var users_id = sqlReader.GetString("user_id");
+                    if(users_id!=user_id)
+                    {
+                        var email =item.GetEmail(users_id);
+                        item.SendEmail(email, message, $"{full_course_name}({course_code})");
+                    }
+                    
+                    
                 }
+
+
+
+
             }
+         }
         }
     }
