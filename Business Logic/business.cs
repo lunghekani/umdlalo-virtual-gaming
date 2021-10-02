@@ -352,7 +352,7 @@ namespace Business_Logic
                 return dt;
             }
 
-            public string CreateJournal(string userId, string name, string lastName, string email, int disabled)
+            public string CreateJournal(string userId, string name,string content)
             {
                 var cmd = new MySqlCommand();
                 cmd.Connection = objConn.CreateSQLConnection();
@@ -361,7 +361,7 @@ namespace Business_Logic
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@Name_IN", name);
-                cmd.Parameters.AddWithValue("@Content_In", disabled);
+                cmd.Parameters.AddWithValue("@Content_In", content);
                 cmd.Parameters.AddWithValue("@Uid_In", userId);
 
                 MySqlTransaction myTrans;
@@ -386,7 +386,41 @@ namespace Business_Logic
 
             }
 
-            public DataTable GetJournals(string Uid)
+            public string UpdateJournal(string Id, string name, string content)
+            {
+                var cmd = new MySqlCommand();
+                cmd.Connection = objConn.CreateSQLConnection();
+
+                cmd.CommandText = "Journal_Content_Update";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Name_IN", name);
+                cmd.Parameters.AddWithValue("@Content_In", content);
+                cmd.Parameters.AddWithValue("@Id_In", Id);
+
+                MySqlTransaction myTrans;
+
+                myTrans = cmd.Connection.BeginTransaction();
+                cmd.Transaction = myTrans;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    myTrans.Commit();
+                    cmd.Connection.Close();
+                    return "Success";
+                }
+                catch (Exception ex)
+                {
+                    myTrans.Rollback();
+                    cmd.Connection.Close();
+                    return ex.Message;
+
+                }
+
+            }
+
+        public DataTable GetJournals(string Uid)
             {
             var dt = new DataTable();
 
@@ -418,7 +452,41 @@ namespace Business_Logic
             return dt;
 
         }
-    }
+
+            public DataTable GetJournalEntry(int Id)
+            {
+                var dt = new DataTable();
+
+                var conn = objConn.CreateSQLConnection();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "Journal_Content_Get";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("Id_In", Id);
+
+                MySqlDataReader sqlReader = cmd.ExecuteReader();
+                try
+                {
+                    if (sqlReader.HasRows)
+                    {
+                        dt.Load(sqlReader);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dt.Rows.Add(ex.Message);
+                }
+                finally
+                {
+                    sqlReader.Close();
+                    cmd.Connection.Close();
+                }
+
+                return dt;
+        }
+
+            
+        }
 
 
         public class clsCourseOperations

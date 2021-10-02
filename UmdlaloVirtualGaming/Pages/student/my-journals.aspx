@@ -20,7 +20,7 @@
                         <!--end::Svg Icon-->
                     </span>
                 </span>
-                <h3 class="card-label">Topics</h3>
+                <h3 class="card-label">Journal Entries</h3>
             </div>
           
         </div>
@@ -42,6 +42,7 @@
                               
                             </div>
                             <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
+                            <a href="Journal.aspx" class="btn btn-light-primary px-6 font-weight-bold">Create New Entry</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
@@ -52,9 +53,59 @@
             <!--end::Search Form-->
             <!--end: Search Form-->
             <!--begin: Datatable-->
+            <style>
+                table {
+                    width: 800px;
+                    border-collapse: collapse;
+                    overflow: hidden;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                }
+
+                
+                th,
+                td {
+                    padding: 15px;
+                    background-color: rgba(255,255,255,0.2);
+                    color: black;
+                }
+
+                th {
+                    text-align: left;
+                }
+
+                thead {
+                th {
+                    background-color: #55608f;
+                }
+                }
+
+                tbody {
+                tr {
+                &:hover {
+                     background-color: rgba(255,255,255,0.3);
+                 }
+                }
+                td {
+                    position: relative;
+                &:hover {
+                &:before {
+                     content: "";
+                     position: absolute;
+                     left: 0;
+                     right: 0;
+                     top: -9999px;
+                     bottom: -9999px;
+                     background-color: rgba(255,255,255,0.2);
+                     z-index: -1;
+                 }
+                }
+                }
+                }
+                </style>
             <asp:GridView runat="server" ID="gvJournal" CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
                              
                           Style="text-align: center; word-wrap: break-word; " AllowPaging="True"
+                          AutoGenerateColumns="False"
                           OnPageIndexChanging="gvJournal_OnPageIndexChanging"
                           OnRowCommand="gvJournal_OnRowCommand"
                           AlternatingRowStyle-BorderWidth="0px"
@@ -73,7 +124,10 @@
                                         data-toggle="tooltip" data-placement="top" title="View"/>
                         </ItemTemplate>
                     </asp:TemplateField>
-                                    
+
+                                   <asp:BoundField DataField="ID" HeaderText="ID" Visible="False"/> 
+                                   <asp:BoundField DataField="name" HeaderText="Entry Name"/> 
+                                   <asp:BoundField DataField="Date" HeaderText="Date Recorded"/> 
                 </Columns>
             </asp:GridView>
 

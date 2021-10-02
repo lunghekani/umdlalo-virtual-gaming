@@ -38,8 +38,8 @@ namespace UmdlaloVirtualGaming.Pages.student
             if (e.CommandName == "View")
             {
                 int Id = Convert.ToInt32(e.CommandArgument) + 1;
-                Session["topic_id"] = Id;
-                Response.Redirect("~/Pages/student/journal.aspx?ID=");
+                Session["journal_id"] = Id;
+                Response.Redirect("~/Pages/student/journal.aspx");
             }
         }
     }
