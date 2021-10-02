@@ -221,7 +221,7 @@
 											
 											
 											<li class="menu-item" aria-haspopup="true">
-												<a href="/Pages/admin/admin-course-add.aspx" class="menu-link">
+												<a href="/Pages/admin/admin-student-add.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
