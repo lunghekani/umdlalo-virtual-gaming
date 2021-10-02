@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
  
     <%--Begin Summernote Card--%>
     <div class="row m-0">
@@ -26,7 +27,7 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group row">
-                        <label class="col-form-label text-right col-lg-3 col-sm-12">Start:</label>
+                        <label class="col-form-label text-right col-lg-3 col-sm-12"> Notes:</label>
                         <div class="col-lg-9 col-md-9 col-sm-12">
                             <textarea id="txtContent" runat="server" clientidmode="Static"></textarea>
                         </div>

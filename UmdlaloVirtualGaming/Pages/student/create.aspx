@@ -60,7 +60,7 @@
                     <span class="label label-info label-inline label-xl font-weight-boldest mr-2" id="lblProjectName" style="margin-right: 8px;" runat="server">Project Name Label</span>
                     <div id="divCreator" runat="server">
                         <i class="fa fa-user"></i>
-                        <span class="text-muted font-weight-bold " id="lblProjectCreator" runat="server" style="margin-left: 8px;">James Jones</span>
+                        <span class="text-muted font-weight-bold " id="lblProjectCreator" runat="server" style="margin-left: 8px;">Kagiso Student</span>
                     </div>
                 </div>
                 <!--end::Info-->

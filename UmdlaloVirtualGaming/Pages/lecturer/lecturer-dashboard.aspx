@@ -214,7 +214,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Upload New Course</a>
+														<a href="lecturer-course-add.aspx" class="text-dark text-hover-primary mb-1 font-size-lg">Upload New Course</a>
 													</div>
 													<!--end::Text-->
 												</div>
@@ -240,7 +240,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Upload next Assessment date</a>
+														<a href="lecturer-assessment-add.aspx" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Upload next Assessment date</a>
 													</div>
 													<!--end::Text-->
 												</div>
@@ -266,7 +266,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Mark latest Assessment</a>
+														<a href="lecturer-assessment-list.aspx" class="text-dark text-hover-primary mb-1 font-size-lg">Mark latest Assessment</a>
 													</div>
 													<!--end::Text-->
 												</div>
@@ -294,7 +294,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">View latest Projects</a>
+														<a href="lecturer-projects-list.aspx" class="text-dark text-hover-primary mb-1 font-size-lg">View latest Projects</a>
 													</div>
 													<!--end::Text-->
 												</div>
@@ -321,7 +321,7 @@
 													<!--end::Symbol-->
 													<!--begin::Text-->
 													<div class="d-flex flex-column font-weight-bold">
-														<a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Check for any new chats</a>
+														<a href="lecturer-chat-new.aspx" class="text-dark text-hover-primary mb-1 font-size-lg">Check for any new chats</a>
 													</div>
 													<!--end::Text-->
 												</div>
