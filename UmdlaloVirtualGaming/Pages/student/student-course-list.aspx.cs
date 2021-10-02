@@ -54,27 +54,7 @@ namespace UmdlaloVirtualGaming.Pages.student
         }
 
 
-        protected void BindGridView()
-        {
-
-            DataTable dt = courseclass.GetCourses();
-            gvCourses.DataSource = dt;
-            gvCourses.DataBind();
-        }
-
-        protected void gvCourses_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvCourses.PageIndex = e.NewPageIndex;
-            BindGridView();
-        }
-
-        protected void gvCourses_OnRowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
-            int Id = Convert.ToInt32(e.CommandArgument) + 1;
-            Session["course_id"] = Id;
-            Response.Redirect("course-single.aspx");
-        }
+       
 
     }
 }
