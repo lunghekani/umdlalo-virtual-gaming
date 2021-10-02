@@ -53,7 +53,7 @@
 
 																<div class="d-flex flex-column align-items-end">
 																<span class="text-muted font-weight-bold font-size-sm "  id="group_chat_time<%=item.Key %>"></span>
-																<span class="label label-sm label-light-success " id="group_chat_notification<%=item.Key %>">0</span>
+																<span class="label label-sm label-light-success " id="group_chat_notification<%=item.Key %>"  style="opacity:0;">0</span>
 																</div>
 															</div>
 

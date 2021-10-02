@@ -39,7 +39,7 @@ namespace UmdlaloVirtualGaming.Pages.student
             {
                 int Id = Convert.ToInt32(e.CommandArgument) + 1;
                 Session["topic_id"] = Id;
-                Response.Redirect("~/Pages/student/class.aspx");
+                Response.Redirect("~/Pages/student/class.aspx?ID="+Id);
             }
 
         }

@@ -47,7 +47,7 @@
 
 																<div class="d-flex flex-column align-items-end">
 																<span class="text-muted font-weight-bold font-size-sm "  id="group_chat_time<%=item.course_id %>"></span>
-																<span class="label label-sm label-light-success " id="group_chat_notification<%=item.course_id %>">0</span>
+																<span class="label label-sm label-light-success " id="group_chat_notification<%=item.course_id %>" style="opacity:0;">0</span>
 																</div>
 															</div>
 
