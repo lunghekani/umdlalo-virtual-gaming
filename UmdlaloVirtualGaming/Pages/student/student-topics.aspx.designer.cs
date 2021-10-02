@@ -11,25 +11,16 @@ namespace UmdlaloVirtualGaming.Pages.student
 {
 
 
-    public partial class student_course_list
+    public partial class student_topics
     {
 
         /// <summary>
-        /// gvCourses control.
+        /// gvTopics control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCourses;
-
-        /// <summary>
-        /// courseInstance control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl courseInstance;
+        protected global::System.Web.UI.WebControls.GridView gvTopics;
     }
 }
