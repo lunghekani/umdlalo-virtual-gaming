@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,36 +17,44 @@ namespace UmdlaloVirtualGaming.Pages.student
         public clsCommunicate communicateclass = new clsCommunicate();
         public clsUserDetails userclass = new clsUserDetails();
         public clsProjects projectclass = new clsProjects();
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            string projectlist = "";
+            var dt = courseclass.GetCourses();
+
+
+            foreach (DataRow row in dt.Rows)
             {
-                BindGridView();
+                projectlist += DisplayCourses(row["Id"].ToString(), row["Name"].ToString(),
+                    row["Description"].ToString(), row["Code"].ToString(),
+                     Convert.ToDateTime(row["Start"]),Convert.ToDateTime( row["End"].ToString()), row["Instructor"].ToString(),
+                    row["Email"].ToString());
             }
+
+            courseInstance.InnerHtml = projectlist;
         }
 
-        protected void BindGridView()
+        protected string DisplayCourses(string id, string name, string description, string code, DateTime start,  DateTime end, string instructor, string email)
         {
+            var stream = new StreamReader(Server.MapPath("~/Pages/student/coursecard.txt"));
+            string projectblock = stream.ReadToEnd();
 
-            DataTable dt = courseclass.GetCourses();
-            gvCourses.DataSource = dt;
-            gvCourses.DataBind();
+
+            projectblock = projectblock.Replace("#classId#", id);
+            projectblock = projectblock.Replace("#courseTitle#", name);
+            projectblock = projectblock.Replace("#courseTime#", start.ToString("d") +" - "+ end.ToString("d"));
+            projectblock = projectblock.Replace("#LecturerName#", instructor);
+
+            projectblock = projectblock.Replace("#description#", description);
+            projectblock = projectblock.Replace("#descriptionFull#", description);
+            
+            stream.Close();
+            return projectblock;
         }
 
-        protected void gvCourses_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvCourses.PageIndex = e.NewPageIndex;
-            BindGridView();
-        }
 
-        protected void gvCourses_OnRowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
-            int Id = Convert.ToInt32(e.CommandArgument) + 1;
-            Session["course_id"] = Id;
-            Response.Redirect("course-single.aspx");
-        }
+       
 
     }
 }

@@ -81,26 +81,7 @@
 
                                     </asp:DropDownList>
 
-                                   <%-- <div class="dropdown bootstrap-select form-control">
-                                        <select class="form-control" id="kt_datatable_search_type">
-                                            <option value="">Acitvity </option>
-                                            <option value="1">Description</option>
-                                            <option value="2">Mark</option>
-                                        </select>
-                                        <button type="button" tabindex="-1" class="btn dropdown-toggle btn-light bs-placeholder" data-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox" aria-expanded="false" data-id="kt_datatable_search_type" title="Activity">
-                                            <div class="filter-option">
-                                                <div class="filter-option-inner">
-                                                    <div class="filter-option-inner-inner">Activity</div>
-                                                </div>
-                                            </div>
-                                        </button>
-                                        <div class="dropdown-menu ">
-                                            <div class="inner show" role="listbox" id="bs-select-2" tabindex="-1">
-                                                <ul class="dropdown-menu inner show" role="presentation"></ul>
-                                            </div>
-                                        </div>
-                                    </div>--%>
-                                </div>
+                           </div>
                             </div>
                         </div>
                     </div>

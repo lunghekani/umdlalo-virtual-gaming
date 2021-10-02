@@ -2296,6 +2296,7 @@
     <Content Include="Pages\sample-class-card.txt" />
     <Content Include="Pages\student\commentSample.txt" />
     <Content Include="Pages\student\course-single.aspx" />
+    <Content Include="Pages\student\coursecard.txt" />
     <Content Include="Pages\student\create.aspx" />
     <Content Include="Pages\student\class.aspx" />
     <Content Include="Pages\student\code.aspx" />
@@ -2322,6 +2323,7 @@
     <Content Include="Pages\student\student-task-failed.aspx" />
     <Content Include="Pages\student\student-task-urgent.aspx" />
     <Content Include="Pages\student\student-task-view.aspx" />
+    <Content Include="Pages\student\student-topics.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2462,7 +2464,6 @@
     </Compile>
     <Compile Include="Pages\admin\admin-student-add.aspx.cs">
       <DependentUpon>admin-student-add.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\admin\admin-student-add.aspx.designer.cs">
       <DependentUpon>admin-student-add.aspx</DependentUpon>
@@ -2802,6 +2803,13 @@
     </Compile>
     <Compile Include="Pages\student\student-task-view.aspx.designer.cs">
       <DependentUpon>student-task-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\student-topics.aspx.cs">
+      <DependentUpon>student-topics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\student-topics.aspx.designer.cs">
+      <DependentUpon>student-topics.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

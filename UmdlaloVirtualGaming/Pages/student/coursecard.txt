@@ -1,0 +1,59 @@
+﻿       <div class="col-4">
+            <!--begin::Nav Panel Widget 4-->
+            <div class="card card-custom gutter-b">
+                <!--begin::Body-->
+                <div class="card-body">
+                    <!--begin::Wrapper-->
+                    <div class="d-flex justify-content-between flex-column h-100">
+                        <!--begin::Container-->
+                        <div class="h-100">
+                            <!--begin::Header-->
+                            <div class="d-flex flex-column flex-center">
+                                <!--begin::Image-->
+                                <div class="bgi-no-repeat bgi-size-cover rounded min-h-180px w-100" style="background-image: url(/Pages/assets/media/stock-600x400/james-harrison-vpOeXr5wmR4-unsplash.jpg)"></div>
+                                <!--end::Image-->
+                                <!--begin::Title-->
+                                <div class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="A1" runat="server">#courseTitle#</div>
+                                <!--end::Title-->
+                                <!--begin::Text-->
+                                <div class="font-weight-bold text-dark-50 font-size-md pb-7" data-toggle="popover" data-placement="top" data-content="#descriptionFull#">
+                                <div class="trunc">
+                                <style>
+                                .trunc{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-width: 250px;
+    margin-bottom: -10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:56px;
+}
+                                </style>
+                                #description#
+                                </div>
+                                </div>
+                                <div class="font-weight-bold text-dark-75 text-hover-primary font-size-h6 m-0 pt-7 pb-1">#courseTime#</div>
+                                <div class="font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1"><a href="student-chat-view.aspx">#LecturerName#</a></div>
+                                <!--end::Text-->
+                            </div>
+                            <!--end::Header-->
+                            <!--
+                            <!--begin::Body-->
+                            
+                            <!--end::Body-->
+                            
+                        </div>
+                        <!--eng::Container-->
+                        <!--begin::Footer-->
+                        <div class="d-flex flex-center" id="kt_sticky_toolbar_chat_toggler">
+                          <a class="btn btn-primary font-weight-bolder font-size-sm py-3 px-14" data-target="#kt_chat_modal"  href="student-topics.aspx?ID=#classId#">View Course</a>
+                        </div>
+                        <!--end::Footer-->
+                    </div>
+                    <!--end::Wrapper-->
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::Nav Panel Widget 4-->
+        </div>

@@ -21,7 +21,7 @@
                         </div>
                         <!--end::Symbol-->
                         <!--begin::Username-->
-                        <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="student_fullname" runat="server">Jerry Kane</a>
+                        <a href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1" id="student_fullname" runat="server">Kagiso Student</a>
                         <!--end::Username-->
                         <!--begin::Info-->
                         <div class="font-weight-bold text-dark-50 font-size-sm pb-6">Student</div>
@@ -31,7 +31,7 @@
                     <!--begin::Body-->
                     <div class="pt-1">
                         <!--begin::Text-->
-                        <p class="text-dark-75 font-weight-nirmal font-size-lg m-0 pb-7">Outlines keep you honest. If poorly thought-out metaphors driving or create keep structure</p>
+<%--                        <p class="text-dark-75 font-weight-nirmal font-size-lg m-0 pb-7">Outlines keep you honest. If poorly thought-out metaphors driving or create keep structure</p>--%>
                         <!--end::Text-->
                         <!--begin::Item-->
                         <div class="d-flex align-items-center pb-9">
@@ -56,7 +56,7 @@
                             <!--end::Symbol-->
                             <!--begin::Text-->
                             <div class="d-flex flex-column flex-grow-1">
-                                <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Introduction to HTML 5</a>
+                                <a href="class.aspx" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Introduction to HTML 5</a>
                                 <span class="text-muted font-weight-bold">HTML, Web Design, Web Development</span>
                             </div>
                             <!--end::Text-->
@@ -85,7 +85,7 @@
                             <!--end::Symbol-->
                             <!--begin::Text-->
                             <div class="d-flex flex-column flex-grow-1">
-                                <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Introduction to CSS</a>
+                                <a href="class.aspx" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Introduction to CSS</a>
                                 <span class="text-muted font-weight-bold">CSS, Web Design, UI/UX</span>
                             </div>
                             <!--end::Text-->
@@ -115,7 +115,7 @@
                             <!--end::Symbol-->
                             <!--begin::Text-->
                             <div class="d-flex flex-column flex-grow-1">
-                                <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Introduction to Javascript</a>
+                                <a href="class.aspx" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Introduction to Javascript</a>
                                 <span class="text-muted font-weight-bold">JS, Animation, Web Development</span>
                             </div>
                             <!--end::Text-->
@@ -333,7 +333,7 @@
                                     <input type="text" class="form-control form-control-lg form-control-solid" value="nick.watson@loop.com" placeholder="Email">
                                 </div>
                                 <span class="form-text text-muted">Email will not be publicly displayed.
-																	<a href="#">Learn more</a>.</span>
+																	<%--<a href="#">Learn more</a>.--%></span>
                             </div>
                         </div>
                         
@@ -367,7 +367,7 @@
 																	<a href="#">Learn more</a>.</span>
                             </div>
                         </div>--%>
-                        <div class="form-group row">
+                       <%-- <div class="form-group row">
                             <label class="col-xl-3 col-lg-3 text-right col-form-label"></label>
                             <div class="col-lg-9 col-xl-6">
                                 
@@ -375,7 +375,7 @@
                                     <asp:CheckBox type="button" id="btndisable" runat="server" Text="Deactivate your account ?"></asp:CheckBox>
                                     </label>
                             </div>
-                        </div>
+                        </div>--%>
                     
                 </div>
                 <!--end::Tab Content-->
@@ -451,13 +451,7 @@
                             </div>
                         </div>
                         <div class="separator separator-dashed my-10"></div>
-                        <!--begin::Heading-->
-                        <div class="row">
-                            <div class="col-lg-9 col-xl-6 offset-xl-3">
-                                <h3 class="font-size-h6 mb-5">Updates From Keenthemes:</h3>
-                            </div>
-                        </div>
-                        <!--end::Heading-->
+                       
                   
                 </div>
                 <!--end::Tab Content-->

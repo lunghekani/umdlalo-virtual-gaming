@@ -19,7 +19,11 @@ namespace UmdlaloVirtualGaming.Pages.student
         {
             if (!Page.IsPostBack)
             {
-
+                var id = Request.QueryString["ID"];
+                if (id == null)
+                {
+                    
+                }
             }
         }
     }

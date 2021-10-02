@@ -15,30 +15,30 @@ namespace UmdlaloVirtualGaming.Pages.student
     {
 
         /// <summary>
-        /// lblTopicName control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblTopicName;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lblTitle;
 
         /// <summary>
-        /// lblDescription control.
+        /// lblDescritption control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDescription;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDescritption;
 
         /// <summary>
-        /// dvClassContent control.
+        /// plContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvClassContent;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl plContent;
     }
 }
