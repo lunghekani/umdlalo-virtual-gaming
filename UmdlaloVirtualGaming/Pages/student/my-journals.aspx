@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="student-topics.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.student.student_topics" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="my-journals.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.student.my_journals" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -52,11 +52,11 @@
             <!--end::Search Form-->
             <!--end: Search Form-->
             <!--begin: Datatable-->
-            <asp:GridView runat="server" ID="gvTopics" CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
+            <asp:GridView runat="server" ID="gvJournal" CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
                              
                           Style="text-align: center; word-wrap: break-word; " AllowPaging="True"
-                          OnPageIndexChanging="gvTopics_OnPageIndexChanging"
-                          OnRowCommand="gvTopics_OnRowCommand"
+                          OnPageIndexChanging="gvJournal_OnPageIndexChanging"
+                          OnRowCommand="gvJournal_OnRowCommand"
                           AlternatingRowStyle-BorderWidth="0px"
                           align-content="center"
                           DataKeyNames="ID">

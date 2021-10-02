@@ -2302,6 +2302,7 @@
     <Content Include="Pages\student\code.aspx" />
     <Content Include="Pages\student\HtmlPage1.html" />
     <Content Include="Pages\student\Journal.aspx" />
+    <Content Include="Pages\student\my-journals.aspx" />
     <Content Include="Pages\student\personal-projects.aspx" />
     <Content Include="Pages\student\rest-chat-get.aspx" />
     <Content Include="Pages\student\sampleproject.txt" />
@@ -2670,6 +2671,13 @@
     </Compile>
     <Compile Include="Pages\student\Journal.aspx.designer.cs">
       <DependentUpon>Journal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\my-journals.aspx.cs">
+      <DependentUpon>my-journals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\my-journals.aspx.designer.cs">
+      <DependentUpon>my-journals.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\personal-projects.aspx.cs">
       <DependentUpon>personal-projects.aspx</DependentUpon>

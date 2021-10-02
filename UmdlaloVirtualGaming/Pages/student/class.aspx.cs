@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,10 +20,17 @@ namespace UmdlaloVirtualGaming.Pages.student
         {
             if (!Page.IsPostBack)
             {
-                var id = Request.QueryString["ID"];
+                var id =  Request.QueryString["ID"];
                 if (id == null)
                 {
                     
+                }
+                else
+                {
+                    DataTable dt = courseclass.GetTopicContent(Convert.ToInt32(id));
+                    string content = dt.Rows[0].Field<string>("Structure");
+
+                    PlaceHolder1.Controls.Add(new Literal { Text = content});
                 }
             }
         }
