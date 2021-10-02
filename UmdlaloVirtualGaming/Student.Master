@@ -388,7 +388,7 @@
 												</a>
 											</li>
 
-											<li class="menu-item" aria-haspopup="true">
+											<%--<li class="menu-item" aria-haspopup="true">
 												<a href="student-chat-new.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
@@ -398,7 +398,7 @@
 														<span class="label label-danger label-inline">new</span>
 													</span>
 												</a>
-											</li>
+											</li>--%>
 											<li class="menu-item" aria-haspopup="true">
 												<a href="student-group-view.aspx" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
