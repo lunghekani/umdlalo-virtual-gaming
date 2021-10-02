@@ -12,7 +12,13 @@
                     <h3 class="card-title">Journal
                     </h3>
                 </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 text-right col-form-label">Entry Name:</label>
+                    <div class="col-lg-6">
+                        <asp:TextBox class="form-control" type="text" value="2021-09-06T13:45:00" ID="txtName" runat="server"></asp:TextBox>
 
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label class="col-lg-3 text-right col-form-label">Entry Date and Time:</label>
                     <div class="col-lg-6">
@@ -36,7 +42,7 @@
                     <div class="row">
                         <div class="col-lg-3"></div>
                         <div class="col-lg-9">
-                            <asp:Button runat="server" ID="btnSubmit" CssClass="btn btn-primary mr-2" Text="Submit" />
+                            <asp:Button runat="server" ID="btnSubmit" CssClass="btn btn-primary mr-2" Text="Submit" OnClick="btnSubmit_OnClick" />
                             <button type="submit" class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
