@@ -71,8 +71,6 @@
                             <asp:Button CommandName="View" runat="server"  Class="btn btn-primary  fa" 
                                         Text="&#xf06e;" CommandArgument="<%# Container.DataItemIndex %>" UseSubmitBehavior="false"
                                         data-toggle="tooltip" data-placement="top" title="View"/>
-                        
-                                                    
                         </ItemTemplate>
                     </asp:TemplateField>
                                     
