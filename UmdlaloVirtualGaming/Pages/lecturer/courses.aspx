@@ -152,22 +152,54 @@
             <!--end: Search Form-->
             <!--begin: Datatable-->
             <style>
-                td, th {
-                    display: table-cell;
-                    vertical-align: inherit;
+                table {
+                    width: 800px;
+                    border-collapse: collapse;
+                    overflow: hidden;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
                 }
 
-                .datatable.datatable-default > .datatable-table > .datatable-body .datatable-row > .datatable-cell {
-                    font-weight: regular;
-                    -webkit-transition: background 0.3s ease;
-                    transition: background 0.3s ease;
+                
+                th,
+                td {
+                    padding: 15px;
+                    background-color: rgba(255,255,255,0.2);
+                    color: black;
                 }
 
-                .card {
-                    -webkit-box-direction: normal;
-                    word-wrap: break-word;
+                th {
+                    text-align: left;
                 }
-            </style>
+
+                thead {
+                th {
+                    background-color: #55608f;
+                }
+                }
+
+                tbody {
+                tr {
+                &:hover {
+                     background-color: rgba(255,255,255,0.3);
+                 }
+                }
+                td {
+                    position: relative;
+                &:hover {
+                &:before {
+                     content: "";
+                     position: absolute;
+                     left: 0;
+                     right: 0;
+                     top: -9999px;
+                     bottom: -9999px;
+                     background-color: rgba(255,255,255,0.2);
+                     z-index: -1;
+                 }
+                }
+                }
+                }
+                </style>
             <asp:GridView runat="server" ID="gvCourses"
                 CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
                 Style="text-align: center; word-wrap: break-word;" AllowPaging="True"

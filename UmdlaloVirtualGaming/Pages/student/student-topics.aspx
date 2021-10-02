@@ -52,8 +52,58 @@
             <!--end::Search Form-->
             <!--end: Search Form-->
             <!--begin: Datatable-->
-            <asp:GridView runat="server" ID="gvTopics" CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
-                             
+            <style>
+                table {
+                    width: 800px;
+                    border-collapse: collapse;
+                    overflow: hidden;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                }
+
+                
+                th,
+                td {
+                    padding: 15px;
+                    background-color: rgba(255,255,255,0.2);
+                    color: black;
+                }
+
+                th {
+                    text-align: left;
+                }
+
+                thead {
+                th {
+                    background-color: #55608f;
+                }
+                }
+
+                tbody {
+                tr {
+                &:hover {
+                     background-color: rgba(255,255,255,0.3);
+                 }
+                }
+                td {
+                    position: relative;
+                &:hover {
+                &:before {
+                     content: "";
+                     position: absolute;
+                     left: 0;
+                     right: 0;
+                     top: -9999px;
+                     bottom: -9999px;
+                     background-color: rgba(255,255,255,0.2);
+                     z-index: -1;
+                 }
+                }
+                }
+                }
+            </style>
+
+            <asp:GridView runat="server" ID="gvTopics" Css="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
+                          AutoGenerateColumns="False"   
                           Style="text-align: center; word-wrap: break-word; " AllowPaging="True"
                           OnPageIndexChanging="gvTopics_OnPageIndexChanging"
                           OnRowCommand="gvTopics_OnRowCommand"
@@ -73,6 +123,10 @@
                                         data-toggle="tooltip" data-placement="top" title="View"/>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:BoundField DataField="Name" HeaderText="Names"/>
+                    <asp:BoundField DataField="Description" HeaderText="Description"/>
+                    <asp:BoundField DataField="Marks" HeaderText="Marks"/>
+                
                                     
                 </Columns>
             </asp:GridView>
