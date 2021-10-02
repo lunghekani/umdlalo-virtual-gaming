@@ -35,13 +35,7 @@ namespace UmdlaloVirtualGaming.Pages.student
 
         protected void gvTopics_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Edit")
-            {
-                int Id = Convert.ToInt32(e.CommandArgument) + 1;
-                Session["topic_id"] = Id;
-                Response.Redirect("~/Pages/student/class.aspx");
-            }
-            else if (e.CommandName == "View")
+           if (e.CommandName == "View")
             {
                 int Id = Convert.ToInt32(e.CommandArgument) + 1;
                 Session["topic_id"] = Id;
