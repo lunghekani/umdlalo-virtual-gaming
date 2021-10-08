@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business_Logic;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace UmdlaloVirtualGaming.Pages.admin
 {
@@ -23,34 +26,58 @@ namespace UmdlaloVirtualGaming.Pages.admin
             }
         }
 
+        protected string PopulateBody(string username, string fullname)
+        {
+            var stream = new StreamReader(Server.MapPath("~/Pages/auth/email-reg.html"));
+            string body = stream.ReadToEnd();
+
+            body = body.Replace("#username#", username);
+            body = body.Replace("#fullname#", fullname);
+
+            return body;
+        }
+
         protected void btnAddUser_Click(object sender, EventArgs e)
         {
-           // string name = txtFirstName.Text.Trim();
-           // string LstNme =txtLstName.Text.Trim();
-           // string email = txtEmail.Text.Trim();
-           // DateTime date = DateTime.Now;
-           // string role = dropdownlist1.value
-           //;
-           // string uId = Session["user_id"].ToString();
-           // int visible = 0;
-           // if (!DropDownList1.SelectedValue)
-           // {
-           //     visible = 1;
-           // }
-           // string msgCourse = courseClass.New_User_Add(name, description, code, startTime, endTime, uId, visible);
+            
+            string User_Name = txtFirstName.Text.Trim();
+            string User_LstName = txtLstName.Text.Trim();
+            string User_Email = txtEmail.Text.Trim();
+            DateTime date = DateTime.Now;
+            string Role = DropDownList1.SelectedValue;
+            string User_Password = User_Name+User_LstName;
+            
 
-           // if (msgCourse.Equals("Success"))
-           // {
-           //     // display a notification saying project changes successfully implemented
-           //     communicateclass.ShowMessage(this, "Course has been created successfully", clsCommunicate.MessageType.success);
+            
+            var user = authclass.AddUser(User_Name, User_LstName, User_Email, User_Password, Role);
+            if (user.msg.Equals("Success"))
+            {
+                var names = User_Name + " " + User_LstName;
+                var body = PopulateBody(User_Email, names);
+                communicateclass.SendHTMLEmail(User_Email, "Welcome To Umdlalo", body);
+                var uID = user.uid;
+                
 
-           //     Response.Redirect("admin-course-list.aspx");
-           // }
-           // else
-           // {
-           //     communicateclass.ShowMessage(this, msgCourse, clsCommunicate.MessageType.error);
-           // }
-
+                if (Role == "Admin")
+                {
+                    communicateclass.SendHTMLEmail(User_Email,"Your default password is:",User_Password);
+                    Response.Redirect("~/Pages/admin/admin-dashboard.aspx");
+                }
+                else if (Role == "Lecturer")
+                {
+                    communicateclass.SendHTMLEmail(User_Email, "Your default password is:", User_Password);
+                    Response.Redirect("~/Pages/admin/admin-lecturer-list.aspx");
+                }
+                else if (Role == "Student")
+                {
+                     communicateclass.SendHTMLEmail(User_Email,"Your default password is:",User_Password);
+                    Response.Redirect("~/Pages/admin/admin-student-list.aspx");
+                }
+            }
+            else
+            {
+                MessageBox.Show(user.msg);
+            }
         }
     }
 }

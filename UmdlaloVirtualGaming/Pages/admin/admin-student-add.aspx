@@ -31,22 +31,22 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label">Password</label>
+                    <%--<label class="col-lg-3 col-form-label">Password</label>--%>
                     
                     <div class="col-lg-6">
-                        <asp:TextBox runat="server" CssClass="form-control" ID="txtPassword" placeholder="Enter a default Password"></asp:TextBox>
+                        <%--<asp:TextBox runat="server" CssClass="form-control" ID="txtPassword" placeholder="Enter a default Password"></asp:TextBox>--%>
 
                     </div>
                 </div>
                 
                 <div class="form-group row">
-                    <label class="col-3 col-form-label">Visible</label>
+                    <label class="col-3 col-form-label">Role</label>
                     <div class="col-3">
                         <span class="switch switch-success witch-outline switch-icon ">
                             <label>
                                 <div class="col-md-4 my-2 my-md-0"></div>
                                 <div class="d-flex align-items-center"></div>
-                                    <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
+                                    
 
                                     <asp:DropDownList ID="DropDownList1" runat="server">
                                      <asp:ListItem Value="-1">Select Role</asp:ListItem>
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-lg-3"></div>
                     <div class="col-lg-6">
-                        <asp:Button runat="server" Text="Add User" ID="btnAddUser" CssClass="btn btn-success mr-2" OnClick="btnAddUser_Click" />
+                        <asp:Button runat="server" Text="Add User" ID="btnAddUser" CssClass="btn btn-success mr-2" OnClick="btnAddUser_Click"/>
 
                     </div>
                 </div>
