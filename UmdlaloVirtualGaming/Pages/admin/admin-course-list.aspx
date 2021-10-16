@@ -20,15 +20,15 @@
                         <!--end::Svg Icon-->
                     </span>
                 </span>
-                <h3 class="card-label">Row Details</h3>
+                <h3 class="card-label">Courses</h3>
             </div>
             <div class="card-toolbar">
                 <!--begin::Dropdown-->
-                <div class="dropdown dropdown-inline mr-2">
+                <%--<div class="dropdown dropdown-inline mr-2">
                     <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="la la-download"></i>Export</button>
-                    <!--begin::Dropdown Menu-->
-                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                --%>    <!--begin::Dropdown Menu-->
+                    <%--<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                         <ul class="nav flex-column nav-hover">
                             <li class="nav-header font-weight-bolder text-uppercase text-primary pb-2">Choose an option:</li>
                             <li class="nav-item">
@@ -62,12 +62,12 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div>--%>
                     <!--end::Dropdown Menu-->
-                </div>
+               <div> </div>
                 <!--end::Dropdown-->
                 <!--begin::Button-->
-                <a href="#" class="btn btn-primary font-weight-bolder">
+                <a href="admin-course-add" class="btn btn-primary font-weight-bolder">
                     <i class="la la-plus"></i>New Record</a>
                 <!--end::Button-->
             </div>

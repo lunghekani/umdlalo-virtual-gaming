@@ -9,7 +9,7 @@
             <div class="card card-custom bg-gray-100 card-stretch gutter-b">
                 <!--begin::Header-->
                 <div class="card-header border-0 bg-danger py-5">
-                    <h3 class="card-title font-weight-bolder text-white">Sales Statistics</h3>
+                    <h3 class="card-title font-weight-bolder text-white">User Interaction</h3>
                     <div class="card-toolbar">
                         <div class="dropdown dropdown-inline">
                             <a href="#" class="btn btn-transparent-white btn-sm font-weight-bolder dropdown-toggle px-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</a>
@@ -175,12 +175,12 @@
                                     </svg>
                                     <!--end::Svg Icon-->
                                 </span>
-                                <a href="#" class="text-warning font-weight-bold font-size-h6">View Users</a>
+                                <a href="admin-student-list" class="text-warning font-weight-bold font-size-h6">View Users</a>
                             </div>
                             <div class="col bg-light-primary px-6 py-8 rounded-xl mb-7">
                                 <span class="svg-icon svg-icon-3x svg-icon-primary d-block my-2">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240px" height="240px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <polygon points="0 0 24 0 24 24 0 24"></polygon>
                                             <path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
@@ -189,7 +189,7 @@
                                     </svg>
                                     <!--end::Svg Icon-->
                                 </span>
-                                <a href="#" class="text-primary font-weight-bold font-size-h6 mt-2">New Users</a>
+                                <a href="admin-student-add" class="text-primary font-weight-bold font-size-h6 mt-2">New Users</a>
                             </div>
                         </div>
                         <!--end::Row-->
@@ -198,7 +198,7 @@
                             <div class="col bg-light-danger px-6 py-8 rounded-xl mr-7">
                                 <span class="svg-icon svg-icon-3x svg-icon-danger d-block my-2">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <polygon points="0 0 24 0 24 24 0 24"></polygon>
                                             <path d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z" fill="#000000" fill-rule="nonzero"></path>
@@ -207,7 +207,7 @@
                                     </svg>
                                     <!--end::Svg Icon-->
                                 </span>
-                                <a href="#" class="text-danger font-weight-bold font-size-h6 mt-2">Courses</a>
+                                <a href="admin-course-list" class="text-danger font-weight-bold font-size-h6 mt-2">Courses</a>
                             </div>
                             <div class="col bg-light-success px-6 py-8 rounded-xl">
                                 <span class="svg-icon svg-icon-3x svg-icon-success d-block my-2">
@@ -221,7 +221,7 @@
                                     </svg>
                                     <!--end::Svg Icon-->
                                 </span>
-                                <a href="#" class="text-success font-weight-bold font-size-h6 mt-2">Projects</a>
+                                <a href="admin-projects-view" class="text-success font-weight-bold font-size-h6 mt-2">Projects</a>
                             </div>
                         </div>
                         <!--end::Row-->
@@ -245,7 +245,7 @@
                 <div class="card-header align-items-center border-0 mt-4">
                     <h3 class="card-title align-items-start flex-column">
                         <span class="font-weight-bolder text-dark">My Activity</span>
-                        <span class="text-muted mt-3 font-weight-bold font-size-sm">890,344 Sales</span>
+                        <span class="text-muted mt-3 font-weight-bold font-size-sm">-- Users</span>
                     </h3>
                     <div class="card-toolbar">
                         <div class="dropdown dropdown-inline">
@@ -321,25 +321,8 @@
                             </div>
                             <!--end::Badge-->
                             <!--begin::Text-->
-                            <div class="font-weight-mormal font-size-lg timeline-content text-muted pl-3">Outlines keep you honest. And keep structure</div>
+                            <div class="font-weight-mormal font-size-lg timeline-content text-muted pl-3">Review Student Information</div>
                             <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="timeline-item align-items-start">
-                            <!--begin::Label-->
-                            <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">10:00</div>
-                            <!--end::Label-->
-                            <!--begin::Badge-->
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-success icon-xl"></i>
-                            </div>
-                            <!--end::Badge-->
-                            <!--begin::Content-->
-                            <div class="timeline-content d-flex">
-                                <span class="font-weight-bolder text-dark-75 pl-3 font-size-lg">AEOL meeting</span>
-                            </div>
-                            <!--end::Content-->
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -354,73 +337,10 @@
                             <!--end::Badge-->
                             <!--begin::Desc-->
                             <div class="timeline-content font-weight-bolder font-size-lg text-dark-75 pl-3">
-                                Make deposit
-														<a href="#" class="text-primary">USD 700</a>. to ESL
+                                Enroll New lecturers:
+														<a href="#" class="text-primary">4</a>. 
                             </div>
                             <!--end::Desc-->
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="timeline-item align-items-start">
-                            <!--begin::Label-->
-                            <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">16:50</div>
-                            <!--end::Label-->
-                            <!--begin::Badge-->
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-primary icon-xl"></i>
-                            </div>
-                            <!--end::Badge-->
-                            <!--begin::Text-->
-                            <div class="timeline-content font-weight-mormal font-size-lg text-muted pl-3">Indulging in poorly driving and keep structure keep great</div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="timeline-item align-items-start">
-                            <!--begin::Label-->
-                            <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">21:03</div>
-                            <!--end::Label-->
-                            <!--begin::Badge-->
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-danger icon-xl"></i>
-                            </div>
-                            <!--end::Badge-->
-                            <!--begin::Desc-->
-                            <div class="timeline-content font-weight-bolder text-dark-75 pl-3 font-size-lg">
-                                New order placed
-														<a href="#" class="text-primary">#XF-2356</a>.
-                            </div>
-                            <!--end::Desc-->
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="timeline-item align-items-start">
-                            <!--begin::Label-->
-                            <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">23:07</div>
-                            <!--end::Label-->
-                            <!--begin::Badge-->
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-info icon-xl"></i>
-                            </div>
-                            <!--end::Badge-->
-                            <!--begin::Text-->
-                            <div class="timeline-content font-weight-mormal font-size-lg text-muted pl-3">Outlines keep and you honest. Indulging in poorly driving</div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <div class="timeline-item align-items-start">
-                            <!--begin::Label-->
-                            <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">16:50</div>
-                            <!--end::Label-->
-                            <!--begin::Badge-->
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-primary icon-xl"></i>
-                            </div>
-                            <!--end::Badge-->
-                            <!--begin::Text-->
-                            <div class="timeline-content font-weight-mormal font-size-lg text-muted pl-3">Indulging in poorly driving and keep structure keep great</div>
-                            <!--end::Text-->
                         </div>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -446,10 +366,10 @@
                 </div>
                 <!--end: Card Body-->
             </div>
-            <!--end: Card-->
+            --%><!--end: Card-->
             <!--end: List Widget 9-->
         </div>
-        <div class="col-lg-6 col-xxl-4">
+        <%--<div class="col-lg-6 col-xxl-4">
             <!--begin::Stats Widget 11-->
             <div class="card card-custom card-stretch card-stretch-half gutter-b">
                 <!--begin::Body-->
@@ -655,12 +575,12 @@
                     </div>
                 </div>
                 <!--end::Body-->
-            </div>
+            </div>--%>
             <!--end::Stats Widget 12-->
         </div>
         <div class="col-lg-6 col-xxl-4 order-1 order-xxl-1">
             <!--begin::List Widget 1-->
-            <div class="card card-custom card-stretch gutter-b">
+            <%--<div class="card card-custom card-stretch gutter-b">
                 <!--begin::Header-->
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
@@ -887,14 +807,14 @@
                     <!--end::Item-->
                 </div>
                 <!--end::Body-->
-            </div>
+            </div>--%>
             <!--end::List Widget 1-->
         </div>
         <div class="col-xxl-8 order-2 order-xxl-1">
             <!--begin::Advance Table Widget 2-->
             <div class="card card-custom card-stretch gutter-b">
                 <!--begin::Header-->
-                <div class="card-header border-0 pt-5">
+               <%-- <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
                         <span class="card-label font-weight-bolder text-dark">New Arrivals</span>
                         <span class="text-muted mt-3 font-weight-bold font-size-sm">More than 400+ new members</span>
@@ -912,11 +832,11 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>--%>
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body pt-3 pb-0">
-                    <!--begin::Table-->
+                   <%-- <!--begin::Table-->
                     <div class="table-responsive">
                         <table class="table table-borderless table-vertical-center">
                             <thead>
@@ -1268,14 +1188,14 @@
                             </tbody>
                         </table>
                     </div>
-                    <!--end::Table-->
+                   --%> <!--end::Table-->
                 </div>
                 <!--end::Body-->
             </div>
             <!--end::Advance Table Widget 2-->
         </div>
         <div class="col-lg-6 col-xxl-4 order-1 order-xxl-2">
-            <!--begin::List Widget 3-->
+            <%--<!--begin::List Widget 3-->
             <div class="card card-custom card-stretch gutter-b">
                 <!--begin::Header-->
                 <div class="card-header border-0">
@@ -1716,10 +1636,10 @@
                 </div>
                 <!--end::Body-->
             </div>
-            <!--end::List Widget 3-->
+            <!--end::List Widget 3-->--%>
         </div>
         <div class="col-lg-6 col-xxl-4 order-1 order-xxl-2">
-            <!--begin::List Widget 4-->
+            <%--<!--begin::List Widget 4-->
             <div class="card card-custom card-stretch gutter-b">
                 <!--begin::Header-->
                 <div class="card-header border-0">
@@ -2188,13 +2108,13 @@
                 </div>
                 <!--end::Body-->
             </div>
-            <!--end:List Widget 4-->
+            <!--end:List Widget 4-->--%>
         </div>
         <div class="col-lg-12 col-xxl-4 order-1 order-xxl-2">
             <!--begin::List Widget 8-->
             <div class="card card-custom card-stretch gutter-b">
                 <!--begin::Header-->
-                <div class="card-header border-0">
+                <%--<div class="card-header border-0">
                     <h3 class="card-title font-weight-bolder text-dark">Trends</h3>
                     <div class="card-toolbar">
                         <div class="dropdown dropdown-inline">
@@ -2252,10 +2172,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
                 <!--end::Header-->
                 <!--begin::Body-->
-                <div class="card-body pt-0">
+             <%--   <div class="card-body pt-0">
                     <!--begin::Item-->
                     <div class="mb-10">
                         <!--begin::Section-->
@@ -2265,10 +2185,10 @@
                                 <span class="symbol-label">
                                     <img src="assets/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" alt="">
                                 </span>
-                            </div>
+                            </div>--%>
                             <!--end::Symbol-->
                             <!--begin::Text-->
-                            <div class="d-flex flex-column flex-grow-1">
+                            <%--<%--<div class="d-flex flex-column flex-grow-1">
                                 <a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">Top Authors</a>
                                 <span class="text-muted font-weight-bold">5 day ago</span>
                             </div>
@@ -2325,7 +2245,7 @@
                         <!--end::Section-->
                         <!--begin::Desc-->
                         <p class="text-dark-50 m-0 pt-5 font-weight-normal">A brief write up about the New Users that fits within this section</p>
-                        <!--end::Desc-->
+                        <!--end::Desc-->--%>
                     </div>
                     <!--end::Item-->
                 </div>

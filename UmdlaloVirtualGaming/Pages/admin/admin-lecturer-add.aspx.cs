@@ -64,7 +64,7 @@ namespace UmdlaloVirtualGaming.Pages.admin
                 }
                 else if (dt.Rows[0].Field<string>("Role") == "Student")
                 {
-                    Response.Redirect("~/Pages/student/student-dashboard.aspx");
+                    Response.Redirect("~/Pages/admin/student-dashboard.aspx");
                 }
             }
             else
