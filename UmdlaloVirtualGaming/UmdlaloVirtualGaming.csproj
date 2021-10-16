@@ -2301,8 +2301,11 @@
     <Content Include="Pages\student\create.aspx" />
     <Content Include="Pages\student\class.aspx" />
     <Content Include="Pages\student\code.aspx" />
+    <Content Include="Pages\student\featured.aspx" />
     <Content Include="Pages\student\HtmlPage1.html" />
+    <Content Include="Pages\student\intonga.aspx" />
     <Content Include="Pages\student\Journal.aspx" />
+    <Content Include="Pages\student\morabaraba.aspx" />
     <Content Include="Pages\student\my-journals.aspx" />
     <Content Include="Pages\student\personal-projects.aspx" />
     <Content Include="Pages\student\rest-chat-get.aspx" />
@@ -2674,12 +2677,33 @@
     <Compile Include="Pages\student\code.aspx.designer.cs">
       <DependentUpon>code.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\student\featured.aspx.cs">
+      <DependentUpon>featured.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\featured.aspx.designer.cs">
+      <DependentUpon>featured.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\intonga.aspx.cs">
+      <DependentUpon>intonga.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\intonga.aspx.designer.cs">
+      <DependentUpon>intonga.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\student\Journal.aspx.cs">
       <DependentUpon>Journal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\student\Journal.aspx.designer.cs">
       <DependentUpon>Journal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\student\morabaraba.aspx.cs">
+      <DependentUpon>morabaraba.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\student\morabaraba.aspx.designer.cs">
+      <DependentUpon>morabaraba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\student\my-journals.aspx.cs">
       <DependentUpon>my-journals.aspx</DependentUpon>
