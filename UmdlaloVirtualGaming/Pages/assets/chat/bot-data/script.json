@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "text": "Hi there! 👋",
+    "messageType": "Text",
+    "nextMessageId": 2
+  },
+  {
+    "id": 2,
+    "text": "I'm Umdlalo , How can  i help?",
+    "messageType": "Text",
+    "nextMessageId": 3
+  },
+  {
+    "id": 3,
+    "text": "you want help with login , register or how the system work ? we got you",
+    "messageType": "Question",
+    "option1": "login",
+    "option1_nextMessageId": 4,
+    "option2": "register",
+    "option2_nextMessageId": 7,
+    "option3": "how does it work ?",
+    "option3_nextMessageId": 10
+  },
+  {
+    "id": 4,
+    "text": "to login you are required to input your email and password if valid you will be granted access or your will get an error",
+    "messageType": "Text",
+    "nextMessageId": 5
+  },
+  {
+    "id": 5,
+    "text": "did we help  or do you want to try again?",
+    "messageType": "Question",
+    "option1": "yes",
+    "option1_nextMessageId": 200,
+    "option2": "no",
+    "option2_nextMessageId": 100,
+    "option3": "try again",
+    "option3_nextMessageId": 3
+  },
+  {
+    "id": 7,
+    "text": "you need to fill all then inputs if everything is valid then  you will be granted access or you will get an error to fix the inputs",
+    "messageType": "Text",
+    "nextMessageId": 5
+  },
+  {
+    "id": 10,
+    "text": "Umdlalo is a  online gaming center with tutorials and materials on diffrent programming languages, which allows you to create games on the same system ",
+    "messageType": "Text",
+    "nextMessageId": 5
+  },
+  {
+    "id": 100,
+    "text": "oops ,i'm hoping next time i will help 🙂,do you want to try other questions ?",
+    "messageType": "Question",
+    "option1": "yes",
+    "option1_nextMessageId": 3,
+    "option2": "no",
+    "option2_nextMessageId": 1001
+  },
+  {
+    "id": 1001,
+    "text": "Thank you 👋 enjoy your day",
+    "messageType": "Text"
+  },
+  {
+    "id": 200,
+    "text": "awesome 😀, do u want to try other questions ?",
+    "messageType": "Question",
+    "option1": "yes",
+    "option1_nextMessageId": 3,
+    "option2": "no",
+    "option2_nextMessageId": 1001
+  }
+]
