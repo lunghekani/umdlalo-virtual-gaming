@@ -20,10 +20,12 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
         {
             if (!Page.IsPostBack)
             {
-                int Id = Convert.ToInt32(Session["topic_id"].ToString());
+                
                 DataTable dt = courseclass.GetTopicContent(1);
-                string content = dt.Rows[0].Field<string>("Structure").ToString();
+                string content = dt.Rows[0].Field<string>("Structure");
                 // plContent.Controls.Add(New Literal With {.Text = Content})
+             
+              
                 PlaceHolder1.Controls.Add(new Literal{Text = content.ToString()});
             }
         }

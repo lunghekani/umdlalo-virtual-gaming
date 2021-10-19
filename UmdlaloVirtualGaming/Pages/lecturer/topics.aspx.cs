@@ -38,6 +38,9 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
         {
             if (e.CommandName == "Edit")
             {
+                int Id = Convert.ToInt32(e.CommandArgument) + 1;
+                Session["topic_id"] = Id;
+                Response.Redirect("content-creator.aspx");
             }
             else if (e.CommandName =="View")
             {

@@ -16,7 +16,10 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["user_id"] = "98bc0920-e8c0-41da-a54e-855973651aff";
+            //redirect to the main page
+            if (clsSmallItemsHandler.SessionIdIsSet == false) Response.Redirect("/");
+            //end
+
             var session = HttpContext.Current.Session["user_id"];
             clsGroupChat groupChat = new clsGroupChat(session);///group chat
 
@@ -27,8 +30,10 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
 
             var course_id = Request.Params["course_id"];
             var messageLimit = Request.Params["limit"];
+            var current_chat_id = Request.Params["current_chat_id"];
 
             var token = Request.Params["token"];
+            
 
             if (Request.Params["reset_group_notification"] != null)
             {
@@ -66,7 +71,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             else if (Request.Params["get_private_notification"] != null)
             {
                 
-                var notification = privateChat.current_user_Notification(course_id);
+                var notification = privateChat.Current_user_Notification(course_id);
                 //OBJECT -> JSON
                 string myObjectJson = javaScriptSerializer.Serialize(notification);
                 //return JSON   
@@ -77,7 +82,7 @@ namespace UmdlaloVirtualGaming.Pages.lecturer
             }
             else if (token == "get_private_messages")
             {
-                var messages = privateChat.FetchMesssges(course_id, messageLimit);
+                var messages = privateChat.FetchMesssges(course_id, messageLimit, current_chat_id);
                 //OBJECT -> JSON
                 string myObjectJson = javaScriptSerializer.Serialize(messages);
                 //return JSON   

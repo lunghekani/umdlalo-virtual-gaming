@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.auth.index" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.auth.index" %>
 
 
 <!DOCTYPE html>
@@ -149,7 +149,6 @@
                     </form>
                 </div>
             </div>
-            
         </div>
         <!--end::Login-->
     </div>
@@ -168,6 +167,7 @@
     <script src="/Pages/assets/js/pages/custom/login/login-general.js?v=7.0.5"></script>
     <!--end::Page Scripts-->
 
+    
     
 <link rel="stylesheet" href="/Pages/assets/chat/src/flowchat.css">
 

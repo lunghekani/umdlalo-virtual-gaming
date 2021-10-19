@@ -20,7 +20,7 @@
                         <!--end::Svg Icon-->
                     </span>
                 </span>
-                <h3 class="card-label">Row Details</h3>
+                <h3 class="card-label">Topics</h3>
             </div>
             <div class="card-toolbar">
                 <!--begin::Dropdown-->
@@ -67,8 +67,8 @@
                 </div>
                 <!--end::Dropdown-->
                 <!--begin::Button-->
-                <a href="#" class="btn btn-primary font-weight-bolder">
-                    <i class="la la-plus"></i>New Record</a>
+                <a href="topic-create.aspx" class="btn btn-primary font-weight-bolder">
+                    <i class="la la-plus"></i>Add Topic</a>
                 <!--end::Button-->
             </div>
         </div>
@@ -149,6 +149,55 @@
             </div>
             <!--end::Search Form-->
             <!--end: Search Form-->
+            <style>
+                table {
+                    width: 800px;
+                    border-collapse: collapse;
+                    overflow: hidden;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                }
+
+                
+                th,
+                td {
+                    padding: 15px;
+                    background-color: rgba(255,255,255,0.2);
+                    color: black;
+                }
+
+                th {
+                    text-align: left;
+                }
+
+                thead {
+                th {
+                    background-color: #55608f;
+                }
+                }
+
+                tbody {
+                tr {
+                &:hover {
+                     background-color: rgba(255,255,255,0.3);
+                 }
+                }
+                td {
+                    position: relative;
+                &:hover {
+                &:before {
+                     content: "";
+                     position: absolute;
+                     left: 0;
+                     right: 0;
+                     top: -9999px;
+                     bottom: -9999px;
+                     background-color: rgba(255,255,255,0.2);
+                     z-index: -1;
+                 }
+                }
+                }
+                }
+                </style>
             <!--begin: Datatable-->
             <asp:GridView runat="server" ID="gvTopics" CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
                              
@@ -169,6 +218,9 @@
                             <asp:Button CommandName="View" runat="server"  Class="btn btn-primary  fa" 
                                         Text="&#xf06e;" CommandArgument="<%# Container.DataItemIndex %>" UseSubmitBehavior="false"
                                         data-toggle="tooltip" data-placement="top" title="View"/>
+                            <asp:Button CommandName="Edit" runat="server"  Class="btn btn-primary  fa" 
+                                        Text="&#xf044;" CommandArgument="<%# Container.DataItemIndex %>" UseSubmitBehavior="false"
+                                        data-toggle="tooltip" data-placement="top" title="Edit"/>
                                                     
                         </ItemTemplate>
                     </asp:TemplateField>

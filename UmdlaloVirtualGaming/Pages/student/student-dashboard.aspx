@@ -172,7 +172,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column flex-grow-1">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Group Discussion</a>
+                                        <a href="student-group-view.aspx" class="text-dark-75 text-hover-primary mb-1 font-size-lg font-weight-bolder">Group Discussion</a>
                                         <span class="text-muted font-weight-bold">Disucssion</span>
                                     </div>
                                     <!--end::Text-->
