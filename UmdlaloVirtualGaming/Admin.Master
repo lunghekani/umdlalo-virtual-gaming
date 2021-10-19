@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="UmdlaloVirtualGaming.Admin" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="UmdlaloVirtualGaming.Admin" %>
 
 <!DOCTYPE html>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="admin-dashboard.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.admin.admin_dashboard" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="admin-dashboard.aspx.cs" Inherits="UmdlaloVirtualGaming.Pages.admin.admin_dashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
