@@ -167,6 +167,151 @@
     <script src="/Pages/assets/js/pages/custom/login/login-general.js?v=7.0.5"></script>
     <!--end::Page Scripts-->
 
+    
+    
+<link rel="stylesheet" href="/Pages/assets/chat/src/flowchat.css">
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .fullf {
+    /* position: absolute; */
+    background-color: rgb(255, 255, 255);
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    display: none;
+    position: fixed;
+    z-index: 10;
+    overflow:auto;
+    
+  }
+
+  .close {
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    position: absolute;
+    right: 0;
+    font-size: 15px;
+
+    transform: translate(50%);
+    right: 50%;
+    z-index: 2;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 141, 235);
+    border-radius: 10px;
+    margin: 10px;
+    border-radius: 50%;
+    font-weight: bold;
+
+  }
+
+  .chat-icon {
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    position: fixed;
+
+    font-size: 20px;
+    z-index: 2;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 141, 235);
+    border-radius: 10px;
+    margin: 10px;
+    border-radius: 50%;
+    font-weight: bold;
+    z-index: 0;
+    bottom: 50px;
+    left:50%;
+    /*box-shadow: 0 0 19px 2px rgba(132, 219, 241, 0.178);*/
+
+  }
+
+  .containerf {
+    font-family: 'Open Sans', sans-serif;
+
+    height: 100vh;
+    overflow: auto !important;
+    margin: auto;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+    width: 100% !important;
+
+  }
+
+  @media (min-width: 600px) {
+    body {
+      background: #f2f2f2;
+    }
+
+    .containerf {
+      background-color: #fff;
+      border-radius: 10px;
+      max-width: 400px;
+      height: 100vh;
+      width: 100px;
+
+    }
+  }
+</style>
+
+
+<!-- Add your site or application content here -->
+<div class="fullf">
+  <div class="close">x</div>
+  <div class="containerf" id="flowchat">
+  </div>
+</div>
+<div class="chat-icon">
+
+  💬
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/Pages/assets/chat/src/flowchat.js"></script>
+<script>
+    $(function () {
+
+        // Also try "demo-data/simple-data.json"
+
+
+        var isLoaded = false;
+        $(".close").click(() => {
+            setTimeout(() => {
+                $(".fullf").toggle()
+            }, 1000);
+        });
+        $(".chat-icon").click(() => {
+            $(".fullf").toggle()
+
+            if (isLoaded == false) {
+                // load the chat
+                $.getJSON("/Pages/assets/chat/bot-data/script.json", function (dataJSON) {
+                    $('#flowchat').flowchat({
+                        dataJSON: dataJSON,
+                        autoStart: true
+                    });
+                });
+                isLoaded = true;
+            }
+
+        })
+    });
+
+</script>
+
 </body>
 
 <!--end::Body-->
