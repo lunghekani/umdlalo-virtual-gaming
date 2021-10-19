@@ -200,7 +200,7 @@
                 }
                 }
                 </style>
-            <asp:GridView runat="server" ID="gvCourses"
+            <asp:GridView runat="server" ID="gvCourse"
                 CssClass="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
                 Style="text-align: center; word-wrap: break-word;" AllowPaging="True"
                 OnPageIndexChanging="gvCourses_PageIndexChanging"
