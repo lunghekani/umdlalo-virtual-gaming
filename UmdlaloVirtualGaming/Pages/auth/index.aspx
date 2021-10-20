@@ -276,8 +276,7 @@
   </div>
 </div>
 <div class="chat-icon">
-
-  💬
+    <i class="fa fa-comments-o" aria-hidden="true"></i>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="/Pages/assets/chat/src/flowchat.js"></script>

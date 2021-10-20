@@ -181,6 +181,11 @@
     <Content Include="Pages\admin\admin-projects-view.aspx" />
     <Content Include="Pages\admin\admin-student-add.aspx" />
     <Content Include="Pages\admin\admin-student-list.aspx" />
+    <Content Include="Pages\assets\chat\index.html" />
+    <Content Include="Pages\assets\chat\src\flowchat.css" />
+    <Content Include="Pages\assets\chat\src\flowchat.js" />
+    <Content Include="Pages\assets\chat\src\flowchat.min.css" />
+    <Content Include="Pages\assets\chat\src\flowchat.min.js" />
     <Content Include="Pages\assets\js\chat-test.js">
       <CustomToolNamespace>chat</CustomToolNamespace>
     </Content>
@@ -229,6 +234,9 @@
     <Content Include="Pages\assets\plugins\global\fonts\summernote\summernote.woff2" />
     <Content Include="Lecturer.Master" />
     <Content Include="libman.json" />
+    <Content Include="Pages\assets\chat\bot-data\script.json" />
+    <Content Include="Pages\assets\chat\LICENSE" />
+    <Content Include="Pages\assets\chat\README.md" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Pages\assets\css\pages\error\error-3.css" />
